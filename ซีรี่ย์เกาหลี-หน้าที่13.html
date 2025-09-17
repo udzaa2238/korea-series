@@ -1,0 +1,742 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>ซีรี่ย์เกาหลี หน้าที่ 13</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- External CSS -->
+  <link href="https://playtvthai.github.io/m3u8/css/bootstrap.css" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <link href="https://playtvthai.github.io/m3u8/css/style.css" rel="stylesheet" type="text/css" media="all" />
+  <link rel="stylesheet" href="https://playtvthai.github.io/m3u8/css/normalize.css">
+  <link rel="stylesheet" href="https://playtvthai.github.io/m3u8/css/custom.css">
+  <link rel="stylesheet" href="https://playtvthai.github.io/m3u8/css/main.css">
+  <link rel="stylesheet" href="http://hdtvdd.com/work/assets_remark/fonts/font-awesome/font-awesome.min.css">
+  <link rel="stylesheet" href="http://hdtvdd.com/work/font/stylesheet.css" type="text/css" charset="utf-8" />
+  <link rel="stylesheet" href="http://hdtvdd.com/work/css/8k.css" type="text/css" charset="utf-8" />
+  <link rel="stylesheet" href="http://hdtvdd.com/work/css/overlay.css" type="text/css" charset="utf-8">
+  <link href="http://hdtvdd.com/work/css/theme.css" rel="stylesheet">
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:100,200,300,400,500,600,700,800,900" rel="stylesheet" type="text/css">
+
+  <!-- JS (dedupe jQuery) -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <script src="https://playtvthai.github.io/m3u8/js/jquery.backstretch.js"></script>
+  <script src="http://hdtvdd.com/work/bootstrap-login-forms/form-2/assets/js/scripts.js"></script>
+
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      width: 100vw;
+      height: 100%;
+      background: #000;
+      box-sizing: border-box;
+      overflow-x: hidden;
+      font-family: 'Roboto Condensed', sans-serif;
+    }
+    *, *:before, *:after { box-sizing: inherit; }
+
+    /* Search/filter bar */
+    .filter-bar {
+      margin: 10px 0;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      align-items: center;
+    }
+    .filter-bar input, .filter-bar select {
+      padding: 8px;
+      font-size: 16px;
+      border-radius: 4px;
+      border: 1px solid #444;
+      background: #1f2025;
+      color: #fff;
+    }
+
+    /* Movie grid 5 columns */
+    /* Movie grid */
+    .movies-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin: 0 -5px;
+      padding-top: 10px;
+    }
+    .movie-item {
+      flex: 0 0 10%; /* เล็กลง, 5 คอลัมน์ต่อแถว */
+      box-sizing: border-box;
+      padding: 0 5px;
+      margin-bottom: 20px;
+      max-width: 200px; /* หรือจำกัดขนาดสูงสุด */
+    }
+    .movie-box {
+      background: #1f2025;
+      border-radius: 4px;
+      overflow: hidden;
+      position: relative;
+    }
+    .movie-image button {
+      width: 100%;
+      height: 0;
+      padding-top: 147%;
+      background-size: cover;
+      background-position: center;
+      border: none;
+      border-radius: 2px;
+      cursor: pointer;
+    }
+    .movie-title {
+      color: white;
+      font-size: 14px;
+      text-align: center;
+      margin-top: 6px;
+      line-height: 1.2;
+      padding: 0 4px;
+      word-break: break-word;
+    }
+
+    @media (max-width: 1200px) {
+      .movie-item { flex: 0 0 33.333%; }
+    }
+    @media (max-width: 900px) {
+      .movie-item { flex: 0 0 50%; }
+    }
+    @media (max-width: 600px) {
+      .movie-item { flex: 0 0 100%; }
+    }
+
+    .pagination-wrapper { text-align: center; margin-top: 20px; }
+    .pagination > li > a, .pagination > li > span { padding: 6px 12px; }
+  </style>
+
+  <script>
+    $(document).ready(function(){
+      $("#myBtn").click(function(){ $("#myModal").modal(); });
+      $("#myBtn2").click(function(){ $("#myModal2").modal(); });
+      $("#myBtn_vip").click(function(){ $("#myModal_vip").modal(); });
+      $("#myBtn_cpass").click(function(){ $("#myModal_changepass").modal(); });
+
+      // Filter logic
+      function normalizeText(t) {
+        return t.trim().toLowerCase();
+      }
+
+      function applyFilter() {
+        const query = normalizeText($("#movie-search").val() || "");
+        const category = $("#category-filter").val();
+        $(".movie-item").each(function() {
+          const title = normalizeText($(this).find(".movie-title").text() || "");
+          const itemCat = $(this).attr("data-category") || "all";
+          const matchesSearch = query === "" || title.includes(query);
+          const matchesCategory = category === "all" || itemCat === category;
+          if (matchesSearch && matchesCategory) {
+            $(this).show();
+          } else {
+            $(this).hide();
+          }
+        });
+      }
+
+      $("#movie-search").on("input", applyFilter);
+      $("#category-filter").on("change", applyFilter);
+    });
+  </script>
+</head>
+
+<body>
+  <div class="container" style="background-color:rgba(0,0,0,0); height:100%;">
+    <div class="container_wrap">
+      <div class="row" style="background-color:#27282c;border-radius:5px;">
+        <div class="col-lg-12 col-md-12 col-xs-12" style="margin-top:10px;margin-bottom:10px;">
+          <div class="row">
+            <div class="col-lg-2 col-md-2 col-sm-5 col-xs-5">
+              <div class="logo"></div>
+            </div>
+            <div class="col-lg-10 col-md-12 col-xs-12">
+              <div class="col-lg-12 col-md-12 col-xs-12" align="left" style="padding:5px;">
+                <div class="form-inline">
+                  <div class="form-group" style="margin:5px;">
+                    <form action="" method="get" name="lange" style="display:inline;">
+                      <input name="lange" type="hidden" id="lange" value="en">
+                      <input type="image" src="/web/images/en.gif" name="submit" width="60" height="20" alt="submit"/>
+                    </form>
+                  </div>
+                  <label for="form-password"><font color="white">ชื่อ : </font><font color="yellow">[ ผู้เฒ่าพเนจร ™ ]</font></label>
+
+                  <button class="btn btn-default" type="button" style="background-color:transparent;border-radius:2px;border:0;font-size:18px;color:#FFF;padding:0 5px;font-family:'rsuregular';" onclick="window.location.href='go:digital'">🏠 Home ™</button>
+                  <button class="btn btn-default" type="button" style="background-color:transparent;border-radius:2px;border:0;font-size:18px;color:#FFF;padding:0 5px;font-family:'rsuregular';" onclick="window.location.href='go:live'">📡 ถ่ายทอดสด ™</button>
+                  <button class="btn btn-default" type="button" style="background-color:transparent;border-radius:2px;border:0;font-size:18px;color:#FFF;padding:0 5px;font-family:'rsuregular';" onclick="window.location.href='go:main-serie'">🎞️ ดูซีรี่ย์ ™</button>
+                  <button class="btn btn-default" type="button" style="background-color:transparent;border-radius:2px;border:0;font-size:18px;color:#FFF;padding:0 5px;font-family:'rsuregular';" onclick="window.location.href='go:main-movie'">🎥 ดูหนัง ™</button>
+                  <button class="btn btn-default" type="button" style="background-color:transparent;border-radius:2px;border:0;font-size:18px;color:#FFF;padding:0 5px;font-family:'rsuregular';" onclick="window.location.href='go:main-movie'">📽️ ดูสารคดี ™</button>
+                  <button class="btn btn-default" type="button" style="background-color:transparent;border-radius:2px;border:0;font-size:18px;color:#FFF;padding:0 5px;font-family:'rsuregular';" onclick="window.location.href='http://action_exit'">🚪 ออก</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+<!--
+          <!-- filter bar -->
+          <div class="filter-bar">
+            <div>
+              <input id="movie-search" type="text" placeholder="ค้นหาหนัง..." />
+            </div>
+            <div>
+              <select id="category-filter">
+                <option value="all">ทั้งหมด</option>
+                <option value="action">Action</option>
+                <option value="drama">Drama</option>
+                <option value="sci-fi">Sci-Fi</option>
+                <option value="exclusive">Exclusive</option>
+              </select>
+            </div>
+          </div>
+
+
+-->
+          <!-- รวมทุก movie-item ไว้ใน grid เดียว -->
+          <div class="movies-grid">
+		  
+
+
+
+
+<div class="movie-item" data-category=" (จบแล้ว)weak hero class 2 (2025) นักเรียนดีเดือด รุ่น 2 (พากย์ไทย ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serieday-hd.com/wp-content/uploads/2025/04/Weak-Hero-Class-2-2025-240x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/cd9b3e4560d50897be3b7e4a/cd9b3e4560d50897be3b7e4a.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP01</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)weak hero class 2 (2025) นักเรียนดีเดือด รุ่น 2 (พากย์ไทย ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serieday-hd.com/wp-content/uploads/2025/04/Weak-Hero-Class-2-2025-240x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/da3e36af3eb37fc8b010e8b4/da3e36af3eb37fc8b010e8b4.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP02</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)weak hero class 2 (2025) นักเรียนดีเดือด รุ่น 2 (พากย์ไทย ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serieday-hd.com/wp-content/uploads/2025/04/Weak-Hero-Class-2-2025-240x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/941356d468dd191841a7a05d/941356d468dd191841a7a05d.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP03</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)weak hero class 2 (2025) นักเรียนดีเดือด รุ่น 2 (พากย์ไทย ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serieday-hd.com/wp-content/uploads/2025/04/Weak-Hero-Class-2-2025-240x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/322ea7cbf5a43c3adcd75650/322ea7cbf5a43c3adcd75650.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP04</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)weak hero class 2 (2025) นักเรียนดีเดือด รุ่น 2 (พากย์ไทย ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serieday-hd.com/wp-content/uploads/2025/04/Weak-Hero-Class-2-2025-240x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/b67d40826e605f622daa5778/b67d40826e605f622daa5778.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP05</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)weak hero class 2 (2025) นักเรียนดีเดือด รุ่น 2 (พากย์ไทย ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serieday-hd.com/wp-content/uploads/2025/04/Weak-Hero-Class-2-2025-240x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/e54ea4a2d420bb56c037c3ea/e54ea4a2d420bb56c037c3ea.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP06</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)weak hero class 2 (2025) นักเรียนดีเดือด รุ่น 2 (พากย์ไทย ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serieday-hd.com/wp-content/uploads/2025/04/Weak-Hero-Class-2-2025-240x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/98c99f80e0eaa0acd725a898/98c99f80e0eaa0acd725a898.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP07</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)weak hero class 2 (2025) นักเรียนดีเดือด รุ่น 2 (พากย์ไทย ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serieday-hd.com/wp-content/uploads/2025/04/Weak-Hero-Class-2-2025-240x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/d08a1fb53d4db1e49a1270d0/d08a1fb53d4db1e49a1270d0.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP08</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)the art of negotiation (2025) ยอดอัจฉริยะ นักเจรจา (ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serie-day.com/wp-content/uploads/2025/03/The-Art-of-Negotiation-2025-212x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/5da2fc46e9639134c13e8e28/5da2fc46e9639134c13e8e28.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP01</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)the art of negotiation (2025) ยอดอัจฉริยะ นักเจรจา (ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serie-day.com/wp-content/uploads/2025/03/The-Art-of-Negotiation-2025-212x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/6b936f0e35723d81a07211f9/6b936f0e35723d81a07211f9.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP02</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)the art of negotiation (2025) ยอดอัจฉริยะ นักเจรจา (ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serie-day.com/wp-content/uploads/2025/03/The-Art-of-Negotiation-2025-212x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/65b0f7afc56c2f47fcab2293/65b0f7afc56c2f47fcab2293.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP03</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)the art of negotiation (2025) ยอดอัจฉริยะ นักเจรจา (ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serie-day.com/wp-content/uploads/2025/03/The-Art-of-Negotiation-2025-212x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/f629bcf4dc9fecf7f9ceb563/f629bcf4dc9fecf7f9ceb563.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP04</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)the art of negotiation (2025) ยอดอัจฉริยะ นักเจรจา (ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serie-day.com/wp-content/uploads/2025/03/The-Art-of-Negotiation-2025-212x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/1fa0db2f72b61af15ca6be69/1fa0db2f72b61af15ca6be69.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP05</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)the art of negotiation (2025) ยอดอัจฉริยะ นักเจรจา (ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serie-day.com/wp-content/uploads/2025/03/The-Art-of-Negotiation-2025-212x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/1de4cc55789d21fb90439abf/1de4cc55789d21fb90439abf.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP06</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)the art of negotiation (2025) ยอดอัจฉริยะ นักเจรจา (ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serie-day.com/wp-content/uploads/2025/03/The-Art-of-Negotiation-2025-212x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/b88fa06630e9a0c4b330e807/b88fa06630e9a0c4b330e807.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP07</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)the art of negotiation (2025) ยอดอัจฉริยะ นักเจรจา (ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serie-day.com/wp-content/uploads/2025/03/The-Art-of-Negotiation-2025-212x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/160a1273c9e3f7f6a35dd755/160a1273c9e3f7f6a35dd755.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP08</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)the art of negotiation (2025) ยอดอัจฉริยะ นักเจรจา (ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serie-day.com/wp-content/uploads/2025/03/The-Art-of-Negotiation-2025-212x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/d4001e84e728a5341752a450/d4001e84e728a5341752a450.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP09</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)the art of negotiation (2025) ยอดอัจฉริยะ นักเจรจา (ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serie-day.com/wp-content/uploads/2025/03/The-Art-of-Negotiation-2025-212x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/4605b22807b2e6cde44cf3c9/4605b22807b2e6cde44cf3c9.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP10</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)the art of negotiation (2025) ยอดอัจฉริยะ นักเจรจา (ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serie-day.com/wp-content/uploads/2025/03/The-Art-of-Negotiation-2025-212x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/14905ed62babd0e75fa30896/14905ed62babd0e75fa30896.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP11</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)the art of negotiation (2025) ยอดอัจฉริยะ นักเจรจา (ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serie-day.com/wp-content/uploads/2025/03/The-Art-of-Negotiation-2025-212x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/17ea4e69713d279c5479c7b3/17ea4e69713d279c5479c7b3.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP12</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)undercover high school (2025) ปลอมมาเรียน เนียนมาสืบ (พากย์ไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serie-day.com/wp-content/uploads/2025/02/Undercover-High-School-2025-240x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/b351a20481732e6d076494a3/b351a20481732e6d076494a3.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP01</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)undercover high school (2025) ปลอมมาเรียน เนียนมาสืบ (พากย์ไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serie-day.com/wp-content/uploads/2025/02/Undercover-High-School-2025-240x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/4d396bd6cc4f4998d5ac58ec/4d396bd6cc4f4998d5ac58ec.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP02</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)undercover high school (2025) ปลอมมาเรียน เนียนมาสืบ (พากย์ไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serie-day.com/wp-content/uploads/2025/02/Undercover-High-School-2025-240x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/db3bce0e60194e8c50b778ca/db3bce0e60194e8c50b778ca.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP03</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)undercover high school (2025) ปลอมมาเรียน เนียนมาสืบ (พากย์ไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serie-day.com/wp-content/uploads/2025/02/Undercover-High-School-2025-240x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/769a799f870be703f355b20d/769a799f870be703f355b20d.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP04</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)undercover high school (2025) ปลอมมาเรียน เนียนมาสืบ (พากย์ไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serie-day.com/wp-content/uploads/2025/02/Undercover-High-School-2025-240x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/669194ce40bf32cdad73e9ef/669194ce40bf32cdad73e9ef.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP05</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)undercover high school (2025) ปลอมมาเรียน เนียนมาสืบ (พากย์ไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serie-day.com/wp-content/uploads/2025/02/Undercover-High-School-2025-240x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/4d948efcec1fe0c0ee15fa8b/4d948efcec1fe0c0ee15fa8b.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP06</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)undercover high school (2025) ปลอมมาเรียน เนียนมาสืบ (พากย์ไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serie-day.com/wp-content/uploads/2025/02/Undercover-High-School-2025-240x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/8fbd96b673a9970a043e2074/8fbd96b673a9970a043e2074.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP07</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)undercover high school (2025) ปลอมมาเรียน เนียนมาสืบ (พากย์ไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serie-day.com/wp-content/uploads/2025/02/Undercover-High-School-2025-240x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/b02f4a980c6d0bbad5c345dc/b02f4a980c6d0bbad5c345dc.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP08</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)undercover high school (2025) ปลอมมาเรียน เนียนมาสืบ (พากย์ไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serie-day.com/wp-content/uploads/2025/02/Undercover-High-School-2025-240x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/5ea296fd94965b66c66fca5c/5ea296fd94965b66c66fca5c.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP09</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)undercover high school (2025) ปลอมมาเรียน เนียนมาสืบ (พากย์ไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serie-day.com/wp-content/uploads/2025/02/Undercover-High-School-2025-240x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/366a1edfb3792a991d492bf3/366a1edfb3792a991d492bf3.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP10</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)undercover high school (2025) ปลอมมาเรียน เนียนมาสืบ (พากย์ไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serie-day.com/wp-content/uploads/2025/02/Undercover-High-School-2025-240x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/52fbb5eca3c3c0b12aaad2d4/52fbb5eca3c3c0b12aaad2d4.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP11</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)undercover high school (2025) ปลอมมาเรียน เนียนมาสืบ (พากย์ไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serie-day.com/wp-content/uploads/2025/02/Undercover-High-School-2025-240x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/d82d9fdb628726ee35690371/d82d9fdb628726ee35690371.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP12</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)hyper knife (2025) (พากย์ไทย ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serie-day.com/wp-content/uploads/2025/03/Hyper-Knife-2025-225x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/5337c7e9da79cac8b4c3d855/5337c7e9da79cac8b4c3d855.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP01</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)hyper knife (2025) (พากย์ไทย ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serie-day.com/wp-content/uploads/2025/03/Hyper-Knife-2025-225x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/286f04709881775276d0ef8a/286f04709881775276d0ef8a.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP02</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)hyper knife (2025) (พากย์ไทย ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serie-day.com/wp-content/uploads/2025/03/Hyper-Knife-2025-225x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/140e0b3f0dba362656a5d665/140e0b3f0dba362656a5d665.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP03</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)hyper knife (2025) (พากย์ไทย ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serie-day.com/wp-content/uploads/2025/03/Hyper-Knife-2025-225x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/40e62d29cb08f437c69a008a/40e62d29cb08f437c69a008a.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP04</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)hyper knife (2025) (พากย์ไทย ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serie-day.com/wp-content/uploads/2025/03/Hyper-Knife-2025-225x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/11da0075545c81388dd52c19/11da0075545c81388dd52c19.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP05</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)hyper knife (2025) (พากย์ไทย ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serie-day.com/wp-content/uploads/2025/03/Hyper-Knife-2025-225x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/d5178e37d5635075069e0942/d5178e37d5635075069e0942.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP06</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)hyper knife (2025) (พากย์ไทย ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serie-day.com/wp-content/uploads/2025/03/Hyper-Knife-2025-225x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/17c0c4223cbe41227006a059/17c0c4223cbe41227006a059.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP07</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)hyper knife (2025) (พากย์ไทย ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serie-day.com/wp-content/uploads/2025/03/Hyper-Knife-2025-225x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/98e4a079a3739054e6113243/98e4a079a3739054e6113243.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP08</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)a bloody lucky day (2025) (พากย์ไทย ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serie-day.com/wp-content/uploads/2025/04/A-Bloody-Lucky-Day-2025-203x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/1739d273e2cf5b88438681eb/1739d273e2cf5b88438681eb.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP01</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)a bloody lucky day (2025) (พากย์ไทย ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serie-day.com/wp-content/uploads/2025/04/A-Bloody-Lucky-Day-2025-203x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/c8ae009df44cefe1534fc770/c8ae009df44cefe1534fc770.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP02</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)a bloody lucky day (2025) (พากย์ไทย ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serie-day.com/wp-content/uploads/2025/04/A-Bloody-Lucky-Day-2025-203x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/a714f0d64b2fc8b1dfe270d9/a714f0d64b2fc8b1dfe270d9.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP03</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)a bloody lucky day (2025) (พากย์ไทย ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serie-day.com/wp-content/uploads/2025/04/A-Bloody-Lucky-Day-2025-203x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/b80a0f20a093a2f85a2eff35/b80a0f20a093a2f85a2eff35.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP04</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)a bloody lucky day (2025) (พากย์ไทย ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serie-day.com/wp-content/uploads/2025/04/A-Bloody-Lucky-Day-2025-203x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/910fdb52c30391b552ef3faf/910fdb52c30391b552ef3faf.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP05</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)a bloody lucky day (2025) (พากย์ไทย ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serie-day.com/wp-content/uploads/2025/04/A-Bloody-Lucky-Day-2025-203x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/2aa975f17e2e5d8fc3f731c7/2aa975f17e2e5d8fc3f731c7.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP06</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)a bloody lucky day (2025) (พากย์ไทย ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serie-day.com/wp-content/uploads/2025/04/A-Bloody-Lucky-Day-2025-203x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/118f21cfcacf06297268e771/118f21cfcacf06297268e771.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP07</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)a bloody lucky day (2025) (พากย์ไทย ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serie-day.com/wp-content/uploads/2025/04/A-Bloody-Lucky-Day-2025-203x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/4ee8eb656e09616d0c4fcd26/4ee8eb656e09616d0c4fcd26.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP08</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)a bloody lucky day (2025) (พากย์ไทย ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serie-day.com/wp-content/uploads/2025/04/A-Bloody-Lucky-Day-2025-203x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/bad9002c604c1e5fe2b7a749/bad9002c604c1e5fe2b7a749.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP09</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)a bloody lucky day (2025) (พากย์ไทย ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serie-day.com/wp-content/uploads/2025/04/A-Bloody-Lucky-Day-2025-203x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/80eb253711bd9385987356b9/80eb253711bd9385987356b9.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP10</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)karma (2025) อุบัติกรรม (พากย์ไทย ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serie-day.com/wp-content/uploads/2025/04/Karma-2025-240x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/022662d40edbc05c7afd957e/022662d40edbc05c7afd957e.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP01</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)karma (2025) อุบัติกรรม (พากย์ไทย ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serie-day.com/wp-content/uploads/2025/04/Karma-2025-240x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/7f0973814750e7fe890b8d50/7f0973814750e7fe890b8d50.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP02</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)karma (2025) อุบัติกรรม (พากย์ไทย ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serie-day.com/wp-content/uploads/2025/04/Karma-2025-240x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/05d500ff8461732a9ed602b2/05d500ff8461732a9ed602b2.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP03</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)karma (2025) อุบัติกรรม (พากย์ไทย ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serie-day.com/wp-content/uploads/2025/04/Karma-2025-240x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/c34348ed388b45d4b9ab9b3d/c34348ed388b45d4b9ab9b3d.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP04</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)karma (2025) อุบัติกรรม (พากย์ไทย ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serie-day.com/wp-content/uploads/2025/04/Karma-2025-240x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/61af0a093501029577bfdbee/61af0a093501029577bfdbee.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP05</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)karma (2025) อุบัติกรรม (พากย์ไทย ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serie-day.com/wp-content/uploads/2025/04/Karma-2025-240x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/fa9c9eaf8bc7b426ac2ca504/fa9c9eaf8bc7b426ac2ca504.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP06</div>
+</div>
+
+
+<!-- Pagination -->
+<div class="pagination-wrapper">
+<nav>
+<ul class="pagination">
+    <li><a href="go:main-serie" aria-label="กลับหน้าหลัก"><span aria-hidden="true"><< กลับหน้าหลัก</span></a></li>
+    <li><a href="https://udzaa2238.github.io/korea-series/ซีรี่ย์เกาหลี-หน้าที่11.html">11</a></li>
+    <li><a href="https://udzaa2238.github.io/korea-series/ซีรี่ย์เกาหลี-หน้าที่12.html">12</a></li>
+<li class="active"><a href="https://udzaa2238.github.io/korea-series/ซีรี่ย์เกาหลี-หน้าที่13.html"><b>13</b></a></li>
+    <li><a href="https://udzaa2238.github.io/korea-series/ซีรี่ย์เกาหลี-หน้าที่14.html">14</a></li>
+    <li><a href="https://udzaa2238.github.io/korea-series/ซีรี่ย์เกาหลี-หน้าที่15.html">15</a></li>
+    <li><a href="https://udzaa2238.github.io/korea-series/ซีรี่ย์เกาหลี-หน้าที่16.html">16</a></li>
+    <li><a href="https://udzaa2238.github.io/korea-series/ซีรี่ย์เกาหลี-หน้าที่17.html">17</a></li>
+    <li><a href="https://udzaa2238.github.io/korea-series/ซีรี่ย์เกาหลี-หน้าที่18.html">18</a></li>
+    <li><a href="https://udzaa2238.github.io/korea-series/ซีรี่ย์เกาหลี-หน้าที่19.html">19</a></li>
+	<li><a href="https://udzaa2238.github.io/korea-series/ซีรี่ย์เกาหลี-หน้าที่20.html">20</a></li>
+    <li><a href="https://udzaa2238.github.io/korea-series/ซีรี่ย์เกาหลี-หน้าที่21.html">หน้าต่อไป»</a></li>
+    
+    </ul>
+    </nav>
+    </div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

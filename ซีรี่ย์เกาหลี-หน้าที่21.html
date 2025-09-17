@@ -1,0 +1,1345 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>ซีรี่ย์เกาหลี หน้าที่ 21</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- External CSS -->
+  <link href="https://playtvthai.github.io/m3u8/css/bootstrap.css" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <link href="https://playtvthai.github.io/m3u8/css/style.css" rel="stylesheet" type="text/css" media="all" />
+  <link rel="stylesheet" href="https://playtvthai.github.io/m3u8/css/normalize.css">
+  <link rel="stylesheet" href="https://playtvthai.github.io/m3u8/css/custom.css">
+  <link rel="stylesheet" href="https://playtvthai.github.io/m3u8/css/main.css">
+  <link rel="stylesheet" href="http://hdtvdd.com/work/assets_remark/fonts/font-awesome/font-awesome.min.css">
+  <link rel="stylesheet" href="http://hdtvdd.com/work/font/stylesheet.css" type="text/css" charset="utf-8" />
+  <link rel="stylesheet" href="http://hdtvdd.com/work/css/8k.css" type="text/css" charset="utf-8" />
+  <link rel="stylesheet" href="http://hdtvdd.com/work/css/overlay.css" type="text/css" charset="utf-8">
+  <link href="http://hdtvdd.com/work/css/theme.css" rel="stylesheet">
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:100,200,300,400,500,600,700,800,900" rel="stylesheet" type="text/css">
+
+  <!-- JS (dedupe jQuery) -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <script src="https://playtvthai.github.io/m3u8/js/jquery.backstretch.js"></script>
+  <script src="http://hdtvdd.com/work/bootstrap-login-forms/form-2/assets/js/scripts.js"></script>
+
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      width: 100vw;
+      height: 100%;
+      background: #000;
+      box-sizing: border-box;
+      overflow-x: hidden;
+      font-family: 'Roboto Condensed', sans-serif;
+    }
+    *, *:before, *:after { box-sizing: inherit; }
+
+    /* Search/filter bar */
+    .filter-bar {
+      margin: 10px 0;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      align-items: center;
+    }
+    .filter-bar input, .filter-bar select {
+      padding: 8px;
+      font-size: 16px;
+      border-radius: 4px;
+      border: 1px solid #444;
+      background: #1f2025;
+      color: #fff;
+    }
+
+    /* Movie grid 5 columns */
+    /* Movie grid */
+    .movies-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin: 0 -5px;
+      padding-top: 10px;
+    }
+    .movie-item {
+      flex: 0 0 10%; /* เล็กลง, 5 คอลัมน์ต่อแถว */
+      box-sizing: border-box;
+      padding: 0 5px;
+      margin-bottom: 20px;
+      max-width: 200px; /* หรือจำกัดขนาดสูงสุด */
+    }
+    .movie-box {
+      background: #1f2025;
+      border-radius: 4px;
+      overflow: hidden;
+      position: relative;
+    }
+    .movie-image button {
+      width: 100%;
+      height: 0;
+      padding-top: 147%;
+      background-size: cover;
+      background-position: center;
+      border: none;
+      border-radius: 2px;
+      cursor: pointer;
+    }
+    .movie-title {
+      color: white;
+      font-size: 14px;
+      text-align: center;
+      margin-top: 6px;
+      line-height: 1.2;
+      padding: 0 4px;
+      word-break: break-word;
+    }
+
+    @media (max-width: 1200px) {
+      .movie-item { flex: 0 0 33.333%; }
+    }
+    @media (max-width: 900px) {
+      .movie-item { flex: 0 0 50%; }
+    }
+    @media (max-width: 600px) {
+      .movie-item { flex: 0 0 100%; }
+    }
+
+    .pagination-wrapper { text-align: center; margin-top: 20px; }
+    .pagination > li > a, .pagination > li > span { padding: 6px 12px; }
+  </style>
+
+  <script>
+    $(document).ready(function(){
+      $("#myBtn").click(function(){ $("#myModal").modal(); });
+      $("#myBtn2").click(function(){ $("#myModal2").modal(); });
+      $("#myBtn_vip").click(function(){ $("#myModal_vip").modal(); });
+      $("#myBtn_cpass").click(function(){ $("#myModal_changepass").modal(); });
+
+      // Filter logic
+      function normalizeText(t) {
+        return t.trim().toLowerCase();
+      }
+
+      function applyFilter() {
+        const query = normalizeText($("#movie-search").val() || "");
+        const category = $("#category-filter").val();
+        $(".movie-item").each(function() {
+          const title = normalizeText($(this).find(".movie-title").text() || "");
+          const itemCat = $(this).attr("data-category") || "all";
+          const matchesSearch = query === "" || title.includes(query);
+          const matchesCategory = category === "all" || itemCat === category;
+          if (matchesSearch && matchesCategory) {
+            $(this).show();
+          } else {
+            $(this).hide();
+          }
+        });
+      }
+
+      $("#movie-search").on("input", applyFilter);
+      $("#category-filter").on("change", applyFilter);
+    });
+  </script>
+</head>
+
+<body>
+  <div class="container" style="background-color:rgba(0,0,0,0); height:100%;">
+    <div class="container_wrap">
+      <div class="row" style="background-color:#27282c;border-radius:5px;">
+        <div class="col-lg-12 col-md-12 col-xs-12" style="margin-top:10px;margin-bottom:10px;">
+          <div class="row">
+            <div class="col-lg-2 col-md-2 col-sm-5 col-xs-5">
+              <div class="logo"></div>
+            </div>
+            <div class="col-lg-10 col-md-12 col-xs-12">
+              <div class="col-lg-12 col-md-12 col-xs-12" align="left" style="padding:5px;">
+                <div class="form-inline">
+                  <div class="form-group" style="margin:5px;">
+                    <form action="" method="get" name="lange" style="display:inline;">
+                      <input name="lange" type="hidden" id="lange" value="en">
+                      <input type="image" src="/web/images/en.gif" name="submit" width="60" height="20" alt="submit"/>
+                    </form>
+                  </div>
+                  <label for="form-password"><font color="white">ชื่อ : </font><font color="yellow">[ ผู้เฒ่าพเนจร ™ ]</font></label>
+
+                  <button class="btn btn-default" type="button" style="background-color:transparent;border-radius:2px;border:0;font-size:18px;color:#FFF;padding:0 5px;font-family:'rsuregular';" onclick="window.location.href='go:digital'">🏠 Home ™</button>
+                  <button class="btn btn-default" type="button" style="background-color:transparent;border-radius:2px;border:0;font-size:18px;color:#FFF;padding:0 5px;font-family:'rsuregular';" onclick="window.location.href='go:live'">📡 ถ่ายทอดสด ™</button>
+                  <button class="btn btn-default" type="button" style="background-color:transparent;border-radius:2px;border:0;font-size:18px;color:#FFF;padding:0 5px;font-family:'rsuregular';" onclick="window.location.href='go:main-serie'">🎞️ ดูซีรี่ย์ ™</button>
+                  <button class="btn btn-default" type="button" style="background-color:transparent;border-radius:2px;border:0;font-size:18px;color:#FFF;padding:0 5px;font-family:'rsuregular';" onclick="window.location.href='go:main-movie'">🎥 ดูหนัง ™</button>
+                  <button class="btn btn-default" type="button" style="background-color:transparent;border-radius:2px;border:0;font-size:18px;color:#FFF;padding:0 5px;font-family:'rsuregular';" onclick="window.location.href='go:main-movie'">📽️ ดูสารคดี ™</button>
+                  <button class="btn btn-default" type="button" style="background-color:transparent;border-radius:2px;border:0;font-size:18px;color:#FFF;padding:0 5px;font-family:'rsuregular';" onclick="window.location.href='http://action_exit'">🚪 ออก</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+<!--
+          <!-- filter bar -->
+          <div class="filter-bar">
+            <div>
+              <input id="movie-search" type="text" placeholder="ค้นหาหนัง..." />
+            </div>
+            <div>
+              <select id="category-filter">
+                <option value="all">ทั้งหมด</option>
+                <option value="action">Action</option>
+                <option value="drama">Drama</option>
+                <option value="sci-fi">Sci-Fi</option>
+                <option value="exclusive">Exclusive</option>
+              </select>
+            </div>
+          </div>
+
+
+-->
+          <!-- รวมทุก movie-item ไว้ใน grid เดียว -->
+          <div class="movies-grid">
+		  
+
+
+
+<div class="movie-item" data-category="black out (2024) สืบ ลับ ล่า ฆาตกร ep.1-14 (จบ)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://tvallseries.co/wp-content/uploads/2024/10/Black-Out-2024-thai-220x170.webp);"onclick="window.location.href='https://playcdn.tvallseries.com/b6345279-a36c-451a-9be8-e4db85415e8c/_'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP0</div>
+</div>
+
+<div class="movie-title">Black Out (2024) สืบ ลับ ล่า ฆาตกร EP.1-14 (จบ) - ตอนที่ Black Out (2024) สืบ ลับ ล่า ฆาตกร Season 1 ตอนที่ 1</div>
+</div>
+<div class="movie-item" data-category="black out (2024) สืบ ลับ ล่า ฆาตกร ep.1-14 (จบ)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://tvallseries.co/wp-content/uploads/2024/10/Black-Out-2024-thai-220x170.webp);"onclick="window.location.href='https://playcdn.tvallseries.com/8fe0ee33-0875-4cb0-8b5f-817ead978226/_'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP1</div>
+</div>
+
+<div class="movie-title">Black Out (2024) สืบ ลับ ล่า ฆาตกร EP.1-14 (จบ) - ตอนที่ Black Out (2024) สืบ ลับ ล่า ฆาตกร Season 1 ตอนที่ 2</div>
+</div>
+<div class="movie-item" data-category="black out (2024) สืบ ลับ ล่า ฆาตกร ep.1-14 (จบ)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://tvallseries.co/wp-content/uploads/2024/10/Black-Out-2024-thai-220x170.webp);"onclick="window.location.href='https://playcdn.tvallseries.com/fdb1f287-9d5d-4f80-9409-87df74ec5adc/_'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP2</div>
+</div>
+
+<div class="movie-title">Black Out (2024) สืบ ลับ ล่า ฆาตกร EP.1-14 (จบ) - ตอนที่ Black Out (2024) สืบ ลับ ล่า ฆาตกร Season 1 ตอนที่ 3</div>
+</div>
+<div class="movie-item" data-category="black out (2024) สืบ ลับ ล่า ฆาตกร ep.1-14 (จบ)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://tvallseries.co/wp-content/uploads/2024/10/Black-Out-2024-thai-220x170.webp);"onclick="window.location.href='https://playcdn.tvallseries.com/566dc271-44f2-4026-9823-4885306b82bd/_'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP3</div>
+</div>
+
+<div class="movie-title">Black Out (2024) สืบ ลับ ล่า ฆาตกร EP.1-14 (จบ) - ตอนที่ Black Out (2024) สืบ ลับ ล่า ฆาตกร Season 1 ตอนที่ 4</div>
+</div>
+<div class="movie-item" data-category="black out (2024) สืบ ลับ ล่า ฆาตกร ep.1-14 (จบ)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://tvallseries.co/wp-content/uploads/2024/10/Black-Out-2024-thai-220x170.webp);"onclick="window.location.href='https://playcdn.tvallseries.com/80ce1937-a5da-4bc8-acc9-3cae8cc55825/_'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP4</div>
+</div>
+
+<div class="movie-title">Black Out (2024) สืบ ลับ ล่า ฆาตกร EP.1-14 (จบ) - ตอนที่ Black Out (2024) สืบ ลับ ล่า ฆาตกร Season 1 ตอนที่ 5</div>
+</div>
+<div class="movie-item" data-category="black out (2024) สืบ ลับ ล่า ฆาตกร ep.1-14 (จบ)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://tvallseries.co/wp-content/uploads/2024/10/Black-Out-2024-thai-220x170.webp);"onclick="window.location.href='https://playcdn.tvallseries.com/561dd335-39a0-4acb-abeb-b413a5cf6d58/_'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP5</div>
+</div>
+
+<div class="movie-title">Black Out (2024) สืบ ลับ ล่า ฆาตกร EP.1-14 (จบ) - ตอนที่ Black Out (2024) สืบ ลับ ล่า ฆาตกร Season 1 ตอนที่ 6</div>
+</div>
+<div class="movie-item" data-category="black out (2024) สืบ ลับ ล่า ฆาตกร ep.1-14 (จบ)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://tvallseries.co/wp-content/uploads/2024/10/Black-Out-2024-thai-220x170.webp);"onclick="window.location.href='https://playcdn.tvallseries.com/20d8003f-0082-4277-9b44-3568c77aed36/_'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP6</div>
+</div>
+
+<div class="movie-title">Black Out (2024) สืบ ลับ ล่า ฆาตกร EP.1-14 (จบ) - ตอนที่ Black Out (2024) สืบ ลับ ล่า ฆาตกร Season 1 ตอนที่ 7</div>
+</div>
+<div class="movie-item" data-category="black out (2024) สืบ ลับ ล่า ฆาตกร ep.1-14 (จบ)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://tvallseries.co/wp-content/uploads/2024/10/Black-Out-2024-thai-220x170.webp);"onclick="window.location.href='https://playcdn.tvallseries.com/236c32a6-f479-403b-9fc8-baa8e2061314/_'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP7</div>
+</div>
+
+<div class="movie-title">Black Out (2024) สืบ ลับ ล่า ฆาตกร EP.1-14 (จบ) - ตอนที่ Black Out (2024) สืบ ลับ ล่า ฆาตกร Season 1 ตอนที่ 8</div>
+</div>
+<div class="movie-item" data-category="black out (2024) สืบ ลับ ล่า ฆาตกร ep.1-14 (จบ)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://tvallseries.co/wp-content/uploads/2024/10/Black-Out-2024-thai-220x170.webp);"onclick="window.location.href='https://playcdn.tvallseries.com/c52f7b2c-0372-4933-a6dd-2e77f8460a8e/_'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP8</div>
+</div>
+
+<div class="movie-title">Black Out (2024) สืบ ลับ ล่า ฆาตกร EP.1-14 (จบ) - ตอนที่ Black Out (2024) สืบ ลับ ล่า ฆาตกร Season 1 ตอนที่ 9</div>
+</div>
+<div class="movie-item" data-category="black out (2024) สืบ ลับ ล่า ฆาตกร ep.1-14 (จบ)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://tvallseries.co/wp-content/uploads/2024/10/Black-Out-2024-thai-220x170.webp);"onclick="window.location.href='https://playcdn.tvallseries.com/074c251e-1a9a-4c21-960c-7a849d94bc80/_'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP9</div>
+</div>
+
+<div class="movie-title">Black Out (2024) สืบ ลับ ล่า ฆาตกร EP.1-14 (จบ) - ตอนที่ Black Out (2024) สืบ ลับ ล่า ฆาตกร Season 1 ตอนที่ 10</div>
+</div>
+<div class="movie-item" data-category="black out (2024) สืบ ลับ ล่า ฆาตกร ep.1-14 (จบ)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://tvallseries.co/wp-content/uploads/2024/10/Black-Out-2024-thai-220x170.webp);"onclick="window.location.href='https://playcdn.tvallseries.com/d4e4b720-c461-4de5-affb-d8428c6d4d48/_'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP10</div>
+</div>
+
+<div class="movie-title">Black Out (2024) สืบ ลับ ล่า ฆาตกร EP.1-14 (จบ) - ตอนที่ Black Out (2024) สืบ ลับ ล่า ฆาตกร Season 1 ตอนที่ 11</div>
+</div>
+<div class="movie-item" data-category="black out (2024) สืบ ลับ ล่า ฆาตกร ep.1-14 (จบ)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://tvallseries.co/wp-content/uploads/2024/10/Black-Out-2024-thai-220x170.webp);"onclick="window.location.href='https://playcdn.tvallseries.com/0a8bdc91-bc28-4563-8dfc-cfb833ecf47f/_'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP11</div>
+</div>
+
+<div class="movie-title">Black Out (2024) สืบ ลับ ล่า ฆาตกร EP.1-14 (จบ) - ตอนที่ Black Out (2024) สืบ ลับ ล่า ฆาตกร Season 1 ตอนที่ 12</div>
+</div>
+<div class="movie-item" data-category="black out (2024) สืบ ลับ ล่า ฆาตกร ep.1-14 (จบ)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://tvallseries.co/wp-content/uploads/2024/10/Black-Out-2024-thai-220x170.webp);"onclick="window.location.href='https://playcdn.tvallseries.com/5386a4e0-a643-4095-9bce-fb17b774014c/_'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP12</div>
+</div>
+
+<div class="movie-title">Black Out (2024) สืบ ลับ ล่า ฆาตกร EP.1-14 (จบ) - ตอนที่ Black Out (2024) สืบ ลับ ล่า ฆาตกร Season 1 ตอนที่ 13</div>
+</div>
+<div class="movie-item" data-category="black out (2024) สืบ ลับ ล่า ฆาตกร ep.1-14 (จบ)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://tvallseries.co/wp-content/uploads/2024/10/Black-Out-2024-thai-220x170.webp);"onclick="window.location.href='https://playcdn.tvallseries.com/acda3fec-d0dd-43e3-9d40-5fb2f2c35222/_'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP13</div>
+</div>
+
+<div class="movie-title">Serendipity s Embrace (2024) หัวใจนี้ บังเอิญรัก EP.1-8 (จบ) » พากย์ไทย ซีรีย์เกาหลี - ตอนที่ Serendipity s Embrace (2024) หัวใจนี้ บังเอิญรัก Season 1 ตอนที่ 1</div>
+<div class="movie-item" data-category="serendipity s embrace (2024) หัวใจนี้ บังเอิญรัก ep.1-8 (จบ) » พากย์ไทย ซีรีย์เกาหลี">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://tvallseries.co/wp-content/uploads/2024/10/Serendipity-s-Embrace-2024-thai-220x170.webp);"onclick="window.location.href='https://playcdn.tvallseries.com/84993df8-9f66-402d-84e5-7f9d3d4713cf/_'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP1</div>
+</div>
+
+<div class="movie-title">Serendipity s Embrace (2024) หัวใจนี้ บังเอิญรัก EP.1-8 (จบ) » พากย์ไทย ซีรีย์เกาหลี - ตอนที่ Serendipity s Embrace (2024) หัวใจนี้ บังเอิญรัก Season 1 ตอนที่ 1</div>
+</div>
+<div class="movie-item" data-category="serendipity s embrace (2024) หัวใจนี้ บังเอิญรัก ep.1-8 (จบ) » พากย์ไทย ซีรีย์เกาหลี">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://tvallseries.co/wp-content/uploads/2024/10/Serendipity-s-Embrace-2024-thai-220x170.webp);"onclick="window.location.href='https://playcdn.tvallseries.com/1c5e834b-9e9a-42db-a01c-ef4991c7c7ea/_'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP1</div>
+</div>
+
+<div class="movie-title">Serendipity s Embrace (2024) หัวใจนี้ บังเอิญรัก EP.1-8 (จบ) » พากย์ไทย ซีรีย์เกาหลี - ตอนที่ Serendipity s Embrace (2024) หัวใจนี้ บังเอิญรัก Season 1 ตอนที่ 2</div>
+</div>
+<div class="movie-item" data-category="serendipity s embrace (2024) หัวใจนี้ บังเอิญรัก ep.1-8 (จบ) » พากย์ไทย ซีรีย์เกาหลี">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://tvallseries.co/wp-content/uploads/2024/10/Serendipity-s-Embrace-2024-thai-220x170.webp);"onclick="window.location.href='https://playcdn.tvallseries.com/53a398c9-7157-4041-99fe-5c0fb09981f4/_'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP2</div>
+</div>
+
+<div class="movie-title">Serendipity s Embrace (2024) หัวใจนี้ บังเอิญรัก EP.1-8 (จบ) » พากย์ไทย ซีรีย์เกาหลี - ตอนที่ Serendipity s Embrace (2024) หัวใจนี้ บังเอิญรัก Season 1 ตอนที่ 3</div>
+</div>
+<div class="movie-item" data-category="serendipity s embrace (2024) หัวใจนี้ บังเอิญรัก ep.1-8 (จบ) » พากย์ไทย ซีรีย์เกาหลี">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://tvallseries.co/wp-content/uploads/2024/10/Serendipity-s-Embrace-2024-thai-220x170.webp);"onclick="window.location.href='https://playcdn.tvallseries.com/923d6533-d792-4292-8415-1712587b65b5/_'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP3</div>
+</div>
+
+<div class="movie-title">Serendipity s Embrace (2024) หัวใจนี้ บังเอิญรัก EP.1-8 (จบ) » พากย์ไทย ซีรีย์เกาหลี - ตอนที่ Serendipity s Embrace (2024) หัวใจนี้ บังเอิญรัก Season 1 ตอนที่ 4</div>
+</div>
+<div class="movie-item" data-category="serendipity s embrace (2024) หัวใจนี้ บังเอิญรัก ep.1-8 (จบ) » พากย์ไทย ซีรีย์เกาหลี">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://tvallseries.co/wp-content/uploads/2024/10/Serendipity-s-Embrace-2024-thai-220x170.webp);"onclick="window.location.href='https://playcdn.tvallseries.com/04cedf37-d58b-4148-abfc-5c8e9cf917ca/0'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP4</div>
+</div>
+
+<div class="movie-title">Serendipity s Embrace (2024) หัวใจนี้ บังเอิญรัก EP.1-8 (จบ) » พากย์ไทย ซีรีย์เกาหลี - ตอนที่ Serendipity s Embrace (2024) หัวใจนี้ บังเอิญรัก Season 1 ตอนที่ 5</div>
+</div>
+<div class="movie-item" data-category="serendipity s embrace (2024) หัวใจนี้ บังเอิญรัก ep.1-8 (จบ) » พากย์ไทย ซีรีย์เกาหลี">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://tvallseries.co/wp-content/uploads/2024/10/Serendipity-s-Embrace-2024-thai-220x170.webp);"onclick="window.location.href='https://playcdn.tvallseries.com/414a21c7-db23-45d9-8234-1c5a78d22946/0'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP5</div>
+</div>
+
+<div class="movie-title">Serendipity s Embrace (2024) หัวใจนี้ บังเอิญรัก EP.1-8 (จบ) » พากย์ไทย ซีรีย์เกาหลี - ตอนที่ Serendipity s Embrace (2024) หัวใจนี้ บังเอิญรัก Season 1 ตอนที่ 6</div>
+</div>
+<div class="movie-item" data-category="serendipity s embrace (2024) หัวใจนี้ บังเอิญรัก ep.1-8 (จบ) » พากย์ไทย ซีรีย์เกาหลี">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://tvallseries.co/wp-content/uploads/2024/10/Serendipity-s-Embrace-2024-thai-220x170.webp);"onclick="window.location.href='https://playcdn.tvallseries.com/41186cb7-9a2d-4d53-9f84-111d1fc27e53/0'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP6</div>
+</div>
+
+<div class="movie-title">Serendipity s Embrace (2024) หัวใจนี้ บังเอิญรัก EP.1-8 (จบ) » พากย์ไทย ซีรีย์เกาหลี - ตอนที่ Serendipity s Embrace (2024) หัวใจนี้ บังเอิญรัก Season 1 ตอนที่ 7</div>
+</div>
+<div class="movie-item" data-category="serendipity s embrace (2024) หัวใจนี้ บังเอิญรัก ep.1-8 (จบ) » พากย์ไทย ซีรีย์เกาหลี">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://tvallseries.co/wp-content/uploads/2024/10/Serendipity-s-Embrace-2024-thai-220x170.webp);"onclick="window.location.href='https://playcdn.tvallseries.com/980ce956-8b8c-4290-afe5-040dd9539488/0'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP7</div>
+</div>
+
+<div class="movie-title">Serendipity s Embrace (2024) หัวใจนี้ บังเอิญรัก EP.1-8 (จบ) » พากย์ไทย ซีรีย์เกาหลี - ตอนที่ Serendipity s Embrace (2024) หัวใจนี้ บังเอิญรัก Season 1 ตอนที่ 8 จบ</div>
+</div>
+<div class="movie-item" data-category="spice up our love (2024) เมนูแซ่บท่านประธาน ep.1-2 (จบ)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://tvallseries.co/wp-content/uploads/2024/10/Spice-up-Our-Love-2024-220x170.webp);"onclick="window.location.href='https://playcdn.tvallseries.com/0c9fcc6f-3794-42cc-b7e2-20af8354f57e/_'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP8</div>
+</div>
+
+<div class="movie-title">Spice Up Our Love (2024) เมนูแซ่บท่านประธาน EP.1-2 (จบ) - ตอนที่ Spice up Our Love (2024) เมนูแซ่บท่านประธาน Season 1 ตอนที่ 1</div>
+</div>
+<div class="movie-item" data-category="spice up our love (2024) เมนูแซ่บท่านประธาน ep.1-2 (จบ)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://tvallseries.co/wp-content/uploads/2024/10/Spice-up-Our-Love-2024-220x170.webp);"onclick="window.location.href='https://playcdn.tvallseries.com/928debd8-ef39-4756-bab4-352c967b0b95/_'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP1</div>
+</div>
+
+<div class="movie-title">Spice Up Our Love (2024) เมนูแซ่บท่านประธาน EP.1-2 (จบ) - ตอนที่ Spice up Our Love (2024) เมนูแซ่บท่านประธาน Season 1 ตอนที่ 2 (ตอนจบ)</div>
+</div>
+<div class="movie-item" data-category="culinary class wars (2024) สงครามเชฟคนละชั้น ep.1-12 (จบ)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://tvallseries.co/wp-content/uploads/2024/10/Culinary-Class-Wars-2024-220x170.webp);"onclick="window.location.href='https://playcdn.tvallseries.com/0a8401e0-c39b-4920-96b4-aa1c97a98a3a/_'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP2</div>
+</div>
+
+<div class="movie-title">Culinary Class Wars (2024) สงครามเชฟคนละชั้น EP.1-12 (จบ) - ตอนที่ Culinary Class Wars (2024) สงครามเชฟคนละชั้น Season 1 ตอนที่ 1</div>
+</div>
+<div class="movie-item" data-category="culinary class wars (2024) สงครามเชฟคนละชั้น ep.1-12 (จบ)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://tvallseries.co/wp-content/uploads/2024/10/Culinary-Class-Wars-2024-220x170.webp);"onclick="window.location.href='https://playcdn.tvallseries.com/3f61451d-4f35-4c90-a83a-8ca118e64eef/_'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP1</div>
+</div>
+
+<div class="movie-title">Culinary Class Wars (2024) สงครามเชฟคนละชั้น EP.1-12 (จบ) - ตอนที่ Culinary Class Wars (2024) สงครามเชฟคนละชั้น Season 1 ตอนที่ 2</div>
+</div>
+<div class="movie-item" data-category="culinary class wars (2024) สงครามเชฟคนละชั้น ep.1-12 (จบ)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://tvallseries.co/wp-content/uploads/2024/10/Culinary-Class-Wars-2024-220x170.webp);"onclick="window.location.href='https://playcdn.tvallseries.com/4f982e9d-ce3a-48a7-9464-e2dbbdbcd1cb/_'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP2</div>
+</div>
+
+<div class="movie-title">Culinary Class Wars (2024) สงครามเชฟคนละชั้น EP.1-12 (จบ) - ตอนที่ Culinary Class Wars (2024) สงครามเชฟคนละชั้น Season 1 ตอนที่ 3</div>
+</div>
+<div class="movie-item" data-category="culinary class wars (2024) สงครามเชฟคนละชั้น ep.1-12 (จบ)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://tvallseries.co/wp-content/uploads/2024/10/Culinary-Class-Wars-2024-220x170.webp);"onclick="window.location.href='https://playcdn.tvallseries.com/6d7a8d19-8165-4fac-9d6f-60ce3488dc1a/_'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP3</div>
+</div>
+
+<div class="movie-title">Culinary Class Wars (2024) สงครามเชฟคนละชั้น EP.1-12 (จบ) - ตอนที่ Culinary Class Wars (2024) สงครามเชฟคนละชั้น Season 1 ตอนที่ 4</div>
+</div>
+<div class="movie-item" data-category="culinary class wars (2024) สงครามเชฟคนละชั้น ep.1-12 (จบ)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://tvallseries.co/wp-content/uploads/2024/10/Culinary-Class-Wars-2024-220x170.webp);"onclick="window.location.href='https://playcdn.tvallseries.com/718ef4b9-211e-4885-baa0-ef50b55cf57d/_'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP4</div>
+</div>
+
+<div class="movie-title">Culinary Class Wars (2024) สงครามเชฟคนละชั้น EP.1-12 (จบ) - ตอนที่ Culinary Class Wars (2024) สงครามเชฟคนละชั้น Season 1 ตอนที่ 5</div>
+</div>
+<div class="movie-item" data-category="culinary class wars (2024) สงครามเชฟคนละชั้น ep.1-12 (จบ)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://tvallseries.co/wp-content/uploads/2024/10/Culinary-Class-Wars-2024-220x170.webp);"onclick="window.location.href='https://playcdn.tvallseries.com/749c3336-4f99-47ca-a51f-682fc885ebb9/_'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP5</div>
+</div>
+
+<div class="movie-title">Culinary Class Wars (2024) สงครามเชฟคนละชั้น EP.1-12 (จบ) - ตอนที่ Culinary Class Wars (2024) สงครามเชฟคนละชั้น Season 1 ตอนที่ 6</div>
+</div>
+<div class="movie-item" data-category="culinary class wars (2024) สงครามเชฟคนละชั้น ep.1-12 (จบ)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://tvallseries.co/wp-content/uploads/2024/10/Culinary-Class-Wars-2024-220x170.webp);"onclick="window.location.href='https://playcdn.tvallseries.com/c368e7d0-00a1-48ca-894a-91fc2c54d27b/_'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP6</div>
+</div>
+
+<div class="movie-title">Culinary Class Wars (2024) สงครามเชฟคนละชั้น EP.1-12 (จบ) - ตอนที่ Culinary Class Wars (2024) สงครามเชฟคนละชั้น Season 1 ตอนที่ 7</div>
+</div>
+<div class="movie-item" data-category="culinary class wars (2024) สงครามเชฟคนละชั้น ep.1-12 (จบ)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://tvallseries.co/wp-content/uploads/2024/10/Culinary-Class-Wars-2024-220x170.webp);"onclick="window.location.href='https://playcdn.tvallseries.com/1a6d7284-4422-4d15-aa56-1f2938e40371/_'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP7</div>
+</div>
+
+<div class="movie-title">Culinary Class Wars (2024) สงครามเชฟคนละชั้น EP.1-12 (จบ) - ตอนที่ Culinary Class Wars (2024) สงครามเชฟคนละชั้น Season 1 ตอนที่ 8</div>
+</div>
+<div class="movie-item" data-category="culinary class wars (2024) สงครามเชฟคนละชั้น ep.1-12 (จบ)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://tvallseries.co/wp-content/uploads/2024/10/Culinary-Class-Wars-2024-220x170.webp);"onclick="window.location.href='https://playcdn.tvallseries.com/ec26b829-0478-499a-80b4-848f4239107c/_'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP8</div>
+</div>
+
+<div class="movie-title">Culinary Class Wars (2024) สงครามเชฟคนละชั้น EP.1-12 (จบ) - ตอนที่ Culinary Class Wars (2024) สงครามเชฟคนละชั้น Season 1 ตอนที่ 9</div>
+</div>
+<div class="movie-item" data-category="culinary class wars (2024) สงครามเชฟคนละชั้น ep.1-12 (จบ)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://tvallseries.co/wp-content/uploads/2024/10/Culinary-Class-Wars-2024-220x170.webp);"onclick="window.location.href='https://playcdn.tvallseries.com/788c771b-639b-4442-9aa2-f195fad63a04/_'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP9</div>
+</div>
+
+<div class="movie-title">Culinary Class Wars (2024) สงครามเชฟคนละชั้น EP.1-12 (จบ) - ตอนที่ Culinary Class Wars (2024) สงครามเชฟคนละชั้น Season 1 ตอนที่ 10</div>
+</div>
+<div class="movie-item" data-category="culinary class wars (2024) สงครามเชฟคนละชั้น ep.1-12 (จบ)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://tvallseries.co/wp-content/uploads/2024/10/Culinary-Class-Wars-2024-220x170.webp);"onclick="window.location.href='https://playcdn.tvallseries.com/2d22bce7-ed88-4426-8a26-359631cb829a/_'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP10</div>
+</div>
+
+<div class="movie-title">Culinary Class Wars (2024) สงครามเชฟคนละชั้น EP.1-12 (จบ) - ตอนที่ Culinary Class Wars (2024) สงครามเชฟคนละชั้น Season 1 ตอนที่ 11</div>
+</div>
+<div class="movie-item" data-category="culinary class wars (2024) สงครามเชฟคนละชั้น ep.1-12 (จบ)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://tvallseries.co/wp-content/uploads/2024/10/Culinary-Class-Wars-2024-220x170.webp);"onclick="window.location.href='https://playcdn.tvallseries.com/b82fe47e-104d-407e-b7f1-b5032e12718b/_'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP11</div>
+</div>
+
+<div class="movie-title">Culinary Class Wars (2024) สงครามเชฟคนละชั้น EP.1-12 (จบ) - ตอนที่ Culinary Class Wars (2024) สงครามเชฟคนละชั้น Season 1 ตอนที่ 12 (ตอนจบ)</div>
+</div>
+<div class="movie-item" data-category="what comes after love (2024) เมื่อรักเลือนจาก ep.1-6 (จบ) » ซับไทย ซีรีย์เกาหลี">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://tvallseries.co/wp-content/uploads/2024/09/What-Comes-after-Love-2024-220x170.webp);"onclick="window.location.href='https://playcdn.tvallseries.com/c8ad1340-9d27-4218-b16a-44c66b8d2e61/_'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP12</div>
+</div> 
+
+<div class="movie-title">What Comes after Love (2024) เมื่อรักเลือนจาก EP.1-6 (จบ) » ซับไทย ซีรีย์เกาหลี - ตอนที่ What Comes after Love (2024) เมื่อรักเลือนจาก Season 1 ตอนที่ 1</div>
+</div>
+<div class="movie-item" data-category="what comes after love (2024) เมื่อรักเลือนจาก ep.1-6 (จบ) » ซับไทย ซีรีย์เกาหลี">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://tvallseries.co/wp-content/uploads/2024/09/What-Comes-after-Love-2024-220x170.webp);"onclick="window.location.href='https://playcdn.tvallseries.com/b2d8d1b0-6afb-4802-9cf9-cc817a6aa96b/_'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP1</div>
+</div>
+
+<div class="movie-title">What Comes after Love (2024) เมื่อรักเลือนจาก EP.1-6 (จบ) » ซับไทย ซีรีย์เกาหลี - ตอนที่ What Comes after Love (2024) เมื่อรักเลือนจาก Season 1 ตอนที่ 2</div>
+</div>
+<div class="movie-item" data-category="what comes after love (2024) เมื่อรักเลือนจาก ep.1-6 (จบ) » ซับไทย ซีรีย์เกาหลี">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://tvallseries.co/wp-content/uploads/2024/09/What-Comes-after-Love-2024-220x170.webp);"onclick="window.location.href='https://playcdn.tvallseries.com/e21e15e4-a364-4202-a598-f31cc87e2453/_'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP2</div>
+</div>
+
+<div class="movie-title">What Comes after Love (2024) เมื่อรักเลือนจาก EP.1-6 (จบ) » ซับไทย ซีรีย์เกาหลี - ตอนที่ What Comes after Love (2024) เมื่อรักเลือนจาก Season 1 ตอนที่ 3</div>
+</div>
+<div class="movie-item" data-category="what comes after love (2024) เมื่อรักเลือนจาก ep.1-6 (จบ) » ซับไทย ซีรีย์เกาหลี">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://tvallseries.co/wp-content/uploads/2024/09/What-Comes-after-Love-2024-220x170.webp);"onclick="window.location.href='https://playcdn.tvallseries.com/a51764f4-fa51-4a48-8a04-22f467d3f538/_'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP3</div>
+</div>
+
+<div class="movie-title">What Comes after Love (2024) เมื่อรักเลือนจาก EP.1-6 (จบ) » ซับไทย ซีรีย์เกาหลี - ตอนที่ What Comes after Love (2024) เมื่อรักเลือนจาก Season 1 ตอนที่ 4</div>
+</div>
+<div class="movie-item" data-category="what comes after love (2024) เมื่อรักเลือนจาก ep.1-6 (จบ) » ซับไทย ซีรีย์เกาหลี">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://tvallseries.co/wp-content/uploads/2024/09/What-Comes-after-Love-2024-220x170.webp);"onclick="window.location.href='https://playcdn.tvallseries.com/87765d9e-83f2-4f83-8b1b-2d258fc62842/0'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP4</div>
+</div>
+
+<div class="movie-title">What Comes after Love (2024) เมื่อรักเลือนจาก EP.1-6 (จบ) » ซับไทย ซีรีย์เกาหลี - ตอนที่ What Comes after Love (2024) เมื่อรักเลือนจาก Season 1 ตอนที่ 5</div>
+</div>
+<div class="movie-item" data-category="what comes after love (2024) เมื่อรักเลือนจาก ep.1-6 (จบ) » ซับไทย ซีรีย์เกาหลี">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://tvallseries.co/wp-content/uploads/2024/09/What-Comes-after-Love-2024-220x170.webp);"onclick="window.location.href='https://playcdn.tvallseries.com/7757170d-c274-4fe6-a390-989190351c3f/0'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP5</div>
+</div>
+
+<div class="movie-title">What Comes after Love (2024) เมื่อรักเลือนจาก EP.1-6 (จบ) » ซับไทย ซีรีย์เกาหลี - ตอนที่ What Comes after Love (2024) เมื่อรักเลือนจาก Season 1 ตอนที่ 6 จบ</div>
+</div>
+<div class="movie-item" data-category="gyeongseong creature สัตว์สยองกยองซอง season 1-2 (จบ)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://tvallseries.co/wp-content/uploads/2023/12/Gyeongseong-Creature-Season-1-2023-300x170.webp);"onclick="window.location.href='https://playcdn.tvallseries.com/6ab57c58-10f9-4de5-87e7-f1435ecc3b36/_'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP6</div>
+</div>
+
+<div class="movie-title">Gyeongseong Creature สัตว์สยองกยองซอง Season 1-2 (จบ) - ตอนที่ Gyeongseong Creature (2023) สัตว์สยองกยองซอง ภาค 1 Season 1 ตอนที่ 1</div>
+</div>
+<div class="movie-item" data-category="gyeongseong creature สัตว์สยองกยองซอง season 1-2 (จบ)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://tvallseries.co/wp-content/uploads/2023/12/Gyeongseong-Creature-Season-1-2023-300x170.webp);"onclick="window.location.href='https://playcdn.tvallseries.com/b59a3e55-d51f-40ce-8c87-ecd7c78ae09e/_'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP1</div>
+</div>
+
+<div class="movie-title">Gyeongseong Creature สัตว์สยองกยองซอง Season 1-2 (จบ) - ตอนที่ Gyeongseong Creature (2023) สัตว์สยองกยองซอง ภาค 1 Season 1 ตอนที่ 2</div>
+</div>
+<div class="movie-item" data-category="gyeongseong creature สัตว์สยองกยองซอง season 1-2 (จบ)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://tvallseries.co/wp-content/uploads/2023/12/Gyeongseong-Creature-Season-1-2023-300x170.webp);"onclick="window.location.href='https://playcdn.tvallseries.com/c9617c36-1a82-4c00-b268-39756e8190c2/_'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP2</div>
+</div>
+
+<div class="movie-title">Gyeongseong Creature สัตว์สยองกยองซอง Season 1-2 (จบ) - ตอนที่ Gyeongseong Creature (2023) สัตว์สยองกยองซอง ภาค 1 Season 1 ตอนที่ 3</div>
+</div>
+<div class="movie-item" data-category="gyeongseong creature สัตว์สยองกยองซอง season 1-2 (จบ)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://tvallseries.co/wp-content/uploads/2023/12/Gyeongseong-Creature-Season-1-2023-300x170.webp);"onclick="window.location.href='https://playcdn.tvallseries.com/db4a654d-40ec-46ce-9a4d-02a90d01ed9d/_'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP3</div>
+</div>
+
+<div class="movie-title">Gyeongseong Creature สัตว์สยองกยองซอง Season 1-2 (จบ) - ตอนที่ Gyeongseong Creature (2023) สัตว์สยองกยองซอง ภาค 1 Season 1 ตอนที่ 4</div>
+</div>
+<div class="movie-item" data-category="gyeongseong creature สัตว์สยองกยองซอง season 1-2 (จบ)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://tvallseries.co/wp-content/uploads/2023/12/Gyeongseong-Creature-Season-1-2023-300x170.webp);"onclick="window.location.href='https://playcdn.tvallseries.com/1536fad7-e3a8-4c79-b96b-f72ffa9174bd/_'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP4</div>
+</div>
+
+<div class="movie-title">Gyeongseong Creature สัตว์สยองกยองซอง Season 1-2 (จบ) - ตอนที่ Gyeongseong Creature (2023) สัตว์สยองกยองซอง ภาค 1 Season 1 ตอนที่ 5</div>
+</div>
+<div class="movie-item" data-category="gyeongseong creature สัตว์สยองกยองซอง season 1-2 (จบ)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://tvallseries.co/wp-content/uploads/2023/12/Gyeongseong-Creature-Season-1-2023-300x170.webp);"onclick="window.location.href='https://playcdn.tvallseries.com/85e29814-e992-415c-b33d-3a843bc95198/_'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP5</div>
+</div>
+
+<div class="movie-title">Gyeongseong Creature สัตว์สยองกยองซอง Season 1-2 (จบ) - ตอนที่ Gyeongseong Creature (2023) สัตว์สยองกยองซอง ภาค 1 Season 1 ตอนที่ 6</div>
+</div>
+<div class="movie-item" data-category="gyeongseong creature สัตว์สยองกยองซอง season 1-2 (จบ)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://tvallseries.co/wp-content/uploads/2023/12/Gyeongseong-Creature-Season-1-2023-300x170.webp);"onclick="window.location.href='https://playcdn.tvallseries.com/4f43c3c1-770b-463e-b112-a4dda6218c94/_'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP6</div>
+</div>
+
+<div class="movie-title">Gyeongseong Creature สัตว์สยองกยองซอง Season 1-2 (จบ) - ตอนที่ Gyeongseong Creature (2023) สัตว์สยองกยองซอง ภาค 1 Season 1 ตอนที่ 7</div>
+</div>
+<div class="movie-item" data-category="gyeongseong creature สัตว์สยองกยองซอง season 1-2 (จบ)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://tvallseries.co/wp-content/uploads/2023/12/Gyeongseong-Creature-Season-1-2023-300x170.webp);"onclick="window.location.href='https://playcdn.tvallseries.com/884de453-76d3-424a-b5eb-210819195850/_'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP7</div>
+</div>
+
+<div class="movie-title">Gyeongseong Creature สัตว์สยองกยองซอง Season 1-2 (จบ) - ตอนที่ Gyeongseong Creature (2023) สัตว์สยองกยองซอง ภาค 1 Season 1 ตอนที่ 8</div>
+</div>
+<div class="movie-item" data-category="gyeongseong creature สัตว์สยองกยองซอง season 1-2 (จบ)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://tvallseries.co/wp-content/uploads/2023/12/Gyeongseong-Creature-Season-1-2023-300x170.webp);"onclick="window.location.href='https://playcdn.tvallseries.com/78d11c05-6f4c-4dca-8b53-b00818170de7/_'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP8</div>
+</div>
+
+<div class="movie-title">Gyeongseong Creature สัตว์สยองกยองซอง Season 1-2 (จบ) - ตอนที่ Gyeongseong Creature (2023) สัตว์สยองกยองซอง ภาค 1 Season 1 ตอนที่ 9</div>
+</div>
+<div class="movie-item" data-category="gyeongseong creature สัตว์สยองกยองซอง season 1-2 (จบ)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://tvallseries.co/wp-content/uploads/2023/12/Gyeongseong-Creature-Season-1-2023-300x170.webp);"onclick="window.location.href='https://playcdn.tvallseries.com/e18b6dd4-f82f-40a4-b428-551c69643df2/_'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP9</div>
+</div>
+
+<div class="movie-title">Gyeongseong Creature สัตว์สยองกยองซอง Season 1-2 (จบ) - ตอนที่ Gyeongseong Creature (2023) สัตว์สยองกยองซอง ภาค 1 Season 1 ตอนที่ 10 (ตอนจบ)</div>
+</div>
+<div class="movie-item" data-category="gyeongseong creature สัตว์สยองกยองซอง ss2">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://s.isanook.com/mv/0/ud/34/172043/th_gyeongseongcreatures2_ka.jpg?ip/resize/w728/q80/jpg);"onclick="window.location.href='https://playcdn.tvallseries.com/94428a1d-92bb-4f4f-a0d3-34880376837c/0'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP10</div>
+</div>
+
+<div class="movie-item" data-category="gyeongseong creature สัตว์สยองกยองซอง ss2">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://s.isanook.com/mv/0/ud/34/172043/th_gyeongseongcreatures2_ka.jpg?ip/resize/w728/q80/jpg);"onclick="window.location.href='https://playcdn.tvallseries.com/ec60992c-f298-421f-9dc0-2e4bf74598ee/0'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP2</div>
+</div>
+<div class="movie-item" data-category="gyeongseong creature สัตว์สยองกยองซอง ss2">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://s.isanook.com/mv/0/ud/34/172043/th_gyeongseongcreatures2_ka.jpg?ip/resize/w728/q80/jpg);"onclick="window.location.href='https://playcdn.tvallseries.com/9a7e6ca4-8183-425f-9cec-25e5e43c3c99/0'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP3</div>
+</div>
+<div class="movie-item" data-category="gyeongseong creature สัตว์สยองกยองซอง ss2">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://s.isanook.com/mv/0/ud/34/172043/th_gyeongseongcreatures2_ka.jpg?ip/resize/w728/q80/jpg);"onclick="window.location.href='https://playcdn.tvallseries.com/a3e65369-a28a-4d61-a77f-7e4570b13f5a/0'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP4</div>
+</div>
+<div class="movie-item" data-category="gyeongseong creature สัตว์สยองกยองซอง ss2">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://s.isanook.com/mv/0/ud/34/172043/th_gyeongseongcreatures2_ka.jpg?ip/resize/w728/q80/jpg);"onclick="window.location.href='https://playcdn.tvallseries.com/347ef8a9-6f74-4db2-8baa-7350586ef134/0'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP5</div>
+</div>
+<div class="movie-item" data-category="gyeongseong creature สัตว์สยองกยองซอง ss2">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://s.isanook.com/mv/0/ud/34/172043/th_gyeongseongcreatures2_ka.jpg?ip/resize/w728/q80/jpg);"onclick="window.location.href='https://playcdn.tvallseries.com/05fed7aa-d74e-4e5e-afc7-780d3081fffa/0'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP6</div>
+</div>
+<div class="movie-item" data-category="gyeongseong creature สัตว์สยองกยองซอง ss2">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://s.isanook.com/mv/0/ud/34/172043/th_gyeongseongcreatures2_ka.jpg?ip/resize/w728/q80/jpg);"onclick="window.location.href='https://playcdn.tvallseries.com/67732d00-49d6-440f-a631-01d5bbb3f416/0'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP7</div>
+</div>
+
+<div class="movie-item" data-category="ceo-dol mart (2023) มินิมาร์ทนี้มีไอดอล ep.1-10 (จบ) » ซับไทย ซีรีย์เกาหลี">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://tvallseries.co/wp-content/uploads/2024/09/CEO-dol-Mart-2023-220x170.webp);"onclick="window.location.href='https://playcdn.tvallseries.com/317f8efd-cd61-4236-9919-140fc031b260/_'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP1</div>
+</div>
+
+<div class="movie-item" data-category="ceo-dol mart (2023) มินิมาร์ทนี้มีไอดอล ep.1-10 (จบ) » ซับไทย ซีรีย์เกาหลี">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://tvallseries.co/wp-content/uploads/2024/09/CEO-dol-Mart-2023-220x170.webp);"onclick="window.location.href='https://playcdn.tvallseries.com/c70f9e01-26c1-45b6-a3d0-d0c6b3880f6b/_'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP2</div>
+</div>
+
+<div class="movie-item" data-category="ceo-dol mart (2023) มินิมาร์ทนี้มีไอดอล ep.1-10 (จบ) » ซับไทย ซีรีย์เกาหลี">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://tvallseries.co/wp-content/uploads/2024/09/CEO-dol-Mart-2023-220x170.webp);"onclick="window.location.href='https://playcdn.tvallseries.com/05e30d2e-4036-472b-946b-da4694c4da20/_'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP3</div>
+</div>
+
+<div class="movie-item" data-category="ceo-dol mart (2023) มินิมาร์ทนี้มีไอดอล ep.1-10 (จบ) » ซับไทย ซีรีย์เกาหลี">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://tvallseries.co/wp-content/uploads/2024/09/CEO-dol-Mart-2023-220x170.webp);"onclick="window.location.href='https://playcdn.tvallseries.com/6f9fd98f-0d10-4085-8bb1-5a53ef968975/_'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP4</div>
+</div>
+
+<div class="movie-item" data-category="ceo-dol mart (2023) มินิมาร์ทนี้มีไอดอล ep.1-10 (จบ) » ซับไทย ซีรีย์เกาหลี">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://tvallseries.co/wp-content/uploads/2024/09/CEO-dol-Mart-2023-220x170.webp);"onclick="window.location.href='https://playcdn.tvallseries.com/611ed9f6-8ed2-4b3d-93f7-b4fb57e7369b/_'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP5</div>
+</div>
+
+<div class="movie-item" data-category="ceo-dol mart (2023) มินิมาร์ทนี้มีไอดอล ep.1-10 (จบ) » ซับไทย ซีรีย์เกาหลี">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://tvallseries.co/wp-content/uploads/2024/09/CEO-dol-Mart-2023-220x170.webp);"onclick="window.location.href='https://playcdn.tvallseries.com/33e4625b-0ae8-4065-afd1-6105594555e5/_'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP6</div>
+</div>
+
+<div class="movie-item" data-category="ceo-dol mart (2023) มินิมาร์ทนี้มีไอดอล ep.1-10 (จบ) » ซับไทย ซีรีย์เกาหลี">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://tvallseries.co/wp-content/uploads/2024/09/CEO-dol-Mart-2023-220x170.webp);"onclick="window.location.href='https://playcdn.tvallseries.com/69762436-198b-446a-8b20-cdbefa3031b3/_'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP7</div>
+</div>
+
+<div class="movie-item" data-category="ceo-dol mart (2023) มินิมาร์ทนี้มีไอดอล ep.1-10 (จบ) » ซับไทย ซีรีย์เกาหลี">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://tvallseries.co/wp-content/uploads/2024/09/CEO-dol-Mart-2023-220x170.webp);"onclick="window.location.href='https://playcdn.tvallseries.com/4a22256a-d663-4901-9f6f-75bb8a3de2d3/_'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP8</div>
+</div>
+
+<div class="movie-item" data-category="ceo-dol mart (2023) มินิมาร์ทนี้มีไอดอล ep.1-10 (จบ) » ซับไทย ซีรีย์เกาหลี">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://tvallseries.co/wp-content/uploads/2024/09/CEO-dol-Mart-2023-220x170.webp);"onclick="window.location.href='https://playcdn.tvallseries.com/271271ec-f2e2-4d06-abc0-12bd0d153a5c/0'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP9</div>
+</div>
+
+<div class="movie-item" data-category="ceo-dol mart (2023) มินิมาร์ทนี้มีไอดอล ep.1-10 (จบ) » ซับไทย ซีรีย์เกาหลี">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://tvallseries.co/wp-content/uploads/2024/09/CEO-dol-Mart-2023-220x170.webp);"onclick="window.location.href='https://playcdn.tvallseries.com/726fe859-5951-4841-b5e2-26cbd006db8a/0'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP10</div>
+</div>
+
+<div class="movie-item" data-category="forecasting love and weather (2022) พยากรณ์วันนี้ มีรักบางแห่ง ep.1-16 (จบ)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://tvallseries.co/wp-content/uploads/2024/09/Forecasting-Love-and-Weather-2022-thai-220x170.webp);"onclick="window.location.href='https://playcdn.tvallseries.com/908ddd73-86f7-46e0-92c1-b9029d4e5032/_'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP1</div>
+</div>
+
+<div class="movie-item" data-category="forecasting love and weather (2022) พยากรณ์วันนี้ มีรักบางแห่ง ep.1-16 (จบ)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://tvallseries.co/wp-content/uploads/2024/09/Forecasting-Love-and-Weather-2022-thai-220x170.webp);"onclick="window.location.href='https://playcdn.tvallseries.com/bf22bfac-4772-4697-b24f-16fa9061f7b9/_'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP2</div>
+</div>
+
+<div class="movie-item" data-category="forecasting love and weather (2022) พยากรณ์วันนี้ มีรักบางแห่ง ep.1-16 (จบ)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://tvallseries.co/wp-content/uploads/2024/09/Forecasting-Love-and-Weather-2022-thai-220x170.webp);"onclick="window.location.href='https://playcdn.tvallseries.com/a861ff1d-b6b3-4df2-8fa9-c6ca6a51c060/_'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP3</div>
+</div>
+
+<div class="movie-item" data-category="forecasting love and weather (2022) พยากรณ์วันนี้ มีรักบางแห่ง ep.1-16 (จบ)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://tvallseries.co/wp-content/uploads/2024/09/Forecasting-Love-and-Weather-2022-thai-220x170.webp);"onclick="window.location.href='https://playcdn.tvallseries.com/7010d064-8911-48ca-8132-3ca51e7c7e46/_'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP4</div>
+</div>
+
+<div class="movie-item" data-category="forecasting love and weather (2022) พยากรณ์วันนี้ มีรักบางแห่ง ep.1-16 (จบ)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://tvallseries.co/wp-content/uploads/2024/09/Forecasting-Love-and-Weather-2022-thai-220x170.webp);"onclick="window.location.href='https://playcdn.tvallseries.com/4505d92b-7f5d-4d4b-bb19-d191e0f6e7f7/_'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP5</div>
+</div>
+
+<div class="movie-item" data-category="forecasting love and weather (2022) พยากรณ์วันนี้ มีรักบางแห่ง ep.1-16 (จบ)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://tvallseries.co/wp-content/uploads/2024/09/Forecasting-Love-and-Weather-2022-thai-220x170.webp);"onclick="window.location.href='https://playcdn.tvallseries.com/45b41b0a-6e78-4e50-bfe9-092763ba6e88/_'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP6</div>
+</div>
+
+<div class="movie-item" data-category="forecasting love and weather (2022) พยากรณ์วันนี้ มีรักบางแห่ง ep.1-16 (จบ)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://tvallseries.co/wp-content/uploads/2024/09/Forecasting-Love-and-Weather-2022-thai-220x170.webp);"onclick="window.location.href='https://playcdn.tvallseries.com/e5bc50c2-3875-427f-9e7e-5915edb85e38/_'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP7</div>
+</div>
+
+<div class="movie-item" data-category="forecasting love and weather (2022) พยากรณ์วันนี้ มีรักบางแห่ง ep.1-16 (จบ)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://tvallseries.co/wp-content/uploads/2024/09/Forecasting-Love-and-Weather-2022-thai-220x170.webp);"onclick="window.location.href='https://playcdn.tvallseries.com/962ef3bd-41d1-4c0f-a597-14cfce6f66ab/_'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP8</div>
+</div>
+
+<div class="movie-item" data-category="forecasting love and weather (2022) พยากรณ์วันนี้ มีรักบางแห่ง ep.1-16 (จบ)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://tvallseries.co/wp-content/uploads/2024/09/Forecasting-Love-and-Weather-2022-thai-220x170.webp);"onclick="window.location.href='https://playcdn.tvallseries.com/42da062f-d808-4f02-9f3b-7d58f9127a2d/_'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP9</div>
+</div>
+
+<div class="movie-item" data-category="forecasting love and weather (2022) พยากรณ์วันนี้ มีรักบางแห่ง ep.1-16 (จบ)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://tvallseries.co/wp-content/uploads/2024/09/Forecasting-Love-and-Weather-2022-thai-220x170.webp);"onclick="window.location.href='https://playcdn.tvallseries.com/28ab889c-9e4a-4d97-bc4c-e4638e39c895/_'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP10</div>
+</div>
+
+<div class="movie-item" data-category="forecasting love and weather (2022) พยากรณ์วันนี้ มีรักบางแห่ง ep.1-16 (จบ)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://tvallseries.co/wp-content/uploads/2024/09/Forecasting-Love-and-Weather-2022-thai-220x170.webp);"onclick="window.location.href='https://playcdn.tvallseries.com/4722bc87-abd4-4fa2-96da-d782c82567c8/_'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP11</div>
+</div>
+
+<div class="movie-item" data-category="forecasting love and weather (2022) พยากรณ์วันนี้ มีรักบางแห่ง ep.1-16 (จบ)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://tvallseries.co/wp-content/uploads/2024/09/Forecasting-Love-and-Weather-2022-thai-220x170.webp);"onclick="window.location.href='https://playcdn.tvallseries.com/215f085f-4545-4b6b-ba82-05de0846dcea/_'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP12</div>
+</div>
+
+<div class="movie-item" data-category="forecasting love and weather (2022) พยากรณ์วันนี้ มีรักบางแห่ง ep.1-16 (จบ)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://tvallseries.co/wp-content/uploads/2024/09/Forecasting-Love-and-Weather-2022-thai-220x170.webp);"onclick="window.location.href='https://playcdn.tvallseries.com/97b0f2ad-8562-4629-a87c-63802855cc4c/_'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP13</div>
+</div>
+
+<div class="movie-item" data-category="forecasting love and weather (2022) พยากรณ์วันนี้ มีรักบางแห่ง ep.1-16 (จบ)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://tvallseries.co/wp-content/uploads/2024/09/Forecasting-Love-and-Weather-2022-thai-220x170.webp);"onclick="window.location.href='https://playcdn.tvallseries.com/7e91c940-dd20-42eb-a94a-638a7cb50f92/_'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP14</div>
+</div>
+
+<div class="movie-item" data-category="forecasting love and weather (2022) พยากรณ์วันนี้ มีรักบางแห่ง ep.1-16 (จบ)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://tvallseries.co/wp-content/uploads/2024/09/Forecasting-Love-and-Weather-2022-thai-220x170.webp);"onclick="window.location.href='https://playcdn.tvallseries.com/64c8d96f-f811-49ac-a4b6-2b851172a701/_'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP15</div>
+</div>
+
+<div class="movie-item" data-category="forecasting love and weather (2022) พยากรณ์วันนี้ มีรักบางแห่ง ep.1-16 (จบ)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://tvallseries.co/wp-content/uploads/2024/09/Forecasting-Love-and-Weather-2022-thai-220x170.webp);"onclick="window.location.href='https://playcdn.tvallseries.com/67756ee3-1841-485c-9cb6-09cdb20b7483/_'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP16</div>
+</div>
+
+<div class="movie-item" data-category="crazy love (2022) หวาน โหด โคตรคลั่งรัก ep.1-16 (จบ)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://tvallseries.co/wp-content/uploads/2024/09/Crazy-Love-2022-thai-220x170.webp);"onclick="window.location.href='https://playcdn.tvallseries.com/8b6158dc-5c49-4879-8b96-107b23c12ff9/_'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP1</div>
+</div>
+
+<div class="movie-item" data-category="crazy love (2022) หวาน โหด โคตรคลั่งรัก ep.1-16 (จบ)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://tvallseries.co/wp-content/uploads/2024/09/Crazy-Love-2022-thai-220x170.webp);"onclick="window.location.href='https://playcdn.tvallseries.com/03040fc3-83ca-4bc1-a966-3013c98eec89/_'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP2</div>
+</div>
+
+<div class="movie-item" data-category="crazy love (2022) หวาน โหด โคตรคลั่งรัก ep.1-16 (จบ)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://tvallseries.co/wp-content/uploads/2024/09/Crazy-Love-2022-thai-220x170.webp);"onclick="window.location.href='https://playcdn.tvallseries.com/60369e9a-9c29-4559-826f-ff508e0372af/_'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP3</div>
+</div>
+
+<div class="movie-item" data-category="crazy love (2022) หวาน โหด โคตรคลั่งรัก ep.1-16 (จบ)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://tvallseries.co/wp-content/uploads/2024/09/Crazy-Love-2022-thai-220x170.webp);"onclick="window.location.href='https://playcdn.tvallseries.com/94669c58-130d-464e-88f8-aacf1c092955/_'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP4</div>
+</div>
+
+<div class="movie-item" data-category="crazy love (2022) หวาน โหด โคตรคลั่งรัก ep.1-16 (จบ)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://tvallseries.co/wp-content/uploads/2024/09/Crazy-Love-2022-thai-220x170.webp);"onclick="window.location.href='https://playcdn.tvallseries.com/66e6803a-520d-497e-9b03-c5ebe0487389/_'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP5</div>
+</div>
+
+<div class="movie-item" data-category="crazy love (2022) หวาน โหด โคตรคลั่งรัก ep.1-16 (จบ)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://tvallseries.co/wp-content/uploads/2024/09/Crazy-Love-2022-thai-220x170.webp);"onclick="window.location.href='https://playcdn.tvallseries.com/849a5d50-927c-48dd-b6d7-a91df42f445a/_'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP6</div>
+</div>
+
+<div class="movie-item" data-category="crazy love (2022) หวาน โหด โคตรคลั่งรัก ep.1-16 (จบ)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://tvallseries.co/wp-content/uploads/2024/09/Crazy-Love-2022-thai-220x170.webp);"onclick="window.location.href='https://playcdn.tvallseries.com/133043c4-8dc6-40c7-be43-220a2ee24f7a/_'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP7</div>
+</div>
+
+<div class="movie-item" data-category="crazy love (2022) หวาน โหด โคตรคลั่งรัก ep.1-16 (จบ)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://tvallseries.co/wp-content/uploads/2024/09/Crazy-Love-2022-thai-220x170.webp);"onclick="window.location.href='https://playcdn.tvallseries.com/71bfcf53-50be-441d-ae2b-0566c0058974/_'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP8</div>
+</div>
+
+<div class="movie-item" data-category="crazy love (2022) หวาน โหด โคตรคลั่งรัก ep.1-16 (จบ)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://tvallseries.co/wp-content/uploads/2024/09/Crazy-Love-2022-thai-220x170.webp);"onclick="window.location.href='https://playcdn.tvallseries.com/8c94e12b-d765-4249-9dc9-99a6bf4c0995/_'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP9</div>
+</div>
+
+<div class="movie-item" data-category="crazy love (2022) หวาน โหด โคตรคลั่งรัก ep.1-16 (จบ)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://tvallseries.co/wp-content/uploads/2024/09/Crazy-Love-2022-thai-220x170.webp);"onclick="window.location.href='https://playcdn.tvallseries.com/9f9b7b79-b7aa-4c66-96f7-c1f4d9efc0d3/_'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP10</div>
+</div>
+
+<div class="movie-item" data-category="crazy love (2022) หวาน โหด โคตรคลั่งรัก ep.1-16 (จบ)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://tvallseries.co/wp-content/uploads/2024/09/Crazy-Love-2022-thai-220x170.webp);"onclick="window.location.href='https://playcdn.tvallseries.com/9ba01995-065e-4a0e-8bf9-857a260d96b5/_'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP11</div>
+</div>
+
+<div class="movie-item" data-category="crazy love (2022) หวาน โหด โคตรคลั่งรัก ep.1-16 (จบ)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://tvallseries.co/wp-content/uploads/2024/09/Crazy-Love-2022-thai-220x170.webp);"onclick="window.location.href='https://playcdn.tvallseries.com/7e8c58a6-82f2-406f-8fc6-e4e817d533e5/_'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP12</div>
+</div>
+
+<div class="movie-item" data-category="crazy love (2022) หวาน โหด โคตรคลั่งรัก ep.1-16 (จบ)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://tvallseries.co/wp-content/uploads/2024/09/Crazy-Love-2022-thai-220x170.webp);"onclick="window.location.href='https://playcdn.tvallseries.com/0bd7ebd8-4662-4d89-9b6e-52c01c88cfb0/_'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP13</div>
+</div>
+
+<div class="movie-item" data-category="crazy love (2022) หวาน โหด โคตรคลั่งรัก ep.1-16 (จบ)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://tvallseries.co/wp-content/uploads/2024/09/Crazy-Love-2022-thai-220x170.webp);"onclick="window.location.href='https://playcdn.tvallseries.com/7cd81410-5eee-4f98-8989-e55d015be9c7/_'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP14</div>
+</div>
+
+<div class="movie-item" data-category="crazy love (2022) หวาน โหด โคตรคลั่งรัก ep.1-16 (จบ)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://tvallseries.co/wp-content/uploads/2024/09/Crazy-Love-2022-thai-220x170.webp);"onclick="window.location.href='https://playcdn.tvallseries.com/c9d8e0d1-e530-4cf7-9df4-6b54ef2ec888/_'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP15</div>
+</div>
+
+<div class="movie-item" data-category="crazy love (2022) หวาน โหด โคตรคลั่งรัก ep.1-16 (จบ)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://tvallseries.co/wp-content/uploads/2024/09/Crazy-Love-2022-thai-220x170.webp);"onclick="window.location.href='https://playcdn.tvallseries.com/8251f78c-d886-4c38-a4f6-34a3c1632cbd/_'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP16</div>
+</div>
+
+
+
+<!-- Pagination -->
+<div class="pagination-wrapper">
+<nav>
+<ul class="pagination">
+    <li><a href="go:main-serie" aria-label="กลับหน้าหลัก"><span aria-hidden="true"><< กลับหน้าหลัก</span></a></li>
+<li class="active"><a href="https://udzaa2238.github.io/korea-series/ซีรี่ย์เกาหลี-หน้าที่21.html"><b>21</b></a></li>
+    <li><a href="https://udzaa2238.github.io/korea-series/ซีรี่ย์เกาหลี-หน้าที่22.html">22</a></li>
+    <li><a href="https://udzaa2238.github.io/korea-series/ซีรี่ย์เกาหลี-หน้าที่23.html">23</a></li>
+    <li><a href="https://udzaa2238.github.io/korea-series/ซีรี่ย์เกาหลี-หน้าที่24.html">24</a></li>
+    <li><a href="https://udzaa2238.github.io/korea-series/ซีรี่ย์เกาหลี-หน้าที่25.html">25</a></li>
+    <li><a href="https://udzaa2238.github.io/korea-series/ซีรี่ย์เกาหลี-หน้าที่26.html">26</a></li>
+    <li><a href="https://udzaa2238.github.io/korea-series/ซีรี่ย์เกาหลี-หน้าที่27.html">27</a></li>
+    <li><a href="https://udzaa2238.github.io/korea-series/ซีรี่ย์เกาหลี-หน้าที่28.html">28</a></li>
+	<li><a href="https://udzaa2238.github.io/korea-series/ซีรี่ย์เกาหลี-หน้าที่29.html">29</a></li>
+    <li><a href="https://udzaa2238.github.io/korea-series/ซีรี่ย์เกาหลี-หน้าที่30.html">30</a></li>
+    <li><a href="https://udzaa2238.github.io/korea-series/ซีรี่ย์เกาหลี-หน้าที่31.html">หน้าต่อไป»</a></li>
+    
+    </ul>
+    </nav>
+    </div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

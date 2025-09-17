@@ -1,0 +1,811 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>ซีรี่ย์เกาหลี หน้าที่ 6</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- External CSS -->
+  <link href="https://playtvthai.github.io/m3u8/css/bootstrap.css" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <link href="https://playtvthai.github.io/m3u8/css/style.css" rel="stylesheet" type="text/css" media="all" />
+  <link rel="stylesheet" href="https://playtvthai.github.io/m3u8/css/normalize.css">
+  <link rel="stylesheet" href="https://playtvthai.github.io/m3u8/css/custom.css">
+  <link rel="stylesheet" href="https://playtvthai.github.io/m3u8/css/main.css">
+  <link rel="stylesheet" href="http://hdtvdd.com/work/assets_remark/fonts/font-awesome/font-awesome.min.css">
+  <link rel="stylesheet" href="http://hdtvdd.com/work/font/stylesheet.css" type="text/css" charset="utf-8" />
+  <link rel="stylesheet" href="http://hdtvdd.com/work/css/8k.css" type="text/css" charset="utf-8" />
+  <link rel="stylesheet" href="http://hdtvdd.com/work/css/overlay.css" type="text/css" charset="utf-8">
+  <link href="http://hdtvdd.com/work/css/theme.css" rel="stylesheet">
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:100,200,300,400,500,600,700,800,900" rel="stylesheet" type="text/css">
+
+  <!-- JS (dedupe jQuery) -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <script src="https://playtvthai.github.io/m3u8/js/jquery.backstretch.js"></script>
+  <script src="http://hdtvdd.com/work/bootstrap-login-forms/form-2/assets/js/scripts.js"></script>
+
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      width: 100vw;
+      height: 100%;
+      background: #000;
+      box-sizing: border-box;
+      overflow-x: hidden;
+      font-family: 'Roboto Condensed', sans-serif;
+    }
+    *, *:before, *:after { box-sizing: inherit; }
+
+    /* Search/filter bar */
+    .filter-bar {
+      margin: 10px 0;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      align-items: center;
+    }
+    .filter-bar input, .filter-bar select {
+      padding: 8px;
+      font-size: 16px;
+      border-radius: 4px;
+      border: 1px solid #444;
+      background: #1f2025;
+      color: #fff;
+    }
+
+    /* Movie grid 5 columns */
+    /* Movie grid */
+    .movies-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin: 0 -5px;
+      padding-top: 10px;
+    }
+    .movie-item {
+      flex: 0 0 10%; /* เล็กลง, 5 คอลัมน์ต่อแถว */
+      box-sizing: border-box;
+      padding: 0 5px;
+      margin-bottom: 20px;
+      max-width: 200px; /* หรือจำกัดขนาดสูงสุด */
+    }
+    .movie-box {
+      background: #1f2025;
+      border-radius: 4px;
+      overflow: hidden;
+      position: relative;
+    }
+    .movie-image button {
+      width: 100%;
+      height: 0;
+      padding-top: 147%;
+      background-size: cover;
+      background-position: center;
+      border: none;
+      border-radius: 2px;
+      cursor: pointer;
+    }
+    .movie-title {
+      color: white;
+      font-size: 14px;
+      text-align: center;
+      margin-top: 6px;
+      line-height: 1.2;
+      padding: 0 4px;
+      word-break: break-word;
+    }
+
+    @media (max-width: 1200px) {
+      .movie-item { flex: 0 0 33.333%; }
+    }
+    @media (max-width: 900px) {
+      .movie-item { flex: 0 0 50%; }
+    }
+    @media (max-width: 600px) {
+      .movie-item { flex: 0 0 100%; }
+    }
+
+    .pagination-wrapper { text-align: center; margin-top: 20px; }
+    .pagination > li > a, .pagination > li > span { padding: 6px 12px; }
+  </style>
+
+  <script>
+    $(document).ready(function(){
+      $("#myBtn").click(function(){ $("#myModal").modal(); });
+      $("#myBtn2").click(function(){ $("#myModal2").modal(); });
+      $("#myBtn_vip").click(function(){ $("#myModal_vip").modal(); });
+      $("#myBtn_cpass").click(function(){ $("#myModal_changepass").modal(); });
+
+      // Filter logic
+      function normalizeText(t) {
+        return t.trim().toLowerCase();
+      }
+
+      function applyFilter() {
+        const query = normalizeText($("#movie-search").val() || "");
+        const category = $("#category-filter").val();
+        $(".movie-item").each(function() {
+          const title = normalizeText($(this).find(".movie-title").text() || "");
+          const itemCat = $(this).attr("data-category") || "all";
+          const matchesSearch = query === "" || title.includes(query);
+          const matchesCategory = category === "all" || itemCat === category;
+          if (matchesSearch && matchesCategory) {
+            $(this).show();
+          } else {
+            $(this).hide();
+          }
+        });
+      }
+
+      $("#movie-search").on("input", applyFilter);
+      $("#category-filter").on("change", applyFilter);
+    });
+  </script>
+</head>
+
+<body>
+  <div class="container" style="background-color:rgba(0,0,0,0); height:100%;">
+    <div class="container_wrap">
+      <div class="row" style="background-color:#27282c;border-radius:5px;">
+        <div class="col-lg-12 col-md-12 col-xs-12" style="margin-top:10px;margin-bottom:10px;">
+          <div class="row">
+            <div class="col-lg-2 col-md-2 col-sm-5 col-xs-5">
+              <div class="logo"></div>
+            </div>
+            <div class="col-lg-10 col-md-12 col-xs-12">
+              <div class="col-lg-12 col-md-12 col-xs-12" align="left" style="padding:5px;">
+                <div class="form-inline">
+                  <div class="form-group" style="margin:5px;">
+                    <form action="" method="get" name="lange" style="display:inline;">
+                      <input name="lange" type="hidden" id="lange" value="en">
+                      <input type="image" src="/web/images/en.gif" name="submit" width="60" height="20" alt="submit"/>
+                    </form>
+                  </div>
+                  <label for="form-password"><font color="white">ชื่อ : </font><font color="yellow">[ ผู้เฒ่าพเนจร ™ ]</font></label>
+
+                  <button class="btn btn-default" type="button" style="background-color:transparent;border-radius:2px;border:0;font-size:18px;color:#FFF;padding:0 5px;font-family:'rsuregular';" onclick="window.location.href='go:digital'">🏠 Home ™</button>
+                  <button class="btn btn-default" type="button" style="background-color:transparent;border-radius:2px;border:0;font-size:18px;color:#FFF;padding:0 5px;font-family:'rsuregular';" onclick="window.location.href='go:live'">📡 ถ่ายทอดสด ™</button>
+                  <button class="btn btn-default" type="button" style="background-color:transparent;border-radius:2px;border:0;font-size:18px;color:#FFF;padding:0 5px;font-family:'rsuregular';" onclick="window.location.href='go:main-serie'">🎞️ ดูซีรี่ย์ ™</button>
+                  <button class="btn btn-default" type="button" style="background-color:transparent;border-radius:2px;border:0;font-size:18px;color:#FFF;padding:0 5px;font-family:'rsuregular';" onclick="window.location.href='go:main-movie'">🎥 ดูหนัง ™</button>
+                  <button class="btn btn-default" type="button" style="background-color:transparent;border-radius:2px;border:0;font-size:18px;color:#FFF;padding:0 5px;font-family:'rsuregular';" onclick="window.location.href='go:main-movie'">📽️ ดูสารคดี ™</button>
+                  <button class="btn btn-default" type="button" style="background-color:transparent;border-radius:2px;border:0;font-size:18px;color:#FFF;padding:0 5px;font-family:'rsuregular';" onclick="window.location.href='http://action_exit'">🚪 ออก</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+<!--
+          <!-- filter bar -->
+          <div class="filter-bar">
+            <div>
+              <input id="movie-search" type="text" placeholder="ค้นหาหนัง..." />
+            </div>
+            <div>
+              <select id="category-filter">
+                <option value="all">ทั้งหมด</option>
+                <option value="action">Action</option>
+                <option value="drama">Drama</option>
+                <option value="sci-fi">Sci-Fi</option>
+                <option value="exclusive">Exclusive</option>
+              </select>
+            </div>
+          </div>
+
+
+-->
+          <!-- รวมทุก movie-item ไว้ใน grid เดียว -->
+          <div class="movies-grid">
+		  
+
+<div class="movie-item" data-category=" (จบแล้ว)the first night with the duke (2025) (ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serieday-hd.com/wp-content/uploads/2025/06/The-First-Night-with-the-Duke-2025-210x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/c1f5d633c2ab2edff300a532/c1f5d633c2ab2edff300a532.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP01</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)the first night with the duke (2025) (ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serieday-hd.com/wp-content/uploads/2025/06/The-First-Night-with-the-Duke-2025-210x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/3517aaa6f0ebf4835c8924db/3517aaa6f0ebf4835c8924db.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP02</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)the first night with the duke (2025) (ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serieday-hd.com/wp-content/uploads/2025/06/The-First-Night-with-the-Duke-2025-210x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/9b386a5be3f574f463e8f646/9b386a5be3f574f463e8f646.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP03</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)the first night with the duke (2025) (ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serieday-hd.com/wp-content/uploads/2025/06/The-First-Night-with-the-Duke-2025-210x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/965b6ef1bf3303120fbd1db5/965b6ef1bf3303120fbd1db5.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP04</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)the first night with the duke (2025) (ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serieday-hd.com/wp-content/uploads/2025/06/The-First-Night-with-the-Duke-2025-210x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/6e011459f0f27ae50806db0a/6e011459f0f27ae50806db0a.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP05</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)the first night with the duke (2025) (ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serieday-hd.com/wp-content/uploads/2025/06/The-First-Night-with-the-Duke-2025-210x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/6e47dc12b6bc2281ef64153a/6e47dc12b6bc2281ef64153a.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP06</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)the first night with the duke (2025) (ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serieday-hd.com/wp-content/uploads/2025/06/The-First-Night-with-the-Duke-2025-210x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/370f02ab66a3530e9a618caa/370f02ab66a3530e9a618caa.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP07</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)the first night with the duke (2025) (ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serieday-hd.com/wp-content/uploads/2025/06/The-First-Night-with-the-Duke-2025-210x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/015f2abe685d65573d2c5305/015f2abe685d65573d2c5305.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP08</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)the first night with the duke (2025) (ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serieday-hd.com/wp-content/uploads/2025/06/The-First-Night-with-the-Duke-2025-210x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/dcfba33c49773d933c5fbc99/dcfba33c49773d933c5fbc99.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP09</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)the first night with the duke (2025) (ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serieday-hd.com/wp-content/uploads/2025/06/The-First-Night-with-the-Duke-2025-210x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/8ac7f356d700ab82708b8324/8ac7f356d700ab82708b8324.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP10</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)the first night with the duke (2025) (ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serieday-hd.com/wp-content/uploads/2025/06/The-First-Night-with-the-Duke-2025-210x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/305b505ef99d57988727b13d/305b505ef99d57988727b13d.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP11</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)the first night with the duke (2025) (ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serieday-hd.com/wp-content/uploads/2025/06/The-First-Night-with-the-Duke-2025-210x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/c1159c58a9e770ae23310e92/c1159c58a9e770ae23310e92.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP12</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)our movie (2025) (ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serieday-hd.com/wp-content/uploads/2025/06/Our-Movie-2025-212x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/3335d58ed1ea7c6f39193e90/3335d58ed1ea7c6f39193e90.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP01</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)our movie (2025) (ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serieday-hd.com/wp-content/uploads/2025/06/Our-Movie-2025-212x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/ec39ce7e2488a1ba4e51e770/ec39ce7e2488a1ba4e51e770.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP02</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)our movie (2025) (ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serieday-hd.com/wp-content/uploads/2025/06/Our-Movie-2025-212x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/a4e10a962c165a953e74dd1b/a4e10a962c165a953e74dd1b.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP03</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)our movie (2025) (ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serieday-hd.com/wp-content/uploads/2025/06/Our-Movie-2025-212x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/220a618e6ff588ab82325cf8/220a618e6ff588ab82325cf8.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP04</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)our movie (2025) (ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serieday-hd.com/wp-content/uploads/2025/06/Our-Movie-2025-212x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/34e59f6cb9ada1a125ad2375/34e59f6cb9ada1a125ad2375.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP05</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)our movie (2025) (ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serieday-hd.com/wp-content/uploads/2025/06/Our-Movie-2025-212x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/8dd7493ce62ed5d039d9b5f3/8dd7493ce62ed5d039d9b5f3.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP06</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)our movie (2025) (ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serieday-hd.com/wp-content/uploads/2025/06/Our-Movie-2025-212x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/059edca2596a15e6d0d1ff11/059edca2596a15e6d0d1ff11.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP07</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)our movie (2025) (ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serieday-hd.com/wp-content/uploads/2025/06/Our-Movie-2025-212x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/c5a316ea1eb714a57d084f82/c5a316ea1eb714a57d084f82.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP08</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)our movie (2025) (ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serieday-hd.com/wp-content/uploads/2025/06/Our-Movie-2025-212x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/4d67c10d0b110b274af2f4e5/4d67c10d0b110b274af2f4e5.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP09</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)our movie (2025) (ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serieday-hd.com/wp-content/uploads/2025/06/Our-Movie-2025-212x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/5e6b088879829230a4b83ce5/5e6b088879829230a4b83ce5.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP10</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)our movie (2025) (ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serieday-hd.com/wp-content/uploads/2025/06/Our-Movie-2025.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/5e6b088879829230a4b83ce5/5e6b088879829230a4b83ce5.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP11</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)our movie (2025) (ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serieday-hd.com/wp-content/uploads/2025/06/Our-Movie-2025.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/b3d2b84593bdfa6d53115fab/b3d2b84593bdfa6d53115fab.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP12</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)head over heels (2025) หนุ่มดวงจู๋กับหมอดูคนจ๋วย (ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serieday-hd.com/wp-content/uploads/2025/06/Head-Over-Heels-2025-200x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/bc2deb8d26020d98fb211e0a/bc2deb8d26020d98fb211e0a.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP01</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)head over heels (2025) หนุ่มดวงจู๋กับหมอดูคนจ๋วย (ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serieday-hd.com/wp-content/uploads/2025/06/Head-Over-Heels-2025-200x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/15d9e388514969f8f2a47b3f/15d9e388514969f8f2a47b3f.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP02</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)head over heels (2025) หนุ่มดวงจู๋กับหมอดูคนจ๋วย (ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serieday-hd.com/wp-content/uploads/2025/06/Head-Over-Heels-2025-200x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/b6e6282c53945995a2ddee22/b6e6282c53945995a2ddee22.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP03</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)head over heels (2025) หนุ่มดวงจู๋กับหมอดูคนจ๋วย (ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serieday-hd.com/wp-content/uploads/2025/06/Head-Over-Heels-2025-200x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/536733c0ebe5d9cafb639d9a/536733c0ebe5d9cafb639d9a.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP04</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)head over heels (2025) หนุ่มดวงจู๋กับหมอดูคนจ๋วย (ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serieday-hd.com/wp-content/uploads/2025/06/Head-Over-Heels-2025-200x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/4ccdcbc59dcc0b31c522f5ea/4ccdcbc59dcc0b31c522f5ea.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP05</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)head over heels (2025) หนุ่มดวงจู๋กับหมอดูคนจ๋วย (ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serieday-hd.com/wp-content/uploads/2025/06/Head-Over-Heels-2025-200x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/a585c4d8c27d2f76a0670b7d/a585c4d8c27d2f76a0670b7d.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP06</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)head over heels (2025) หนุ่มดวงจู๋กับหมอดูคนจ๋วย (ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serieday-hd.com/wp-content/uploads/2025/06/Head-Over-Heels-2025-200x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/a40c41da4c3bc7693531893d/a40c41da4c3bc7693531893d.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP07</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)head over heels (2025) หนุ่มดวงจู๋กับหมอดูคนจ๋วย (ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serieday-hd.com/wp-content/uploads/2025/06/Head-Over-Heels-2025-200x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/c5315a43d4358be2dedf99ec/c5315a43d4358be2dedf99ec.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP08</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)head over heels (2025) หนุ่มดวงจู๋กับหมอดูคนจ๋วย (ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serieday-hd.com/wp-content/uploads/2025/06/Head-Over-Heels-2025-200x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/3702c8818ad0312c90ecb07a/3702c8818ad0312c90ecb07a.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP09</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)head over heels (2025) หนุ่มดวงจู๋กับหมอดูคนจ๋วย (ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serieday-hd.com/wp-content/uploads/2025/06/Head-Over-Heels-2025-200x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/611f498c36e69617251a508b/611f498c36e69617251a508b.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP10</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)head over heels (2025) หนุ่มดวงจู๋กับหมอดูคนจ๋วย (ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serieday-hd.com/wp-content/uploads/2025/06/Head-Over-Heels-2025-200x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/bbafedcb8f3b1629c25cce0c/bbafedcb8f3b1629c25cce0c.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP11</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)head over heels (2025) หนุ่มดวงจู๋กับหมอดูคนจ๋วย (ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serieday-hd.com/wp-content/uploads/2025/06/Head-Over-Heels-2025-200x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/e610c992eb9067ae2ae9a8f3/e610c992eb9067ae2ae9a8f3.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP12</div>
+</div>
+<div class="movie-item" data-category="(จบแล้ว) bitch x rich 2 (2025) สืบคดีคุณหนูโรงเรียนชองดัม 2">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.seriesday-hd.com/wp-content/uploads/2025/07/Bitch-x-Rich-2-2025.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/c557f3b17b1d8d332d173a7b/c557f3b17b1d8d332d173a7b.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP10</div>
+</div>
+<div class="movie-item" data-category="(จบแล้ว) bitch x rich 2 (2025) สืบคดีคุณหนูโรงเรียนชองดัม 2">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.seriesday-hd.com/wp-content/uploads/2025/07/Bitch-x-Rich-2-2025.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/2a734758f6e84aaa1cb661c1/2a734758f6e84aaa1cb661c1.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP9</div>
+</div>
+<div class="movie-item" data-category="(จบแล้ว) bitch x rich 2 (2025) สืบคดีคุณหนูโรงเรียนชองดัม 2">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.seriesday-hd.com/wp-content/uploads/2025/07/Bitch-x-Rich-2-2025.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/adba9f6675c036f4e929b510/adba9f6675c036f4e929b510.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP8</div>
+</div>
+<div class="movie-item" data-category="(จบแล้ว) bitch x rich 2 (2025) สืบคดีคุณหนูโรงเรียนชองดัม 2">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.seriesday-hd.com/wp-content/uploads/2025/07/Bitch-x-Rich-2-2025.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/01151ea362e0b4380eb82259/01151ea362e0b4380eb82259.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP7</div>
+</div>
+<div class="movie-item" data-category="(จบแล้ว) bitch x rich 2 (2025) สืบคดีคุณหนูโรงเรียนชองดัม 2">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.seriesday-hd.com/wp-content/uploads/2025/07/Bitch-x-Rich-2-2025.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/2fb2b7acca6f6d849e31ef10/2fb2b7acca6f6d849e31ef10.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP6</div>
+</div>
+<div class="movie-item" data-category="(จบแล้ว) bitch x rich 2 (2025) สืบคดีคุณหนูโรงเรียนชองดัม 2">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.seriesday-hd.com/wp-content/uploads/2025/07/Bitch-x-Rich-2-2025.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/52ab6b7fc10e6facbffad09d/52ab6b7fc10e6facbffad09d.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP5</div>
+</div>
+<div class="movie-item" data-category="(จบแล้ว) bitch x rich 2 (2025) สืบคดีคุณหนูโรงเรียนชองดัม 2">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.seriesday-hd.com/wp-content/uploads/2025/07/Bitch-x-Rich-2-2025.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/0804055a8fbb67328568c087/0804055a8fbb67328568c087.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP4</div>
+</div>
+<div class="movie-item" data-category="(จบแล้ว) bitch x rich 2 (2025) สืบคดีคุณหนูโรงเรียนชองดัม 2">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.seriesday-hd.com/wp-content/uploads/2025/07/Bitch-x-Rich-2-2025.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/9e17a9c5d40c4e9f5aeb9b72/9e17a9c5d40c4e9f5aeb9b72.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP3</div>
+</div>
+<div class="movie-item" data-category="(จบแล้ว) bitch x rich 2 (2025) สืบคดีคุณหนูโรงเรียนชองดัม 2">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.seriesday-hd.com/wp-content/uploads/2025/07/Bitch-x-Rich-2-2025.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/28acd28693e1be0e219648d2/28acd28693e1be0e219648d2.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP2</div>
+</div>
+<div class="movie-item" data-category="(จบแล้ว) bitch x rich 2 (2025) สืบคดีคุณหนูโรงเรียนชองดัม 2">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.seriesday-hd.com/wp-content/uploads/2025/07/Bitch-x-Rich-2-2025.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/e12de21d376f601b60c24f42/e12de21d376f601b60c24f42.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP1</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)love story in harvard กฎหมายรักฉบับฮาร์วาร์ด">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.varietyth.com/wp-content/uploads/2024/07/Love-Story-in-Harvard.jpg);"onclick="window.location.href='https://ok.ru/videoembed/790121810450'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP01</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)love story in harvard กฎหมายรักฉบับฮาร์วาร์ด">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.varietyth.com/wp-content/uploads/2024/07/Love-Story-in-Harvard.jpg);"onclick="window.location.href='https://ok.ru/videoembed/790122007058'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP02</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)love story in harvard กฎหมายรักฉบับฮาร์วาร์ด">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.varietyth.com/wp-content/uploads/2024/07/Love-Story-in-Harvard.jpg);"onclick="window.location.href='https://ok.ru/videoembed/790121875986'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP03</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)love story in harvard กฎหมายรักฉบับฮาร์วาร์ด">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.varietyth.com/wp-content/uploads/2024/07/Love-Story-in-Harvard.jpg);"onclick="window.location.href='https://ok.ru/videoembed/790122203666'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP04</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)love story in harvard กฎหมายรักฉบับฮาร์วาร์ด">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.varietyth.com/wp-content/uploads/2024/07/Love-Story-in-Harvard.jpg);"onclick="window.location.href='https://ok.ru/videoembed/790122334738'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP05</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)love story in harvard กฎหมายรักฉบับฮาร์วาร์ด">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.varietyth.com/wp-content/uploads/2024/07/Love-Story-in-Harvard.jpg);"onclick="window.location.href='https://ok.ru/videoembed/790122138130'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP06</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)love story in harvard กฎหมายรักฉบับฮาร์วาร์ด">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.varietyth.com/wp-content/uploads/2024/07/Love-Story-in-Harvard.jpg);"onclick="window.location.href='https://ok.ru/videoembed/790121941522'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP07</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)love story in harvard กฎหมายรักฉบับฮาร์วาร์ด">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.varietyth.com/wp-content/uploads/2024/07/Love-Story-in-Harvard.jpg);"onclick="window.location.href='https://ok.ru/videoembed/790122269202'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP08</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)love story in harvard กฎหมายรักฉบับฮาร์วาร์ด">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.varietyth.com/wp-content/uploads/2024/07/Love-Story-in-Harvard.jpg);"onclick="window.location.href='https://ok.ru/videoembed/790121744914'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP09</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)love story in harvard กฎหมายรักฉบับฮาร์วาร์ด">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.varietyth.com/wp-content/uploads/2024/07/Love-Story-in-Harvard.jpg);"onclick="window.location.href='https://ok.ru/videoembed/790122072594'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP10</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)love story in harvard กฎหมายรักฉบับฮาร์วาร์ด">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.varietyth.com/wp-content/uploads/2024/07/Love-Story-in-Harvard.jpg);"onclick="window.location.href='https://ok.ru/videoembed/935502875154'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP11</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)love story in harvard กฎหมายรักฉบับฮาร์วาร์ด">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.varietyth.com/wp-content/uploads/2024/07/Love-Story-in-Harvard.jpg);"onclick="window.location.href='https://ok.ru/videoembed/935468665362'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP12</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)love story in harvard กฎหมายรักฉบับฮาร์วาร์ด">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.varietyth.com/wp-content/uploads/2024/07/Love-Story-in-Harvard.jpg);"onclick="window.location.href='https://ok.ru/videoembed/935468599826'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP13</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)love story in harvard กฎหมายรักฉบับฮาร์วาร์ด">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.varietyth.com/wp-content/uploads/2024/07/Love-Story-in-Harvard.jpg);"onclick="window.location.href='https://ok.ru/videoembed/935468730898'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP14</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)love story in harvard กฎหมายรักฉบับฮาร์วาร์ด">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.varietyth.com/wp-content/uploads/2024/07/Love-Story-in-Harvard.jpg);"onclick="window.location.href='https://ok.ru/videoembed/935468861970'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP15</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)love story in harvard กฎหมายรักฉบับฮาร์วาร์ด">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.varietyth.com/wp-content/uploads/2024/07/Love-Story-in-Harvard.jpg);"onclick="window.location.href='https://ok.ru/videoembed/935468927506'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP16</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)love story in harvard กฎหมายรักฉบับฮาร์วาร์ด">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.varietyth.com/wp-content/uploads/2024/07/Love-Story-in-Harvard.jpg);"onclick="window.location.href='https://ok.ru/videoembed/935468796434'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP17</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)love story in harvard กฎหมายรักฉบับฮาร์วาร์ด">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.varietyth.com/wp-content/uploads/2024/07/Love-Story-in-Harvard.jpg);"onclick="window.location.href='https://ok.ru/videoembed/935469255186'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP18</div>
+</div>
+
+
+<!-- Pagination -->
+<div class="pagination-wrapper">
+<nav>
+<ul class="pagination">
+	<li><a href="go:main-serie" aria-label="กลับหน้าหลัก"><span aria-hidden="true"><< กลับหน้าหลัก</span></a></li>
+    <li><a href="https://udzaa2238.github.io/korea-series/ซีรี่ย์เกาหลี-หน้าที่1.html">1</a></li>
+    <li><a href="https://udzaa2238.github.io/korea-series/ซีรี่ย์เกาหลี-หน้าที่2.html">2</a></li>
+    <li><a href="https://udzaa2238.github.io/korea-series/ซีรี่ย์เกาหลี-หน้าที่3.html">3</a></li>
+    <li><a href="https://udzaa2238.github.io/korea-series/ซีรี่ย์เกาหลี-หน้าที่4.html">4</a></li>
+    <li><a href="https://udzaa2238.github.io/korea-series/ซีรี่ย์เกาหลี-หน้าที่5.html">5</a></li>
+<li class="active"><a href="https://udzaa2238.github.io/korea-series/ซีรี่ย์เกาหลี-หน้าที่6.html"><b>6</b></a></li>
+    <li><a href="https://udzaa2238.github.io/korea-series/ซีรี่ย์เกาหลี-หน้าที่7.html">7</a></li>
+    <li><a href="https://udzaa2238.github.io/korea-series/ซีรี่ย์เกาหลี-หน้าที่8.html">8</a></li>
+    <li><a href="https://udzaa2238.github.io/korea-series/ซีรี่ย์เกาหลี-หน้าที่9.html">9</a></li>
+    <li><a href="https://udzaa2238.github.io/korea-series/ซีรี่ย์เกาหลี-หน้าที่10.html">10</a></li>
+    <li><a href="https://udzaa2238.github.io/korea-series/ซีรี่ย์เกาหลี-หน้าที่11.html">หน้าต่อไป»</a></li>
+    
+    </ul>
+    </nav>
+    </div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

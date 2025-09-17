@@ -1,0 +1,1048 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>ซีรี่ย์เกาหลี หน้าที่ 19</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- External CSS -->
+  <link href="https://playtvthai.github.io/m3u8/css/bootstrap.css" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <link href="https://playtvthai.github.io/m3u8/css/style.css" rel="stylesheet" type="text/css" media="all" />
+  <link rel="stylesheet" href="https://playtvthai.github.io/m3u8/css/normalize.css">
+  <link rel="stylesheet" href="https://playtvthai.github.io/m3u8/css/custom.css">
+  <link rel="stylesheet" href="https://playtvthai.github.io/m3u8/css/main.css">
+  <link rel="stylesheet" href="http://hdtvdd.com/work/assets_remark/fonts/font-awesome/font-awesome.min.css">
+  <link rel="stylesheet" href="http://hdtvdd.com/work/font/stylesheet.css" type="text/css" charset="utf-8" />
+  <link rel="stylesheet" href="http://hdtvdd.com/work/css/8k.css" type="text/css" charset="utf-8" />
+  <link rel="stylesheet" href="http://hdtvdd.com/work/css/overlay.css" type="text/css" charset="utf-8">
+  <link href="http://hdtvdd.com/work/css/theme.css" rel="stylesheet">
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:100,200,300,400,500,600,700,800,900" rel="stylesheet" type="text/css">
+
+  <!-- JS (dedupe jQuery) -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <script src="https://playtvthai.github.io/m3u8/js/jquery.backstretch.js"></script>
+  <script src="http://hdtvdd.com/work/bootstrap-login-forms/form-2/assets/js/scripts.js"></script>
+
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      width: 100vw;
+      height: 100%;
+      background: #000;
+      box-sizing: border-box;
+      overflow-x: hidden;
+      font-family: 'Roboto Condensed', sans-serif;
+    }
+    *, *:before, *:after { box-sizing: inherit; }
+
+    /* Search/filter bar */
+    .filter-bar {
+      margin: 10px 0;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      align-items: center;
+    }
+    .filter-bar input, .filter-bar select {
+      padding: 8px;
+      font-size: 16px;
+      border-radius: 4px;
+      border: 1px solid #444;
+      background: #1f2025;
+      color: #fff;
+    }
+
+    /* Movie grid 5 columns */
+    /* Movie grid */
+    .movies-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin: 0 -5px;
+      padding-top: 10px;
+    }
+    .movie-item {
+      flex: 0 0 10%; /* เล็กลง, 5 คอลัมน์ต่อแถว */
+      box-sizing: border-box;
+      padding: 0 5px;
+      margin-bottom: 20px;
+      max-width: 200px; /* หรือจำกัดขนาดสูงสุด */
+    }
+    .movie-box {
+      background: #1f2025;
+      border-radius: 4px;
+      overflow: hidden;
+      position: relative;
+    }
+    .movie-image button {
+      width: 100%;
+      height: 0;
+      padding-top: 147%;
+      background-size: cover;
+      background-position: center;
+      border: none;
+      border-radius: 2px;
+      cursor: pointer;
+    }
+    .movie-title {
+      color: white;
+      font-size: 14px;
+      text-align: center;
+      margin-top: 6px;
+      line-height: 1.2;
+      padding: 0 4px;
+      word-break: break-word;
+    }
+
+    @media (max-width: 1200px) {
+      .movie-item { flex: 0 0 33.333%; }
+    }
+    @media (max-width: 900px) {
+      .movie-item { flex: 0 0 50%; }
+    }
+    @media (max-width: 600px) {
+      .movie-item { flex: 0 0 100%; }
+    }
+
+    .pagination-wrapper { text-align: center; margin-top: 20px; }
+    .pagination > li > a, .pagination > li > span { padding: 6px 12px; }
+  </style>
+
+  <script>
+    $(document).ready(function(){
+      $("#myBtn").click(function(){ $("#myModal").modal(); });
+      $("#myBtn2").click(function(){ $("#myModal2").modal(); });
+      $("#myBtn_vip").click(function(){ $("#myModal_vip").modal(); });
+      $("#myBtn_cpass").click(function(){ $("#myModal_changepass").modal(); });
+
+      // Filter logic
+      function normalizeText(t) {
+        return t.trim().toLowerCase();
+      }
+
+      function applyFilter() {
+        const query = normalizeText($("#movie-search").val() || "");
+        const category = $("#category-filter").val();
+        $(".movie-item").each(function() {
+          const title = normalizeText($(this).find(".movie-title").text() || "");
+          const itemCat = $(this).attr("data-category") || "all";
+          const matchesSearch = query === "" || title.includes(query);
+          const matchesCategory = category === "all" || itemCat === category;
+          if (matchesSearch && matchesCategory) {
+            $(this).show();
+          } else {
+            $(this).hide();
+          }
+        });
+      }
+
+      $("#movie-search").on("input", applyFilter);
+      $("#category-filter").on("change", applyFilter);
+    });
+  </script>
+</head>
+
+<body>
+  <div class="container" style="background-color:rgba(0,0,0,0); height:100%;">
+    <div class="container_wrap">
+      <div class="row" style="background-color:#27282c;border-radius:5px;">
+        <div class="col-lg-12 col-md-12 col-xs-12" style="margin-top:10px;margin-bottom:10px;">
+          <div class="row">
+            <div class="col-lg-2 col-md-2 col-sm-5 col-xs-5">
+              <div class="logo"></div>
+            </div>
+            <div class="col-lg-10 col-md-12 col-xs-12">
+              <div class="col-lg-12 col-md-12 col-xs-12" align="left" style="padding:5px;">
+                <div class="form-inline">
+                  <div class="form-group" style="margin:5px;">
+                    <form action="" method="get" name="lange" style="display:inline;">
+                      <input name="lange" type="hidden" id="lange" value="en">
+                      <input type="image" src="/web/images/en.gif" name="submit" width="60" height="20" alt="submit"/>
+                    </form>
+                  </div>
+                  <label for="form-password"><font color="white">ชื่อ : </font><font color="yellow">[ ผู้เฒ่าพเนจร ™ ]</font></label>
+
+                  <button class="btn btn-default" type="button" style="background-color:transparent;border-radius:2px;border:0;font-size:18px;color:#FFF;padding:0 5px;font-family:'rsuregular';" onclick="window.location.href='go:digital'">🏠 Home ™</button>
+                  <button class="btn btn-default" type="button" style="background-color:transparent;border-radius:2px;border:0;font-size:18px;color:#FFF;padding:0 5px;font-family:'rsuregular';" onclick="window.location.href='go:live'">📡 ถ่ายทอดสด ™</button>
+                  <button class="btn btn-default" type="button" style="background-color:transparent;border-radius:2px;border:0;font-size:18px;color:#FFF;padding:0 5px;font-family:'rsuregular';" onclick="window.location.href='go:main-serie'">🎞️ ดูซีรี่ย์ ™</button>
+                  <button class="btn btn-default" type="button" style="background-color:transparent;border-radius:2px;border:0;font-size:18px;color:#FFF;padding:0 5px;font-family:'rsuregular';" onclick="window.location.href='go:main-movie'">🎥 ดูหนัง ™</button>
+                  <button class="btn btn-default" type="button" style="background-color:transparent;border-radius:2px;border:0;font-size:18px;color:#FFF;padding:0 5px;font-family:'rsuregular';" onclick="window.location.href='go:main-movie'">📽️ ดูสารคดี ™</button>
+                  <button class="btn btn-default" type="button" style="background-color:transparent;border-radius:2px;border:0;font-size:18px;color:#FFF;padding:0 5px;font-family:'rsuregular';" onclick="window.location.href='http://action_exit'">🚪 ออก</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+<!--
+          <!-- filter bar -->
+          <div class="filter-bar">
+            <div>
+              <input id="movie-search" type="text" placeholder="ค้นหาหนัง..." />
+            </div>
+            <div>
+              <select id="category-filter">
+                <option value="all">ทั้งหมด</option>
+                <option value="action">Action</option>
+                <option value="drama">Drama</option>
+                <option value="sci-fi">Sci-Fi</option>
+                <option value="exclusive">Exclusive</option>
+              </select>
+            </div>
+          </div>
+
+
+-->
+          <!-- รวมทุก movie-item ไว้ใน grid เดียว -->
+          <div class="movies-grid">
+		  
+
+
+
+<div class="movie-item" data-category=" (จบแล้ว)light shop (2024) (พากย์ไทย ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serie-day.com/wp-content/uploads/2024/12/Light-Shop-2024-240x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/2dca33aa6ac9be2f86253265/2dca33aa6ac9be2f86253265.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP01</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)light shop (2024) (พากย์ไทย ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serie-day.com/wp-content/uploads/2024/12/Light-Shop-2024-240x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/71f918ef7728e0d0692e1a3f/71f918ef7728e0d0692e1a3f.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP02</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)light shop (2024) (พากย์ไทย ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serie-day.com/wp-content/uploads/2024/12/Light-Shop-2024-240x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/9db3948c1930006de6ac1583/9db3948c1930006de6ac1583.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP03</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)light shop (2024) (พากย์ไทย ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serie-day.com/wp-content/uploads/2024/12/Light-Shop-2024-240x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/786f1608a7c12585401b35a4/786f1608a7c12585401b35a4.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP04</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)light shop (2024) (พากย์ไทย ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serie-day.com/wp-content/uploads/2024/12/Light-Shop-2024-240x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/816bc6c94d9e67c0a9b983fb/816bc6c94d9e67c0a9b983fb.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP05</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)light shop (2024) (พากย์ไทย ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serie-day.com/wp-content/uploads/2024/12/Light-Shop-2024-240x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/8d46a02fe389c8a5923d432f/8d46a02fe389c8a5923d432f.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP06</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)light shop (2024) (พากย์ไทย ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serie-day.com/wp-content/uploads/2024/12/Light-Shop-2024-240x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/10dd0df03172122304aa1754/10dd0df03172122304aa1754.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP07</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)light shop (2024) (พากย์ไทย ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serie-day.com/wp-content/uploads/2024/12/Light-Shop-2024-240x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/4490fc22bce99442ad7ec234/4490fc22bce99442ad7ec234.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP08</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)gangnam b-side (2024) (ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serie-day.com/wp-content/uploads/2024/11/Gangnam-B-Side-2024-242x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/a59441f7f4e9428dc49c3245/a59441f7f4e9428dc49c3245.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP01</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)gangnam b-side (2024) (ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serie-day.com/wp-content/uploads/2024/11/Gangnam-B-Side-2024-242x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/0a66c7177e490f1e78acbed5/0a66c7177e490f1e78acbed5.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP02</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)gangnam b-side (2024) (ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serie-day.com/wp-content/uploads/2024/11/Gangnam-B-Side-2024-242x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/5053e6088d0bea7da24b841f/5053e6088d0bea7da24b841f.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP03</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)gangnam b-side (2024) (ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serie-day.com/wp-content/uploads/2024/11/Gangnam-B-Side-2024-242x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/73cf6eb89001cd78471f1dbe/73cf6eb89001cd78471f1dbe.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP04</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)gangnam b-side (2024) (ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serie-day.com/wp-content/uploads/2024/11/Gangnam-B-Side-2024-242x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/08fdf5946af316e7afbf3388/08fdf5946af316e7afbf3388.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP05</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)gangnam b-side (2024) (ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serie-day.com/wp-content/uploads/2024/11/Gangnam-B-Side-2024-242x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/b3d3ca175c6843e46fc0b379/b3d3ca175c6843e46fc0b379.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP06</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)gangnam b-side (2024) (ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serie-day.com/wp-content/uploads/2024/11/Gangnam-B-Side-2024-242x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/b67284e5372911762a73eed9/b67284e5372911762a73eed9.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP07</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)gangnam b-side (2024) (ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serie-day.com/wp-content/uploads/2024/11/Gangnam-B-Side-2024-242x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/e8eac534f21289c272951c39/e8eac534f21289c272951c39.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP08</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)family by choice (2024) ครอบครัวหัวใจลิขิตเอง ep.1-16">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://tvallseries.co/wp-content/uploads/2024/10/Family-By-Choice-2024.webp);"onclick="window.location.href='https://playcdn.tvallseries.com/382e3bb5-cb99-4af5-8d26-29271c99c669/_'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP01</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)family by choice (2024) ครอบครัวหัวใจลิขิตเอง ep.1-16">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://tvallseries.co/wp-content/uploads/2024/10/Family-By-Choice-2024.webp);"onclick="window.location.href='https://playcdn.tvallseries.com/473432e8-95f2-4c19-8803-78f84a489c37/_'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP02</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)family by choice (2024) ครอบครัวหัวใจลิขิตเอง ep.1-16">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://tvallseries.co/wp-content/uploads/2024/10/Family-By-Choice-2024.webp);"onclick="window.location.href='https://playcdn.tvallseries.com/86608277-d21f-4bd3-8ee9-49f987851e97/0'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP03</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)family by choice (2024) ครอบครัวหัวใจลิขิตเอง ep.1-16">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://tvallseries.co/wp-content/uploads/2024/10/Family-By-Choice-2024.webp);"onclick="window.location.href='https://playcdn.tvallseries.com/829b51e3-722d-46c3-873e-e7c7a8d79055/0'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP04</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)family by choice (2024) ครอบครัวหัวใจลิขิตเอง ep.1-16">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://tvallseries.co/wp-content/uploads/2024/10/Family-By-Choice-2024.webp);"onclick="window.location.href='https://playcdn.tvallseries.com/1526eb6d-01cd-426b-9e68-9bce7cf41910/0'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP05</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)family by choice (2024) ครอบครัวหัวใจลิขิตเอง ep.1-16">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://tvallseries.co/wp-content/uploads/2024/10/Family-By-Choice-2024.webp);"onclick="window.location.href='https://playcdn.tvallseries.com/2e27a525-724e-4b09-8f5a-3a33e7995f28/0'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP06</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)family by choice (2024) ครอบครัวหัวใจลิขิตเอง ep.1-16">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://tvallseries.co/wp-content/uploads/2024/10/Family-By-Choice-2024.webp);"onclick="window.location.href='https://playcdn.tvallseries.com/e74d91b2-1ce3-4192-a663-81f9fdbd4243/0'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP07</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)family by choice (2024) ครอบครัวหัวใจลิขิตเอง ep.1-16">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://tvallseries.co/wp-content/uploads/2024/10/Family-By-Choice-2024.webp);"onclick="window.location.href='https://playcdn.tvallseries.com/8b605e71-18bc-46b5-bf1d-7fc4f26182b2/0'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP08</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)family by choice (2024) ครอบครัวหัวใจลิขิตเอง ep.1-16">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://tvallseries.co/wp-content/uploads/2024/10/Family-By-Choice-2024.webp);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/79cf24f55960c579e720178d/79cf24f55960c579e720178d.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP09</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)family by choice (2024) ครอบครัวหัวใจลิขิตเอง ep.1-16">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://tvallseries.co/wp-content/uploads/2024/10/Family-By-Choice-2024.webp);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/d2a4d042e46478266cec1eea/d2a4d042e46478266cec1eea.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP10</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)family by choice (2024) ครอบครัวหัวใจลิขิตเอง ep.1-16">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://tvallseries.co/wp-content/uploads/2024/10/Family-By-Choice-2024.webp);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/e9a7131db01047b06fb280b5/e9a7131db01047b06fb280b5.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP11</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)family by choice (2024) ครอบครัวหัวใจลิขิตเอง ep.1-16">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://tvallseries.co/wp-content/uploads/2024/10/Family-By-Choice-2024.webp);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/fd34a4774679df3a5a48fc08/fd34a4774679df3a5a48fc08.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP12</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)family by choice (2024) ครอบครัวหัวใจลิขิตเอง ep.1-16">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://tvallseries.co/wp-content/uploads/2024/10/Family-By-Choice-2024.webp);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/27f575a5daaf17a6141d5228/27f575a5daaf17a6141d5228.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP13</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)family by choice (2024) ครอบครัวหัวใจลิขิตเอง ep.1-16">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://tvallseries.co/wp-content/uploads/2024/10/Family-By-Choice-2024.webp);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/d780e2269bdb9081bedc54c6/d780e2269bdb9081bedc54c6.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP14</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)family by choice (2024) ครอบครัวหัวใจลิขิตเอง ep.1-16">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://tvallseries.co/wp-content/uploads/2024/10/Family-By-Choice-2024.webp);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/23083127bcfe41430d0d3bb9/23083127bcfe41430d0d3bb9.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP15</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)family by choice (2024) ครอบครัวหัวใจลิขิตเอง ep.1-16">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://tvallseries.co/wp-content/uploads/2024/10/Family-By-Choice-2024.webp);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/280a12e3f0d7cfbfa1c08485/280a12e3f0d7cfbfa1c08485.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP16</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)the trunk (2024) (พากย์ไทย ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serie-day.com/wp-content/uploads/2024/11/The-Trunk-2024-203x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/db96d173b6f251d8ad777da5/db96d173b6f251d8ad777da5.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP01</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)the trunk (2024) (พากย์ไทย ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serie-day.com/wp-content/uploads/2024/11/The-Trunk-2024-203x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/bd37b757af5e6b74b03bcae2/bd37b757af5e6b74b03bcae2.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP02</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)the trunk (2024) (พากย์ไทย ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serie-day.com/wp-content/uploads/2024/11/The-Trunk-2024-203x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/e35eaa32b42e8e2dcfbeea20/e35eaa32b42e8e2dcfbeea20.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP03</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)the trunk (2024) (พากย์ไทย ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serie-day.com/wp-content/uploads/2024/11/The-Trunk-2024-203x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/48d12e889bb93f8f813b533a/48d12e889bb93f8f813b533a.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP04</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)the trunk (2024) (พากย์ไทย ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serie-day.com/wp-content/uploads/2024/11/The-Trunk-2024-203x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/0d02286f84df736bb2f86ed2/0d02286f84df736bb2f86ed2.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP05</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)the trunk (2024) (พากย์ไทย ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serie-day.com/wp-content/uploads/2024/11/The-Trunk-2024-203x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/e320b485ea3827d13889bc55/e320b485ea3827d13889bc55.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP06</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)the trunk (2024) (พากย์ไทย ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serie-day.com/wp-content/uploads/2024/11/The-Trunk-2024-203x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/453f90839923dcd5941f1a3e/453f90839923dcd5941f1a3e.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP07</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)the trunk (2024) (พากย์ไทย ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serie-day.com/wp-content/uploads/2024/11/The-Trunk-2024-203x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/51f124ee7fe8d660344aaf32/51f124ee7fe8d660344aaf32.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP08</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)cinderella at 2am (2024) แผนรักคว้าใจซินเดอเรลล่า (พากย์ไทย ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serie-day.com/wp-content/uploads/2024/08/Cinderella-At-2AM-2024-240x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/14b91e2e03f19a88d0b86b74/14b91e2e03f19a88d0b86b74.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP01</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)cinderella at 2am (2024) แผนรักคว้าใจซินเดอเรลล่า (พากย์ไทย ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serie-day.com/wp-content/uploads/2024/08/Cinderella-At-2AM-2024-240x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/6abc6fb34cd202cbd81bf6ae/6abc6fb34cd202cbd81bf6ae.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP02</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)cinderella at 2am (2024) แผนรักคว้าใจซินเดอเรลล่า (พากย์ไทย ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serie-day.com/wp-content/uploads/2024/08/Cinderella-At-2AM-2024-240x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/cd5c873c54db872bd1e8b48f/cd5c873c54db872bd1e8b48f.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP03</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)cinderella at 2am (2024) แผนรักคว้าใจซินเดอเรลล่า (พากย์ไทย ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serie-day.com/wp-content/uploads/2024/08/Cinderella-At-2AM-2024-240x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/ec4212707278edd853208747/ec4212707278edd853208747.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP04</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)cinderella at 2am (2024) แผนรักคว้าใจซินเดอเรลล่า (พากย์ไทย ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serie-day.com/wp-content/uploads/2024/08/Cinderella-At-2AM-2024-240x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/32a782b7f23eb951c885a40e/32a782b7f23eb951c885a40e.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP05</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)cinderella at 2am (2024) แผนรักคว้าใจซินเดอเรลล่า (พากย์ไทย ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serie-day.com/wp-content/uploads/2024/08/Cinderella-At-2AM-2024-240x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/55799a739a45d1e7a7a791a6/55799a739a45d1e7a7a791a6.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP06</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)cinderella at 2am (2024) แผนรักคว้าใจซินเดอเรลล่า (พากย์ไทย ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serie-day.com/wp-content/uploads/2024/08/Cinderella-At-2AM-2024-240x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/416f7727d8aed186709a9077/416f7727d8aed186709a9077.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP07</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)cinderella at 2am (2024) แผนรักคว้าใจซินเดอเรลล่า (พากย์ไทย ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serie-day.com/wp-content/uploads/2024/08/Cinderella-At-2AM-2024-240x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/bf7251d10b62228d47107db0/bf7251d10b62228d47107db0.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP08</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)cinderella at 2am (2024) แผนรักคว้าใจซินเดอเรลล่า (พากย์ไทย ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serie-day.com/wp-content/uploads/2024/08/Cinderella-At-2AM-2024-240x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/0860d3367df1125269002c39/0860d3367df1125269002c39.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP09</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)cinderella at 2am (2024) แผนรักคว้าใจซินเดอเรลล่า (พากย์ไทย ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serie-day.com/wp-content/uploads/2024/08/Cinderella-At-2AM-2024-240x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/7a14814a2aa9341e52c7a49b/7a14814a2aa9341e52c7a49b.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP10</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)dna lover (2024) รักนี้ dna กำหนด (ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serie-day.com/wp-content/uploads/2024/08/DNA-Lover-2024-213x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/860e32fb2736e06849318fda/860e32fb2736e06849318fda.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP01</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)dna lover (2024) รักนี้ dna กำหนด (ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serie-day.com/wp-content/uploads/2024/08/DNA-Lover-2024-213x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/62cc79f2cdbd39f645396b66/62cc79f2cdbd39f645396b66.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP02</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)dna lover (2024) รักนี้ dna กำหนด (ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serie-day.com/wp-content/uploads/2024/08/DNA-Lover-2024-213x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/9038b1ef6464615a3dcbbc5e/9038b1ef6464615a3dcbbc5e.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP03</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)dna lover (2024) รักนี้ dna กำหนด (ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serie-day.com/wp-content/uploads/2024/08/DNA-Lover-2024-213x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/08a4bd6ef4fe41ce75c45eed/08a4bd6ef4fe41ce75c45eed.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP04</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)dna lover (2024) รักนี้ dna กำหนด (ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serie-day.com/wp-content/uploads/2024/08/DNA-Lover-2024-213x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/37933db24edb8de0803bf418/37933db24edb8de0803bf418.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP05</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)dna lover (2024) รักนี้ dna กำหนด (ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serie-day.com/wp-content/uploads/2024/08/DNA-Lover-2024-213x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/2eb0bfd18a0600a15fce36d5/2eb0bfd18a0600a15fce36d5.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP06</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)dna lover (2024) รักนี้ dna กำหนด (ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serie-day.com/wp-content/uploads/2024/08/DNA-Lover-2024-213x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/e2b4e234e5b6a9fbd4668d84/e2b4e234e5b6a9fbd4668d84.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP07</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)dna lover (2024) รักนี้ dna กำหนด (ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serie-day.com/wp-content/uploads/2024/08/DNA-Lover-2024-213x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/db7a30d1ffe7bb864aff5530/db7a30d1ffe7bb864aff5530.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP08</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)dna lover (2024) รักนี้ dna กำหนด (ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serie-day.com/wp-content/uploads/2024/08/DNA-Lover-2024-213x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/d601600dea8ddd6460599bd5/d601600dea8ddd6460599bd5.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP09</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)dna lover (2024) รักนี้ dna กำหนด (ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serie-day.com/wp-content/uploads/2024/08/DNA-Lover-2024-213x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/5d2780c16ad66125ebc3c5c4/5d2780c16ad66125ebc3c5c4.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP10</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)dna lover (2024) รักนี้ dna กำหนด (ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serie-day.com/wp-content/uploads/2024/08/DNA-Lover-2024-213x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/31354dfad489667a6c799968/31354dfad489667a6c799968.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP11</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)dna lover (2024) รักนี้ dna กำหนด (ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serie-day.com/wp-content/uploads/2024/08/DNA-Lover-2024-213x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/1a3edbdea93d75499d134aed/1a3edbdea93d75499d134aed.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP12</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)dna lover (2024) รักนี้ dna กำหนด (ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serie-day.com/wp-content/uploads/2024/08/DNA-Lover-2024-213x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/441a1b525f339e6fe510a4f5/441a1b525f339e6fe510a4f5.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP13</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)dna lover (2024) รักนี้ dna กำหนด (ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serie-day.com/wp-content/uploads/2024/08/DNA-Lover-2024-213x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/be1f01648b776a41fc8391b6/be1f01648b776a41fc8391b6.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP14</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)dna lover (2024) รักนี้ dna กำหนด (ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serie-day.com/wp-content/uploads/2024/08/DNA-Lover-2024-213x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/fd5b58ec66617b1cb8e2bb2d/fd5b58ec66617b1cb8e2bb2d.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP15</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)dna lover (2024) รักนี้ dna กำหนด (ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serie-day.com/wp-content/uploads/2024/08/DNA-Lover-2024-213x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/e91b2f9a6a930361be43e405/e91b2f9a6a930361be43e405.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP16</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)perfect family (2024) สัมพันธ์ลวงเลือด (พากย์ไทย ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serie-day.com/wp-content/uploads/2024/06/Perfect-Family-2024-240x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/b71b6b31b2bdc3321f0b19fd/b71b6b31b2bdc3321f0b19fd.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP01</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)perfect family (2024) สัมพันธ์ลวงเลือด (พากย์ไทย ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serie-day.com/wp-content/uploads/2024/06/Perfect-Family-2024-240x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/8f6b599e0c7f149a7fd97955/8f6b599e0c7f149a7fd97955.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP02</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)perfect family (2024) สัมพันธ์ลวงเลือด (พากย์ไทย ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serie-day.com/wp-content/uploads/2024/06/Perfect-Family-2024-240x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/488aef9a0b6c152d505fece9/488aef9a0b6c152d505fece9.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP03</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)perfect family (2024) สัมพันธ์ลวงเลือด (พากย์ไทย ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serie-day.com/wp-content/uploads/2024/06/Perfect-Family-2024-240x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/f461c49d870695c39fd43be7/f461c49d870695c39fd43be7.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP04</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)perfect family (2024) สัมพันธ์ลวงเลือด (พากย์ไทย ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serie-day.com/wp-content/uploads/2024/06/Perfect-Family-2024-240x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/4adadb189da9aada58320bcd/4adadb189da9aada58320bcd.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP05</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)perfect family (2024) สัมพันธ์ลวงเลือด (พากย์ไทย ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serie-day.com/wp-content/uploads/2024/06/Perfect-Family-2024-240x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/038eba8821703726a077c989/038eba8821703726a077c989.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP06</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)perfect family (2024) สัมพันธ์ลวงเลือด (พากย์ไทย ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serie-day.com/wp-content/uploads/2024/06/Perfect-Family-2024-240x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/1234d29954cd9a4594e95e9e/1234d29954cd9a4594e95e9e.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP07</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)perfect family (2024) สัมพันธ์ลวงเลือด (พากย์ไทย ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serie-day.com/wp-content/uploads/2024/06/Perfect-Family-2024-240x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/bb124b28d15d1c131d100b1d/bb124b28d15d1c131d100b1d.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP08</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)perfect family (2024) สัมพันธ์ลวงเลือด (พากย์ไทย ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serie-day.com/wp-content/uploads/2024/06/Perfect-Family-2024-240x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/f19371b11c9f24e70ce2f9d3/f19371b11c9f24e70ce2f9d3.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP09</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)perfect family (2024) สัมพันธ์ลวงเลือด (พากย์ไทย ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serie-day.com/wp-content/uploads/2024/06/Perfect-Family-2024-240x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/c8e4751fac11ade02e46c75b/c8e4751fac11ade02e46c75b.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP10</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)perfect family (2024) สัมพันธ์ลวงเลือด (พากย์ไทย ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serie-day.com/wp-content/uploads/2024/06/Perfect-Family-2024-240x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/fe500be370d35ba52cb06487/fe500be370d35ba52cb06487.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP11</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)perfect family (2024) สัมพันธ์ลวงเลือด (พากย์ไทย ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serie-day.com/wp-content/uploads/2024/06/Perfect-Family-2024-240x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/cde4ba936a2f7ba781c512ad/cde4ba936a2f7ba781c512ad.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP12</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)the auditors (2024) (ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serie-day.com/wp-content/uploads/2024/07/The-Auditors-2024-212x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/b293fe7a05fe12036be7f3c4/b293fe7a05fe12036be7f3c4.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP01</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)the auditors (2024) (ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serie-day.com/wp-content/uploads/2024/07/The-Auditors-2024-212x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/10a55d6ff88889d631f55373/10a55d6ff88889d631f55373.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP02</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)the auditors (2024) (ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serie-day.com/wp-content/uploads/2024/07/The-Auditors-2024-212x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/9ec4c3a64ded3d9abf9399eb/9ec4c3a64ded3d9abf9399eb.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP03</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)the auditors (2024) (ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serie-day.com/wp-content/uploads/2024/07/The-Auditors-2024-212x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/c049ced14ee3f52ce4047440/c049ced14ee3f52ce4047440.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP04</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)the auditors (2024) (ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serie-day.com/wp-content/uploads/2024/07/The-Auditors-2024-212x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/8c07d067f18386b028dcf239/8c07d067f18386b028dcf239.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP05</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)the auditors (2024) (ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serie-day.com/wp-content/uploads/2024/07/The-Auditors-2024-212x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/40c44232c75f5b5265e51b31/40c44232c75f5b5265e51b31.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP06</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)the auditors (2024) (ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serie-day.com/wp-content/uploads/2024/07/The-Auditors-2024-212x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/8745fb0f4c32fa34e85a6d95/8745fb0f4c32fa34e85a6d95.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP07</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)the auditors (2024) (ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serie-day.com/wp-content/uploads/2024/07/The-Auditors-2024-212x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/94f0d0b83f9613991ea6786b/94f0d0b83f9613991ea6786b.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP08</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)the auditors (2024) (ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serie-day.com/wp-content/uploads/2024/07/The-Auditors-2024-212x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/214faef658de4d6b7817cdd2/214faef658de4d6b7817cdd2.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP09</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)the auditors (2024) (ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serie-day.com/wp-content/uploads/2024/07/The-Auditors-2024-212x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/bd4d6467b087f27585c75ed6/bd4d6467b087f27585c75ed6.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP10</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)the auditors (2024) (ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serie-day.com/wp-content/uploads/2024/07/The-Auditors-2024-212x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/ceb48212b136eb70893bb7a0/ceb48212b136eb70893bb7a0.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP11</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)the auditors (2024) (ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serie-day.com/wp-content/uploads/2024/07/The-Auditors-2024-212x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/bd02f9dfe739a93633401b28/bd02f9dfe739a93633401b28.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP12</div>
+</div>
+
+
+
+<!-- Pagination -->
+<div class="pagination-wrapper">
+<nav>
+<ul class="pagination">
+    <li><a href="go:main-serie" aria-label="กลับหน้าหลัก"><span aria-hidden="true"><< กลับหน้าหลัก</span></a></li>
+    <li><a href="https://udzaa2238.github.io/korea-series/ซีรี่ย์เกาหลี-หน้าที่11.html">11</a></li>
+    <li><a href="https://udzaa2238.github.io/korea-series/ซีรี่ย์เกาหลี-หน้าที่12.html">12</a></li>
+    <li><a href="https://udzaa2238.github.io/korea-series/ซีรี่ย์เกาหลี-หน้าที่13.html">13</a></li>
+    <li><a href="https://udzaa2238.github.io/korea-series/ซีรี่ย์เกาหลี-หน้าที่14.html">14</a></li>
+    <li><a href="https://udzaa2238.github.io/korea-series/ซีรี่ย์เกาหลี-หน้าที่15.html">15</a></li>
+    <li><a href="https://udzaa2238.github.io/korea-series/ซีรี่ย์เกาหลี-หน้าที่16.html">16</a></li>
+    <li><a href="https://udzaa2238.github.io/korea-series/ซีรี่ย์เกาหลี-หน้าที่17.html">17</a></li>
+    <li><a href="https://udzaa2238.github.io/korea-series/ซีรี่ย์เกาหลี-หน้าที่18.html">18</a></li>
+<li class="active"><<a href="https://udzaa2238.github.io/korea-series/ซีรี่ย์เกาหลี-หน้าที่19.html"><b>19</b></a></li>
+	<li><a href="https://udzaa2238.github.io/korea-series/ซีรี่ย์เกาหลี-หน้าที่20.html">20</a></li>
+    <li><a href="https://udzaa2238.github.io/korea-series/ซีรี่ย์เกาหลี-หน้าที่21.html">หน้าต่อไป»</a></li>
+    
+    </ul>
+    </nav>
+    </div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,763 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>ซีรี่ย์เกาหลี หน้าที่ 10</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- External CSS -->
+  <link href="https://playtvthai.github.io/m3u8/css/bootstrap.css" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <link href="https://playtvthai.github.io/m3u8/css/style.css" rel="stylesheet" type="text/css" media="all" />
+  <link rel="stylesheet" href="https://playtvthai.github.io/m3u8/css/normalize.css">
+  <link rel="stylesheet" href="https://playtvthai.github.io/m3u8/css/custom.css">
+  <link rel="stylesheet" href="https://playtvthai.github.io/m3u8/css/main.css">
+  <link rel="stylesheet" href="http://hdtvdd.com/work/assets_remark/fonts/font-awesome/font-awesome.min.css">
+  <link rel="stylesheet" href="http://hdtvdd.com/work/font/stylesheet.css" type="text/css" charset="utf-8" />
+  <link rel="stylesheet" href="http://hdtvdd.com/work/css/8k.css" type="text/css" charset="utf-8" />
+  <link rel="stylesheet" href="http://hdtvdd.com/work/css/overlay.css" type="text/css" charset="utf-8">
+  <link href="http://hdtvdd.com/work/css/theme.css" rel="stylesheet">
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:100,200,300,400,500,600,700,800,900" rel="stylesheet" type="text/css">
+
+  <!-- JS (dedupe jQuery) -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <script src="https://playtvthai.github.io/m3u8/js/jquery.backstretch.js"></script>
+  <script src="http://hdtvdd.com/work/bootstrap-login-forms/form-2/assets/js/scripts.js"></script>
+
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      width: 100vw;
+      height: 100%;
+      background: #000;
+      box-sizing: border-box;
+      overflow-x: hidden;
+      font-family: 'Roboto Condensed', sans-serif;
+    }
+    *, *:before, *:after { box-sizing: inherit; }
+
+    /* Search/filter bar */
+    .filter-bar {
+      margin: 10px 0;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      align-items: center;
+    }
+    .filter-bar input, .filter-bar select {
+      padding: 8px;
+      font-size: 16px;
+      border-radius: 4px;
+      border: 1px solid #444;
+      background: #1f2025;
+      color: #fff;
+    }
+
+    /* Movie grid 5 columns */
+    /* Movie grid */
+    .movies-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin: 0 -5px;
+      padding-top: 10px;
+    }
+    .movie-item {
+      flex: 0 0 10%; /* เล็กลง, 5 คอลัมน์ต่อแถว */
+      box-sizing: border-box;
+      padding: 0 5px;
+      margin-bottom: 20px;
+      max-width: 200px; /* หรือจำกัดขนาดสูงสุด */
+    }
+    .movie-box {
+      background: #1f2025;
+      border-radius: 4px;
+      overflow: hidden;
+      position: relative;
+    }
+    .movie-image button {
+      width: 100%;
+      height: 0;
+      padding-top: 147%;
+      background-size: cover;
+      background-position: center;
+      border: none;
+      border-radius: 2px;
+      cursor: pointer;
+    }
+    .movie-title {
+      color: white;
+      font-size: 14px;
+      text-align: center;
+      margin-top: 6px;
+      line-height: 1.2;
+      padding: 0 4px;
+      word-break: break-word;
+    }
+
+    @media (max-width: 1200px) {
+      .movie-item { flex: 0 0 33.333%; }
+    }
+    @media (max-width: 900px) {
+      .movie-item { flex: 0 0 50%; }
+    }
+    @media (max-width: 600px) {
+      .movie-item { flex: 0 0 100%; }
+    }
+
+    .pagination-wrapper { text-align: center; margin-top: 20px; }
+    .pagination > li > a, .pagination > li > span { padding: 6px 12px; }
+  </style>
+
+  <script>
+    $(document).ready(function(){
+      $("#myBtn").click(function(){ $("#myModal").modal(); });
+      $("#myBtn2").click(function(){ $("#myModal2").modal(); });
+      $("#myBtn_vip").click(function(){ $("#myModal_vip").modal(); });
+      $("#myBtn_cpass").click(function(){ $("#myModal_changepass").modal(); });
+
+      // Filter logic
+      function normalizeText(t) {
+        return t.trim().toLowerCase();
+      }
+
+      function applyFilter() {
+        const query = normalizeText($("#movie-search").val() || "");
+        const category = $("#category-filter").val();
+        $(".movie-item").each(function() {
+          const title = normalizeText($(this).find(".movie-title").text() || "");
+          const itemCat = $(this).attr("data-category") || "all";
+          const matchesSearch = query === "" || title.includes(query);
+          const matchesCategory = category === "all" || itemCat === category;
+          if (matchesSearch && matchesCategory) {
+            $(this).show();
+          } else {
+            $(this).hide();
+          }
+        });
+      }
+
+      $("#movie-search").on("input", applyFilter);
+      $("#category-filter").on("change", applyFilter);
+    });
+  </script>
+</head>
+
+<body>
+  <div class="container" style="background-color:rgba(0,0,0,0); height:100%;">
+    <div class="container_wrap">
+      <div class="row" style="background-color:#27282c;border-radius:5px;">
+        <div class="col-lg-12 col-md-12 col-xs-12" style="margin-top:10px;margin-bottom:10px;">
+          <div class="row">
+            <div class="col-lg-2 col-md-2 col-sm-5 col-xs-5">
+              <div class="logo"></div>
+            </div>
+            <div class="col-lg-10 col-md-12 col-xs-12">
+              <div class="col-lg-12 col-md-12 col-xs-12" align="left" style="padding:5px;">
+                <div class="form-inline">
+                  <div class="form-group" style="margin:5px;">
+                    <form action="" method="get" name="lange" style="display:inline;">
+                      <input name="lange" type="hidden" id="lange" value="en">
+                      <input type="image" src="/web/images/en.gif" name="submit" width="60" height="20" alt="submit"/>
+                    </form>
+                  </div>
+                  <label for="form-password"><font color="white">ชื่อ : </font><font color="yellow">[ ผู้เฒ่าพเนจร ™ ]</font></label>
+
+                  <button class="btn btn-default" type="button" style="background-color:transparent;border-radius:2px;border:0;font-size:18px;color:#FFF;padding:0 5px;font-family:'rsuregular';" onclick="window.location.href='go:digital'">🏠 Home ™</button>
+                  <button class="btn btn-default" type="button" style="background-color:transparent;border-radius:2px;border:0;font-size:18px;color:#FFF;padding:0 5px;font-family:'rsuregular';" onclick="window.location.href='go:live'">📡 ถ่ายทอดสด ™</button>
+                  <button class="btn btn-default" type="button" style="background-color:transparent;border-radius:2px;border:0;font-size:18px;color:#FFF;padding:0 5px;font-family:'rsuregular';" onclick="window.location.href='go:main-serie'">🎞️ ดูซีรี่ย์ ™</button>
+                  <button class="btn btn-default" type="button" style="background-color:transparent;border-radius:2px;border:0;font-size:18px;color:#FFF;padding:0 5px;font-family:'rsuregular';" onclick="window.location.href='go:main-movie'">🎥 ดูหนัง ™</button>
+                  <button class="btn btn-default" type="button" style="background-color:transparent;border-radius:2px;border:0;font-size:18px;color:#FFF;padding:0 5px;font-family:'rsuregular';" onclick="window.location.href='go:main-movie'">📽️ ดูสารคดี ™</button>
+                  <button class="btn btn-default" type="button" style="background-color:transparent;border-radius:2px;border:0;font-size:18px;color:#FFF;padding:0 5px;font-family:'rsuregular';" onclick="window.location.href='http://action_exit'">🚪 ออก</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+<!--
+          <!-- filter bar -->
+          <div class="filter-bar">
+            <div>
+              <input id="movie-search" type="text" placeholder="ค้นหาหนัง..." />
+            </div>
+            <div>
+              <select id="category-filter">
+                <option value="all">ทั้งหมด</option>
+                <option value="action">Action</option>
+                <option value="drama">Drama</option>
+                <option value="sci-fi">Sci-Fi</option>
+                <option value="exclusive">Exclusive</option>
+              </select>
+            </div>
+          </div>
+
+
+-->
+          <!-- รวมทุก movie-item ไว้ใน grid เดียว -->
+          <div class="movies-grid">
+		  
+
+
+
+
+
+<div class="movie-item" data-category=" (จบแล้ว)second shot at love (2025) เลิกดริ้งก์เพราะปิ๊งรัก (ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serieday-hd.com/wp-content/uploads/2025/05/Second-Shot-at-Love-2025-212x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/5bd7a376d74464cf53854c39/5bd7a376d74464cf53854c39.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP01</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)second shot at love (2025) เลิกดริ้งก์เพราะปิ๊งรัก (ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serieday-hd.com/wp-content/uploads/2025/05/Second-Shot-at-Love-2025-212x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/67ef64faebce8c15684f6af2/67ef64faebce8c15684f6af2.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP02</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)second shot at love (2025) เลิกดริ้งก์เพราะปิ๊งรัก (ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serieday-hd.com/wp-content/uploads/2025/05/Second-Shot-at-Love-2025-212x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/a26b111f5cc4011bf31d65d5/a26b111f5cc4011bf31d65d5.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP03</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)second shot at love (2025) เลิกดริ้งก์เพราะปิ๊งรัก (ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serieday-hd.com/wp-content/uploads/2025/05/Second-Shot-at-Love-2025-212x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/29bb8b73f13d8c253aa0ea67/29bb8b73f13d8c253aa0ea67.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP04</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)second shot at love (2025) เลิกดริ้งก์เพราะปิ๊งรัก (ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serieday-hd.com/wp-content/uploads/2025/05/Second-Shot-at-Love-2025-212x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/6e2c42ddf44d319fed13d795/6e2c42ddf44d319fed13d795.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP05</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)second shot at love (2025) เลิกดริ้งก์เพราะปิ๊งรัก (ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serieday-hd.com/wp-content/uploads/2025/05/Second-Shot-at-Love-2025-212x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/6fafa0620df66e8a82313ce3/6fafa0620df66e8a82313ce3.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP06</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)second shot at love (2025) เลิกดริ้งก์เพราะปิ๊งรัก (ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serieday-hd.com/wp-content/uploads/2025/05/Second-Shot-at-Love-2025-212x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/666b9b3b244e2758e65e5abe/666b9b3b244e2758e65e5abe.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP07</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)second shot at love (2025) เลิกดริ้งก์เพราะปิ๊งรัก (ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serieday-hd.com/wp-content/uploads/2025/05/Second-Shot-at-Love-2025-212x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/d128d323263327e50f5e1159/d128d323263327e50f5e1159.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP08</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)second shot at love (2025) เลิกดริ้งก์เพราะปิ๊งรัก (ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serieday-hd.com/wp-content/uploads/2025/05/Second-Shot-at-Love-2025-212x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/7dee12c783f92a8acf215abf/7dee12c783f92a8acf215abf.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP09</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)second shot at love (2025) เลิกดริ้งก์เพราะปิ๊งรัก (ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serieday-hd.com/wp-content/uploads/2025/05/Second-Shot-at-Love-2025-212x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/89ba315e9f5a07e297603f44/89ba315e9f5a07e297603f44.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP10</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)second shot at love (2025) เลิกดริ้งก์เพราะปิ๊งรัก (ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serieday-hd.com/wp-content/uploads/2025/05/Second-Shot-at-Love-2025-212x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/a104e2ffadeb66cb828f3188/a104e2ffadeb66cb828f3188.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP11</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)second shot at love (2025) เลิกดริ้งก์เพราะปิ๊งรัก (ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serieday-hd.com/wp-content/uploads/2025/05/Second-Shot-at-Love-2025-212x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/2bad47f7c14ce10ea31a0ab1/2bad47f7c14ce10ea31a0ab1.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP12</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)i am a running mate (2025) เกมชิงโหวต (ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serieday-hd.com/wp-content/uploads/2025/06/I-Am-a-Running-Mate-2025-210x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/5a42864080e22051f54b5595/5a42864080e22051f54b5595.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP01</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)i am a running mate (2025) เกมชิงโหวต (ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serieday-hd.com/wp-content/uploads/2025/06/I-Am-a-Running-Mate-2025-210x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/0c63cfa45566ac30a240bc90/0c63cfa45566ac30a240bc90.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP02</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)i am a running mate (2025) เกมชิงโหวต (ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serieday-hd.com/wp-content/uploads/2025/06/I-Am-a-Running-Mate-2025-210x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/6c1bcd9aa078d225c0c7dff7/6c1bcd9aa078d225c0c7dff7.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP03</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)i am a running mate (2025) เกมชิงโหวต (ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serieday-hd.com/wp-content/uploads/2025/06/I-Am-a-Running-Mate-2025-210x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/e9f9767b55833cb703a38e12/e9f9767b55833cb703a38e12.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP04</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)i am a running mate (2025) เกมชิงโหวต (ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serieday-hd.com/wp-content/uploads/2025/06/I-Am-a-Running-Mate-2025-210x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/02500c7038920c7315fd5620/02500c7038920c7315fd5620.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP05</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)i am a running mate (2025) เกมชิงโหวต (ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serieday-hd.com/wp-content/uploads/2025/06/I-Am-a-Running-Mate-2025-210x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/2031460fe5b7bcc3f194d72b/2031460fe5b7bcc3f194d72b.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP06</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)i am a running mate (2025) เกมชิงโหวต (ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serieday-hd.com/wp-content/uploads/2025/06/I-Am-a-Running-Mate-2025-210x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/9f9bfd5840e8660b8a930a13/9f9bfd5840e8660b8a930a13.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP07</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)i am a running mate (2025) เกมชิงโหวต (ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serieday-hd.com/wp-content/uploads/2025/06/I-Am-a-Running-Mate-2025-210x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/246bd9f990cb4c5aa6487ece/246bd9f990cb4c5aa6487ece.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP08</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)the haunted palace (2025) ปราสาทหลอนวิญญาณ (พากย์ไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serieday-hd.com/wp-content/uploads/2025/04/The-Haunted-Palace-2025-240x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/906b818d343a69d988406d79/906b818d343a69d988406d79.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP01</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)the haunted palace (2025) ปราสาทหลอนวิญญาณ (พากย์ไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serieday-hd.com/wp-content/uploads/2025/04/The-Haunted-Palace-2025-240x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/5ef141c26738d4b79b835d4d/5ef141c26738d4b79b835d4d.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP02</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)the haunted palace (2025) ปราสาทหลอนวิญญาณ (พากย์ไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serieday-hd.com/wp-content/uploads/2025/04/The-Haunted-Palace-2025-240x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/fcf4e545498c13e70b97571e/fcf4e545498c13e70b97571e.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP03</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)the haunted palace (2025) ปราสาทหลอนวิญญาณ (พากย์ไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serieday-hd.com/wp-content/uploads/2025/04/The-Haunted-Palace-2025-240x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/951fd7d303b4770bcc1fbc68/951fd7d303b4770bcc1fbc68.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP04</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)the haunted palace (2025) ปราสาทหลอนวิญญาณ (พากย์ไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serieday-hd.com/wp-content/uploads/2025/04/The-Haunted-Palace-2025-240x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/38fd860d708724f881a683b9/38fd860d708724f881a683b9.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP05</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)the haunted palace (2025) ปราสาทหลอนวิญญาณ (พากย์ไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serieday-hd.com/wp-content/uploads/2025/04/The-Haunted-Palace-2025-240x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/a82f5e3c28980e3ff526304c/a82f5e3c28980e3ff526304c.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP06</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)the haunted palace (2025) ปราสาทหลอนวิญญาณ (พากย์ไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serieday-hd.com/wp-content/uploads/2025/04/The-Haunted-Palace-2025-240x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/8b9952da4106024b8417b965/8b9952da4106024b8417b965.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP07</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)the haunted palace (2025) ปราสาทหลอนวิญญาณ (พากย์ไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serieday-hd.com/wp-content/uploads/2025/04/The-Haunted-Palace-2025-240x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/baccea3b69b3a918555e5787/baccea3b69b3a918555e5787.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP08</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)the haunted palace (2025) ปราสาทหลอนวิญญาณ (พากย์ไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serieday-hd.com/wp-content/uploads/2025/04/The-Haunted-Palace-2025-240x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/61db91014d4ec0e714e9926c/61db91014d4ec0e714e9926c.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP09</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)the haunted palace (2025) ปราสาทหลอนวิญญาณ (พากย์ไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serieday-hd.com/wp-content/uploads/2025/04/The-Haunted-Palace-2025-240x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/9c9964d3ebb613a2ff1bbdd5/9c9964d3ebb613a2ff1bbdd5.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP10</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)the haunted palace (2025) ปราสาทหลอนวิญญาณ (พากย์ไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serieday-hd.com/wp-content/uploads/2025/04/The-Haunted-Palace-2025-240x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/aaa351430e6375eb65ba230c/aaa351430e6375eb65ba230c.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP11</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)the haunted palace (2025) ปราสาทหลอนวิญญาณ (พากย์ไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serieday-hd.com/wp-content/uploads/2025/04/The-Haunted-Palace-2025-240x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/36bb4b5323adbbd4b17e350a/36bb4b5323adbbd4b17e350a.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP12</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)the haunted palace (2025) ปราสาทหลอนวิญญาณ (พากย์ไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serieday-hd.com/wp-content/uploads/2025/04/The-Haunted-Palace-2025-240x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/8585effcaed179ae4f04802a/8585effcaed179ae4f04802a.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP13</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)the haunted palace (2025) ปราสาทหลอนวิญญาณ (พากย์ไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serieday-hd.com/wp-content/uploads/2025/04/The-Haunted-Palace-2025-240x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/c8a11671c9805acc451668ac/c8a11671c9805acc451668ac.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP14</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)the haunted palace (2025) ปราสาทหลอนวิญญาณ (พากย์ไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serieday-hd.com/wp-content/uploads/2025/04/The-Haunted-Palace-2025-240x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/5d284f5cdd4624e1f0ea5347/5d284f5cdd4624e1f0ea5347.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP15</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)the haunted palace (2025) ปราสาทหลอนวิญญาณ (พากย์ไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serieday-hd.com/wp-content/uploads/2025/04/The-Haunted-Palace-2025-240x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/3e792732107ede6326b413aa/3e792732107ede6326b413aa.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP16</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)tastefully yours (2025) ปรุงรสให้เธอรัก (ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serieday-hd.com/wp-content/uploads/2025/05/Tastefully-Yours-2025-203x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/3f27eff8f4949699a18c7f46/3f27eff8f4949699a18c7f46.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP01</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)tastefully yours (2025) ปรุงรสให้เธอรัก (ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serieday-hd.com/wp-content/uploads/2025/05/Tastefully-Yours-2025-203x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/ce3e15aa24c7f062f2a7b6d6/ce3e15aa24c7f062f2a7b6d6.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP02</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)tastefully yours (2025) ปรุงรสให้เธอรัก (ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serieday-hd.com/wp-content/uploads/2025/05/Tastefully-Yours-2025-203x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/71fd8697c0b146d935c692e1/71fd8697c0b146d935c692e1.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP03</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)tastefully yours (2025) ปรุงรสให้เธอรัก (ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serieday-hd.com/wp-content/uploads/2025/05/Tastefully-Yours-2025-203x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/133a4d8f61c6041b5d9db0c2/133a4d8f61c6041b5d9db0c2.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP04</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)tastefully yours (2025) ปรุงรสให้เธอรัก (ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serieday-hd.com/wp-content/uploads/2025/05/Tastefully-Yours-2025-203x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/6b2a4411556e437be2dee259/6b2a4411556e437be2dee259.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP05</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)tastefully yours (2025) ปรุงรสให้เธอรัก (ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serieday-hd.com/wp-content/uploads/2025/05/Tastefully-Yours-2025-203x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/715882ac3e6e1a2cf6c17bcd/715882ac3e6e1a2cf6c17bcd.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP06</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)tastefully yours (2025) ปรุงรสให้เธอรัก (ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serieday-hd.com/wp-content/uploads/2025/05/Tastefully-Yours-2025-203x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/cb692da78af1da022f06059b/cb692da78af1da022f06059b.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP07</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)tastefully yours (2025) ปรุงรสให้เธอรัก (ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serieday-hd.com/wp-content/uploads/2025/05/Tastefully-Yours-2025-203x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/407adbc9c433bccd7e4d3581/407adbc9c433bccd7e4d3581.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP08</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)tastefully yours (2025) ปรุงรสให้เธอรัก (ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serieday-hd.com/wp-content/uploads/2025/05/Tastefully-Yours-2025-203x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/ef87f3136b58cc344509daba/ef87f3136b58cc344509daba.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP09</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)tastefully yours (2025) ปรุงรสให้เธอรัก (ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serieday-hd.com/wp-content/uploads/2025/05/Tastefully-Yours-2025-203x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/a8266c45d045eccb58c335f3/a8266c45d045eccb58c335f3.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP10</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)heavenly ever after (2025) ในสวรรค์นิรันดร (ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serieday-hd.com/wp-content/uploads/2025/04/Heavenly-Ever-After-2025-%E0%B9%83%E0%B8%99%E0%B8%AA%E0%B8%A7%E0%B8%A3%E0%B8%A3%E0%B8%84%E0%B9%8C%E0%B8%99%E0%B8%B4%E0%B8%A3%E0%B8%B1%E0%B8%99%E0%B8%94%E0%B8%A3-214x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/12e70725cdd7a9b6588cc52a/12e70725cdd7a9b6588cc52a.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP01</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)heavenly ever after (2025) ในสวรรค์นิรันดร (ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serieday-hd.com/wp-content/uploads/2025/04/Heavenly-Ever-After-2025-%E0%B9%83%E0%B8%99%E0%B8%AA%E0%B8%A7%E0%B8%A3%E0%B8%A3%E0%B8%84%E0%B9%8C%E0%B8%99%E0%B8%B4%E0%B8%A3%E0%B8%B1%E0%B8%99%E0%B8%94%E0%B8%A3-214x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/a0bf1f78678616a812f4c031/a0bf1f78678616a812f4c031.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP02</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)heavenly ever after (2025) ในสวรรค์นิรันดร (ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serieday-hd.com/wp-content/uploads/2025/04/Heavenly-Ever-After-2025-%E0%B9%83%E0%B8%99%E0%B8%AA%E0%B8%A7%E0%B8%A3%E0%B8%A3%E0%B8%84%E0%B9%8C%E0%B8%99%E0%B8%B4%E0%B8%A3%E0%B8%B1%E0%B8%99%E0%B8%94%E0%B8%A3-214x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/b4d3ed07192d5d3cf2b0a09e/b4d3ed07192d5d3cf2b0a09e.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP03</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)heavenly ever after (2025) ในสวรรค์นิรันดร (ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serieday-hd.com/wp-content/uploads/2025/04/Heavenly-Ever-After-2025-%E0%B9%83%E0%B8%99%E0%B8%AA%E0%B8%A7%E0%B8%A3%E0%B8%A3%E0%B8%84%E0%B9%8C%E0%B8%99%E0%B8%B4%E0%B8%A3%E0%B8%B1%E0%B8%99%E0%B8%94%E0%B8%A3-214x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/4a29eed724193caa9739365f/4a29eed724193caa9739365f.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP04</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)heavenly ever after (2025) ในสวรรค์นิรันดร (ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serieday-hd.com/wp-content/uploads/2025/04/Heavenly-Ever-After-2025-%E0%B9%83%E0%B8%99%E0%B8%AA%E0%B8%A7%E0%B8%A3%E0%B8%A3%E0%B8%84%E0%B9%8C%E0%B8%99%E0%B8%B4%E0%B8%A3%E0%B8%B1%E0%B8%99%E0%B8%94%E0%B8%A3-214x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/950d518973a5aadfb0b67fcf/950d518973a5aadfb0b67fcf.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP05</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)heavenly ever after (2025) ในสวรรค์นิรันดร (ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serieday-hd.com/wp-content/uploads/2025/04/Heavenly-Ever-After-2025-%E0%B9%83%E0%B8%99%E0%B8%AA%E0%B8%A7%E0%B8%A3%E0%B8%A3%E0%B8%84%E0%B9%8C%E0%B8%99%E0%B8%B4%E0%B8%A3%E0%B8%B1%E0%B8%99%E0%B8%94%E0%B8%A3-214x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/64a6bafe238fa73a917b8e38/64a6bafe238fa73a917b8e38.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP06</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)heavenly ever after (2025) ในสวรรค์นิรันดร (ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serieday-hd.com/wp-content/uploads/2025/04/Heavenly-Ever-After-2025-%E0%B9%83%E0%B8%99%E0%B8%AA%E0%B8%A7%E0%B8%A3%E0%B8%A3%E0%B8%84%E0%B9%8C%E0%B8%99%E0%B8%B4%E0%B8%A3%E0%B8%B1%E0%B8%99%E0%B8%94%E0%B8%A3-214x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/2cd960f6ce32a93b2cf4063f/2cd960f6ce32a93b2cf4063f.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP07</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)heavenly ever after (2025) ในสวรรค์นิรันดร (ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serieday-hd.com/wp-content/uploads/2025/04/Heavenly-Ever-After-2025-%E0%B9%83%E0%B8%99%E0%B8%AA%E0%B8%A7%E0%B8%A3%E0%B8%A3%E0%B8%84%E0%B9%8C%E0%B8%99%E0%B8%B4%E0%B8%A3%E0%B8%B1%E0%B8%99%E0%B8%94%E0%B8%A3-214x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/fea57e1857e52a13fbd80223/fea57e1857e52a13fbd80223.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP08</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)heavenly ever after (2025) ในสวรรค์นิรันดร (ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serieday-hd.com/wp-content/uploads/2025/04/Heavenly-Ever-After-2025-%E0%B9%83%E0%B8%99%E0%B8%AA%E0%B8%A7%E0%B8%A3%E0%B8%A3%E0%B8%84%E0%B9%8C%E0%B8%99%E0%B8%B4%E0%B8%A3%E0%B8%B1%E0%B8%99%E0%B8%94%E0%B8%A3-214x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/cfa9af761a1bfb5e46bf344b/cfa9af761a1bfb5e46bf344b.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP09</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)heavenly ever after (2025) ในสวรรค์นิรันดร (ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serieday-hd.com/wp-content/uploads/2025/04/Heavenly-Ever-After-2025-%E0%B9%83%E0%B8%99%E0%B8%AA%E0%B8%A7%E0%B8%A3%E0%B8%A3%E0%B8%84%E0%B9%8C%E0%B8%99%E0%B8%B4%E0%B8%A3%E0%B8%B1%E0%B8%99%E0%B8%94%E0%B8%A3-214x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/64e1e2c481cd137d71038237/64e1e2c481cd137d71038237.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP10</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)heavenly ever after (2025) ในสวรรค์นิรันดร (ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serieday-hd.com/wp-content/uploads/2025/04/Heavenly-Ever-After-2025-%E0%B9%83%E0%B8%99%E0%B8%AA%E0%B8%A7%E0%B8%A3%E0%B8%A3%E0%B8%84%E0%B9%8C%E0%B8%99%E0%B8%B4%E0%B8%A3%E0%B8%B1%E0%B8%99%E0%B8%94%E0%B8%A3-214x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/116a0bb47af0027cf34c57b0/116a0bb47af0027cf34c57b0.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP11</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)heavenly ever after (2025) ในสวรรค์นิรันดร (ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serieday-hd.com/wp-content/uploads/2025/04/Heavenly-Ever-After-2025-%E0%B9%83%E0%B8%99%E0%B8%AA%E0%B8%A7%E0%B8%A3%E0%B8%A3%E0%B8%84%E0%B9%8C%E0%B8%99%E0%B8%B4%E0%B8%A3%E0%B8%B1%E0%B8%99%E0%B8%94%E0%B8%A3-214x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/3cc3bdcbca8e6d822eaa723f/3cc3bdcbca8e6d822eaa723f.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP12</div>
+</div>
+
+
+
+
+<!-- Pagination -->
+<div class="pagination-wrapper">
+<nav>
+<ul class="pagination">
+	<li><a href="go:main-serie" aria-label="กลับหน้าหลัก"><span aria-hidden="true"><< กลับหน้าหลัก</span></a></li>
+    <li><a href="https://udzaa2238.github.io/korea-series/ซีรี่ย์เกาหลี-หน้าที่1.html">1</a></li>
+    <li><a href="https://udzaa2238.github.io/korea-series/ซีรี่ย์เกาหลี-หน้าที่2.html">2</a></li>
+    <li><a href="https://udzaa2238.github.io/korea-series/ซีรี่ย์เกาหลี-หน้าที่3.html">3</a></li>
+    <li><a href="https://udzaa2238.github.io/korea-series/ซีรี่ย์เกาหลี-หน้าที่4.html">4</a></li>
+    <li><a href="https://udzaa2238.github.io/korea-series/ซีรี่ย์เกาหลี-หน้าที่5.html">5</a></li>
+    <li><a href="https://udzaa2238.github.io/korea-series/ซีรี่ย์เกาหลี-หน้าที่6.html">6</a></li>
+    <li><a href="https://udzaa2238.github.io/korea-series/ซีรี่ย์เกาหลี-หน้าที่7.html">7</a></li>
+    <li><a href="https://udzaa2238.github.io/korea-series/ซีรี่ย์เกาหลี-หน้าที่8.html">8</a></li>
+    <li><a href="https://udzaa2238.github.io/korea-series/ซีรี่ย์เกาหลี-หน้าที่9.html">9</a></li>
+<li class="active"><a href="https://udzaa2238.github.io/korea-series/ซีรี่ย์เกาหลี-หน้าที่10.html"><b>10</b></a></li>
+    <li><a href="https://udzaa2238.github.io/korea-series/ซีรี่ย์เกาหลี-หน้าที่11.html">หน้าต่อไป»</a></li>
+    
+    </ul>
+    </nav>
+    </div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

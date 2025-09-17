@@ -1,0 +1,1056 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>ซีรี่ย์เกาหลี หน้าที่ 18</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- External CSS -->
+  <link href="https://playtvthai.github.io/m3u8/css/bootstrap.css" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <link href="https://playtvthai.github.io/m3u8/css/style.css" rel="stylesheet" type="text/css" media="all" />
+  <link rel="stylesheet" href="https://playtvthai.github.io/m3u8/css/normalize.css">
+  <link rel="stylesheet" href="https://playtvthai.github.io/m3u8/css/custom.css">
+  <link rel="stylesheet" href="https://playtvthai.github.io/m3u8/css/main.css">
+  <link rel="stylesheet" href="http://hdtvdd.com/work/assets_remark/fonts/font-awesome/font-awesome.min.css">
+  <link rel="stylesheet" href="http://hdtvdd.com/work/font/stylesheet.css" type="text/css" charset="utf-8" />
+  <link rel="stylesheet" href="http://hdtvdd.com/work/css/8k.css" type="text/css" charset="utf-8" />
+  <link rel="stylesheet" href="http://hdtvdd.com/work/css/overlay.css" type="text/css" charset="utf-8">
+  <link href="http://hdtvdd.com/work/css/theme.css" rel="stylesheet">
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:100,200,300,400,500,600,700,800,900" rel="stylesheet" type="text/css">
+
+  <!-- JS (dedupe jQuery) -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <script src="https://playtvthai.github.io/m3u8/js/jquery.backstretch.js"></script>
+  <script src="http://hdtvdd.com/work/bootstrap-login-forms/form-2/assets/js/scripts.js"></script>
+
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      width: 100vw;
+      height: 100%;
+      background: #000;
+      box-sizing: border-box;
+      overflow-x: hidden;
+      font-family: 'Roboto Condensed', sans-serif;
+    }
+    *, *:before, *:after { box-sizing: inherit; }
+
+    /* Search/filter bar */
+    .filter-bar {
+      margin: 10px 0;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      align-items: center;
+    }
+    .filter-bar input, .filter-bar select {
+      padding: 8px;
+      font-size: 16px;
+      border-radius: 4px;
+      border: 1px solid #444;
+      background: #1f2025;
+      color: #fff;
+    }
+
+    /* Movie grid 5 columns */
+    /* Movie grid */
+    .movies-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin: 0 -5px;
+      padding-top: 10px;
+    }
+    .movie-item {
+      flex: 0 0 10%; /* เล็กลง, 5 คอลัมน์ต่อแถว */
+      box-sizing: border-box;
+      padding: 0 5px;
+      margin-bottom: 20px;
+      max-width: 200px; /* หรือจำกัดขนาดสูงสุด */
+    }
+    .movie-box {
+      background: #1f2025;
+      border-radius: 4px;
+      overflow: hidden;
+      position: relative;
+    }
+    .movie-image button {
+      width: 100%;
+      height: 0;
+      padding-top: 147%;
+      background-size: cover;
+      background-position: center;
+      border: none;
+      border-radius: 2px;
+      cursor: pointer;
+    }
+    .movie-title {
+      color: white;
+      font-size: 14px;
+      text-align: center;
+      margin-top: 6px;
+      line-height: 1.2;
+      padding: 0 4px;
+      word-break: break-word;
+    }
+
+    @media (max-width: 1200px) {
+      .movie-item { flex: 0 0 33.333%; }
+    }
+    @media (max-width: 900px) {
+      .movie-item { flex: 0 0 50%; }
+    }
+    @media (max-width: 600px) {
+      .movie-item { flex: 0 0 100%; }
+    }
+
+    .pagination-wrapper { text-align: center; margin-top: 20px; }
+    .pagination > li > a, .pagination > li > span { padding: 6px 12px; }
+  </style>
+
+  <script>
+    $(document).ready(function(){
+      $("#myBtn").click(function(){ $("#myModal").modal(); });
+      $("#myBtn2").click(function(){ $("#myModal2").modal(); });
+      $("#myBtn_vip").click(function(){ $("#myModal_vip").modal(); });
+      $("#myBtn_cpass").click(function(){ $("#myModal_changepass").modal(); });
+
+      // Filter logic
+      function normalizeText(t) {
+        return t.trim().toLowerCase();
+      }
+
+      function applyFilter() {
+        const query = normalizeText($("#movie-search").val() || "");
+        const category = $("#category-filter").val();
+        $(".movie-item").each(function() {
+          const title = normalizeText($(this).find(".movie-title").text() || "");
+          const itemCat = $(this).attr("data-category") || "all";
+          const matchesSearch = query === "" || title.includes(query);
+          const matchesCategory = category === "all" || itemCat === category;
+          if (matchesSearch && matchesCategory) {
+            $(this).show();
+          } else {
+            $(this).hide();
+          }
+        });
+      }
+
+      $("#movie-search").on("input", applyFilter);
+      $("#category-filter").on("change", applyFilter);
+    });
+  </script>
+</head>
+
+<body>
+  <div class="container" style="background-color:rgba(0,0,0,0); height:100%;">
+    <div class="container_wrap">
+      <div class="row" style="background-color:#27282c;border-radius:5px;">
+        <div class="col-lg-12 col-md-12 col-xs-12" style="margin-top:10px;margin-bottom:10px;">
+          <div class="row">
+            <div class="col-lg-2 col-md-2 col-sm-5 col-xs-5">
+              <div class="logo"></div>
+            </div>
+            <div class="col-lg-10 col-md-12 col-xs-12">
+              <div class="col-lg-12 col-md-12 col-xs-12" align="left" style="padding:5px;">
+                <div class="form-inline">
+                  <div class="form-group" style="margin:5px;">
+                    <form action="" method="get" name="lange" style="display:inline;">
+                      <input name="lange" type="hidden" id="lange" value="en">
+                      <input type="image" src="/web/images/en.gif" name="submit" width="60" height="20" alt="submit"/>
+                    </form>
+                  </div>
+                  <label for="form-password"><font color="white">ชื่อ : </font><font color="yellow">[ ผู้เฒ่าพเนจร ™ ]</font></label>
+
+                  <button class="btn btn-default" type="button" style="background-color:transparent;border-radius:2px;border:0;font-size:18px;color:#FFF;padding:0 5px;font-family:'rsuregular';" onclick="window.location.href='go:digital'">🏠 Home ™</button>
+                  <button class="btn btn-default" type="button" style="background-color:transparent;border-radius:2px;border:0;font-size:18px;color:#FFF;padding:0 5px;font-family:'rsuregular';" onclick="window.location.href='go:live'">📡 ถ่ายทอดสด ™</button>
+                  <button class="btn btn-default" type="button" style="background-color:transparent;border-radius:2px;border:0;font-size:18px;color:#FFF;padding:0 5px;font-family:'rsuregular';" onclick="window.location.href='go:main-serie'">🎞️ ดูซีรี่ย์ ™</button>
+                  <button class="btn btn-default" type="button" style="background-color:transparent;border-radius:2px;border:0;font-size:18px;color:#FFF;padding:0 5px;font-family:'rsuregular';" onclick="window.location.href='go:main-movie'">🎥 ดูหนัง ™</button>
+                  <button class="btn btn-default" type="button" style="background-color:transparent;border-radius:2px;border:0;font-size:18px;color:#FFF;padding:0 5px;font-family:'rsuregular';" onclick="window.location.href='go:main-movie'">📽️ ดูสารคดี ™</button>
+                  <button class="btn btn-default" type="button" style="background-color:transparent;border-radius:2px;border:0;font-size:18px;color:#FFF;padding:0 5px;font-family:'rsuregular';" onclick="window.location.href='http://action_exit'">🚪 ออก</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+<!--
+          <!-- filter bar -->
+          <div class="filter-bar">
+            <div>
+              <input id="movie-search" type="text" placeholder="ค้นหาหนัง..." />
+            </div>
+            <div>
+              <select id="category-filter">
+                <option value="all">ทั้งหมด</option>
+                <option value="action">Action</option>
+                <option value="drama">Drama</option>
+                <option value="sci-fi">Sci-Fi</option>
+                <option value="exclusive">Exclusive</option>
+              </select>
+            </div>
+          </div>
+
+
+-->
+          <!-- รวมทุก movie-item ไว้ใน grid เดียว -->
+          <div class="movies-grid">
+		  
+
+
+
+<div class="movie-item" data-category=" (จบแล้ว) (ซับไทย) squid game season 2 (2024) สควิดเกม เล่นลุ้นตาย ซีซั่น 2 (ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serie-day.com/wp-content/uploads/2024/12/Squid-Game-Season-2-2024-240x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/5899dd2e75554b08c6c3dce0/5899dd2e75554b08c6c3dce0.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP01</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว) (ซับไทย) squid game season 2 (2024) สควิดเกม เล่นลุ้นตาย ซีซั่น 2 (ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serie-day.com/wp-content/uploads/2024/12/Squid-Game-Season-2-2024-240x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/be0784cc242554c121d4fa77/be0784cc242554c121d4fa77.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP02</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว) (ซับไทย) squid game season 2 (2024) สควิดเกม เล่นลุ้นตาย ซีซั่น 2 (ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serie-day.com/wp-content/uploads/2024/12/Squid-Game-Season-2-2024-240x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/48903b10ce7ca7b209f02152/48903b10ce7ca7b209f02152.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP03</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว) (ซับไทย) squid game season 2 (2024) สควิดเกม เล่นลุ้นตาย ซีซั่น 2 (ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serie-day.com/wp-content/uploads/2024/12/Squid-Game-Season-2-2024-240x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/9219ff1c1b079f3825f075e1/9219ff1c1b079f3825f075e1.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP04</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว) (ซับไทย) squid game season 2 (2024) สควิดเกม เล่นลุ้นตาย ซีซั่น 2 (ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serie-day.com/wp-content/uploads/2024/12/Squid-Game-Season-2-2024-240x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/8e2ac3972a9545d869f64823/8e2ac3972a9545d869f64823.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP05</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว) (ซับไทย) squid game season 2 (2024) สควิดเกม เล่นลุ้นตาย ซีซั่น 2 (ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serie-day.com/wp-content/uploads/2024/12/Squid-Game-Season-2-2024-240x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/95d398367984aec29f1ef16e/95d398367984aec29f1ef16e.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP06</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว) (ซับไทย) squid game season 2 (2024) สควิดเกม เล่นลุ้นตาย ซีซั่น 2 (ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serie-day.com/wp-content/uploads/2024/12/Squid-Game-Season-2-2024-240x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/b8b98e461aa2f64e69c4c67f/b8b98e461aa2f64e69c4c67f.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP07</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)brewing love (2024) กลั่นรักอุ่นหัวใจ (ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serie-day.com/wp-content/uploads/2024/11/Brewing-Love-2024-210x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/18dc5c0099dc1398c58a5b26/18dc5c0099dc1398c58a5b26.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP01</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)brewing love (2024) กลั่นรักอุ่นหัวใจ (ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serie-day.com/wp-content/uploads/2024/11/Brewing-Love-2024-210x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/0eff56e2170dd1b8a06d5fc3/0eff56e2170dd1b8a06d5fc3.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP02</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)brewing love (2024) กลั่นรักอุ่นหัวใจ (ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serie-day.com/wp-content/uploads/2024/11/Brewing-Love-2024-210x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/178d3166bbf32f4fe44f85a6/178d3166bbf32f4fe44f85a6.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP03</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)brewing love (2024) กลั่นรักอุ่นหัวใจ (ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serie-day.com/wp-content/uploads/2024/11/Brewing-Love-2024-210x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/70ff180bad436717b85882ab/70ff180bad436717b85882ab.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP04</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)brewing love (2024) กลั่นรักอุ่นหัวใจ (ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serie-day.com/wp-content/uploads/2024/11/Brewing-Love-2024-210x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/29696d41462d5f181df549b3/29696d41462d5f181df549b3.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP05</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)brewing love (2024) กลั่นรักอุ่นหัวใจ (ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serie-day.com/wp-content/uploads/2024/11/Brewing-Love-2024-210x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/46e07136712f1bcb3f21edf9/46e07136712f1bcb3f21edf9.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP06</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)brewing love (2024) กลั่นรักอุ่นหัวใจ (ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serie-day.com/wp-content/uploads/2024/11/Brewing-Love-2024-210x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/74d634a80b41bc95e311e249/74d634a80b41bc95e311e249.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP07</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)brewing love (2024) กลั่นรักอุ่นหัวใจ (ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serie-day.com/wp-content/uploads/2024/11/Brewing-Love-2024-210x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/5ca46e31bb29194aa616b0b2/5ca46e31bb29194aa616b0b2.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP08</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)brewing love (2024) กลั่นรักอุ่นหัวใจ (ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serie-day.com/wp-content/uploads/2024/11/Brewing-Love-2024-210x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/5b7c7fd7be9b6a46847622f1/5b7c7fd7be9b6a46847622f1.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP09</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)brewing love (2024) กลั่นรักอุ่นหัวใจ (ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serie-day.com/wp-content/uploads/2024/11/Brewing-Love-2024-210x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/6f12f23b87da655f4898e2cb/6f12f23b87da655f4898e2cb.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP10</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)brewing love (2024) กลั่นรักอุ่นหัวใจ (ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serie-day.com/wp-content/uploads/2024/11/Brewing-Love-2024-210x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/928c868ff2b0cbeebdf401ce/928c868ff2b0cbeebdf401ce.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP11</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)brewing love (2024) กลั่นรักอุ่นหัวใจ (ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serie-day.com/wp-content/uploads/2024/11/Brewing-Love-2024-210x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/f8a748d6310da9af239b69c1/f8a748d6310da9af239b69c1.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP12</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)marry you (2024) (ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serie-day.com/wp-content/uploads/2024/11/Marry-You-2024-212x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/d3ffeb6ce1d874841a7c10d9/d3ffeb6ce1d874841a7c10d9.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP01</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)marry you (2024) (ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serie-day.com/wp-content/uploads/2024/11/Marry-You-2024-212x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/9599935157f0e15d0e08dd8c/9599935157f0e15d0e08dd8c.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP02</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)marry you (2024) (ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serie-day.com/wp-content/uploads/2024/11/Marry-You-2024-212x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/586eb1457bfef930e86a8a76/586eb1457bfef930e86a8a76.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP03</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)marry you (2024) (ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serie-day.com/wp-content/uploads/2024/11/Marry-You-2024-212x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/785af22285832eb2b5de9863/785af22285832eb2b5de9863.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP04</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)marry you (2024) (ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serie-day.com/wp-content/uploads/2024/11/Marry-You-2024-212x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/7b0fc6110ce5d866f9a22628/7b0fc6110ce5d866f9a22628.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP05</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)marry you (2024) (ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serie-day.com/wp-content/uploads/2024/11/Marry-You-2024-212x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/62a9f205acfd955452b6c3d1/62a9f205acfd955452b6c3d1.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP06</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)marry you (2024) (ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serie-day.com/wp-content/uploads/2024/11/Marry-You-2024-212x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/5b373f0e1f4effacd89228de/5b373f0e1f4effacd89228de.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP07</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)marry you (2024) (ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serie-day.com/wp-content/uploads/2024/11/Marry-You-2024-212x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/a2a9ce10faa939d9a0fd5d7b/a2a9ce10faa939d9a0fd5d7b.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP08</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)marry you (2024) (ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serie-day.com/wp-content/uploads/2024/11/Marry-You-2024-212x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/d92f6d9902eb3731a7b161c6/d92f6d9902eb3731a7b161c6.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP09</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)marry you (2024) (ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serie-day.com/wp-content/uploads/2024/11/Marry-You-2024-212x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/e9d90b6eeb52eed90b3ae263/e9d90b6eeb52eed90b3ae263.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP10</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)beauty and mr romantic (2024) คนสวยกับนายโรแมนติก (ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serie-day.com/wp-content/uploads/2024/06/Beauty-and-Mr-Romantic-2024-210x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/df6ce240c6d2ee237e1e4a6c/df6ce240c6d2ee237e1e4a6c.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP01</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)beauty and mr romantic (2024) คนสวยกับนายโรแมนติก (ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serie-day.com/wp-content/uploads/2024/06/Beauty-and-Mr-Romantic-2024-210x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/5f15ac3b03dd150a09b00b7c/5f15ac3b03dd150a09b00b7c.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP02</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)beauty and mr romantic (2024) คนสวยกับนายโรแมนติก (ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serie-day.com/wp-content/uploads/2024/06/Beauty-and-Mr-Romantic-2024-210x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/0e118549330919cffb25831d/0e118549330919cffb25831d.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP03</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)beauty and mr romantic (2024) คนสวยกับนายโรแมนติก (ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serie-day.com/wp-content/uploads/2024/06/Beauty-and-Mr-Romantic-2024-210x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/95385b612d2b9517a18c9361/95385b612d2b9517a18c9361.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP04</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)beauty and mr romantic (2024) คนสวยกับนายโรแมนติก (ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serie-day.com/wp-content/uploads/2024/06/Beauty-and-Mr-Romantic-2024-210x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/2a3d702267a2d6870fbbd0f4/2a3d702267a2d6870fbbd0f4.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP05</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)beauty and mr romantic (2024) คนสวยกับนายโรแมนติก (ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serie-day.com/wp-content/uploads/2024/06/Beauty-and-Mr-Romantic-2024-210x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/9ec1ab0895fd00e6565e1ada/9ec1ab0895fd00e6565e1ada.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP06</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)beauty and mr romantic (2024) คนสวยกับนายโรแมนติก (ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serie-day.com/wp-content/uploads/2024/06/Beauty-and-Mr-Romantic-2024-210x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/b9c805c0f2dc9d026faac674/b9c805c0f2dc9d026faac674.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP07</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)beauty and mr romantic (2024) คนสวยกับนายโรแมนติก (ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serie-day.com/wp-content/uploads/2024/06/Beauty-and-Mr-Romantic-2024-210x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/45cd7f42b7b0c206759824d9/45cd7f42b7b0c206759824d9.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP08</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)beauty and mr romantic (2024) คนสวยกับนายโรแมนติก (ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serie-day.com/wp-content/uploads/2024/06/Beauty-and-Mr-Romantic-2024-210x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/c38cb9fa45fae978e16e57ae/c38cb9fa45fae978e16e57ae.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP09</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)beauty and mr romantic (2024) คนสวยกับนายโรแมนติก (ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serie-day.com/wp-content/uploads/2024/06/Beauty-and-Mr-Romantic-2024-210x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/8ec01e7d7f10af59d2618d1e/8ec01e7d7f10af59d2618d1e.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP10</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)beauty and mr romantic (2024) คนสวยกับนายโรแมนติก (ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serie-day.com/wp-content/uploads/2024/06/Beauty-and-Mr-Romantic-2024-210x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/c49f1dfcac15e81895120402/c49f1dfcac15e81895120402.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP11</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)beauty and mr romantic (2024) คนสวยกับนายโรแมนติก (ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serie-day.com/wp-content/uploads/2024/06/Beauty-and-Mr-Romantic-2024-210x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/e02950cd8825f3a50661e265/e02950cd8825f3a50661e265.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP12</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)beauty and mr romantic (2024) คนสวยกับนายโรแมนติก (ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serie-day.com/wp-content/uploads/2024/06/Beauty-and-Mr-Romantic-2024-210x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/d7b942dd9ca85160f663fc5d/d7b942dd9ca85160f663fc5d.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP13</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)beauty and mr romantic (2024) คนสวยกับนายโรแมนติก (ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serie-day.com/wp-content/uploads/2024/06/Beauty-and-Mr-Romantic-2024-210x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/6ca334c91bd6fb9a29c0ba19/6ca334c91bd6fb9a29c0ba19.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP14</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)beauty and mr romantic (2024) คนสวยกับนายโรแมนติก (ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serie-day.com/wp-content/uploads/2024/06/Beauty-and-Mr-Romantic-2024-210x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/91883f0f9a3295b176abb70d/91883f0f9a3295b176abb70d.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP15</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)beauty and mr romantic (2024) คนสวยกับนายโรแมนติก (ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serie-day.com/wp-content/uploads/2024/06/Beauty-and-Mr-Romantic-2024-210x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/ae4eb3d1fd30be203ab320fb/ae4eb3d1fd30be203ab320fb.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP16</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)beauty and mr romantic (2024) คนสวยกับนายโรแมนติก (ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serie-day.com/wp-content/uploads/2024/06/Beauty-and-Mr-Romantic-2024-210x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/6555a7127da538d9dad7313a/6555a7127da538d9dad7313a.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP17</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)beauty and mr romantic (2024) คนสวยกับนายโรแมนติก (ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serie-day.com/wp-content/uploads/2024/06/Beauty-and-Mr-Romantic-2024-210x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/890b46a8fd995926bf0d8873/890b46a8fd995926bf0d8873.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP18</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)beauty and mr romantic (2024) คนสวยกับนายโรแมนติก (ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serie-day.com/wp-content/uploads/2024/06/Beauty-and-Mr-Romantic-2024-210x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/24f43f69c5372b778dc819fb/24f43f69c5372b778dc819fb.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP19</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)beauty and mr romantic (2024) คนสวยกับนายโรแมนติก (ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serie-day.com/wp-content/uploads/2024/06/Beauty-and-Mr-Romantic-2024-210x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/b3cb565099d928c384e44b16/b3cb565099d928c384e44b16.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP20</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)beauty and mr romantic (2024) คนสวยกับนายโรแมนติก (ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serie-day.com/wp-content/uploads/2024/06/Beauty-and-Mr-Romantic-2024-210x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/ec2f3634b1c850724c2e11bd/ec2f3634b1c850724c2e11bd.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP21</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)beauty and mr romantic (2024) คนสวยกับนายโรแมนติก (ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serie-day.com/wp-content/uploads/2024/06/Beauty-and-Mr-Romantic-2024-210x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/c5addd8a8dd3071fb5e872d2/c5addd8a8dd3071fb5e872d2.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP22</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)beauty and mr romantic (2024) คนสวยกับนายโรแมนติก (ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serie-day.com/wp-content/uploads/2024/06/Beauty-and-Mr-Romantic-2024-210x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/b22f30797dc20b76281c74f5/b22f30797dc20b76281c74f5.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP23</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)beauty and mr romantic (2024) คนสวยกับนายโรแมนติก (ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serie-day.com/wp-content/uploads/2024/06/Beauty-and-Mr-Romantic-2024-210x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/429b588db316bccf6b0a9c5a/429b588db316bccf6b0a9c5a.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP24</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)beauty and mr romantic (2024) คนสวยกับนายโรแมนติก (ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serie-day.com/wp-content/uploads/2024/06/Beauty-and-Mr-Romantic-2024-210x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/f58e82f617c359868a51c29e/f58e82f617c359868a51c29e.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP25</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)beauty and mr romantic (2024) คนสวยกับนายโรแมนติก (ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serie-day.com/wp-content/uploads/2024/06/Beauty-and-Mr-Romantic-2024-210x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/22b177476ccfda082dd8b172/22b177476ccfda082dd8b172.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP26</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)beauty and mr romantic (2024) คนสวยกับนายโรแมนติก (ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serie-day.com/wp-content/uploads/2024/06/Beauty-and-Mr-Romantic-2024-210x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/c6d2e05c181e227694c8d730/c6d2e05c181e227694c8d730.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP27</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)beauty and mr romantic (2024) คนสวยกับนายโรแมนติก (ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serie-day.com/wp-content/uploads/2024/06/Beauty-and-Mr-Romantic-2024-210x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/a20eece43cbe8ffbd88e1895/a20eece43cbe8ffbd88e1895.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP28</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)beauty and mr romantic (2024) คนสวยกับนายโรแมนติก (ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serie-day.com/wp-content/uploads/2024/06/Beauty-and-Mr-Romantic-2024-210x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/69cdcabdf799298af4ea2fb0/69cdcabdf799298af4ea2fb0.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP29</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)beauty and mr romantic (2024) คนสวยกับนายโรแมนติก (ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serie-day.com/wp-content/uploads/2024/06/Beauty-and-Mr-Romantic-2024-210x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/adb1e69a0970f4008d59b83c/adb1e69a0970f4008d59b83c.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP30</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)beauty and mr romantic (2024) คนสวยกับนายโรแมนติก (ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serie-day.com/wp-content/uploads/2024/06/Beauty-and-Mr-Romantic-2024-210x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/73240cfe29d12fb1a16e9dcd/73240cfe29d12fb1a16e9dcd.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP31</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)beauty and mr romantic (2024) คนสวยกับนายโรแมนติก (ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serie-day.com/wp-content/uploads/2024/06/Beauty-and-Mr-Romantic-2024-210x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/6e4281a635cbbd62873a6879/6e4281a635cbbd62873a6879.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP32</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)beauty and mr romantic (2024) คนสวยกับนายโรแมนติก (ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serie-day.com/wp-content/uploads/2024/06/Beauty-and-Mr-Romantic-2024-210x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/3ad2f0825b2a0abf2a5d1fe7/3ad2f0825b2a0abf2a5d1fe7.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP33</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)beauty and mr romantic (2024) คนสวยกับนายโรแมนติก (ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serie-day.com/wp-content/uploads/2024/06/Beauty-and-Mr-Romantic-2024-210x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/4b341866003795fa721fd3fd/4b341866003795fa721fd3fd.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP34</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)beauty and mr romantic (2024) คนสวยกับนายโรแมนติก (ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serie-day.com/wp-content/uploads/2024/06/Beauty-and-Mr-Romantic-2024-210x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/ad038d48a387830f901653aa/ad038d48a387830f901653aa.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP35</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)beauty and mr romantic (2024) คนสวยกับนายโรแมนติก (ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serie-day.com/wp-content/uploads/2024/06/Beauty-and-Mr-Romantic-2024-210x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/5dc443c5003d38e22707cca8/5dc443c5003d38e22707cca8.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP36</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)beauty and mr romantic (2024) คนสวยกับนายโรแมนติก (ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serie-day.com/wp-content/uploads/2024/06/Beauty-and-Mr-Romantic-2024-210x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/c2c721753e39df740381aef7/c2c721753e39df740381aef7.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP37</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)beauty and mr romantic (2024) คนสวยกับนายโรแมนติก (ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serie-day.com/wp-content/uploads/2024/06/Beauty-and-Mr-Romantic-2024-210x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/d85aa3502ae2593d00b55cf3/d85aa3502ae2593d00b55cf3.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP38</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)beauty and mr romantic (2024) คนสวยกับนายโรแมนติก (ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serie-day.com/wp-content/uploads/2024/06/Beauty-and-Mr-Romantic-2024-210x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/bd110cfc79e5669660a965b6/bd110cfc79e5669660a965b6.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP39</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)beauty and mr romantic (2024) คนสวยกับนายโรแมนติก (ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serie-day.com/wp-content/uploads/2024/06/Beauty-and-Mr-Romantic-2024-210x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/2df32e41aabf2ca2bffee07a/2df32e41aabf2ca2bffee07a.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP40</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)beauty and mr romantic (2024) คนสวยกับนายโรแมนติก (ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serie-day.com/wp-content/uploads/2024/06/Beauty-and-Mr-Romantic-2024-210x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/9c1afa4298c0e5ad3d301efc/9c1afa4298c0e5ad3d301efc.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP41</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)beauty and mr romantic (2024) คนสวยกับนายโรแมนติก (ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serie-day.com/wp-content/uploads/2024/06/Beauty-and-Mr-Romantic-2024-210x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/792938e844616302f9a79c9c/792938e844616302f9a79c9c.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP42</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)beauty and mr romantic (2024) คนสวยกับนายโรแมนติก (ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serie-day.com/wp-content/uploads/2024/06/Beauty-and-Mr-Romantic-2024-210x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/38e79344a1e2c2d43601ec2e/38e79344a1e2c2d43601ec2e.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP43</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)beauty and mr romantic (2024) คนสวยกับนายโรแมนติก (ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serie-day.com/wp-content/uploads/2024/06/Beauty-and-Mr-Romantic-2024-210x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/f7dd7aecaa0b358d8ad5e9a2/f7dd7aecaa0b358d8ad5e9a2.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP44</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)beauty and mr romantic (2024) คนสวยกับนายโรแมนติก (ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serie-day.com/wp-content/uploads/2024/06/Beauty-and-Mr-Romantic-2024-210x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/0d12383b71a39e54b22a8b79/0d12383b71a39e54b22a8b79.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP45</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)beauty and mr romantic (2024) คนสวยกับนายโรแมนติก (ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serie-day.com/wp-content/uploads/2024/06/Beauty-and-Mr-Romantic-2024-210x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/e14c007f00957a95b09ba8d9/e14c007f00957a95b09ba8d9.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP46</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)beauty and mr romantic (2024) คนสวยกับนายโรแมนติก (ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serie-day.com/wp-content/uploads/2024/06/Beauty-and-Mr-Romantic-2024-210x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/fe2b89b232cbfa8778f9df00/fe2b89b232cbfa8778f9df00.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP47</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)beauty and mr romantic (2024) คนสวยกับนายโรแมนติก (ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serie-day.com/wp-content/uploads/2024/06/Beauty-and-Mr-Romantic-2024-210x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/37065bd695cb97c07b8fce61/37065bd695cb97c07b8fce61.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP48</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)beauty and mr romantic (2024) คนสวยกับนายโรแมนติก (ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serie-day.com/wp-content/uploads/2024/06/Beauty-and-Mr-Romantic-2024-210x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/bcf4bcb909c0cdae15ef081d/bcf4bcb909c0cdae15ef081d.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP49</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)beauty and mr romantic (2024) คนสวยกับนายโรแมนติก (ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serie-day.com/wp-content/uploads/2024/06/Beauty-and-Mr-Romantic-2024-210x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/6747602c89910e66c598361f/6747602c89910e66c598361f.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP50</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)what comes after love (2024) เมื่อรักเลือนจาก (พากย์ไทย ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serie-day.com/wp-content/uploads/2024/09/What-Comes-after-Love-2024-210x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/40884d359ccae91887b089af/40884d359ccae91887b089af.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP01</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)what comes after love (2024) เมื่อรักเลือนจาก (พากย์ไทย ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serie-day.com/wp-content/uploads/2024/09/What-Comes-after-Love-2024-210x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/51ae3d2163e79723a1792656/51ae3d2163e79723a1792656.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP02</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)what comes after love (2024) เมื่อรักเลือนจาก (พากย์ไทย ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serie-day.com/wp-content/uploads/2024/09/What-Comes-after-Love-2024-210x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/2ded7a96c807768bab05292c/2ded7a96c807768bab05292c.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP03</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)what comes after love (2024) เมื่อรักเลือนจาก (พากย์ไทย ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serie-day.com/wp-content/uploads/2024/09/What-Comes-after-Love-2024-210x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/d1f7fd60b23760a141791120/d1f7fd60b23760a141791120.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP04</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)what comes after love (2024) เมื่อรักเลือนจาก (พากย์ไทย ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serie-day.com/wp-content/uploads/2024/09/What-Comes-after-Love-2024-210x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/14d863cfab93ff85b2001d05/14d863cfab93ff85b2001d05.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP05</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)what comes after love (2024) เมื่อรักเลือนจาก (พากย์ไทย ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serie-day.com/wp-content/uploads/2024/09/What-Comes-after-Love-2024-210x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/bdc96cded7d5e634cd3150ab/bdc96cded7d5e634cd3150ab.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP06</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)under the gun (2024) เกมรัก นักเดิมพัน (พากย์ไทย ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serie-day.com/wp-content/uploads/2024/04/Under-the-Gun-2024-211x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/cbefe9dd13ee557904231974/cbefe9dd13ee557904231974.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP01</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)under the gun (2024) เกมรัก นักเดิมพัน (พากย์ไทย ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serie-day.com/wp-content/uploads/2024/04/Under-the-Gun-2024-211x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/1c8a3da5ac6787ef525318e3/1c8a3da5ac6787ef525318e3.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP02</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)under the gun (2024) เกมรัก นักเดิมพัน (พากย์ไทย ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serie-day.com/wp-content/uploads/2024/04/Under-the-Gun-2024-211x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/9eeb68938769eb335acb5007/9eeb68938769eb335acb5007.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP03</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)under the gun (2024) เกมรัก นักเดิมพัน (พากย์ไทย ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serie-day.com/wp-content/uploads/2024/04/Under-the-Gun-2024-211x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/a92e39365957eb2b07275569/a92e39365957eb2b07275569.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP04</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)under the gun (2024) เกมรัก นักเดิมพัน (พากย์ไทย ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serie-day.com/wp-content/uploads/2024/04/Under-the-Gun-2024-211x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/45bed35d7ac2782f7b01bb65/45bed35d7ac2782f7b01bb65.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP05</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)under the gun (2024) เกมรัก นักเดิมพัน (พากย์ไทย ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serie-day.com/wp-content/uploads/2024/04/Under-the-Gun-2024-211x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/90e90201240f3d2b817193e9/90e90201240f3d2b817193e9.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP06</div>
+</div>
+
+
+<!-- Pagination -->
+<div class="pagination-wrapper">
+<nav>
+<ul class="pagination">
+    <li><a href="go:main-serie" aria-label="กลับหน้าหลัก"><span aria-hidden="true"><< กลับหน้าหลัก</span></a></li>
+    <li><a href="https://udzaa2238.github.io/korea-series/ซีรี่ย์เกาหลี-หน้าที่11.html">11</a></li>
+    <li><a href="https://udzaa2238.github.io/korea-series/ซีรี่ย์เกาหลี-หน้าที่12.html">12</a></li>
+    <li><a href="https://udzaa2238.github.io/korea-series/ซีรี่ย์เกาหลี-หน้าที่13.html">13</a></li>
+    <li><a href="https://udzaa2238.github.io/korea-series/ซีรี่ย์เกาหลี-หน้าที่14.html">14</a></li>
+    <li><a href="https://udzaa2238.github.io/korea-series/ซีรี่ย์เกาหลี-หน้าที่15.html">15</a></li>
+    <li><a href="https://udzaa2238.github.io/korea-series/ซีรี่ย์เกาหลี-หน้าที่16.html">16</a></li>
+    <li><a href="https://udzaa2238.github.io/korea-series/ซีรี่ย์เกาหลี-หน้าที่17.html">17</a></li>
+<li class="active"><a href="https://udzaa2238.github.io/korea-series/ซีรี่ย์เกาหลี-หน้าที่18.html"><b>18</b></a></li>
+    <li><a href="https://udzaa2238.github.io/korea-series/ซีรี่ย์เกาหลี-หน้าที่19.html">19</a></li>
+	<li><a href="https://udzaa2238.github.io/korea-series/ซีรี่ย์เกาหลี-หน้าที่20.html">20</a></li>
+    <li><a href="https://udzaa2238.github.io/korea-series/ซีรี่ย์เกาหลี-หน้าที่21.html">หน้าต่อไป»</a></li>
+    
+    </ul>
+    </nav>
+    </div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

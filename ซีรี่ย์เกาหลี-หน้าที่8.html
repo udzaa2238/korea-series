@@ -1,0 +1,686 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>ซีรี่ย์เกาหลี หน้าที่ 8</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- External CSS -->
+  <link href="https://playtvthai.github.io/m3u8/css/bootstrap.css" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <link href="https://playtvthai.github.io/m3u8/css/style.css" rel="stylesheet" type="text/css" media="all" />
+  <link rel="stylesheet" href="https://playtvthai.github.io/m3u8/css/normalize.css">
+  <link rel="stylesheet" href="https://playtvthai.github.io/m3u8/css/custom.css">
+  <link rel="stylesheet" href="https://playtvthai.github.io/m3u8/css/main.css">
+  <link rel="stylesheet" href="http://hdtvdd.com/work/assets_remark/fonts/font-awesome/font-awesome.min.css">
+  <link rel="stylesheet" href="http://hdtvdd.com/work/font/stylesheet.css" type="text/css" charset="utf-8" />
+  <link rel="stylesheet" href="http://hdtvdd.com/work/css/8k.css" type="text/css" charset="utf-8" />
+  <link rel="stylesheet" href="http://hdtvdd.com/work/css/overlay.css" type="text/css" charset="utf-8">
+  <link href="http://hdtvdd.com/work/css/theme.css" rel="stylesheet">
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:100,200,300,400,500,600,700,800,900" rel="stylesheet" type="text/css">
+
+  <!-- JS (dedupe jQuery) -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <script src="https://playtvthai.github.io/m3u8/js/jquery.backstretch.js"></script>
+  <script src="http://hdtvdd.com/work/bootstrap-login-forms/form-2/assets/js/scripts.js"></script>
+
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      width: 100vw;
+      height: 100%;
+      background: #000;
+      box-sizing: border-box;
+      overflow-x: hidden;
+      font-family: 'Roboto Condensed', sans-serif;
+    }
+    *, *:before, *:after { box-sizing: inherit; }
+
+    /* Search/filter bar */
+    .filter-bar {
+      margin: 10px 0;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      align-items: center;
+    }
+    .filter-bar input, .filter-bar select {
+      padding: 8px;
+      font-size: 16px;
+      border-radius: 4px;
+      border: 1px solid #444;
+      background: #1f2025;
+      color: #fff;
+    }
+
+    /* Movie grid 5 columns */
+    /* Movie grid */
+    .movies-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin: 0 -5px;
+      padding-top: 10px;
+    }
+    .movie-item {
+      flex: 0 0 10%; /* เล็กลง, 5 คอลัมน์ต่อแถว */
+      box-sizing: border-box;
+      padding: 0 5px;
+      margin-bottom: 20px;
+      max-width: 200px; /* หรือจำกัดขนาดสูงสุด */
+    }
+    .movie-box {
+      background: #1f2025;
+      border-radius: 4px;
+      overflow: hidden;
+      position: relative;
+    }
+    .movie-image button {
+      width: 100%;
+      height: 0;
+      padding-top: 147%;
+      background-size: cover;
+      background-position: center;
+      border: none;
+      border-radius: 2px;
+      cursor: pointer;
+    }
+    .movie-title {
+      color: white;
+      font-size: 14px;
+      text-align: center;
+      margin-top: 6px;
+      line-height: 1.2;
+      padding: 0 4px;
+      word-break: break-word;
+    }
+
+    @media (max-width: 1200px) {
+      .movie-item { flex: 0 0 33.333%; }
+    }
+    @media (max-width: 900px) {
+      .movie-item { flex: 0 0 50%; }
+    }
+    @media (max-width: 600px) {
+      .movie-item { flex: 0 0 100%; }
+    }
+
+    .pagination-wrapper { text-align: center; margin-top: 20px; }
+    .pagination > li > a, .pagination > li > span { padding: 6px 12px; }
+  </style>
+
+  <script>
+    $(document).ready(function(){
+      $("#myBtn").click(function(){ $("#myModal").modal(); });
+      $("#myBtn2").click(function(){ $("#myModal2").modal(); });
+      $("#myBtn_vip").click(function(){ $("#myModal_vip").modal(); });
+      $("#myBtn_cpass").click(function(){ $("#myModal_changepass").modal(); });
+
+      // Filter logic
+      function normalizeText(t) {
+        return t.trim().toLowerCase();
+      }
+
+      function applyFilter() {
+        const query = normalizeText($("#movie-search").val() || "");
+        const category = $("#category-filter").val();
+        $(".movie-item").each(function() {
+          const title = normalizeText($(this).find(".movie-title").text() || "");
+          const itemCat = $(this).attr("data-category") || "all";
+          const matchesSearch = query === "" || title.includes(query);
+          const matchesCategory = category === "all" || itemCat === category;
+          if (matchesSearch && matchesCategory) {
+            $(this).show();
+          } else {
+            $(this).hide();
+          }
+        });
+      }
+
+      $("#movie-search").on("input", applyFilter);
+      $("#category-filter").on("change", applyFilter);
+    });
+  </script>
+</head>
+
+<body>
+  <div class="container" style="background-color:rgba(0,0,0,0); height:100%;">
+    <div class="container_wrap">
+      <div class="row" style="background-color:#27282c;border-radius:5px;">
+        <div class="col-lg-12 col-md-12 col-xs-12" style="margin-top:10px;margin-bottom:10px;">
+          <div class="row">
+            <div class="col-lg-2 col-md-2 col-sm-5 col-xs-5">
+              <div class="logo"></div>
+            </div>
+            <div class="col-lg-10 col-md-12 col-xs-12">
+              <div class="col-lg-12 col-md-12 col-xs-12" align="left" style="padding:5px;">
+                <div class="form-inline">
+                  <div class="form-group" style="margin:5px;">
+                    <form action="" method="get" name="lange" style="display:inline;">
+                      <input name="lange" type="hidden" id="lange" value="en">
+                      <input type="image" src="/web/images/en.gif" name="submit" width="60" height="20" alt="submit"/>
+                    </form>
+                  </div>
+                  <label for="form-password"><font color="white">ชื่อ : </font><font color="yellow">[ ผู้เฒ่าพเนจร ™ ]</font></label>
+
+                  <button class="btn btn-default" type="button" style="background-color:transparent;border-radius:2px;border:0;font-size:18px;color:#FFF;padding:0 5px;font-family:'rsuregular';" onclick="window.location.href='go:digital'">🏠 Home ™</button>
+                  <button class="btn btn-default" type="button" style="background-color:transparent;border-radius:2px;border:0;font-size:18px;color:#FFF;padding:0 5px;font-family:'rsuregular';" onclick="window.location.href='go:live'">📡 ถ่ายทอดสด ™</button>
+                  <button class="btn btn-default" type="button" style="background-color:transparent;border-radius:2px;border:0;font-size:18px;color:#FFF;padding:0 5px;font-family:'rsuregular';" onclick="window.location.href='go:main-serie'">🎞️ ดูซีรี่ย์ ™</button>
+                  <button class="btn btn-default" type="button" style="background-color:transparent;border-radius:2px;border:0;font-size:18px;color:#FFF;padding:0 5px;font-family:'rsuregular';" onclick="window.location.href='go:main-movie'">🎥 ดูหนัง ™</button>
+                  <button class="btn btn-default" type="button" style="background-color:transparent;border-radius:2px;border:0;font-size:18px;color:#FFF;padding:0 5px;font-family:'rsuregular';" onclick="window.location.href='go:main-movie'">📽️ ดูสารคดี ™</button>
+                  <button class="btn btn-default" type="button" style="background-color:transparent;border-radius:2px;border:0;font-size:18px;color:#FFF;padding:0 5px;font-family:'rsuregular';" onclick="window.location.href='http://action_exit'">🚪 ออก</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+<!--
+          <!-- filter bar -->
+          <div class="filter-bar">
+            <div>
+              <input id="movie-search" type="text" placeholder="ค้นหาหนัง..." />
+            </div>
+            <div>
+              <select id="category-filter">
+                <option value="all">ทั้งหมด</option>
+                <option value="action">Action</option>
+                <option value="drama">Drama</option>
+                <option value="sci-fi">Sci-Fi</option>
+                <option value="exclusive">Exclusive</option>
+              </select>
+            </div>
+          </div>
+
+
+-->
+          <!-- รวมทุก movie-item ไว้ใน grid เดียว -->
+          <div class="movies-grid">
+		  
+
+<div class="movie-item" data-category=" (จบแล้ว)ball boy tactics (2025) กลยุทธ์ของเด็กเก็บลูกบอล (ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serieday-hd.com/wp-content/uploads/2025/06/Ball-Boy-Tactics-2025-200x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/ee23e12e12ef83678277df42/ee23e12e12ef83678277df42.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP01</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)ball boy tactics (2025) กลยุทธ์ของเด็กเก็บลูกบอล (ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serieday-hd.com/wp-content/uploads/2025/06/Ball-Boy-Tactics-2025-200x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/1e216b3e288364c9a8ac8302/1e216b3e288364c9a8ac8302.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP02</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)ball boy tactics (2025) กลยุทธ์ของเด็กเก็บลูกบอล (ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serieday-hd.com/wp-content/uploads/2025/06/Ball-Boy-Tactics-2025-200x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/43c32e5b6c6fff70125fffbb/43c32e5b6c6fff70125fffbb.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP03</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)ball boy tactics (2025) กลยุทธ์ของเด็กเก็บลูกบอล (ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serieday-hd.com/wp-content/uploads/2025/06/Ball-Boy-Tactics-2025-200x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/c2fabd56c9c787182b301400/c2fabd56c9c787182b301400.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP04</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)ball boy tactics (2025) กลยุทธ์ของเด็กเก็บลูกบอล (ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serieday-hd.com/wp-content/uploads/2025/06/Ball-Boy-Tactics-2025-200x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/e35b0d0cc8b414d9a0a001de/e35b0d0cc8b414d9a0a001de.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP05</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)ball boy tactics (2025) กลยุทธ์ของเด็กเก็บลูกบอล (ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serieday-hd.com/wp-content/uploads/2025/06/Ball-Boy-Tactics-2025-200x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/2233abaef62c6b4b779e2633/2233abaef62c6b4b779e2633.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP06</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)ball boy tactics (2025) กลยุทธ์ของเด็กเก็บลูกบอล (ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serieday-hd.com/wp-content/uploads/2025/06/Ball-Boy-Tactics-2025-200x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/1bdf394ee9ebbc1426f9d1a7/1bdf394ee9ebbc1426f9d1a7.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP07</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)ball boy tactics (2025) กลยุทธ์ของเด็กเก็บลูกบอล (ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serieday-hd.com/wp-content/uploads/2025/06/Ball-Boy-Tactics-2025-200x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/bf50b7e848a723ad36b54228/bf50b7e848a723ad36b54228.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP08</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)squid game season 3 (2025) สควิดเกม เล่นลุ้นตาย ซีซั่น 3 (พากย์ไทย ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serieday-hd.com/wp-content/uploads/2025/06/Squid-Game-Season-3-2025-240x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/391756cae470136a63faa435/391756cae470136a63faa435.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP01</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)squid game season 3 (2025) สควิดเกม เล่นลุ้นตาย ซีซั่น 3 (พากย์ไทย ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serieday-hd.com/wp-content/uploads/2025/06/Squid-Game-Season-3-2025-240x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/6d65bdbe4b5511bec8f95e92/6d65bdbe4b5511bec8f95e92.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP02</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)squid game season 3 (2025) สควิดเกม เล่นลุ้นตาย ซีซั่น 3 (พากย์ไทย ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serieday-hd.com/wp-content/uploads/2025/06/Squid-Game-Season-3-2025-240x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/969da50d3e106b5952dc3e06/969da50d3e106b5952dc3e06.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP03</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)squid game season 3 (2025) สควิดเกม เล่นลุ้นตาย ซีซั่น 3 (พากย์ไทย ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serieday-hd.com/wp-content/uploads/2025/06/Squid-Game-Season-3-2025-240x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/50fcf8cbbc631a5ba8ac787c/50fcf8cbbc631a5ba8ac787c.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP04</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)squid game season 3 (2025) สควิดเกม เล่นลุ้นตาย ซีซั่น 3 (พากย์ไทย ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serieday-hd.com/wp-content/uploads/2025/06/Squid-Game-Season-3-2025-240x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/581a29d384ad37dbf0ab271e/581a29d384ad37dbf0ab271e.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP05</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)squid game season 3 (2025) สควิดเกม เล่นลุ้นตาย ซีซั่น 3 (พากย์ไทย ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serieday-hd.com/wp-content/uploads/2025/06/Squid-Game-Season-3-2025-240x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/fa5b84dcdef32772326a30ba/fa5b84dcdef32772326a30ba.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP06</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)heart stain (2025) เธอคือสีสันของหัวใจ (ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serie-day.com/wp-content/uploads/2025/02/Heart-Stain-2025-199x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/2988642cc29178ecdbe23d32/2988642cc29178ecdbe23d32.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP01</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)heart stain (2025) เธอคือสีสันของหัวใจ (ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serie-day.com/wp-content/uploads/2025/02/Heart-Stain-2025-199x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/b720cb4240edd9f7aa0acdbd/b720cb4240edd9f7aa0acdbd.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP02</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)heart stain (2025) เธอคือสีสันของหัวใจ (ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serie-day.com/wp-content/uploads/2025/02/Heart-Stain-2025-199x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/dbf704b750e702a8b0090434/dbf704b750e702a8b0090434.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP03</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)heart stain (2025) เธอคือสีสันของหัวใจ (ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serie-day.com/wp-content/uploads/2025/02/Heart-Stain-2025-199x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/75ba92a0c82702fd73fc468c/75ba92a0c82702fd73fc468c.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP04</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)heart stain (2025) เธอคือสีสันของหัวใจ (ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serie-day.com/wp-content/uploads/2025/02/Heart-Stain-2025-199x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/8442c99d0de80c7430c1676e/8442c99d0de80c7430c1676e.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP05</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)heart stain (2025) เธอคือสีสันของหัวใจ (ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serie-day.com/wp-content/uploads/2025/02/Heart-Stain-2025-199x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/0ee3d9975f0587b468dfab1e/0ee3d9975f0587b468dfab1e.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP06</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)heart stain (2025) เธอคือสีสันของหัวใจ (ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serie-day.com/wp-content/uploads/2025/02/Heart-Stain-2025-199x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/68ebaebe6e248e0bdf705c5f/68ebaebe6e248e0bdf705c5f.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP07</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)heart stain (2025) เธอคือสีสันของหัวใจ (ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serie-day.com/wp-content/uploads/2025/02/Heart-Stain-2025-199x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/e5267545cba6124de18fa883/e5267545cba6124de18fa883.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP08</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)buried hearts (2025) (ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serie-day.com/wp-content/uploads/2025/02/Buried-Hearts-2025-240x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/675fda635036de60ccd0aadd/675fda635036de60ccd0aadd.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP01</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)buried hearts (2025) (ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serie-day.com/wp-content/uploads/2025/02/Buried-Hearts-2025-240x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/98375e374849385e724e6c24/98375e374849385e724e6c24.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP02</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)buried hearts (2025) (ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serie-day.com/wp-content/uploads/2025/02/Buried-Hearts-2025-240x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/8bb03fc5e402c3d2809a33a8/8bb03fc5e402c3d2809a33a8.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP03</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)buried hearts (2025) (ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serie-day.com/wp-content/uploads/2025/02/Buried-Hearts-2025-240x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/58914e51a3c7fd03dd7fefaa/58914e51a3c7fd03dd7fefaa.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP04</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)buried hearts (2025) (ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serie-day.com/wp-content/uploads/2025/02/Buried-Hearts-2025-240x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/20261cd0fb372c4af12a9027/20261cd0fb372c4af12a9027.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP05</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)buried hearts (2025) (ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serie-day.com/wp-content/uploads/2025/02/Buried-Hearts-2025-240x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/a4fe547d4dc29440b4de2af0/a4fe547d4dc29440b4de2af0.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP06</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)buried hearts (2025) (ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serie-day.com/wp-content/uploads/2025/02/Buried-Hearts-2025-240x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/089e745393c8e440a4442976/089e745393c8e440a4442976.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP07</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)buried hearts (2025) (ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serie-day.com/wp-content/uploads/2025/02/Buried-Hearts-2025-240x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/089e745393c8e440a4442976/089e745393c8e440a4442976.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP08</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)buried hearts (2025) (ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serie-day.com/wp-content/uploads/2025/02/Buried-Hearts-2025-240x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/e8988b0106e80fd30111b50b/e8988b0106e80fd30111b50b.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP09</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)buried hearts (2025) (ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serie-day.com/wp-content/uploads/2025/02/Buried-Hearts-2025-240x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/0677a9a81e7be7e499c39cab/0677a9a81e7be7e499c39cab.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP10</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)buried hearts (2025) (ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serie-day.com/wp-content/uploads/2025/02/Buried-Hearts-2025-240x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/ca57b986b3b101c31cb9b856/ca57b986b3b101c31cb9b856.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP11</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)buried hearts (2025) (ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serie-day.com/wp-content/uploads/2025/02/Buried-Hearts-2025-240x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/5bc86a1f846b7524da476872/5bc86a1f846b7524da476872.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP12</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)buried hearts (2025) (ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serie-day.com/wp-content/uploads/2025/02/Buried-Hearts-2025-240x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/74a8e294feff4a94e5611a4a/74a8e294feff4a94e5611a4a.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP13</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)buried hearts (2025) (ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serie-day.com/wp-content/uploads/2025/02/Buried-Hearts-2025-240x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/57b3d47981c5c2352e44266e/57b3d47981c5c2352e44266e.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP14</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)buried hearts (2025) (ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serie-day.com/wp-content/uploads/2025/02/Buried-Hearts-2025-240x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/027f10707278fc9fccd803a5/027f10707278fc9fccd803a5.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP15</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)buried hearts (2025) (ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serie-day.com/wp-content/uploads/2025/02/Buried-Hearts-2025-240x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/839e078518553f5a5e327e9b/839e078518553f5a5e327e9b.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP16</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)my dearest nemesis (2025) บอสตัวร้าย นายยอดรัก (ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serie-day.com/wp-content/uploads/2025/02/My-Dearest-Nemesis-2025-%E0%B8%9A%E0%B8%AD%E0%B8%AA%E0%B8%95%E0%B8%B1%E0%B8%A7%E0%B8%A3%E0%B9%89%E0%B8%B2%E0%B8%A2-%E0%B8%99%E0%B8%B2%E0%B8%A2%E0%B8%A2%E0%B8%AD%E0%B8%94%E0%B8%A3%E0%B8%B1%E0%B8%81-212x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/aa16191a658e7c4934f0e145/aa16191a658e7c4934f0e145.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP01</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)my dearest nemesis (2025) บอสตัวร้าย นายยอดรัก (ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serie-day.com/wp-content/uploads/2025/02/My-Dearest-Nemesis-2025-%E0%B8%9A%E0%B8%AD%E0%B8%AA%E0%B8%95%E0%B8%B1%E0%B8%A7%E0%B8%A3%E0%B9%89%E0%B8%B2%E0%B8%A2-%E0%B8%99%E0%B8%B2%E0%B8%A2%E0%B8%A2%E0%B8%AD%E0%B8%94%E0%B8%A3%E0%B8%B1%E0%B8%81-212x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/8ddbbeaa6db2d3ec5e8c257b/8ddbbeaa6db2d3ec5e8c257b.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP02</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)my dearest nemesis (2025) บอสตัวร้าย นายยอดรัก (ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serie-day.com/wp-content/uploads/2025/02/My-Dearest-Nemesis-2025-%E0%B8%9A%E0%B8%AD%E0%B8%AA%E0%B8%95%E0%B8%B1%E0%B8%A7%E0%B8%A3%E0%B9%89%E0%B8%B2%E0%B8%A2-%E0%B8%99%E0%B8%B2%E0%B8%A2%E0%B8%A2%E0%B8%AD%E0%B8%94%E0%B8%A3%E0%B8%B1%E0%B8%81-212x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/955692f5f355b24d8d51cfbf/955692f5f355b24d8d51cfbf.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP03</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)my dearest nemesis (2025) บอสตัวร้าย นายยอดรัก (ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serie-day.com/wp-content/uploads/2025/02/My-Dearest-Nemesis-2025-%E0%B8%9A%E0%B8%AD%E0%B8%AA%E0%B8%95%E0%B8%B1%E0%B8%A7%E0%B8%A3%E0%B9%89%E0%B8%B2%E0%B8%A2-%E0%B8%99%E0%B8%B2%E0%B8%A2%E0%B8%A2%E0%B8%AD%E0%B8%94%E0%B8%A3%E0%B8%B1%E0%B8%81-212x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/f9333dbe6e1b0b63c0787e66/f9333dbe6e1b0b63c0787e66.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP04</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)my dearest nemesis (2025) บอสตัวร้าย นายยอดรัก (ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serie-day.com/wp-content/uploads/2025/02/My-Dearest-Nemesis-2025-%E0%B8%9A%E0%B8%AD%E0%B8%AA%E0%B8%95%E0%B8%B1%E0%B8%A7%E0%B8%A3%E0%B9%89%E0%B8%B2%E0%B8%A2-%E0%B8%99%E0%B8%B2%E0%B8%A2%E0%B8%A2%E0%B8%AD%E0%B8%94%E0%B8%A3%E0%B8%B1%E0%B8%81-212x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/9f7d3b45ebbfc79784ad7f44/9f7d3b45ebbfc79784ad7f44.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP05</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)my dearest nemesis (2025) บอสตัวร้าย นายยอดรัก (ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serie-day.com/wp-content/uploads/2025/02/My-Dearest-Nemesis-2025-%E0%B8%9A%E0%B8%AD%E0%B8%AA%E0%B8%95%E0%B8%B1%E0%B8%A7%E0%B8%A3%E0%B9%89%E0%B8%B2%E0%B8%A2-%E0%B8%99%E0%B8%B2%E0%B8%A2%E0%B8%A2%E0%B8%AD%E0%B8%94%E0%B8%A3%E0%B8%B1%E0%B8%81-212x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/622f962e39ed00be08a1126d/622f962e39ed00be08a1126d.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP06</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)my dearest nemesis (2025) บอสตัวร้าย นายยอดรัก (ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serie-day.com/wp-content/uploads/2025/02/My-Dearest-Nemesis-2025-%E0%B8%9A%E0%B8%AD%E0%B8%AA%E0%B8%95%E0%B8%B1%E0%B8%A7%E0%B8%A3%E0%B9%89%E0%B8%B2%E0%B8%A2-%E0%B8%99%E0%B8%B2%E0%B8%A2%E0%B8%A2%E0%B8%AD%E0%B8%94%E0%B8%A3%E0%B8%B1%E0%B8%81-212x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/f89d21fb13cfc4ffffbda882/f89d21fb13cfc4ffffbda882.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP07</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)my dearest nemesis (2025) บอสตัวร้าย นายยอดรัก (ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serie-day.com/wp-content/uploads/2025/02/My-Dearest-Nemesis-2025-%E0%B8%9A%E0%B8%AD%E0%B8%AA%E0%B8%95%E0%B8%B1%E0%B8%A7%E0%B8%A3%E0%B9%89%E0%B8%B2%E0%B8%A2-%E0%B8%99%E0%B8%B2%E0%B8%A2%E0%B8%A2%E0%B8%AD%E0%B8%94%E0%B8%A3%E0%B8%B1%E0%B8%81-212x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/8b45789e813b439c70f5bf67/8b45789e813b439c70f5bf67.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP08</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)my dearest nemesis (2025) บอสตัวร้าย นายยอดรัก (ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serie-day.com/wp-content/uploads/2025/02/My-Dearest-Nemesis-2025-%E0%B8%9A%E0%B8%AD%E0%B8%AA%E0%B8%95%E0%B8%B1%E0%B8%A7%E0%B8%A3%E0%B9%89%E0%B8%B2%E0%B8%A2-%E0%B8%99%E0%B8%B2%E0%B8%A2%E0%B8%A2%E0%B8%AD%E0%B8%94%E0%B8%A3%E0%B8%B1%E0%B8%81-212x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/1bff177d5df65eb6e54550c7/1bff177d5df65eb6e54550c7.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP09</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)my dearest nemesis (2025) บอสตัวร้าย นายยอดรัก (ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serie-day.com/wp-content/uploads/2025/02/My-Dearest-Nemesis-2025-%E0%B8%9A%E0%B8%AD%E0%B8%AA%E0%B8%95%E0%B8%B1%E0%B8%A7%E0%B8%A3%E0%B9%89%E0%B8%B2%E0%B8%A2-%E0%B8%99%E0%B8%B2%E0%B8%A2%E0%B8%A2%E0%B8%AD%E0%B8%94%E0%B8%A3%E0%B8%B1%E0%B8%81-212x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/2f187bc4ec060e68ccd1e87b/2f187bc4ec060e68ccd1e87b.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP10</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)my dearest nemesis (2025) บอสตัวร้าย นายยอดรัก (ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serie-day.com/wp-content/uploads/2025/02/My-Dearest-Nemesis-2025-%E0%B8%9A%E0%B8%AD%E0%B8%AA%E0%B8%95%E0%B8%B1%E0%B8%A7%E0%B8%A3%E0%B9%89%E0%B8%B2%E0%B8%A2-%E0%B8%99%E0%B8%B2%E0%B8%A2%E0%B8%A2%E0%B8%AD%E0%B8%94%E0%B8%A3%E0%B8%B1%E0%B8%81-212x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/25e3afed34b5e3e462741b80/25e3afed34b5e3e462741b80.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP11</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)my dearest nemesis (2025) บอสตัวร้าย นายยอดรัก (ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serie-day.com/wp-content/uploads/2025/02/My-Dearest-Nemesis-2025-%E0%B8%9A%E0%B8%AD%E0%B8%AA%E0%B8%95%E0%B8%B1%E0%B8%A7%E0%B8%A3%E0%B9%89%E0%B8%B2%E0%B8%A2-%E0%B8%99%E0%B8%B2%E0%B8%A2%E0%B8%A2%E0%B8%AD%E0%B8%94%E0%B8%A3%E0%B8%B1%E0%B8%81-212x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/316391e6f42e9a73e0973e7b/316391e6f42e9a73e0973e7b.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP12</div>
+</div>
+
+
+
+<!-- Pagination -->
+<div class="pagination-wrapper">
+<nav>
+<ul class="pagination">
+	<li><a href="go:main-serie" aria-label="กลับหน้าหลัก"><span aria-hidden="true"><< กลับหน้าหลัก</span></a></li>
+    <li><a href="https://udzaa2238.github.io/korea-series/ซีรี่ย์เกาหลี-หน้าที่1.html">1</a></li>
+    <li><a href="https://udzaa2238.github.io/korea-series/ซีรี่ย์เกาหลี-หน้าที่2.html">2</a></li>
+    <li><a href="https://udzaa2238.github.io/korea-series/ซีรี่ย์เกาหลี-หน้าที่3.html">3</a></li>
+    <li><a href="https://udzaa2238.github.io/korea-series/ซีรี่ย์เกาหลี-หน้าที่4.html">4</a></li>
+    <li><a href="https://udzaa2238.github.io/korea-series/ซีรี่ย์เกาหลี-หน้าที่5.html">5</a></li>
+    <li><a href="https://udzaa2238.github.io/korea-series/ซีรี่ย์เกาหลี-หน้าที่6.html">6</a></li>
+    <li><a href="https://udzaa2238.github.io/korea-series/ซีรี่ย์เกาหลี-หน้าที่7.html">7</a></li>
+<li class="active"><a href="https://udzaa2238.github.io/korea-series/ซีรี่ย์เกาหลี-หน้าที่8.html"><b>8</b></a></li>
+    <li><a href="https://udzaa2238.github.io/korea-series/ซีรี่ย์เกาหลี-หน้าที่9.html">9</a></li>
+    <li><a href="https://udzaa2238.github.io/korea-series/ซีรี่ย์เกาหลี-หน้าที่10.html">10</a></li>
+    <li><a href="https://udzaa2238.github.io/korea-series/ซีรี่ย์เกาหลี-หน้าที่11.html">หน้าต่อไป»</a></li>
+    
+    </ul>
+    </nav>
+    </div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

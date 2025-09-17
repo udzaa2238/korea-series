@@ -1,0 +1,815 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>ซีรี่ย์เกาหลี หน้าที่ 9</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- External CSS -->
+  <link href="https://playtvthai.github.io/m3u8/css/bootstrap.css" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <link href="https://playtvthai.github.io/m3u8/css/style.css" rel="stylesheet" type="text/css" media="all" />
+  <link rel="stylesheet" href="https://playtvthai.github.io/m3u8/css/normalize.css">
+  <link rel="stylesheet" href="https://playtvthai.github.io/m3u8/css/custom.css">
+  <link rel="stylesheet" href="https://playtvthai.github.io/m3u8/css/main.css">
+  <link rel="stylesheet" href="http://hdtvdd.com/work/assets_remark/fonts/font-awesome/font-awesome.min.css">
+  <link rel="stylesheet" href="http://hdtvdd.com/work/font/stylesheet.css" type="text/css" charset="utf-8" />
+  <link rel="stylesheet" href="http://hdtvdd.com/work/css/8k.css" type="text/css" charset="utf-8" />
+  <link rel="stylesheet" href="http://hdtvdd.com/work/css/overlay.css" type="text/css" charset="utf-8">
+  <link href="http://hdtvdd.com/work/css/theme.css" rel="stylesheet">
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:100,200,300,400,500,600,700,800,900" rel="stylesheet" type="text/css">
+
+  <!-- JS (dedupe jQuery) -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <script src="https://playtvthai.github.io/m3u8/js/jquery.backstretch.js"></script>
+  <script src="http://hdtvdd.com/work/bootstrap-login-forms/form-2/assets/js/scripts.js"></script>
+
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      width: 100vw;
+      height: 100%;
+      background: #000;
+      box-sizing: border-box;
+      overflow-x: hidden;
+      font-family: 'Roboto Condensed', sans-serif;
+    }
+    *, *:before, *:after { box-sizing: inherit; }
+
+    /* Search/filter bar */
+    .filter-bar {
+      margin: 10px 0;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      align-items: center;
+    }
+    .filter-bar input, .filter-bar select {
+      padding: 8px;
+      font-size: 16px;
+      border-radius: 4px;
+      border: 1px solid #444;
+      background: #1f2025;
+      color: #fff;
+    }
+
+    /* Movie grid 5 columns */
+    /* Movie grid */
+    .movies-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin: 0 -5px;
+      padding-top: 10px;
+    }
+    .movie-item {
+      flex: 0 0 10%; /* เล็กลง, 5 คอลัมน์ต่อแถว */
+      box-sizing: border-box;
+      padding: 0 5px;
+      margin-bottom: 20px;
+      max-width: 200px; /* หรือจำกัดขนาดสูงสุด */
+    }
+    .movie-box {
+      background: #1f2025;
+      border-radius: 4px;
+      overflow: hidden;
+      position: relative;
+    }
+    .movie-image button {
+      width: 100%;
+      height: 0;
+      padding-top: 147%;
+      background-size: cover;
+      background-position: center;
+      border: none;
+      border-radius: 2px;
+      cursor: pointer;
+    }
+    .movie-title {
+      color: white;
+      font-size: 14px;
+      text-align: center;
+      margin-top: 6px;
+      line-height: 1.2;
+      padding: 0 4px;
+      word-break: break-word;
+    }
+
+    @media (max-width: 1200px) {
+      .movie-item { flex: 0 0 33.333%; }
+    }
+    @media (max-width: 900px) {
+      .movie-item { flex: 0 0 50%; }
+    }
+    @media (max-width: 600px) {
+      .movie-item { flex: 0 0 100%; }
+    }
+
+    .pagination-wrapper { text-align: center; margin-top: 20px; }
+    .pagination > li > a, .pagination > li > span { padding: 6px 12px; }
+  </style>
+
+  <script>
+    $(document).ready(function(){
+      $("#myBtn").click(function(){ $("#myModal").modal(); });
+      $("#myBtn2").click(function(){ $("#myModal2").modal(); });
+      $("#myBtn_vip").click(function(){ $("#myModal_vip").modal(); });
+      $("#myBtn_cpass").click(function(){ $("#myModal_changepass").modal(); });
+
+      // Filter logic
+      function normalizeText(t) {
+        return t.trim().toLowerCase();
+      }
+
+      function applyFilter() {
+        const query = normalizeText($("#movie-search").val() || "");
+        const category = $("#category-filter").val();
+        $(".movie-item").each(function() {
+          const title = normalizeText($(this).find(".movie-title").text() || "");
+          const itemCat = $(this).attr("data-category") || "all";
+          const matchesSearch = query === "" || title.includes(query);
+          const matchesCategory = category === "all" || itemCat === category;
+          if (matchesSearch && matchesCategory) {
+            $(this).show();
+          } else {
+            $(this).hide();
+          }
+        });
+      }
+
+      $("#movie-search").on("input", applyFilter);
+      $("#category-filter").on("change", applyFilter);
+    });
+  </script>
+</head>
+
+<body>
+  <div class="container" style="background-color:rgba(0,0,0,0); height:100%;">
+    <div class="container_wrap">
+      <div class="row" style="background-color:#27282c;border-radius:5px;">
+        <div class="col-lg-12 col-md-12 col-xs-12" style="margin-top:10px;margin-bottom:10px;">
+          <div class="row">
+            <div class="col-lg-2 col-md-2 col-sm-5 col-xs-5">
+              <div class="logo"></div>
+            </div>
+            <div class="col-lg-10 col-md-12 col-xs-12">
+              <div class="col-lg-12 col-md-12 col-xs-12" align="left" style="padding:5px;">
+                <div class="form-inline">
+                  <div class="form-group" style="margin:5px;">
+                    <form action="" method="get" name="lange" style="display:inline;">
+                      <input name="lange" type="hidden" id="lange" value="en">
+                      <input type="image" src="/web/images/en.gif" name="submit" width="60" height="20" alt="submit"/>
+                    </form>
+                  </div>
+                  <label for="form-password"><font color="white">ชื่อ : </font><font color="yellow">[ ผู้เฒ่าพเนจร ™ ]</font></label>
+
+                  <button class="btn btn-default" type="button" style="background-color:transparent;border-radius:2px;border:0;font-size:18px;color:#FFF;padding:0 5px;font-family:'rsuregular';" onclick="window.location.href='go:digital'">🏠 Home ™</button>
+                  <button class="btn btn-default" type="button" style="background-color:transparent;border-radius:2px;border:0;font-size:18px;color:#FFF;padding:0 5px;font-family:'rsuregular';" onclick="window.location.href='go:live'">📡 ถ่ายทอดสด ™</button>
+                  <button class="btn btn-default" type="button" style="background-color:transparent;border-radius:2px;border:0;font-size:18px;color:#FFF;padding:0 5px;font-family:'rsuregular';" onclick="window.location.href='go:main-serie'">🎞️ ดูซีรี่ย์ ™</button>
+                  <button class="btn btn-default" type="button" style="background-color:transparent;border-radius:2px;border:0;font-size:18px;color:#FFF;padding:0 5px;font-family:'rsuregular';" onclick="window.location.href='go:main-movie'">🎥 ดูหนัง ™</button>
+                  <button class="btn btn-default" type="button" style="background-color:transparent;border-radius:2px;border:0;font-size:18px;color:#FFF;padding:0 5px;font-family:'rsuregular';" onclick="window.location.href='go:main-movie'">📽️ ดูสารคดี ™</button>
+                  <button class="btn btn-default" type="button" style="background-color:transparent;border-radius:2px;border:0;font-size:18px;color:#FFF;padding:0 5px;font-family:'rsuregular';" onclick="window.location.href='http://action_exit'">🚪 ออก</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+<!--
+          <!-- filter bar -->
+          <div class="filter-bar">
+            <div>
+              <input id="movie-search" type="text" placeholder="ค้นหาหนัง..." />
+            </div>
+            <div>
+              <select id="category-filter">
+                <option value="all">ทั้งหมด</option>
+                <option value="action">Action</option>
+                <option value="drama">Drama</option>
+                <option value="sci-fi">Sci-Fi</option>
+                <option value="exclusive">Exclusive</option>
+              </select>
+            </div>
+          </div>
+
+
+-->
+          <!-- รวมทุก movie-item ไว้ใน grid เดียว -->
+          <div class="movies-grid">
+		  
+
+
+
+
+<div class="movie-item" data-category=" (จบแล้ว)iron family (2024) ครอบครัวหัวใจเหล็ก (ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serie-day.com/wp-content/uploads/2024/12/Iron-Family-2024-212x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/8d9e6ff9293c6376fe24b0fb/8d9e6ff9293c6376fe24b0fb.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP01</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)iron family (2024) ครอบครัวหัวใจเหล็ก (ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serie-day.com/wp-content/uploads/2024/12/Iron-Family-2024-212x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/07e0720fe8e2997958611719/07e0720fe8e2997958611719.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP02</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)iron family (2024) ครอบครัวหัวใจเหล็ก (ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serie-day.com/wp-content/uploads/2024/12/Iron-Family-2024-212x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/010789d2ccd66bb9996a9f83/010789d2ccd66bb9996a9f83.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP03</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)iron family (2024) ครอบครัวหัวใจเหล็ก (ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serie-day.com/wp-content/uploads/2024/12/Iron-Family-2024-212x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/2d5ad352b38190703c3f6d82/2d5ad352b38190703c3f6d82.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP04</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)iron family (2024) ครอบครัวหัวใจเหล็ก (ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serie-day.com/wp-content/uploads/2024/12/Iron-Family-2024-212x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/2b433e7de7379d7f960d0f0c/2b433e7de7379d7f960d0f0c.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP05</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)iron family (2024) ครอบครัวหัวใจเหล็ก (ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serie-day.com/wp-content/uploads/2024/12/Iron-Family-2024-212x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/3e9760216d8dc5be405515b4/3e9760216d8dc5be405515b4.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP06</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)iron family (2024) ครอบครัวหัวใจเหล็ก (ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serie-day.com/wp-content/uploads/2024/12/Iron-Family-2024-212x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/f47c16dd372e17aca710c5dd/f47c16dd372e17aca710c5dd.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP07</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)iron family (2024) ครอบครัวหัวใจเหล็ก (ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serie-day.com/wp-content/uploads/2024/12/Iron-Family-2024-212x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/8c6db498ee4b8e2b732dcb01/8c6db498ee4b8e2b732dcb01.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP08</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)iron family (2024) ครอบครัวหัวใจเหล็ก (ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serie-day.com/wp-content/uploads/2024/12/Iron-Family-2024-212x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/8d9e6ff9293c6376fe24b0fb/8d9e6ff9293c6376fe24b0fb.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP09</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)iron family (2024) ครอบครัวหัวใจเหล็ก (ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serie-day.com/wp-content/uploads/2024/12/Iron-Family-2024-212x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/64e65d35cb285b2e7b37fc3b/64e65d35cb285b2e7b37fc3b.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP10</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)iron family (2024) ครอบครัวหัวใจเหล็ก (ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serie-day.com/wp-content/uploads/2024/12/Iron-Family-2024-212x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/aa97ed2e94bf26696338692d/aa97ed2e94bf26696338692d.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP11</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)iron family (2024) ครอบครัวหัวใจเหล็ก (ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serie-day.com/wp-content/uploads/2024/12/Iron-Family-2024-212x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/300592bb5857637a076ea804/300592bb5857637a076ea804.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP12</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)iron family (2024) ครอบครัวหัวใจเหล็ก (ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serie-day.com/wp-content/uploads/2024/12/Iron-Family-2024-212x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/8127e2656961d7719d5d2037/8127e2656961d7719d5d2037.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP13</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)iron family (2024) ครอบครัวหัวใจเหล็ก (ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serie-day.com/wp-content/uploads/2024/12/Iron-Family-2024-212x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/813ae786acd115ccfa1edc5f/813ae786acd115ccfa1edc5f.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP14</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)iron family (2024) ครอบครัวหัวใจเหล็ก (ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serie-day.com/wp-content/uploads/2024/12/Iron-Family-2024-212x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/e0381127bf4e3ce9221bf05e/e0381127bf4e3ce9221bf05e.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP15</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)iron family (2024) ครอบครัวหัวใจเหล็ก (ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serie-day.com/wp-content/uploads/2024/12/Iron-Family-2024-212x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/10e73900e74110a90467f694/10e73900e74110a90467f694.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP16</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)iron family (2024) ครอบครัวหัวใจเหล็ก (ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serie-day.com/wp-content/uploads/2024/12/Iron-Family-2024-212x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/a7ff31a81238d64d1859cdec/a7ff31a81238d64d1859cdec.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP17</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)iron family (2024) ครอบครัวหัวใจเหล็ก (ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serie-day.com/wp-content/uploads/2024/12/Iron-Family-2024-212x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/a7ff31a81238d64d1859cdec/a7ff31a81238d64d1859cdec.m3u9'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP18</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)iron family (2024) ครอบครัวหัวใจเหล็ก (ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serie-day.com/wp-content/uploads/2024/12/Iron-Family-2024-212x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/a7ff31a81238d64d1859cdec/a7ff31a81238d64d1859cdec.m3u10'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP19</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)iron family (2024) ครอบครัวหัวใจเหล็ก (ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serie-day.com/wp-content/uploads/2024/12/Iron-Family-2024-212x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/a7ff31a81238d64d1859cdec/a7ff31a81238d64d1859cdec.m3u11'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP20</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)iron family (2024) ครอบครัวหัวใจเหล็ก (ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serie-day.com/wp-content/uploads/2024/12/Iron-Family-2024-212x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/2fa2744253a1b9f94086e440/2fa2744253a1b9f94086e440.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP21</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)iron family (2024) ครอบครัวหัวใจเหล็ก (ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serie-day.com/wp-content/uploads/2024/12/Iron-Family-2024-212x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/66de34c2322ea4f18d1f2636/66de34c2322ea4f18d1f2636.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP22</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)iron family (2024) ครอบครัวหัวใจเหล็ก (ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serie-day.com/wp-content/uploads/2024/12/Iron-Family-2024-212x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/bf9f2e08a89208ab0ddb4b58/bf9f2e08a89208ab0ddb4b58.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP23</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)iron family (2024) ครอบครัวหัวใจเหล็ก (ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serie-day.com/wp-content/uploads/2024/12/Iron-Family-2024-212x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/81f5f03c62060d771c0f18b9/81f5f03c62060d771c0f18b9.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP24</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)iron family (2024) ครอบครัวหัวใจเหล็ก (ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serie-day.com/wp-content/uploads/2024/12/Iron-Family-2024-212x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/f1b76efd49b6bfc1ed3f3e81/f1b76efd49b6bfc1ed3f3e81.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP25</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)iron family (2024) ครอบครัวหัวใจเหล็ก (ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serie-day.com/wp-content/uploads/2024/12/Iron-Family-2024-212x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/19f7b330fdcbad806eef2c0f/19f7b330fdcbad806eef2c0f.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP26</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)iron family (2024) ครอบครัวหัวใจเหล็ก (ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serie-day.com/wp-content/uploads/2024/12/Iron-Family-2024-212x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/7fe7af665887bb5501ab8952/7fe7af665887bb5501ab8952.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP27</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)iron family (2024) ครอบครัวหัวใจเหล็ก (ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serie-day.com/wp-content/uploads/2024/12/Iron-Family-2024-212x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/2390c15879c1653282096196/2390c15879c1653282096196.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP28</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)iron family (2024) ครอบครัวหัวใจเหล็ก (ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serie-day.com/wp-content/uploads/2024/12/Iron-Family-2024-212x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/d568c69adebdc2373322d2cb/d568c69adebdc2373322d2cb.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP29</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)iron family (2024) ครอบครัวหัวใจเหล็ก (ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serie-day.com/wp-content/uploads/2024/12/Iron-Family-2024-212x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/6a5311fc97aa7c51fcbd451e/6a5311fc97aa7c51fcbd451e.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP30</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)iron family (2024) ครอบครัวหัวใจเหล็ก (ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serie-day.com/wp-content/uploads/2024/12/Iron-Family-2024-212x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/46e0c704936b3723d85568e7/46e0c704936b3723d85568e7.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP31</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)iron family (2024) ครอบครัวหัวใจเหล็ก (ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serie-day.com/wp-content/uploads/2024/12/Iron-Family-2024-212x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/f3225d5ae1c8c0aa33495a9d/f3225d5ae1c8c0aa33495a9d.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP32</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)iron family (2024) ครอบครัวหัวใจเหล็ก (ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serie-day.com/wp-content/uploads/2024/12/Iron-Family-2024-212x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/45642cbdc9f3f5421d2360c9/45642cbdc9f3f5421d2360c9.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP33</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)iron family (2024) ครอบครัวหัวใจเหล็ก (ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serie-day.com/wp-content/uploads/2024/12/Iron-Family-2024-212x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/e5dfb15d6137d64c8de358ce/e5dfb15d6137d64c8de358ce.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP34</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)iron family (2024) ครอบครัวหัวใจเหล็ก (ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serie-day.com/wp-content/uploads/2024/12/Iron-Family-2024-212x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/2ac903910780d9cdbd1a9f57/2ac903910780d9cdbd1a9f57.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP35</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)iron family (2024) ครอบครัวหัวใจเหล็ก (ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serie-day.com/wp-content/uploads/2024/12/Iron-Family-2024-212x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/04e480e6b180a950c84a9800/04e480e6b180a950c84a9800.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP36</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)the potato lab (2025) ปลูกรักนักวิจัย (ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serie-day.com/wp-content/uploads/2025/03/The-Potato-Lab-2025-203x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/47aa025540eed4471b2f085a/47aa025540eed4471b2f085a.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP01</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)the potato lab (2025) ปลูกรักนักวิจัย (ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serie-day.com/wp-content/uploads/2025/03/The-Potato-Lab-2025-203x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/635ddbbbba9cfa371e656c87/635ddbbbba9cfa371e656c87.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP02</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)the potato lab (2025) ปลูกรักนักวิจัย (ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serie-day.com/wp-content/uploads/2025/03/The-Potato-Lab-2025-203x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/a2e10e83cc73eb066fb52c1e/a2e10e83cc73eb066fb52c1e.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP03</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)the potato lab (2025) ปลูกรักนักวิจัย (ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serie-day.com/wp-content/uploads/2025/03/The-Potato-Lab-2025-203x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/122c5be89fe465f320a42125/122c5be89fe465f320a42125.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP04</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)the potato lab (2025) ปลูกรักนักวิจัย (ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serie-day.com/wp-content/uploads/2025/03/The-Potato-Lab-2025-203x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/d229c04610465c8094896db6/d229c04610465c8094896db6.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP05</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)the potato lab (2025) ปลูกรักนักวิจัย (ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serie-day.com/wp-content/uploads/2025/03/The-Potato-Lab-2025-203x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/7cc86da075271a0224353ae1/7cc86da075271a0224353ae1.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP06</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)the potato lab (2025) ปลูกรักนักวิจัย (ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serie-day.com/wp-content/uploads/2025/03/The-Potato-Lab-2025-203x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/9c1f25af1b1c229bd43602a7/9c1f25af1b1c229bd43602a7.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP07</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)the potato lab (2025) ปลูกรักนักวิจัย (ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serie-day.com/wp-content/uploads/2025/03/The-Potato-Lab-2025-203x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/976145a3d483ec83b913d9eb/976145a3d483ec83b913d9eb.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP08</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)the potato lab (2025) ปลูกรักนักวิจัย (ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serie-day.com/wp-content/uploads/2025/03/The-Potato-Lab-2025-203x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/dd9246aea22575d6d6ac6cb3/dd9246aea22575d6d6ac6cb3.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP09</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)the potato lab (2025) ปลูกรักนักวิจัย (ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serie-day.com/wp-content/uploads/2025/03/The-Potato-Lab-2025-203x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/418a90378d6f3baa7becfd09/418a90378d6f3baa7becfd09.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP10</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)the potato lab (2025) ปลูกรักนักวิจัย (ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serie-day.com/wp-content/uploads/2025/03/The-Potato-Lab-2025-203x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/66e61f332339a1df14fb72c2/66e61f332339a1df14fb72c2.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP11</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)the potato lab (2025) ปลูกรักนักวิจัย (ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serie-day.com/wp-content/uploads/2025/03/The-Potato-Lab-2025-203x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/d095b79a71340406c128f551/d095b79a71340406c128f551.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP12</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)friendly rivalry (2025) เพื่อนรัก เกมลวง (พากย์ไทย ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serie-day.com/wp-content/uploads/2025/03/Friendly-Rivalry-2025-240x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/fa67c4333646f9490eeaf799/fa67c4333646f9490eeaf799.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP01</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)friendly rivalry (2025) เพื่อนรัก เกมลวง (พากย์ไทย ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serie-day.com/wp-content/uploads/2025/03/Friendly-Rivalry-2025-240x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/695807c1b92627a4432ecc3b/695807c1b92627a4432ecc3b.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP02</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)friendly rivalry (2025) เพื่อนรัก เกมลวง (พากย์ไทย ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serie-day.com/wp-content/uploads/2025/03/Friendly-Rivalry-2025-240x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/972d0739ce8d13bfb31c12b5/972d0739ce8d13bfb31c12b5.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP03</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)friendly rivalry (2025) เพื่อนรัก เกมลวง (พากย์ไทย ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serie-day.com/wp-content/uploads/2025/03/Friendly-Rivalry-2025-240x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/65e25e76ed24d073ea079c4c/65e25e76ed24d073ea079c4c.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP04</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)friendly rivalry (2025) เพื่อนรัก เกมลวง (พากย์ไทย ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serie-day.com/wp-content/uploads/2025/03/Friendly-Rivalry-2025-240x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/01e1ee47b11062188b0094d4/01e1ee47b11062188b0094d4.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP05</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)friendly rivalry (2025) เพื่อนรัก เกมลวง (พากย์ไทย ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serie-day.com/wp-content/uploads/2025/03/Friendly-Rivalry-2025-240x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/b0489ebd036436227ee10840/b0489ebd036436227ee10840.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP06</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)friendly rivalry (2025) เพื่อนรัก เกมลวง (พากย์ไทย ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serie-day.com/wp-content/uploads/2025/03/Friendly-Rivalry-2025-240x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/9b623c7418528c666ec41700/9b623c7418528c666ec41700.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP07</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)friendly rivalry (2025) เพื่อนรัก เกมลวง (พากย์ไทย ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serie-day.com/wp-content/uploads/2025/03/Friendly-Rivalry-2025-240x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/467e640f6f0f9f5f9c8b1ea8/467e640f6f0f9f5f9c8b1ea8.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP08</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)friendly rivalry (2025) เพื่อนรัก เกมลวง (พากย์ไทย ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serie-day.com/wp-content/uploads/2025/03/Friendly-Rivalry-2025-240x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/8a5ede4dc9a2151874250e73/8a5ede4dc9a2151874250e73.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP09</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)friendly rivalry (2025) เพื่อนรัก เกมลวง (พากย์ไทย ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serie-day.com/wp-content/uploads/2025/03/Friendly-Rivalry-2025-240x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/25fe7633ed74ca2f608322a1/25fe7633ed74ca2f608322a1.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP10</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)friendly rivalry (2025) เพื่อนรัก เกมลวง (พากย์ไทย ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serie-day.com/wp-content/uploads/2025/03/Friendly-Rivalry-2025-240x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/1fda005f16c86919c7197fec/1fda005f16c86919c7197fec.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP11</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)friendly rivalry (2025) เพื่อนรัก เกมลวง (พากย์ไทย ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serie-day.com/wp-content/uploads/2025/03/Friendly-Rivalry-2025-240x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/793ed281fb27e54f70f8ab2c/793ed281fb27e54f70f8ab2c.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP12</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)friendly rivalry (2025) เพื่อนรัก เกมลวง (พากย์ไทย ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serie-day.com/wp-content/uploads/2025/03/Friendly-Rivalry-2025-240x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/b425a47dcf8f2cf062f731c0/b425a47dcf8f2cf062f731c0.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP13</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)friendly rivalry (2025) เพื่อนรัก เกมลวง (พากย์ไทย ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serie-day.com/wp-content/uploads/2025/03/Friendly-Rivalry-2025-240x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/3cb47e40c84c98f9fc126ba1/3cb47e40c84c98f9fc126ba1.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP14</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)friendly rivalry (2025) เพื่อนรัก เกมลวง (พากย์ไทย ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serie-day.com/wp-content/uploads/2025/03/Friendly-Rivalry-2025-240x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/4f15eec0b99e64bdb06adfb2/4f15eec0b99e64bdb06adfb2.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP15</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)friendly rivalry (2025) เพื่อนรัก เกมลวง (พากย์ไทย ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serie-day.com/wp-content/uploads/2025/03/Friendly-Rivalry-2025-240x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/a98e0f9ff0a2a0d71b67053b/a98e0f9ff0a2a0d71b67053b.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP16</div>
+</div>
+
+
+
+<!-- Pagination -->
+<div class="pagination-wrapper">
+<nav>
+<ul class="pagination">
+	<li><a href="go:main-serie" aria-label="กลับหน้าหลัก"><span aria-hidden="true"><< กลับหน้าหลัก</span></a></li>
+    <li><a href="https://udzaa2238.github.io/korea-series/ซีรี่ย์เกาหลี-หน้าที่1.html">1</a></li>
+    <li><a href="https://udzaa2238.github.io/korea-series/ซีรี่ย์เกาหลี-หน้าที่2.html">2</a></li>
+    <li><a href="https://udzaa2238.github.io/korea-series/ซีรี่ย์เกาหลี-หน้าที่3.html">3</a></li>
+    <li><a href="https://udzaa2238.github.io/korea-series/ซีรี่ย์เกาหลี-หน้าที่4.html">4</a></li>
+    <li><a href="https://udzaa2238.github.io/korea-series/ซีรี่ย์เกาหลี-หน้าที่5.html">5</a></li>
+    <li><a href="https://udzaa2238.github.io/korea-series/ซีรี่ย์เกาหลี-หน้าที่6.html">6</a></li>
+    <li><a href="https://udzaa2238.github.io/korea-series/ซีรี่ย์เกาหลี-หน้าที่7.html">7</a></li>
+    <li><a href="https://udzaa2238.github.io/korea-series/ซีรี่ย์เกาหลี-หน้าที่8.html">8</a></li>
+<li class="active"><a href="https://udzaa2238.github.io/korea-series/ซีรี่ย์เกาหลี-หน้าที่9.html"><b>9</b></a></li>
+    <li><a href="https://udzaa2238.github.io/korea-series/ซีรี่ย์เกาหลี-หน้าที่10.html">10</a></li>
+    <li><a href="https://udzaa2238.github.io/korea-series/ซีรี่ย์เกาหลี-หน้าที่11.html">หน้าต่อไป»</a></li>
+    
+    </ul>
+    </nav>
+    </div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

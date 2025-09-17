@@ -1,0 +1,722 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>ซีรี่ย์เกาหลี หน้าที่ 4</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- External CSS -->
+  <link href="https://playtvthai.github.io/m3u8/css/bootstrap.css" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <link href="https://playtvthai.github.io/m3u8/css/style.css" rel="stylesheet" type="text/css" media="all" />
+  <link rel="stylesheet" href="https://playtvthai.github.io/m3u8/css/normalize.css">
+  <link rel="stylesheet" href="https://playtvthai.github.io/m3u8/css/custom.css">
+  <link rel="stylesheet" href="https://playtvthai.github.io/m3u8/css/main.css">
+  <link rel="stylesheet" href="http://hdtvdd.com/work/assets_remark/fonts/font-awesome/font-awesome.min.css">
+  <link rel="stylesheet" href="http://hdtvdd.com/work/font/stylesheet.css" type="text/css" charset="utf-8" />
+  <link rel="stylesheet" href="http://hdtvdd.com/work/css/8k.css" type="text/css" charset="utf-8" />
+  <link rel="stylesheet" href="http://hdtvdd.com/work/css/overlay.css" type="text/css" charset="utf-8">
+  <link href="http://hdtvdd.com/work/css/theme.css" rel="stylesheet">
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:100,200,300,400,500,600,700,800,900" rel="stylesheet" type="text/css">
+
+  <!-- JS (dedupe jQuery) -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <script src="https://playtvthai.github.io/m3u8/js/jquery.backstretch.js"></script>
+  <script src="http://hdtvdd.com/work/bootstrap-login-forms/form-2/assets/js/scripts.js"></script>
+
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      width: 100vw;
+      height: 100%;
+      background: #000;
+      box-sizing: border-box;
+      overflow-x: hidden;
+      font-family: 'Roboto Condensed', sans-serif;
+    }
+    *, *:before, *:after { box-sizing: inherit; }
+
+    /* Search/filter bar */
+    .filter-bar {
+      margin: 10px 0;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      align-items: center;
+    }
+    .filter-bar input, .filter-bar select {
+      padding: 8px;
+      font-size: 16px;
+      border-radius: 4px;
+      border: 1px solid #444;
+      background: #1f2025;
+      color: #fff;
+    }
+
+    /* Movie grid 5 columns */
+    /* Movie grid */
+    .movies-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin: 0 -5px;
+      padding-top: 10px;
+    }
+    .movie-item {
+      flex: 0 0 10%; /* เล็กลง, 5 คอลัมน์ต่อแถว */
+      box-sizing: border-box;
+      padding: 0 5px;
+      margin-bottom: 20px;
+      max-width: 200px; /* หรือจำกัดขนาดสูงสุด */
+    }
+    .movie-box {
+      background: #1f2025;
+      border-radius: 4px;
+      overflow: hidden;
+      position: relative;
+    }
+    .movie-image button {
+      width: 100%;
+      height: 0;
+      padding-top: 147%;
+      background-size: cover;
+      background-position: center;
+      border: none;
+      border-radius: 2px;
+      cursor: pointer;
+    }
+    .movie-title {
+      color: white;
+      font-size: 14px;
+      text-align: center;
+      margin-top: 6px;
+      line-height: 1.2;
+      padding: 0 4px;
+      word-break: break-word;
+    }
+
+    @media (max-width: 1200px) {
+      .movie-item { flex: 0 0 33.333%; }
+    }
+    @media (max-width: 900px) {
+      .movie-item { flex: 0 0 50%; }
+    }
+    @media (max-width: 600px) {
+      .movie-item { flex: 0 0 100%; }
+    }
+
+    .pagination-wrapper { text-align: center; margin-top: 20px; }
+    .pagination > li > a, .pagination > li > span { padding: 6px 12px; }
+  </style>
+
+  <script>
+    $(document).ready(function(){
+      $("#myBtn").click(function(){ $("#myModal").modal(); });
+      $("#myBtn2").click(function(){ $("#myModal2").modal(); });
+      $("#myBtn_vip").click(function(){ $("#myModal_vip").modal(); });
+      $("#myBtn_cpass").click(function(){ $("#myModal_changepass").modal(); });
+
+      // Filter logic
+      function normalizeText(t) {
+        return t.trim().toLowerCase();
+      }
+
+      function applyFilter() {
+        const query = normalizeText($("#movie-search").val() || "");
+        const category = $("#category-filter").val();
+        $(".movie-item").each(function() {
+          const title = normalizeText($(this).find(".movie-title").text() || "");
+          const itemCat = $(this).attr("data-category") || "all";
+          const matchesSearch = query === "" || title.includes(query);
+          const matchesCategory = category === "all" || itemCat === category;
+          if (matchesSearch && matchesCategory) {
+            $(this).show();
+          } else {
+            $(this).hide();
+          }
+        });
+      }
+
+      $("#movie-search").on("input", applyFilter);
+      $("#category-filter").on("change", applyFilter);
+    });
+  </script>
+</head>
+
+<body>
+  <div class="container" style="background-color:rgba(0,0,0,0); height:100%;">
+    <div class="container_wrap">
+      <div class="row" style="background-color:#27282c;border-radius:5px;">
+        <div class="col-lg-12 col-md-12 col-xs-12" style="margin-top:10px;margin-bottom:10px;">
+          <div class="row">
+            <div class="col-lg-2 col-md-2 col-sm-5 col-xs-5">
+              <div class="logo"></div>
+            </div>
+            <div class="col-lg-10 col-md-12 col-xs-12">
+              <div class="col-lg-12 col-md-12 col-xs-12" align="left" style="padding:5px;">
+                <div class="form-inline">
+                  <div class="form-group" style="margin:5px;">
+                    <form action="" method="get" name="lange" style="display:inline;">
+                      <input name="lange" type="hidden" id="lange" value="en">
+                      <input type="image" src="/web/images/en.gif" name="submit" width="60" height="20" alt="submit"/>
+                    </form>
+                  </div>
+                  <label for="form-password"><font color="white">ชื่อ : </font><font color="yellow">[ ผู้เฒ่าพเนจร ™ ]</font></label>
+
+                  <button class="btn btn-default" type="button" style="background-color:transparent;border-radius:2px;border:0;font-size:18px;color:#FFF;padding:0 5px;font-family:'rsuregular';" onclick="window.location.href='go:digital'">🏠 Home ™</button>
+                  <button class="btn btn-default" type="button" style="background-color:transparent;border-radius:2px;border:0;font-size:18px;color:#FFF;padding:0 5px;font-family:'rsuregular';" onclick="window.location.href='go:live'">📡 ถ่ายทอดสด ™</button>
+                  <button class="btn btn-default" type="button" style="background-color:transparent;border-radius:2px;border:0;font-size:18px;color:#FFF;padding:0 5px;font-family:'rsuregular';" onclick="window.location.href='go:main-serie'">🎞️ ดูซีรี่ย์ ™</button>
+                  <button class="btn btn-default" type="button" style="background-color:transparent;border-radius:2px;border:0;font-size:18px;color:#FFF;padding:0 5px;font-family:'rsuregular';" onclick="window.location.href='go:main-movie'">🎥 ดูหนัง ™</button>
+                  <button class="btn btn-default" type="button" style="background-color:transparent;border-radius:2px;border:0;font-size:18px;color:#FFF;padding:0 5px;font-family:'rsuregular';" onclick="window.location.href='go:main-movie'">📽️ ดูสารคดี ™</button>
+                  <button class="btn btn-default" type="button" style="background-color:transparent;border-radius:2px;border:0;font-size:18px;color:#FFF;padding:0 5px;font-family:'rsuregular';" onclick="window.location.href='http://action_exit'">🚪 ออก</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+<!--
+          <!-- filter bar -->
+          <div class="filter-bar">
+            <div>
+              <input id="movie-search" type="text" placeholder="ค้นหาหนัง..." />
+            </div>
+            <div>
+              <select id="category-filter">
+                <option value="all">ทั้งหมด</option>
+                <option value="action">Action</option>
+                <option value="drama">Drama</option>
+                <option value="sci-fi">Sci-Fi</option>
+                <option value="exclusive">Exclusive</option>
+              </select>
+            </div>
+          </div>
+
+
+-->
+          <!-- รวมทุก movie-item ไว้ใน grid เดียว -->
+          <div class="movies-grid">
+		  
+
+<div class="movie-item" data-category=" (กำลังฉาย)our movie (2025) (ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serieday-hd.com/wp-content/uploads/2025/06/Our-Movie-2025-212x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/3335d58ed1ea7c6f39193e90/3335d58ed1ea7c6f39193e90.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP01</div>
+</div>
+<div class="movie-item" data-category=" (กำลังฉาย)our movie (2025) (ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serieday-hd.com/wp-content/uploads/2025/06/Our-Movie-2025-212x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/ec39ce7e2488a1ba4e51e770/ec39ce7e2488a1ba4e51e770.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP02</div>
+</div>
+<div class="movie-item" data-category=" (กำลังฉาย)our movie (2025) (ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serieday-hd.com/wp-content/uploads/2025/06/Our-Movie-2025-212x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/a4e10a962c165a953e74dd1b/a4e10a962c165a953e74dd1b.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP03</div>
+</div>
+<div class="movie-item" data-category=" (กำลังฉาย)our movie (2025) (ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serieday-hd.com/wp-content/uploads/2025/06/Our-Movie-2025-212x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/220a618e6ff588ab82325cf8/220a618e6ff588ab82325cf8.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP04</div>
+</div>
+<div class="movie-item" data-category=" (กำลังฉาย)our movie (2025) (ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serieday-hd.com/wp-content/uploads/2025/06/Our-Movie-2025-212x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/34e59f6cb9ada1a125ad2375/34e59f6cb9ada1a125ad2375.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP05</div>
+</div>
+<div class="movie-item" data-category=" (กำลังฉาย)our movie (2025) (ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serieday-hd.com/wp-content/uploads/2025/06/Our-Movie-2025-212x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/8dd7493ce62ed5d039d9b5f3/8dd7493ce62ed5d039d9b5f3.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP06</div>
+</div>
+<div class="movie-item" data-category=" (กำลังฉาย)our movie (2025) (ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serieday-hd.com/wp-content/uploads/2025/06/Our-Movie-2025-212x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/059edca2596a15e6d0d1ff11/059edca2596a15e6d0d1ff11.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP07</div>
+</div>
+<div class="movie-item" data-category=" (กำลังฉาย)our movie (2025) (ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serieday-hd.com/wp-content/uploads/2025/06/Our-Movie-2025-212x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/c5a316ea1eb714a57d084f82/c5a316ea1eb714a57d084f82.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP08</div>
+</div>
+<div class="movie-item" data-category=" (กำลังฉาย)our movie (2025) (ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serieday-hd.com/wp-content/uploads/2025/06/Our-Movie-2025-212x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/4d67c10d0b110b274af2f4e5/4d67c10d0b110b274af2f4e5.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP09</div>
+</div>
+<div class="movie-item" data-category=" (กำลังฉาย)our movie (2025) (ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serieday-hd.com/wp-content/uploads/2025/06/Our-Movie-2025-212x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/5e6b088879829230a4b83ce5/5e6b088879829230a4b83ce5.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP10</div>
+</div>
+<div class="movie-item" data-category="(จบแล้ว) law and the city (2025)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.seriesday-hd.com/wp-content/uploads/2025/07/Law-and-the-City-2025.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/367e352f6b3e0b36066955a4/367e352f6b3e0b36066955a4.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP1</div>
+</div>
+<div class="movie-item" data-category="(จบแล้ว) law and the city (2025)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.seriesday-hd.com/wp-content/uploads/2025/07/Law-and-the-City-2025.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/81c5eccae00ab7123d15fbd9/81c5eccae00ab7123d15fbd9.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP2</div>
+</div>
+<div class="movie-item" data-category="(จบแล้ว) law and the city (2025)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.seriesday-hd.com/wp-content/uploads/2025/07/Law-and-the-City-2025.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/19fc455bceb5b20d6f13202b/19fc455bceb5b20d6f13202b.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP3</div>
+</div>
+<div class="movie-item" data-category="(จบแล้ว) law and the city (2025)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.seriesday-hd.com/wp-content/uploads/2025/07/Law-and-the-City-2025.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/9b1b38ca5fb8b8441fb8c806/9b1b38ca5fb8b8441fb8c806.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP4</div>
+</div>
+<div class="movie-item" data-category="(จบแล้ว) law and the city (2025)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.seriesday-hd.com/wp-content/uploads/2025/07/Law-and-the-City-2025.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/7413f44407f635b3daf7ef35/7413f44407f635b3daf7ef35.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP5</div>
+</div>
+<div class="movie-item" data-category="(จบแล้ว) law and the city (2025)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.seriesday-hd.com/wp-content/uploads/2025/07/Law-and-the-City-2025.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/716460307c803f2ff518230f/716460307c803f2ff518230f.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP6</div>
+</div>
+<div class="movie-item" data-category="(จบแล้ว) law and the city (2025)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.seriesday-hd.com/wp-content/uploads/2025/07/Law-and-the-City-2025.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/b4dcefaacef3d8df5c5ce6be/b4dcefaacef3d8df5c5ce6be.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP7</div>
+</div>
+<div class="movie-item" data-category="(จบแล้ว) law and the city (2025)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.seriesday-hd.com/wp-content/uploads/2025/07/Law-and-the-City-2025.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/e6633ea47edbed0a8c3c72e9/e6633ea47edbed0a8c3c72e9.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP8</div>
+</div>
+<div class="movie-item" data-category="(จบแล้ว) law and the city (2025)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.seriesday-hd.com/wp-content/uploads/2025/07/Law-and-the-City-2025.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/3439deca87aebeb2691a670a/3439deca87aebeb2691a670a.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP9</div>
+</div>
+<div class="movie-item" data-category="(จบแล้ว) law and the city (2025)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.seriesday-hd.com/wp-content/uploads/2025/07/Law-and-the-City-2025.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/e1f52d20defa30da997c377c/e1f52d20defa30da997c377c.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP10</div>
+</div>
+<div class="movie-item" data-category="(จบแล้ว) law and the city (2025)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.seriesday-hd.com/wp-content/uploads/2025/07/Law-and-the-City-2025.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/3f40bf9af18dcf8b1a7f7139/3f40bf9af18dcf8b1a7f7139.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP11</div>
+</div>
+<div class="movie-item" data-category="(จบแล้ว) law and the city (2025)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.seriesday-hd.com/wp-content/uploads/2025/07/Law-and-the-City-2025.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/cb5b67e3a8bf83755d2c25f8/cb5b67e3a8bf83755d2c25f8.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP12</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)ซิตี้ ฮันเตอร์ city hunter พากย์ไทย">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://upde.cc/storage/media-images/posters/FgtrHieKiN4zbEgpfRZezkmus5VPF3K5uXugra6e.jpg);"onclick="window.location.href='https://ok.ru/videoembed/1936972188171'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP01</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)ซิตี้ ฮันเตอร์ city hunter พากย์ไทย">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://upde.cc/storage/media-images/posters/FgtrHieKiN4zbEgpfRZezkmus5VPF3K5uXugra6e.jpg);"onclick="window.location.href='https://ok.ru/videoembed/1936972319243'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP02</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)ซิตี้ ฮันเตอร์ city hunter พากย์ไทย">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://upde.cc/storage/media-images/posters/FgtrHieKiN4zbEgpfRZezkmus5VPF3K5uXugra6e.jpg);"onclick="window.location.href='https://ok.ru/videoembed/1936972253707'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP03</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)ซิตี้ ฮันเตอร์ city hunter พากย์ไทย">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://upde.cc/storage/media-images/posters/FgtrHieKiN4zbEgpfRZezkmus5VPF3K5uXugra6e.jpg);"onclick="window.location.href='https://ok.ru/videoembed/1936972384779'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP04</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)ซิตี้ ฮันเตอร์ city hunter พากย์ไทย">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://upde.cc/storage/media-images/posters/FgtrHieKiN4zbEgpfRZezkmus5VPF3K5uXugra6e.jpg);"onclick="window.location.href='https://ok.ru/videoembed/1936972450315'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP05</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)ซิตี้ ฮันเตอร์ city hunter พากย์ไทย">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://upde.cc/storage/media-images/posters/FgtrHieKiN4zbEgpfRZezkmus5VPF3K5uXugra6e.jpg);"onclick="window.location.href='https://ok.ru/videoembed/1936972712459'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP06</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)ซิตี้ ฮันเตอร์ city hunter พากย์ไทย">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://upde.cc/storage/media-images/posters/FgtrHieKiN4zbEgpfRZezkmus5VPF3K5uXugra6e.jpg);"onclick="window.location.href='https://ok.ru/videoembed/1936972646923'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP07</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)ซิตี้ ฮันเตอร์ city hunter พากย์ไทย">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://upde.cc/storage/media-images/posters/FgtrHieKiN4zbEgpfRZezkmus5VPF3K5uXugra6e.jpg);"onclick="window.location.href='https://ok.ru/videoembed/1936972777995'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP08</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)ซิตี้ ฮันเตอร์ city hunter พากย์ไทย">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://upde.cc/storage/media-images/posters/FgtrHieKiN4zbEgpfRZezkmus5VPF3K5uXugra6e.jpg);"onclick="window.location.href='https://ok.ru/videoembed/1936972581387'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP09</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)ซิตี้ ฮันเตอร์ city hunter พากย์ไทย">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://upde.cc/storage/media-images/posters/FgtrHieKiN4zbEgpfRZezkmus5VPF3K5uXugra6e.jpg);"onclick="window.location.href='https://ok.ru/videoembed/1936972843531'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP10</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)ซิตี้ ฮันเตอร์ city hunter พากย์ไทย">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://upde.cc/storage/media-images/posters/FgtrHieKiN4zbEgpfRZezkmus5VPF3K5uXugra6e.jpg);"onclick="window.location.href='https://ok.ru/videoembed/1937016949259'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP11</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)ซิตี้ ฮันเตอร์ city hunter พากย์ไทย">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://upde.cc/storage/media-images/posters/FgtrHieKiN4zbEgpfRZezkmus5VPF3K5uXugra6e.jpg);"onclick="window.location.href='https://ok.ru/videoembed/1937017145867'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP12</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)ซิตี้ ฮันเตอร์ city hunter พากย์ไทย">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://upde.cc/storage/media-images/posters/FgtrHieKiN4zbEgpfRZezkmus5VPF3K5uXugra6e.jpg);"onclick="window.location.href='https://ok.ru/videoembed/1937017014795'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP13</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)ซิตี้ ฮันเตอร์ city hunter พากย์ไทย">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://upde.cc/storage/media-images/posters/FgtrHieKiN4zbEgpfRZezkmus5VPF3K5uXugra6e.jpg);"onclick="window.location.href='https://ok.ru/videoembed/1937017080331'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP14</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)ซิตี้ ฮันเตอร์ city hunter พากย์ไทย">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://upde.cc/storage/media-images/posters/FgtrHieKiN4zbEgpfRZezkmus5VPF3K5uXugra6e.jpg);"onclick="window.location.href='https://ok.ru/videoembed/1937017211403'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP15</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)ซิตี้ ฮันเตอร์ city hunter พากย์ไทย">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://upde.cc/storage/media-images/posters/FgtrHieKiN4zbEgpfRZezkmus5VPF3K5uXugra6e.jpg);"onclick="window.location.href='https://ok.ru/videoembed/1937017276939'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP16</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)ซิตี้ ฮันเตอร์ city hunter พากย์ไทย">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://upde.cc/storage/media-images/posters/FgtrHieKiN4zbEgpfRZezkmus5VPF3K5uXugra6e.jpg);"onclick="window.location.href='https://ok.ru/videoembed/1937017408011'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP17</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)ซิตี้ ฮันเตอร์ city hunter พากย์ไทย">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://upde.cc/storage/media-images/posters/FgtrHieKiN4zbEgpfRZezkmus5VPF3K5uXugra6e.jpg);"onclick="window.location.href='https://ok.ru/videoembed/1937017342475'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP18</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)ซิตี้ ฮันเตอร์ city hunter พากย์ไทย">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://upde.cc/storage/media-images/posters/FgtrHieKiN4zbEgpfRZezkmus5VPF3K5uXugra6e.jpg);"onclick="window.location.href='https://ok.ru/videoembed/2699410213593'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP19</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)ซิตี้ ฮันเตอร์ city hunter พากย์ไทย">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://upde.cc/storage/media-images/posters/FgtrHieKiN4zbEgpfRZezkmus5VPF3K5uXugra6e.jpg);"onclick="window.location.href='https://ok.ru/videoembed/1937017539083'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP20</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)all of us are dead (2022) มัธยมซอมบี้ (พากย์ไทย ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.seriesday-hd.com/wp-content/uploads/2023/02/All-of-Us-Are-Dead-2022-%E0%B8%A1%E0%B8%B1%E0%B8%98%E0%B8%A2%E0%B8%A1%E0%B8%8B%E0%B8%AD%E0%B8%A1%E0%B8%9A%E0%B8%B5%E0%B9%89-203x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/7f7d538368773ffc57ea7bd9/7f7d538368773ffc57ea7bd9.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP01</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)all of us are dead (2022) มัธยมซอมบี้ (พากย์ไทย ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.seriesday-hd.com/wp-content/uploads/2023/02/All-of-Us-Are-Dead-2022-%E0%B8%A1%E0%B8%B1%E0%B8%98%E0%B8%A2%E0%B8%A1%E0%B8%8B%E0%B8%AD%E0%B8%A1%E0%B8%9A%E0%B8%B5%E0%B9%89-203x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/414a435ce518fa268e8e0340/414a435ce518fa268e8e0340.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP02</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)all of us are dead (2022) มัธยมซอมบี้ (พากย์ไทย ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.seriesday-hd.com/wp-content/uploads/2023/02/All-of-Us-Are-Dead-2022-%E0%B8%A1%E0%B8%B1%E0%B8%98%E0%B8%A2%E0%B8%A1%E0%B8%8B%E0%B8%AD%E0%B8%A1%E0%B8%9A%E0%B8%B5%E0%B9%89-203x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/ebdc3104ddf5c1a94e7f0d06/ebdc3104ddf5c1a94e7f0d06.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP03</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)all of us are dead (2022) มัธยมซอมบี้ (พากย์ไทย ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.seriesday-hd.com/wp-content/uploads/2023/02/All-of-Us-Are-Dead-2022-%E0%B8%A1%E0%B8%B1%E0%B8%98%E0%B8%A2%E0%B8%A1%E0%B8%8B%E0%B8%AD%E0%B8%A1%E0%B8%9A%E0%B8%B5%E0%B9%89-203x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/caeb1ff0a76fa1c7304c6130/caeb1ff0a76fa1c7304c6130.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP04</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)all of us are dead (2022) มัธยมซอมบี้ (พากย์ไทย ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.seriesday-hd.com/wp-content/uploads/2023/02/All-of-Us-Are-Dead-2022-%E0%B8%A1%E0%B8%B1%E0%B8%98%E0%B8%A2%E0%B8%A1%E0%B8%8B%E0%B8%AD%E0%B8%A1%E0%B8%9A%E0%B8%B5%E0%B9%89-203x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/122bab1ff055dea308bbd89f/122bab1ff055dea308bbd89f.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP05</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)all of us are dead (2022) มัธยมซอมบี้ (พากย์ไทย ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.seriesday-hd.com/wp-content/uploads/2023/02/All-of-Us-Are-Dead-2022-%E0%B8%A1%E0%B8%B1%E0%B8%98%E0%B8%A2%E0%B8%A1%E0%B8%8B%E0%B8%AD%E0%B8%A1%E0%B8%9A%E0%B8%B5%E0%B9%89-203x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/17cb72ddb334b2c3978c4863/17cb72ddb334b2c3978c4863.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP06</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)all of us are dead (2022) มัธยมซอมบี้ (พากย์ไทย ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.seriesday-hd.com/wp-content/uploads/2023/02/All-of-Us-Are-Dead-2022-%E0%B8%A1%E0%B8%B1%E0%B8%98%E0%B8%A2%E0%B8%A1%E0%B8%8B%E0%B8%AD%E0%B8%A1%E0%B8%9A%E0%B8%B5%E0%B9%89-203x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/fd73a505fb764887f3cdd630/fd73a505fb764887f3cdd630.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP07</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)all of us are dead (2022) มัธยมซอมบี้ (พากย์ไทย ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.seriesday-hd.com/wp-content/uploads/2023/02/All-of-Us-Are-Dead-2022-%E0%B8%A1%E0%B8%B1%E0%B8%98%E0%B8%A2%E0%B8%A1%E0%B8%8B%E0%B8%AD%E0%B8%A1%E0%B8%9A%E0%B8%B5%E0%B9%89-203x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/8e498ad14aa7e284f9fd6d1d/8e498ad14aa7e284f9fd6d1d.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP08</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)all of us are dead (2022) มัธยมซอมบี้ (พากย์ไทย ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.seriesday-hd.com/wp-content/uploads/2023/02/All-of-Us-Are-Dead-2022-%E0%B8%A1%E0%B8%B1%E0%B8%98%E0%B8%A2%E0%B8%A1%E0%B8%8B%E0%B8%AD%E0%B8%A1%E0%B8%9A%E0%B8%B5%E0%B9%89-203x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/c6e6c58eeab1d344a88bcb35/c6e6c58eeab1d344a88bcb35.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP09</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)all of us are dead (2022) มัธยมซอมบี้ (พากย์ไทย ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.seriesday-hd.com/wp-content/uploads/2023/02/All-of-Us-Are-Dead-2022-%E0%B8%A1%E0%B8%B1%E0%B8%98%E0%B8%A2%E0%B8%A1%E0%B8%8B%E0%B8%AD%E0%B8%A1%E0%B8%9A%E0%B8%B5%E0%B9%89-203x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/3a0267dfe0cfdd4721ab207d/3a0267dfe0cfdd4721ab207d.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP10</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)all of us are dead (2022) มัธยมซอมบี้ (พากย์ไทย ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.seriesday-hd.com/wp-content/uploads/2023/02/All-of-Us-Are-Dead-2022-%E0%B8%A1%E0%B8%B1%E0%B8%98%E0%B8%A2%E0%B8%A1%E0%B8%8B%E0%B8%AD%E0%B8%A1%E0%B8%9A%E0%B8%B5%E0%B9%89-203x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/04349e494f9c06e8ae9e67c6/04349e494f9c06e8ae9e67c6.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP11</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)all of us are dead (2022) มัธยมซอมบี้ (พากย์ไทย ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.seriesday-hd.com/wp-content/uploads/2023/02/All-of-Us-Are-Dead-2022-%E0%B8%A1%E0%B8%B1%E0%B8%98%E0%B8%A2%E0%B8%A1%E0%B8%8B%E0%B8%AD%E0%B8%A1%E0%B8%9A%E0%B8%B5%E0%B9%89-203x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/32337095faa71d1226b22bb7/32337095faa71d1226b22bb7.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP12</div>
+</div>
+
+
+
+<!-- Pagination -->
+<div class="pagination-wrapper">
+<nav>
+<ul class="pagination">
+	<li><a href="go:main-serie" aria-label="กลับหน้าหลัก"><span aria-hidden="true"><< กลับหน้าหลัก</span></a></li>
+    <li><a href="https://udzaa2238.github.io/korea-series/ซีรี่ย์เกาหลี-หน้าที่1.html">1</a></li>
+    <li><a href="https://udzaa2238.github.io/korea-series/ซีรี่ย์เกาหลี-หน้าที่2.html">2</a></li>
+    <li><a href="https://udzaa2238.github.io/korea-series/ซีรี่ย์เกาหลี-หน้าที่3.html">3</a></li>
+<li class="active"><a href="https://udzaa2238.github.io/korea-series/ซีรี่ย์เกาหลี-หน้าที่4.html"><b>4</b></a></li>
+    <li><a href="https://udzaa2238.github.io/korea-series/ซีรี่ย์เกาหลี-หน้าที่5.html">5</a></li>
+    <li><a href="https://udzaa2238.github.io/korea-series/ซีรี่ย์เกาหลี-หน้าที่6.html">6</a></li>
+    <li><a href="https://udzaa2238.github.io/korea-series/ซีรี่ย์เกาหลี-หน้าที่7.html">7</a></li>
+    <li><a href="https://udzaa2238.github.io/korea-series/ซีรี่ย์เกาหลี-หน้าที่8.html">8</a></li>
+    <li><a href="https://udzaa2238.github.io/korea-series/ซีรี่ย์เกาหลี-หน้าที่9.html">9</a></li>
+    <li><a href="https://udzaa2238.github.io/korea-series/ซีรี่ย์เกาหลี-หน้าที่10.html">10</a></li>
+    <li><a href="https://udzaa2238.github.io/korea-series/ซีรี่ย์เกาหลี-หน้าที่11.html">หน้าต่อไป»</a></li>
+    
+    </ul>
+    </nav>
+    </div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,802 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>ซีรี่ย์เกาหลี หน้าที่ 3</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- External CSS -->
+  <link href="https://playtvthai.github.io/m3u8/css/bootstrap.css" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <link href="https://playtvthai.github.io/m3u8/css/style.css" rel="stylesheet" type="text/css" media="all" />
+  <link rel="stylesheet" href="https://playtvthai.github.io/m3u8/css/normalize.css">
+  <link rel="stylesheet" href="https://playtvthai.github.io/m3u8/css/custom.css">
+  <link rel="stylesheet" href="https://playtvthai.github.io/m3u8/css/main.css">
+  <link rel="stylesheet" href="http://hdtvdd.com/work/assets_remark/fonts/font-awesome/font-awesome.min.css">
+  <link rel="stylesheet" href="http://hdtvdd.com/work/font/stylesheet.css" type="text/css" charset="utf-8" />
+  <link rel="stylesheet" href="http://hdtvdd.com/work/css/8k.css" type="text/css" charset="utf-8" />
+  <link rel="stylesheet" href="http://hdtvdd.com/work/css/overlay.css" type="text/css" charset="utf-8">
+  <link href="http://hdtvdd.com/work/css/theme.css" rel="stylesheet">
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:100,200,300,400,500,600,700,800,900" rel="stylesheet" type="text/css">
+
+  <!-- JS (dedupe jQuery) -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <script src="https://playtvthai.github.io/m3u8/js/jquery.backstretch.js"></script>
+  <script src="http://hdtvdd.com/work/bootstrap-login-forms/form-2/assets/js/scripts.js"></script>
+
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      width: 100vw;
+      height: 100%;
+      background: #000;
+      box-sizing: border-box;
+      overflow-x: hidden;
+      font-family: 'Roboto Condensed', sans-serif;
+    }
+    *, *:before, *:after { box-sizing: inherit; }
+
+    /* Search/filter bar */
+    .filter-bar {
+      margin: 10px 0;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      align-items: center;
+    }
+    .filter-bar input, .filter-bar select {
+      padding: 8px;
+      font-size: 16px;
+      border-radius: 4px;
+      border: 1px solid #444;
+      background: #1f2025;
+      color: #fff;
+    }
+
+    /* Movie grid 5 columns */
+    /* Movie grid */
+    .movies-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin: 0 -5px;
+      padding-top: 10px;
+    }
+    .movie-item {
+      flex: 0 0 10%; /* เล็กลง, 5 คอลัมน์ต่อแถว */
+      box-sizing: border-box;
+      padding: 0 5px;
+      margin-bottom: 20px;
+      max-width: 200px; /* หรือจำกัดขนาดสูงสุด */
+    }
+    .movie-box {
+      background: #1f2025;
+      border-radius: 4px;
+      overflow: hidden;
+      position: relative;
+    }
+    .movie-image button {
+      width: 100%;
+      height: 0;
+      padding-top: 147%;
+      background-size: cover;
+      background-position: center;
+      border: none;
+      border-radius: 2px;
+      cursor: pointer;
+    }
+    .movie-title {
+      color: white;
+      font-size: 14px;
+      text-align: center;
+      margin-top: 6px;
+      line-height: 1.2;
+      padding: 0 4px;
+      word-break: break-word;
+    }
+
+    @media (max-width: 1200px) {
+      .movie-item { flex: 0 0 33.333%; }
+    }
+    @media (max-width: 900px) {
+      .movie-item { flex: 0 0 50%; }
+    }
+    @media (max-width: 600px) {
+      .movie-item { flex: 0 0 100%; }
+    }
+
+    .pagination-wrapper { text-align: center; margin-top: 20px; }
+    .pagination > li > a, .pagination > li > span { padding: 6px 12px; }
+  </style>
+
+  <script>
+    $(document).ready(function(){
+      $("#myBtn").click(function(){ $("#myModal").modal(); });
+      $("#myBtn2").click(function(){ $("#myModal2").modal(); });
+      $("#myBtn_vip").click(function(){ $("#myModal_vip").modal(); });
+      $("#myBtn_cpass").click(function(){ $("#myModal_changepass").modal(); });
+
+      // Filter logic
+      function normalizeText(t) {
+        return t.trim().toLowerCase();
+      }
+
+      function applyFilter() {
+        const query = normalizeText($("#movie-search").val() || "");
+        const category = $("#category-filter").val();
+        $(".movie-item").each(function() {
+          const title = normalizeText($(this).find(".movie-title").text() || "");
+          const itemCat = $(this).attr("data-category") || "all";
+          const matchesSearch = query === "" || title.includes(query);
+          const matchesCategory = category === "all" || itemCat === category;
+          if (matchesSearch && matchesCategory) {
+            $(this).show();
+          } else {
+            $(this).hide();
+          }
+        });
+      }
+
+      $("#movie-search").on("input", applyFilter);
+      $("#category-filter").on("change", applyFilter);
+    });
+  </script>
+</head>
+
+<body>
+  <div class="container" style="background-color:rgba(0,0,0,0); height:100%;">
+    <div class="container_wrap">
+      <div class="row" style="background-color:#27282c;border-radius:5px;">
+        <div class="col-lg-12 col-md-12 col-xs-12" style="margin-top:10px;margin-bottom:10px;">
+          <div class="row">
+            <div class="col-lg-2 col-md-2 col-sm-5 col-xs-5">
+              <div class="logo"></div>
+            </div>
+            <div class="col-lg-10 col-md-12 col-xs-12">
+              <div class="col-lg-12 col-md-12 col-xs-12" align="left" style="padding:5px;">
+                <div class="form-inline">
+                  <div class="form-group" style="margin:5px;">
+                    <form action="" method="get" name="lange" style="display:inline;">
+                      <input name="lange" type="hidden" id="lange" value="en">
+                      <input type="image" src="/web/images/en.gif" name="submit" width="60" height="20" alt="submit"/>
+                    </form>
+                  </div>
+                  <label for="form-password"><font color="white">ชื่อ : </font><font color="yellow">[ ผู้เฒ่าพเนจร ™ ]</font></label>
+
+                  <button class="btn btn-default" type="button" style="background-color:transparent;border-radius:2px;border:0;font-size:18px;color:#FFF;padding:0 5px;font-family:'rsuregular';" onclick="window.location.href='go:digital'">🏠 Home ™</button>
+                  <button class="btn btn-default" type="button" style="background-color:transparent;border-radius:2px;border:0;font-size:18px;color:#FFF;padding:0 5px;font-family:'rsuregular';" onclick="window.location.href='go:live'">📡 ถ่ายทอดสด ™</button>
+                  <button class="btn btn-default" type="button" style="background-color:transparent;border-radius:2px;border:0;font-size:18px;color:#FFF;padding:0 5px;font-family:'rsuregular';" onclick="window.location.href='go:main-serie'">🎞️ ดูซีรี่ย์ ™</button>
+                  <button class="btn btn-default" type="button" style="background-color:transparent;border-radius:2px;border:0;font-size:18px;color:#FFF;padding:0 5px;font-family:'rsuregular';" onclick="window.location.href='go:main-movie'">🎥 ดูหนัง ™</button>
+                  <button class="btn btn-default" type="button" style="background-color:transparent;border-radius:2px;border:0;font-size:18px;color:#FFF;padding:0 5px;font-family:'rsuregular';" onclick="window.location.href='go:main-movie'">📽️ ดูสารคดี ™</button>
+                  <button class="btn btn-default" type="button" style="background-color:transparent;border-radius:2px;border:0;font-size:18px;color:#FFF;padding:0 5px;font-family:'rsuregular';" onclick="window.location.href='http://action_exit'">🚪 ออก</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+<!--
+          <!-- filter bar -->
+          <div class="filter-bar">
+            <div>
+              <input id="movie-search" type="text" placeholder="ค้นหาหนัง..." />
+            </div>
+            <div>
+              <select id="category-filter">
+                <option value="all">ทั้งหมด</option>
+                <option value="action">Action</option>
+                <option value="drama">Drama</option>
+                <option value="sci-fi">Sci-Fi</option>
+                <option value="exclusive">Exclusive</option>
+              </select>
+            </div>
+          </div>
+
+
+-->
+          <!-- รวมทุก movie-item ไว้ใน grid เดียว -->
+          <div class="movies-grid">
+		  
+
+<div class="movie-item" data-category="my girlfriend is the man (2025) เมื่อแฟนผมกลายเป็นหนุ่มสุดฮอต">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.seriesday-hd.com/wp-content/uploads/2025/07/My-Girlfriend-is-the-Man-2025-เมื่อแฟนผมกลายเป็นหนุ่มสุดฮอต.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/5820e29ccf618fabd232147e/5820e29ccf618fabd232147e.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP12</div>
+</div>
+<div class="movie-item" data-category="my girlfriend is the man (2025) เมื่อแฟนผมกลายเป็นหนุ่มสุดฮอต">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.seriesday-hd.com/wp-content/uploads/2025/07/My-Girlfriend-is-the-Man-2025-เมื่อแฟนผมกลายเป็นหนุ่มสุดฮอต.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/0b72b600c22af666c370cf9c/0b72b600c22af666c370cf9c.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP11</div>
+</div>
+<div class="movie-item" data-category="my girlfriend is the man (2025) เมื่อแฟนผมกลายเป็นหนุ่มสุดฮอต">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.seriesday-hd.com/wp-content/uploads/2025/07/My-Girlfriend-is-the-Man-2025-เมื่อแฟนผมกลายเป็นหนุ่มสุดฮอต.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/9eae22438e16621e6bf82b0b/9eae22438e16621e6bf82b0b.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP10</div>
+</div>
+<div class="movie-item" data-category="my girlfriend is the man (2025) เมื่อแฟนผมกลายเป็นหนุ่มสุดฮอต">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.seriesday-hd.com/wp-content/uploads/2025/07/My-Girlfriend-is-the-Man-2025-เมื่อแฟนผมกลายเป็นหนุ่มสุดฮอต.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/2efa47db9d08e789a08be1b9/2efa47db9d08e789a08be1b9.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP9</div>
+</div>
+<div class="movie-item" data-category="my girlfriend is the man (2025) เมื่อแฟนผมกลายเป็นหนุ่มสุดฮอต">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.seriesday-hd.com/wp-content/uploads/2025/07/My-Girlfriend-is-the-Man-2025-เมื่อแฟนผมกลายเป็นหนุ่มสุดฮอต.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/0e689579293d5a9ea98577f3/0e689579293d5a9ea98577f3.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP8</div>
+</div>
+<div class="movie-item" data-category="my girlfriend is the man (2025) เมื่อแฟนผมกลายเป็นหนุ่มสุดฮอต">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.seriesday-hd.com/wp-content/uploads/2025/07/My-Girlfriend-is-the-Man-2025-เมื่อแฟนผมกลายเป็นหนุ่มสุดฮอต.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/8d236a470d3e58fcdfa4d738/8d236a470d3e58fcdfa4d738.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP7</div>
+</div>
+<div class="movie-item" data-category="my girlfriend is the man (2025) เมื่อแฟนผมกลายเป็นหนุ่มสุดฮอต">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.seriesday-hd.com/wp-content/uploads/2025/07/My-Girlfriend-is-the-Man-2025-เมื่อแฟนผมกลายเป็นหนุ่มสุดฮอต.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/cb71449ce9482b59ee99dd37/cb71449ce9482b59ee99dd37.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP6</div>
+</div>
+<div class="movie-item" data-category="my girlfriend is the man (2025) เมื่อแฟนผมกลายเป็นหนุ่มสุดฮอต">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.seriesday-hd.com/wp-content/uploads/2025/07/My-Girlfriend-is-the-Man-2025-เมื่อแฟนผมกลายเป็นหนุ่มสุดฮอต.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/8c2de7a920fb979e812e88cf/8c2de7a920fb979e812e88cf.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP5</div>
+</div>
+<div class="movie-item" data-category="my girlfriend is the man (2025) เมื่อแฟนผมกลายเป็นหนุ่มสุดฮอต">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.seriesday-hd.com/wp-content/uploads/2025/07/My-Girlfriend-is-the-Man-2025-เมื่อแฟนผมกลายเป็นหนุ่มสุดฮอต.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/487980c070570487fb80af64/487980c070570487fb80af64.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP4</div>
+</div>
+<div class="movie-item" data-category="my girlfriend is the man (2025) เมื่อแฟนผมกลายเป็นหนุ่มสุดฮอต">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.seriesday-hd.com/wp-content/uploads/2025/07/My-Girlfriend-is-the-Man-2025-เมื่อแฟนผมกลายเป็นหนุ่มสุดฮอต.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/db2f704b9016caccfbd5ab90/db2f704b9016caccfbd5ab90.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP3</div>
+</div>
+<div class="movie-item" data-category="my girlfriend is the man (2025) เมื่อแฟนผมกลายเป็นหนุ่มสุดฮอต">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.seriesday-hd.com/wp-content/uploads/2025/07/My-Girlfriend-is-the-Man-2025-เมื่อแฟนผมกลายเป็นหนุ่มสุดฮอต.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/1789a8e5f87973501df66b45/1789a8e5f87973501df66b45.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP2</div>
+</div>
+<div class="movie-item" data-category="my girlfriend is the man (2025) เมื่อแฟนผมกลายเป็นหนุ่มสุดฮอต">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.seriesday-hd.com/wp-content/uploads/2025/07/My-Girlfriend-is-the-Man-2025-เมื่อแฟนผมกลายเป็นหนุ่มสุดฮอต.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/dd7130bfb0d4a7b7eef59287/dd7130bfb0d4a7b7eef59287.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP1</div>
+</div>
+<div class="movie-item" data-category=" (กำลังฉาย)better late than single (2025) ไม่สายที่จะหายโสด">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serieday-hd.com/wp-content/uploads/2025/07/Better-Late-than-Single-2025-200x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/cf4f4a99c8a463917b3894d3/cf4f4a99c8a463917b3894d3.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP01</div>
+</div>
+<div class="movie-item" data-category=" (กำลังฉาย)better late than single (2025) ไม่สายที่จะหายโสด">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serieday-hd.com/wp-content/uploads/2025/07/Better-Late-than-Single-2025-200x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/f0d37651be4b1bb2efa19f52/f0d37651be4b1bb2efa19f52.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP02</div>
+</div>
+<div class="movie-item" data-category=" (กำลังฉาย)better late than single (2025) ไม่สายที่จะหายโสด">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serieday-hd.com/wp-content/uploads/2025/07/Better-Late-than-Single-2025-200x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/c80603d7f06e7e349b34006a/c80603d7f06e7e349b34006a.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP03</div>
+</div>
+<div class="movie-item" data-category=" (กำลังฉาย)better late than single (2025) ไม่สายที่จะหายโสด">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serieday-hd.com/wp-content/uploads/2025/07/Better-Late-than-Single-2025-200x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/d4af82f2ec30c89b1bd49f8e/d4af82f2ec30c89b1bd49f8e.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP04</div>
+</div>
+<div class="movie-item" data-category=" (กำลังฉาย)better late than single (2025) ไม่สายที่จะหายโสด">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serieday-hd.com/wp-content/uploads/2025/07/Better-Late-than-Single-2025-200x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/cebbf84aa9298f9a37bd1ef4/cebbf84aa9298f9a37bd1ef4.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP05</div>
+</div>
+<div class="movie-item" data-category=" (กำลังฉาย)better late than single (2025) ไม่สายที่จะหายโสด">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serieday-hd.com/wp-content/uploads/2025/07/Better-Late-than-Single-2025-200x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/6493caa7e929483f28ecaaf2/6493caa7e929483f28ecaaf2.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP06</div>
+</div>
+<div class="movie-item" data-category=" (กำลังฉาย)low life (2025) (ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serieday-hd.com/wp-content/uploads/2025/07/Low-Life-2025-200x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/5a98b87606a21a60a83fda82/5a98b87606a21a60a83fda82.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP01</div>
+</div>
+<div class="movie-item" data-category=" (กำลังฉาย)low life (2025) (ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serieday-hd.com/wp-content/uploads/2025/07/Low-Life-2025-200x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/4aa7646c3c1cd25bb9ad0f34/4aa7646c3c1cd25bb9ad0f34.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP02</div>
+</div>
+<div class="movie-item" data-category=" (กำลังฉาย)low life (2025) (ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serieday-hd.com/wp-content/uploads/2025/07/Low-Life-2025-200x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/9ac6c49895405ff88010765e/9ac6c49895405ff88010765e.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP03</div>
+</div>
+<div class="movie-item" data-category="the nice guy (2025)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.seriesday-hd.com/wp-content/uploads/2025/07/The-Nice-Guy-2025.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/262917252bc3194b871d3039/262917252bc3194b871d3039.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP14</div>
+</div>
+<div class="movie-item" data-category="the nice guy (2025)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.seriesday-hd.com/wp-content/uploads/2025/07/The-Nice-Guy-2025.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/e83d45275566e56b3d00c95e/e83d45275566e56b3d00c95e.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP13</div>
+</div>
+<div class="movie-item" data-category="the nice guy (2025)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.seriesday-hd.com/wp-content/uploads/2025/07/The-Nice-Guy-2025.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/904a6b65cf62a48cfd1b33c1/904a6b65cf62a48cfd1b33c1.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP12</div>
+</div>
+<div class="movie-item" data-category="the nice guy (2025)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.seriesday-hd.com/wp-content/uploads/2025/07/The-Nice-Guy-2025.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/15985f5f5ff2915be4fa956e/15985f5f5ff2915be4fa956e.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP11</div>
+</div>
+<div class="movie-item" data-category="the nice guy (2025)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.seriesday-hd.com/wp-content/uploads/2025/07/The-Nice-Guy-2025.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/08dc955cf6abeda724075fc1/08dc955cf6abeda724075fc1.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP10</div>
+</div>
+<div class="movie-item" data-category="the nice guy (2025)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.seriesday-hd.com/wp-content/uploads/2025/07/The-Nice-Guy-2025.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/edb6dc972ca61bf053c057cb/edb6dc972ca61bf053c057cb.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP9</div>
+</div>
+<div class="movie-item" data-category="the nice guy (2025)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.seriesday-hd.com/wp-content/uploads/2025/07/The-Nice-Guy-2025.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/ca475e48212b2e963103ff6e/ca475e48212b2e963103ff6e.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP8</div>
+</div>
+<div class="movie-item" data-category="the nice guy (2025)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.seriesday-hd.com/wp-content/uploads/2025/07/The-Nice-Guy-2025.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/b6f6deb8b0f34ab907bea602/b6f6deb8b0f34ab907bea602.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP7</div>
+</div>
+<div class="movie-item" data-category="the nice guy (2025)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.seriesday-hd.com/wp-content/uploads/2025/07/The-Nice-Guy-2025.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/ebd1d234443f4db6de676a72/ebd1d234443f4db6de676a72.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP6</div>
+</div>
+<div class="movie-item" data-category="the nice guy (2025)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.seriesday-hd.com/wp-content/uploads/2025/07/The-Nice-Guy-2025.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/605656a168dbc667528aa219/605656a168dbc667528aa219.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP5</div>
+</div>
+<div class="movie-item" data-category="the nice guy (2025)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.seriesday-hd.com/wp-content/uploads/2025/07/The-Nice-Guy-2025.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/da094c6591787fb7321db5bc/da094c6591787fb7321db5bc.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP4</div>
+</div>
+<div class="movie-item" data-category="the nice guy (2025)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.seriesday-hd.com/wp-content/uploads/2025/07/The-Nice-Guy-2025.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/2bee6ccdd786ff63722bda4e/2bee6ccdd786ff63722bda4e.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP3</div>
+</div>
+<div class="movie-item" data-category="the nice guy (2025)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.seriesday-hd.com/wp-content/uploads/2025/07/The-Nice-Guy-2025.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/3b44ee4b86a0d227351855f3/3b44ee4b86a0d227351855f3.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP2</div>
+</div>
+<div class="movie-item" data-category="the nice guy (2025)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.seriesday-hd.com/wp-content/uploads/2025/07/The-Nice-Guy-2025.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/53cb8e830429449722402f01/53cb8e830429449722402f01.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP1</div>
+</div>
+<div class="movie-item" data-category="head over heels (2025) หนุ่มดวงจู๋กับหมอดูคนจ๋วย">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.seriesday-hd.com/wp-content/uploads/2025/06/Head-Over-Heels-2025.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/93e301e11f9eaaba0260046b/93e301e11f9eaaba0260046b.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP12</div>
+</div>
+<div class="movie-item" data-category="head over heels (2025) หนุ่มดวงจู๋กับหมอดูคนจ๋วย">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.seriesday-hd.com/wp-content/uploads/2025/06/Head-Over-Heels-2025.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/5b2bea3afcc3425f551b31ca/5b2bea3afcc3425f551b31ca.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP11</div>
+</div>
+<div class="movie-item" data-category="head over heels (2025) หนุ่มดวงจู๋กับหมอดูคนจ๋วย">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.seriesday-hd.com/wp-content/uploads/2025/06/Head-Over-Heels-2025.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/7a6ee8de74aaa3915fbea3c6/7a6ee8de74aaa3915fbea3c6.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP10</div>
+</div>
+<div class="movie-item" data-category="head over heels (2025) หนุ่มดวงจู๋กับหมอดูคนจ๋วย">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.seriesday-hd.com/wp-content/uploads/2025/06/Head-Over-Heels-2025.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/6647d4bad44326bd5fd1747f/6647d4bad44326bd5fd1747f.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP9</div>
+</div>
+<div class="movie-item" data-category="head over heels (2025) หนุ่มดวงจู๋กับหมอดูคนจ๋วย">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.seriesday-hd.com/wp-content/uploads/2025/06/Head-Over-Heels-2025.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/f445cf087e15645e2b5a1acf/f445cf087e15645e2b5a1acf.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP8</div>
+</div>
+<div class="movie-item" data-category="head over heels (2025) หนุ่มดวงจู๋กับหมอดูคนจ๋วย">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.seriesday-hd.com/wp-content/uploads/2025/06/Head-Over-Heels-2025.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/05782bb0be03148e6bfe9ea7/05782bb0be03148e6bfe9ea7.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP7</div>
+</div>
+<div class="movie-item" data-category="head over heels (2025) หนุ่มดวงจู๋กับหมอดูคนจ๋วย">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.seriesday-hd.com/wp-content/uploads/2025/06/Head-Over-Heels-2025.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/819d0014834f5e94cb8ab7f0/819d0014834f5e94cb8ab7f0.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP6</div>
+</div>
+<div class="movie-item" data-category="head over heels (2025) หนุ่มดวงจู๋กับหมอดูคนจ๋วย">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.seriesday-hd.com/wp-content/uploads/2025/06/Head-Over-Heels-2025.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/2dffdb5b5d0a5fbd8723ec85/2dffdb5b5d0a5fbd8723ec85.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP5</div>
+</div>
+<div class="movie-item" data-category="head over heels (2025) หนุ่มดวงจู๋กับหมอดูคนจ๋วย">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.seriesday-hd.com/wp-content/uploads/2025/06/Head-Over-Heels-2025.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/edd94c481e61f94d4416a499/edd94c481e61f94d4416a499.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP4</div>
+</div>
+<div class="movie-item" data-category="head over heels (2025) หนุ่มดวงจู๋กับหมอดูคนจ๋วย">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.seriesday-hd.com/wp-content/uploads/2025/06/Head-Over-Heels-2025.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/3354870050ac54ab496ea77d/3354870050ac54ab496ea77d.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP3</div>
+</div>
+<div class="movie-item" data-category="head over heels (2025) หนุ่มดวงจู๋กับหมอดูคนจ๋วย">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.seriesday-hd.com/wp-content/uploads/2025/06/Head-Over-Heels-2025.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/384df95c19b2e052e626d062/384df95c19b2e052e626d062.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP2</div>
+</div>
+<div class="movie-item" data-category="head over heels (2025) หนุ่มดวงจู๋กับหมอดูคนจ๋วย">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.seriesday-hd.com/wp-content/uploads/2025/06/Head-Over-Heels-2025.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/f08862b9489d24b99261e2ea/f08862b9489d24b99261e2ea.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP1</div>
+</div>
+<div class="movie-item" data-category=" (กำลังฉาย)revenged love (2025) ศัตรูหัวใจ คือแฟนใหม่ผมเอง (ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serieday-hd.com/wp-content/uploads/2025/06/Revenged-Love-2025-200x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/898d193ab63ef4636e846896/898d193ab63ef4636e846896.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP01</div>
+</div>
+<div class="movie-item" data-category=" (กำลังฉาย)revenged love (2025) ศัตรูหัวใจ คือแฟนใหม่ผมเอง (ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serieday-hd.com/wp-content/uploads/2025/06/Revenged-Love-2025-200x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/73e3b7dcb0f3042dc2c16c4b/73e3b7dcb0f3042dc2c16c4b.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP02</div>
+</div>
+<div class="movie-item" data-category=" (กำลังฉาย)revenged love (2025) ศัตรูหัวใจ คือแฟนใหม่ผมเอง (ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serieday-hd.com/wp-content/uploads/2025/06/Revenged-Love-2025-200x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/dcc4bc26678e1a235249758c/dcc4bc26678e1a235249758c.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP03</div>
+</div>
+<div class="movie-item" data-category=" (กำลังฉาย)revenged love (2025) ศัตรูหัวใจ คือแฟนใหม่ผมเอง (ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serieday-hd.com/wp-content/uploads/2025/06/Revenged-Love-2025-200x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/91e6a9770df56600525e40f6/91e6a9770df56600525e40f6.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP04</div>
+</div>
+<div class="movie-item" data-category=" (กำลังฉาย)revenged love (2025) ศัตรูหัวใจ คือแฟนใหม่ผมเอง (ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serieday-hd.com/wp-content/uploads/2025/06/Revenged-Love-2025-200x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/8eb63ba6762a6e8c3cba3987/8eb63ba6762a6e8c3cba3987.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP05</div>
+</div>
+<div class="movie-item" data-category=" (กำลังฉาย)revenged love (2025) ศัตรูหัวใจ คือแฟนใหม่ผมเอง (ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serieday-hd.com/wp-content/uploads/2025/06/Revenged-Love-2025-200x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/a6401d39d99832c7ec86b5cf/a6401d39d99832c7ec86b5cf.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP06</div>
+</div>
+<div class="movie-item" data-category=" (กำลังฉาย)revenged love (2025) ศัตรูหัวใจ คือแฟนใหม่ผมเอง (ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serieday-hd.com/wp-content/uploads/2025/06/Revenged-Love-2025-200x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/336e8e462a93edbf7af9552e/336e8e462a93edbf7af9552e.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP07</div>
+</div>
+<div class="movie-item" data-category=" (กำลังฉาย)revenged love (2025) ศัตรูหัวใจ คือแฟนใหม่ผมเอง (ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serieday-hd.com/wp-content/uploads/2025/06/Revenged-Love-2025-200x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/5f33925f1ded41b46cc8d5d7/5f33925f1ded41b46cc8d5d7.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP08</div>
+</div>
+<div class="movie-item" data-category=" (กำลังฉาย)revenged love (2025) ศัตรูหัวใจ คือแฟนใหม่ผมเอง (ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serieday-hd.com/wp-content/uploads/2025/06/Revenged-Love-2025-200x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/31f45543161496b19b17f5e0/31f45543161496b19b17f5e0.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP09</div>
+</div>
+<div class="movie-item" data-category=" (กำลังฉาย)revenged love (2025) ศัตรูหัวใจ คือแฟนใหม่ผมเอง (ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serieday-hd.com/wp-content/uploads/2025/06/Revenged-Love-2025-200x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/652ed00e502704704cfab635/652ed00e502704704cfab635.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP10</div>
+</div>
+<div class="movie-item" data-category=" (กำลังฉาย)revenged love (2025) ศัตรูหัวใจ คือแฟนใหม่ผมเอง (ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serieday-hd.com/wp-content/uploads/2025/06/Revenged-Love-2025-200x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/b41ab5c38fe687d93d0ef4a2/b41ab5c38fe687d93d0ef4a2.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP11</div>
+</div>
+<div class="movie-item" data-category=" (กำลังฉาย)revenged love (2025) ศัตรูหัวใจ คือแฟนใหม่ผมเอง (ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serieday-hd.com/wp-content/uploads/2025/06/Revenged-Love-2025-200x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/3ae3ab439875ac027f85d342/3ae3ab439875ac027f85d342.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP12</div>
+</div>
+<div class="movie-item" data-category=" (กำลังฉาย)revenged love (2025) ศัตรูหัวใจ คือแฟนใหม่ผมเอง (ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serieday-hd.com/wp-content/uploads/2025/06/Revenged-Love-2025-200x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/47d0ef64537f556d17b640a4/47d0ef64537f556d17b640a4.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP13</div>
+</div>
+<div class="movie-item" data-category=" (กำลังฉาย)revenged love (2025) ศัตรูหัวใจ คือแฟนใหม่ผมเอง (ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serieday-hd.com/wp-content/uploads/2025/06/Revenged-Love-2025-200x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/6e19290854197f29e32f6fb5/6e19290854197f29e32f6fb5.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP14</div>
+</div>
+<div class="movie-item" data-category=" (กำลังฉาย)revenged love (2025) ศัตรูหัวใจ คือแฟนใหม่ผมเอง (ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serieday-hd.com/wp-content/uploads/2025/06/Revenged-Love-2025-200x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/5d5c999bcadf262a00b1cc08/5d5c999bcadf262a00b1cc08.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP15</div>
+</div>
+<div class="movie-item" data-category=" (กำลังฉาย)revenged love (2025) ศัตรูหัวใจ คือแฟนใหม่ผมเอง (ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serieday-hd.com/wp-content/uploads/2025/06/Revenged-Love-2025-200x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/f8e3b017eb638fffef962a77/f8e3b017eb638fffef962a77.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP16</div>
+</div>
+
+
+<!-- Pagination -->
+<div class="pagination-wrapper">
+<nav>
+<ul class="pagination">
+	<li><a href="go:main-serie" aria-label="กลับหน้าหลัก"><span aria-hidden="true"><< กลับหน้าหลัก</span></a></li>
+    <li><a href="https://udzaa2238.github.io/korea-series/ซีรี่ย์เกาหลี-หน้าที่1.html">1</a></li>
+    <li><a href="https://udzaa2238.github.io/korea-series/ซีรี่ย์เกาหลี-หน้าที่2.html">2</a></li>
+<li class="active"><a href="https://udzaa2238.github.io/korea-series/ซีรี่ย์เกาหลี-หน้าที่3.html"><b>3</b></a></li>
+    <li><a href="https://udzaa2238.github.io/korea-series/ซีรี่ย์เกาหลี-หน้าที่4.html">4</a></li>
+    <li><a href="https://udzaa2238.github.io/korea-series/ซีรี่ย์เกาหลี-หน้าที่5.html">5</a></li>
+    <li><a href="https://udzaa2238.github.io/korea-series/ซีรี่ย์เกาหลี-หน้าที่6.html">6</a></li>
+    <li><a href="https://udzaa2238.github.io/korea-series/ซีรี่ย์เกาหลี-หน้าที่7.html">7</a></li>
+    <li><a href="https://udzaa2238.github.io/korea-series/ซีรี่ย์เกาหลี-หน้าที่8.html">8</a></li>
+    <li><a href="https://udzaa2238.github.io/korea-series/ซีรี่ย์เกาหลี-หน้าที่9.html">9</a></li>
+    <li><a href="https://udzaa2238.github.io/korea-series/ซีรี่ย์เกาหลี-หน้าที่10.html">10</a></li>
+    <li><a href="https://udzaa2238.github.io/korea-series/ซีรี่ย์เกาหลี-หน้าที่11.html">หน้าต่อไป»</a></li>
+    
+    </ul>
+    </nav>
+    </div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

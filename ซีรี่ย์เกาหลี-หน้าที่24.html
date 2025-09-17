@@ -1,0 +1,1023 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>ซีรี่ย์เกาหลี หน้าที่ 24</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- External CSS -->
+  <link href="https://playtvthai.github.io/m3u8/css/bootstrap.css" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <link href="https://playtvthai.github.io/m3u8/css/style.css" rel="stylesheet" type="text/css" media="all" />
+  <link rel="stylesheet" href="https://playtvthai.github.io/m3u8/css/normalize.css">
+  <link rel="stylesheet" href="https://playtvthai.github.io/m3u8/css/custom.css">
+  <link rel="stylesheet" href="https://playtvthai.github.io/m3u8/css/main.css">
+  <link rel="stylesheet" href="http://hdtvdd.com/work/assets_remark/fonts/font-awesome/font-awesome.min.css">
+  <link rel="stylesheet" href="http://hdtvdd.com/work/font/stylesheet.css" type="text/css" charset="utf-8" />
+  <link rel="stylesheet" href="http://hdtvdd.com/work/css/8k.css" type="text/css" charset="utf-8" />
+  <link rel="stylesheet" href="http://hdtvdd.com/work/css/overlay.css" type="text/css" charset="utf-8">
+  <link href="http://hdtvdd.com/work/css/theme.css" rel="stylesheet">
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:100,200,300,400,500,600,700,800,900" rel="stylesheet" type="text/css">
+
+  <!-- JS (dedupe jQuery) -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <script src="https://playtvthai.github.io/m3u8/js/jquery.backstretch.js"></script>
+  <script src="http://hdtvdd.com/work/bootstrap-login-forms/form-2/assets/js/scripts.js"></script>
+
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      width: 100vw;
+      height: 100%;
+      background: #000;
+      box-sizing: border-box;
+      overflow-x: hidden;
+      font-family: 'Roboto Condensed', sans-serif;
+    }
+    *, *:before, *:after { box-sizing: inherit; }
+
+    /* Search/filter bar */
+    .filter-bar {
+      margin: 10px 0;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      align-items: center;
+    }
+    .filter-bar input, .filter-bar select {
+      padding: 8px;
+      font-size: 16px;
+      border-radius: 4px;
+      border: 1px solid #444;
+      background: #1f2025;
+      color: #fff;
+    }
+
+    /* Movie grid 5 columns */
+    /* Movie grid */
+    .movies-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin: 0 -5px;
+      padding-top: 10px;
+    }
+    .movie-item {
+      flex: 0 0 10%; /* เล็กลง, 5 คอลัมน์ต่อแถว */
+      box-sizing: border-box;
+      padding: 0 5px;
+      margin-bottom: 20px;
+      max-width: 200px; /* หรือจำกัดขนาดสูงสุด */
+    }
+    .movie-box {
+      background: #1f2025;
+      border-radius: 4px;
+      overflow: hidden;
+      position: relative;
+    }
+    .movie-image button {
+      width: 100%;
+      height: 0;
+      padding-top: 147%;
+      background-size: cover;
+      background-position: center;
+      border: none;
+      border-radius: 2px;
+      cursor: pointer;
+    }
+    .movie-title {
+      color: white;
+      font-size: 14px;
+      text-align: center;
+      margin-top: 6px;
+      line-height: 1.2;
+      padding: 0 4px;
+      word-break: break-word;
+    }
+
+    @media (max-width: 1200px) {
+      .movie-item { flex: 0 0 33.333%; }
+    }
+    @media (max-width: 900px) {
+      .movie-item { flex: 0 0 50%; }
+    }
+    @media (max-width: 600px) {
+      .movie-item { flex: 0 0 100%; }
+    }
+
+    .pagination-wrapper { text-align: center; margin-top: 20px; }
+    .pagination > li > a, .pagination > li > span { padding: 6px 12px; }
+  </style>
+
+  <script>
+    $(document).ready(function(){
+      $("#myBtn").click(function(){ $("#myModal").modal(); });
+      $("#myBtn2").click(function(){ $("#myModal2").modal(); });
+      $("#myBtn_vip").click(function(){ $("#myModal_vip").modal(); });
+      $("#myBtn_cpass").click(function(){ $("#myModal_changepass").modal(); });
+
+      // Filter logic
+      function normalizeText(t) {
+        return t.trim().toLowerCase();
+      }
+
+      function applyFilter() {
+        const query = normalizeText($("#movie-search").val() || "");
+        const category = $("#category-filter").val();
+        $(".movie-item").each(function() {
+          const title = normalizeText($(this).find(".movie-title").text() || "");
+          const itemCat = $(this).attr("data-category") || "all";
+          const matchesSearch = query === "" || title.includes(query);
+          const matchesCategory = category === "all" || itemCat === category;
+          if (matchesSearch && matchesCategory) {
+            $(this).show();
+          } else {
+            $(this).hide();
+          }
+        });
+      }
+
+      $("#movie-search").on("input", applyFilter);
+      $("#category-filter").on("change", applyFilter);
+    });
+  </script>
+</head>
+
+<body>
+  <div class="container" style="background-color:rgba(0,0,0,0); height:100%;">
+    <div class="container_wrap">
+      <div class="row" style="background-color:#27282c;border-radius:5px;">
+        <div class="col-lg-12 col-md-12 col-xs-12" style="margin-top:10px;margin-bottom:10px;">
+          <div class="row">
+            <div class="col-lg-2 col-md-2 col-sm-5 col-xs-5">
+              <div class="logo"></div>
+            </div>
+            <div class="col-lg-10 col-md-12 col-xs-12">
+              <div class="col-lg-12 col-md-12 col-xs-12" align="left" style="padding:5px;">
+                <div class="form-inline">
+                  <div class="form-group" style="margin:5px;">
+                    <form action="" method="get" name="lange" style="display:inline;">
+                      <input name="lange" type="hidden" id="lange" value="en">
+                      <input type="image" src="/web/images/en.gif" name="submit" width="60" height="20" alt="submit"/>
+                    </form>
+                  </div>
+                  <label for="form-password"><font color="white">ชื่อ : </font><font color="yellow">[ ผู้เฒ่าพเนจร ™ ]</font></label>
+
+                  <button class="btn btn-default" type="button" style="background-color:transparent;border-radius:2px;border:0;font-size:18px;color:#FFF;padding:0 5px;font-family:'rsuregular';" onclick="window.location.href='go:digital'">🏠 Home ™</button>
+                  <button class="btn btn-default" type="button" style="background-color:transparent;border-radius:2px;border:0;font-size:18px;color:#FFF;padding:0 5px;font-family:'rsuregular';" onclick="window.location.href='go:live'">📡 ถ่ายทอดสด ™</button>
+                  <button class="btn btn-default" type="button" style="background-color:transparent;border-radius:2px;border:0;font-size:18px;color:#FFF;padding:0 5px;font-family:'rsuregular';" onclick="window.location.href='go:main-serie'">🎞️ ดูซีรี่ย์ ™</button>
+                  <button class="btn btn-default" type="button" style="background-color:transparent;border-radius:2px;border:0;font-size:18px;color:#FFF;padding:0 5px;font-family:'rsuregular';" onclick="window.location.href='go:main-movie'">🎥 ดูหนัง ™</button>
+                  <button class="btn btn-default" type="button" style="background-color:transparent;border-radius:2px;border:0;font-size:18px;color:#FFF;padding:0 5px;font-family:'rsuregular';" onclick="window.location.href='go:main-movie'">📽️ ดูสารคดี ™</button>
+                  <button class="btn btn-default" type="button" style="background-color:transparent;border-radius:2px;border:0;font-size:18px;color:#FFF;padding:0 5px;font-family:'rsuregular';" onclick="window.location.href='http://action_exit'">🚪 ออก</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+<!--
+          <!-- filter bar -->
+          <div class="filter-bar">
+            <div>
+              <input id="movie-search" type="text" placeholder="ค้นหาหนัง..." />
+            </div>
+            <div>
+              <select id="category-filter">
+                <option value="all">ทั้งหมด</option>
+                <option value="action">Action</option>
+                <option value="drama">Drama</option>
+                <option value="sci-fi">Sci-Fi</option>
+                <option value="exclusive">Exclusive</option>
+              </select>
+            </div>
+          </div>
+
+
+-->
+          <!-- รวมทุก movie-item ไว้ใน grid เดียว -->
+          <div class="movies-grid">
+		  
+
+
+
+<div class="movie-item" data-category="spring of crush วสันต์รัญจวน">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.nung2hdd.com/wp-content/uploads/2020/10/Spring-of-Crush-2022.jpg);"onclick="window.location.href='https://sgcdnseries.com/view/c450221a-2b26-5a3d-a37f-0e7b96c31bf3.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">Spring of Crush วสันต์รัญจวน - ตอนที่ Episode 1(Thai)</div>
+</div>
+
+<div class="movie-item" data-category="spring of crush วสันต์รัญจวน">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.nung2hdd.com/wp-content/uploads/2020/10/Spring-of-Crush-2022.jpg);"onclick="window.location.href='https://sgcdnseries.com/view/e7991c85-e81d-5609-b12d-269e710861f1.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">Spring of Crush วสันต์รัญจวน - ตอนที่ Episode 1(Sub)</div>
+</div>
+<div class="movie-item" data-category="spring of crush วสันต์รัญจวน">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.nung2hdd.com/wp-content/uploads/2020/10/Spring-of-Crush-2022.jpg);"onclick="window.location.href='https://sgcdnseries.com/view/aa37e983-f688-5af1-85f8-cdb9dd23ff4d.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">Spring of Crush วสันต์รัญจวน - ตอนที่ Episode 2(Thai)</div>
+</div>
+<div class="movie-item" data-category="spring of crush วสันต์รัญจวน">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.nung2hdd.com/wp-content/uploads/2020/10/Spring-of-Crush-2022.jpg);"onclick="window.location.href='https://sgcdnseries.com/view/1b589277-c462-5913-8aa1-7b7972de7e4a.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">Spring of Crush วสันต์รัญจวน - ตอนที่ Episode 2(Sub)</div>
+</div>
+<div class="movie-item" data-category="spring of crush วสันต์รัญจวน">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.nung2hdd.com/wp-content/uploads/2020/10/Spring-of-Crush-2022.jpg);"onclick="window.location.href='https://sgcdnseries.com/view/d524848d-7075-5111-9aef-c8905bb7a317.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">Spring of Crush วสันต์รัญจวน - ตอนที่ Episode 3(Thai)</div>
+</div>
+<div class="movie-item" data-category="spring of crush วสันต์รัญจวน">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.nung2hdd.com/wp-content/uploads/2020/10/Spring-of-Crush-2022.jpg);"onclick="window.location.href='https://sgcdnseries.com/view/7baecb80-dadb-5dbd-b932-0e854672d4f6.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">Spring of Crush วสันต์รัญจวน - ตอนที่ Episode 3(Sub)</div>
+</div>
+<div class="movie-item" data-category="spring of crush วสันต์รัญจวน">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.nung2hdd.com/wp-content/uploads/2020/10/Spring-of-Crush-2022.jpg);"onclick="window.location.href='https://sgcdnseries.com/view/d3de8b30-6512-55a7-8599-64ec2b6e41b3.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">Spring of Crush วสันต์รัญจวน - ตอนที่ Episode 4(Thai)</div>
+</div>
+<div class="movie-item" data-category="spring of crush วสันต์รัญจวน">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.nung2hdd.com/wp-content/uploads/2020/10/Spring-of-Crush-2022.jpg);"onclick="window.location.href='https://sgcdnseries.com/view/18124bba-6200-502d-a49b-6c3c81b63ded.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">Spring of Crush วสันต์รัญจวน - ตอนที่ Episode 4(Sub)</div>
+</div>
+<div class="movie-item" data-category="spring of crush วสันต์รัญจวน">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.nung2hdd.com/wp-content/uploads/2020/10/Spring-of-Crush-2022.jpg);"onclick="window.location.href='https://sgcdnseries.com/view/fa6fba10-7275-5f0e-ba22-73934823b200.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">Spring of Crush วสันต์รัญจวน - ตอนที่ Episode 5(Thai)</div>
+</div>
+<div class="movie-item" data-category="spring of crush วสันต์รัญจวน">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.nung2hdd.com/wp-content/uploads/2020/10/Spring-of-Crush-2022.jpg);"onclick="window.location.href='https://sgcdnseries.com/view/200eba63-8eae-54c2-8054-d2178d1c5ec8.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">Spring of Crush วสันต์รัญจวน - ตอนที่ Episode 5(Sub)</div>
+</div>
+<div class="movie-item" data-category="spring of crush วสันต์รัญจวน">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.nung2hdd.com/wp-content/uploads/2020/10/Spring-of-Crush-2022.jpg);"onclick="window.location.href='https://sgcdnseries.com/view/257b1a96-e3b5-5f58-bb36-204458f07772.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">Spring of Crush วสันต์รัญจวน - ตอนที่ Episode 6(Thai)</div>
+</div>
+<div class="movie-item" data-category="spring of crush วสันต์รัญจวน">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.nung2hdd.com/wp-content/uploads/2020/10/Spring-of-Crush-2022.jpg);"onclick="window.location.href='https://sgcdnseries.com/view/8cd40a9d-47b8-5b50-b869-51c37c8d76f2.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">Spring of Crush วสันต์รัญจวน - ตอนที่ Episode 6(Sub)</div>
+</div>
+<div class="movie-item" data-category="spring of crush วสันต์รัญจวน">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.nung2hdd.com/wp-content/uploads/2020/10/Spring-of-Crush-2022.jpg);"onclick="window.location.href='https://sgcdnseries.com/view/7e801974-355b-5600-b691-0619b686b620.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">Spring of Crush วสันต์รัญจวน - ตอนที่ Episode 7(Thai)</div>
+</div>
+<div class="movie-item" data-category="spring of crush วสันต์รัญจวน">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.nung2hdd.com/wp-content/uploads/2020/10/Spring-of-Crush-2022.jpg);"onclick="window.location.href='https://sgcdnseries.com/view/e2a6d3fb-d700-5ccc-875d-959b06c82ebe.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">Spring of Crush วสันต์รัญจวน - ตอนที่ Episode 7(Sub)</div>
+</div>
+<div class="movie-item" data-category="spring of crush วสันต์รัญจวน">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.nung2hdd.com/wp-content/uploads/2020/10/Spring-of-Crush-2022.jpg);"onclick="window.location.href='https://sgcdnseries.com/view/dc62727b-0e69-509e-af63-fd5e0409a3c6.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">Spring of Crush วสันต์รัญจวน - ตอนที่ Episode 8(Thai)</div>
+</div>
+<div class="movie-item" data-category="spring of crush วสันต์รัญจวน">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.nung2hdd.com/wp-content/uploads/2020/10/Spring-of-Crush-2022.jpg);"onclick="window.location.href='https://sgcdnseries.com/view/a0524a0c-c2d9-51b7-acb9-04ad6d434929.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">Spring of Crush วสันต์รัญจวน - ตอนที่ Episode 8(Sub)</div>
+</div>
+<div class="movie-item" data-category="spring of crush วสันต์รัญจวน">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.nung2hdd.com/wp-content/uploads/2020/10/Spring-of-Crush-2022.jpg);"onclick="window.location.href='https://sgcdnseries.com/view/b0f960eb-1535-52d5-8f94-a5dc85ea7cd1.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">Spring of Crush วสันต์รัญจวน - ตอนที่ Episode 9(Thai)</div>
+</div>
+<div class="movie-item" data-category="spring of crush วสันต์รัญจวน">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.nung2hdd.com/wp-content/uploads/2020/10/Spring-of-Crush-2022.jpg);"onclick="window.location.href='https://sgcdnseries.com/view/db15fe48-7927-5cee-b2e0-0cf610a2cd8d.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">Spring of Crush วสันต์รัญจวน - ตอนที่ Episode 9(Sub)</div>
+</div>
+<div class="movie-item" data-category="spring of crush วสันต์รัญจวน">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.nung2hdd.com/wp-content/uploads/2020/10/Spring-of-Crush-2022.jpg);"onclick="window.location.href='https://sgcdnseries.com/view/daa2fb33-7dcd-5834-8099-41b6495610a7.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">Spring of Crush วสันต์รัญจวน - ตอนที่ Episode 10(Thai)</div>
+</div>
+<div class="movie-item" data-category="spring of crush วสันต์รัญจวน">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.nung2hdd.com/wp-content/uploads/2020/10/Spring-of-Crush-2022.jpg);"onclick="window.location.href='https://sgcdnseries.com/view/974d7147-cd28-5e19-99a5-156bd08deacc.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">Spring of Crush วสันต์รัญจวน - ตอนที่ Episode 10(Sub)</div>
+</div>
+<div class="movie-item" data-category="spring of crush วสันต์รัญจวน">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.nung2hdd.com/wp-content/uploads/2020/10/Spring-of-Crush-2022.jpg);"onclick="window.location.href='https://sgcdnseries.com/view/09fbf15f-6bcf-55b7-b458-05458dbe3783.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">Spring of Crush วสันต์รัญจวน - ตอนที่ Episode 11(Thai)</div>
+</div>
+<div class="movie-item" data-category="spring of crush วสันต์รัญจวน">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.nung2hdd.com/wp-content/uploads/2020/10/Spring-of-Crush-2022.jpg);"onclick="window.location.href='https://sgcdnseries.com/view/5bf040ed-3a8d-59ef-9033-5be14c13de1d.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">Spring of Crush วสันต์รัญจวน - ตอนที่ Episode 11(Sub)</div>
+</div>
+<div class="movie-item" data-category="spring of crush วสันต์รัญจวน">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.nung2hdd.com/wp-content/uploads/2020/10/Spring-of-Crush-2022.jpg);"onclick="window.location.href='https://sgcdnseries.com/view/49338a71-d182-569e-99c1-ba8f0bb87c67.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">Spring of Crush วสันต์รัญจวน - ตอนที่ Episode 12(Thai)</div>
+</div>
+<div class="movie-item" data-category="spring of crush วสันต์รัญจวน">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.nung2hdd.com/wp-content/uploads/2020/10/Spring-of-Crush-2022.jpg);"onclick="window.location.href='https://sgcdnseries.com/view/d4d80932-adb8-50a3-b8f0-6a14e75cb20e.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">Spring of Crush วสันต์รัญจวน - ตอนที่ Episode 12(Sub)</div>
+</div>
+<div class="movie-item" data-category="spring of crush วสันต์รัญจวน">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.nung2hdd.com/wp-content/uploads/2020/10/Spring-of-Crush-2022.jpg);"onclick="window.location.href='https://sgcdnseries.com/view/a41f09c8-2527-59ab-b9db-dc1b64d980d4.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">Spring of Crush วสันต์รัญจวน - ตอนที่ Episode 13(Thai)</div>
+</div>
+<div class="movie-item" data-category="spring of crush วสันต์รัญจวน">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.nung2hdd.com/wp-content/uploads/2020/10/Spring-of-Crush-2022.jpg);"onclick="window.location.href='https://sgcdnseries.com/view/a4a3c3d5-4f30-5ee7-a1bc-dc09718dbe6d.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">Spring of Crush วสันต์รัญจวน - ตอนที่ Episode 13(Sub)</div>
+</div>
+<div class="movie-item" data-category="spring of crush วสันต์รัญจวน">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.nung2hdd.com/wp-content/uploads/2020/10/Spring-of-Crush-2022.jpg);"onclick="window.location.href='https://sgcdnseries.com/view/44fdade9-f522-5e1a-83a7-aa9e5265fecf.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">Spring of Crush วสันต์รัญจวน - ตอนที่ Episode 14(Thai)</div>
+</div>
+<div class="movie-item" data-category="spring of crush วสันต์รัญจวน">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.nung2hdd.com/wp-content/uploads/2020/10/Spring-of-Crush-2022.jpg);"onclick="window.location.href='https://sgcdnseries.com/view/dc699185-e3a0-5f58-9296-a42da980498e.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">Spring of Crush วสันต์รัญจวน - ตอนที่ Episode 14(Sub)</div>
+</div>
+<div class="movie-item" data-category="spring of crush วสันต์รัญจวน">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.nung2hdd.com/wp-content/uploads/2020/10/Spring-of-Crush-2022.jpg);"onclick="window.location.href='https://sgcdnseries.com/view/e3e0c691-8ee3-5784-aeca-0b615ea6888a.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">Spring of Crush วสันต์รัญจวน - ตอนที่ Episode 15(Thai)</div>
+</div>
+<div class="movie-item" data-category="spring of crush วสันต์รัญจวน">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.nung2hdd.com/wp-content/uploads/2020/10/Spring-of-Crush-2022.jpg);"onclick="window.location.href='https://sgcdnseries.com/view/128d3cf0-5d4e-56c5-b791-8d3a67ca58cc.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">Spring of Crush วสันต์รัญจวน - ตอนที่ Episode 15(Sub)</div>
+</div>
+<div class="movie-item" data-category="spring of crush วสันต์รัญจวน">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.nung2hdd.com/wp-content/uploads/2020/10/Spring-of-Crush-2022.jpg);"onclick="window.location.href='https://sgcdnseries.com/view/5fdee245-6eca-5e3f-9f66-d58602fa431b.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">Spring of Crush วสันต์รัญจวน - ตอนที่ Episode 16(Thai)</div>
+</div>
+<div class="movie-item" data-category="spring of crush วสันต์รัญจวน">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.nung2hdd.com/wp-content/uploads/2020/10/Spring-of-Crush-2022.jpg);"onclick="window.location.href='https://sgcdnseries.com/view/9a023c08-7cc9-5963-8987-754bd14bfcd4.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">Spring of Crush วสันต์รัญจวน - ตอนที่ Episode 16(Sub)</div>
+</div>
+<div class="movie-item" data-category="big bet season 2 (2022)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.nung2hdd.com/wp-content/uploads/2020/10/kajino_big_bet-550748067-large-200x300.jpg);"onclick="window.location.href='https://sgcdnseries.com/view/69f9acf7-9896-5976-9191-3318cacc2969.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">Big Bet Season 2 (2022) - ตอนที่ Season 2-Episode 1(Sub)</div>
+</div>
+<div class="movie-item" data-category="big bet season 2 (2022)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.nung2hdd.com/wp-content/uploads/2020/10/kajino_big_bet-550748067-large-200x300.jpg);"onclick="window.location.href='https://sgcdnseries.com/view/160edd4f-6268-5055-a413-c9825cacf0db.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">Big Bet Season 2 (2022) - ตอนที่ Season 2-Episode 2(Sub)</div>
+</div>
+<div class="movie-item" data-category="big bet season 2 (2022)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.nung2hdd.com/wp-content/uploads/2020/10/kajino_big_bet-550748067-large-200x300.jpg);"onclick="window.location.href='https://sgcdnseries.com/view/a09ddaba-77da-5406-ab64-6c504f5480cb.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">Big Bet Season 2 (2022) - ตอนที่ Season 2-Episode 3(Sub)</div>
+</div>
+<div class="movie-item" data-category="big bet season 2 (2022)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.nung2hdd.com/wp-content/uploads/2020/10/kajino_big_bet-550748067-large-200x300.jpg);"onclick="window.location.href='https://sgcdnseries.com/view/12427634-0582-5e9a-af50-dce285b0a98a.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">Big Bet Season 2 (2022) - ตอนที่ Season 2-Episode 4(Sub)</div>
+</div>
+<div class="movie-item" data-category="big bet season 2 (2022)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.nung2hdd.com/wp-content/uploads/2020/10/kajino_big_bet-550748067-large-200x300.jpg);"onclick="window.location.href='https://sgcdnseries.com/view/5cd0d48a-a926-505c-a118-1830bf7da532.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">Big Bet Season 2 (2022) - ตอนที่ Season 2-Episode 5(Sub)</div>
+</div>
+<div class="movie-item" data-category="the heavenly idol (2023)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.nung2hdd.com/wp-content/uploads/2020/10/the_heavenly_idol-310679810-large-200x300.jpg);"onclick="window.location.href='https://sgcdnseries.com/view/b8d49503-9da4-5445-b66f-ddb4509dc199.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">The Heavenly Idol (2023) - ตอนที่ Episode 1(Sub)</div>
+</div>
+<div class="movie-item" data-category="the heavenly idol (2023)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.nung2hdd.com/wp-content/uploads/2020/10/the_heavenly_idol-310679810-large-200x300.jpg);"onclick="window.location.href='https://sgcdnseries.com/view/ba85d76f-e16e-54aa-bfed-2db1d87073b9.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">The Heavenly Idol (2023) - ตอนที่ Episode 2(Sub)</div>
+</div>
+<div class="movie-item" data-category="the heavenly idol (2023)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.nung2hdd.com/wp-content/uploads/2020/10/the_heavenly_idol-310679810-large-200x300.jpg);"onclick="window.location.href='https://sgcdnseries.com/view/5d363b4b-6445-5cdb-90f6-528f7968d4f5.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">The Heavenly Idol (2023) - ตอนที่ Episode 3(Sub)</div>
+</div>
+<div class="movie-item" data-category="the heavenly idol (2023)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.nung2hdd.com/wp-content/uploads/2020/10/the_heavenly_idol-310679810-large-200x300.jpg);"onclick="window.location.href='https://sgcdnseries.com/view/330d6fb7-1989-5590-9acd-6afe771a0531.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">The Heavenly Idol (2023) - ตอนที่ Episode 4(Sub)</div>
+</div>
+<div class="movie-item" data-category="the heavenly idol (2023)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.nung2hdd.com/wp-content/uploads/2020/10/the_heavenly_idol-310679810-large-200x300.jpg);"onclick="window.location.href='https://sgcdnseries.com/view/61a86cef-858e-5bc1-b2f1-d051caee8b03.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">The Heavenly Idol (2023) - ตอนที่ Episode 5(Sub)</div>
+</div>
+<div class="movie-item" data-category="the heavenly idol (2023)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.nung2hdd.com/wp-content/uploads/2020/10/the_heavenly_idol-310679810-large-200x300.jpg);"onclick="window.location.href='https://sgcdnseries.com/view/93d296f1-1cfb-50e2-9a85-0a3aed09f586.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">The Heavenly Idol (2023) - ตอนที่ Episode 6(Sub)</div>
+</div>
+<div class="movie-item" data-category="taxi driver season 2 แท็กซี่ชำระแค้น ซีซัน 2">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.nung2hdd.com/wp-content/uploads/2020/10/Taxi_Driver_2-p1-200x300.jpg);"onclick="window.location.href='https://sgcdnseries.com/view/39929a30-277f-50a6-a503-0de68f09125f.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">Taxi Driver Season 2 แท็กซี่ชำระแค้น ซีซัน 2 - ตอนที่ Season 2-Episode 1(Sub)</div>
+</div>
+<div class="movie-item" data-category="taxi driver season 2 แท็กซี่ชำระแค้น ซีซัน 2">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.nung2hdd.com/wp-content/uploads/2020/10/Taxi_Driver_2-p1-200x300.jpg);"onclick="window.location.href='https://sgcdnseries.com/view/bbc1b931-573e-5b12-9ad6-a3cc20e0dfb9.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">Taxi Driver Season 2 แท็กซี่ชำระแค้น ซีซัน 2 - ตอนที่ Season 2-Episode 2(Sub)</div>
+</div>
+<div class="movie-item" data-category="taxi driver season 2 แท็กซี่ชำระแค้น ซีซัน 2">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.nung2hdd.com/wp-content/uploads/2020/10/Taxi_Driver_2-p1-200x300.jpg);"onclick="window.location.href='https://sgcdnseries.com/view/f75493ac-0a06-5558-afb8-18a486bdb6da.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">Taxi Driver Season 2 แท็กซี่ชำระแค้น ซีซัน 2 - ตอนที่ Season 2-Episode 3(Sub)</div>
+</div>
+<div class="movie-item" data-category="taxi driver season 2 แท็กซี่ชำระแค้น ซีซัน 2">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.nung2hdd.com/wp-content/uploads/2020/10/Taxi_Driver_2-p1-200x300.jpg);"onclick="window.location.href='https://sgcdnseries.com/view/b4f19423-20ae-5a8a-b5ce-bc4389630106.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">Taxi Driver Season 2 แท็กซี่ชำระแค้น ซีซัน 2 - ตอนที่ Season 2-Episode 4(Sub)</div>
+</div>
+<div class="movie-item" data-category="taxi driver season 2 แท็กซี่ชำระแค้น ซีซัน 2">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.nung2hdd.com/wp-content/uploads/2020/10/Taxi_Driver_2-p1-200x300.jpg);"onclick="window.location.href='https://sgcdnseries.com/view/bb123181-f3c2-5acc-9532-be5daddbbd13.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">Taxi Driver Season 2 แท็กซี่ชำระแค้น ซีซัน 2 - ตอนที่ Season 2-Episode 5(Sub)</div>
+</div>
+<div class="movie-item" data-category="island season 2 เกาะปีศาจ ซีซัน 2">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.nung2hdd.com/wp-content/uploads/2020/10/Island-2022-SS2.jpg);"onclick="window.location.href='https://sgcdnseries.com/view/e5a296bc-74bd-5a39-a333-54dc2f19d2cc.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">Island Season 2 เกาะปีศาจ ซีซัน 2 - ตอนที่ Season 2-Episode 1(Sub)</div>
+</div>
+<div class="movie-item" data-category="island season 2 เกาะปีศาจ ซีซัน 2">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.nung2hdd.com/wp-content/uploads/2020/10/Island-2022-SS2.jpg);"onclick="window.location.href='https://sgcdnseries.com/view/3b3afba1-96c0-518f-a794-0cfe3547b158.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">Island Season 2 เกาะปีศาจ ซีซัน 2 - ตอนที่ Season 2-Episode 2(Sub)</div>
+</div>
+<div class="movie-item" data-category="island season 2 เกาะปีศาจ ซีซัน 2">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.nung2hdd.com/wp-content/uploads/2020/10/Island-2022-SS2.jpg);"onclick="window.location.href='https://sgcdnseries.com/view/5683acc3-e472-5bb1-9546-adfe99ae6e91.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">Island Season 2 เกาะปีศาจ ซีซัน 2 - ตอนที่ Season 2-Episode 3(Sub)</div>
+</div>
+<div class="movie-item" data-category="island season 2 เกาะปีศาจ ซีซัน 2">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.nung2hdd.com/wp-content/uploads/2020/10/Island-2022-SS2.jpg);"onclick="window.location.href='https://sgcdnseries.com/view/3ada57df-8f81-5d26-a73c-dbfd6ccbbc7d.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">Island Season 2 เกาะปีศาจ ซีซัน 2 - ตอนที่ Season 2-Episode 4(Sub)</div>
+</div>
+<div class="movie-item" data-category="delivery man (2023)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.nung2hdd.com/wp-content/uploads/2020/10/Delivery-Man-2023.jpg);"onclick="window.location.href='https://sgcdnseries.com/view/39d0a987-5b24-5db6-8027-5d353e4ab90f.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">Delivery Man (2023) - ตอนที่ Episode 1(Sub)</div>
+</div>
+<div class="movie-item" data-category="delivery man (2023)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.nung2hdd.com/wp-content/uploads/2020/10/Delivery-Man-2023.jpg);"onclick="window.location.href='https://sgcdnseries.com/view/9324289a-ca90-53ac-9264-8a9cafa7153c.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">Delivery Man (2023) - ตอนที่ Episode 2(Sub)</div>
+</div>
+<div class="movie-item" data-category="call it love (2023)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.nung2hdd.com/wp-content/uploads/2020/10/Call-It-Love-2023.jpg);"onclick="window.location.href='https://sgcdnseries.com/view/caca0218-5fef-5ed7-974c-d04c77ae8f62.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">Call It Love (2023) - ตอนที่ Episode 1(Sub)</div>
+</div>
+<div class="movie-item" data-category="call it love (2023)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.nung2hdd.com/wp-content/uploads/2020/10/Call-It-Love-2023.jpg);"onclick="window.location.href='https://sgcdnseries.com/view/766dccce-cdb3-5a1b-97a1-06f78b3ee385.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">Call It Love (2023) - ตอนที่ Episode 2(Sub)</div>
+</div>
+<div class="movie-item" data-category="call it love (2023)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.nung2hdd.com/wp-content/uploads/2020/10/Call-It-Love-2023.jpg);"onclick="window.location.href='https://sgcdnseries.com/view/ccaf98c5-561f-581b-8fd2-2a3ff10895fc.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">Call It Love (2023) - ตอนที่ Episode 3(Sub)</div>
+</div>
+<div class="movie-item" data-category="call it love (2023)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.nung2hdd.com/wp-content/uploads/2020/10/Call-It-Love-2023.jpg);"onclick="window.location.href='https://sgcdnseries.com/view/73f1dc8c-9935-56c0-8f6b-9910b8735b69.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">Call It Love (2023) - ตอนที่ Episode 4(Sub)</div>
+</div>
+<div class="movie-item" data-category="our blooming youth วัยเยาว์ที่ผลิบาน">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.nung2hdd.com/wp-content/uploads/2023/02/Our-Blooming-Youth-2023.jpg);"onclick="window.location.href='https://sgcdnseries.com/view/68d7a7c2-fdc1-5704-9868-0e2d6082ac5a.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">Our Blooming Youth วัยเยาว์ที่ผลิบาน - ตอนที่ Episode 1(Sub)</div>
+</div>
+<div class="movie-item" data-category="our blooming youth วัยเยาว์ที่ผลิบาน">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.nung2hdd.com/wp-content/uploads/2023/02/Our-Blooming-Youth-2023.jpg);"onclick="window.location.href='https://sgcdnseries.com/view/95b4f83c-dcce-55f8-b278-dfe3d2054a29.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">Our Blooming Youth วัยเยาว์ที่ผลิบาน - ตอนที่ Episode 2(Sub)</div>
+</div>
+<div class="movie-item" data-category="our blooming youth วัยเยาว์ที่ผลิบาน">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.nung2hdd.com/wp-content/uploads/2023/02/Our-Blooming-Youth-2023.jpg);"onclick="window.location.href='https://sgcdnseries.com/view/08fc8d0d-cb63-5a77-bf06-262bb9b116e9.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">Our Blooming Youth วัยเยาว์ที่ผลิบาน - ตอนที่ Episode 3(Sub)</div>
+</div>
+<div class="movie-item" data-category="our blooming youth วัยเยาว์ที่ผลิบาน">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.nung2hdd.com/wp-content/uploads/2023/02/Our-Blooming-Youth-2023.jpg);"onclick="window.location.href='https://sgcdnseries.com/view/859fe318-c0c9-52bb-a342-107facc17357.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">Our Blooming Youth วัยเยาว์ที่ผลิบาน - ตอนที่ Episode 4(Sub)</div>
+</div>
+<div class="movie-item" data-category="our blooming youth วัยเยาว์ที่ผลิบาน">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.nung2hdd.com/wp-content/uploads/2023/02/Our-Blooming-Youth-2023.jpg);"onclick="window.location.href='https://sgcdnseries.com/view/038d234c-4d38-5aa8-9699-9db847314c8f.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">Our Blooming Youth วัยเยาว์ที่ผลิบาน - ตอนที่ Episode 5(Sub)</div>
+</div>
+<div class="movie-item" data-category="our blooming youth วัยเยาว์ที่ผลิบาน">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.nung2hdd.com/wp-content/uploads/2023/02/Our-Blooming-Youth-2023.jpg);"onclick="window.location.href='https://sgcdnseries.com/view/9ac2e24e-97cf-565e-9355-8361c1d4a42a.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">Our Blooming Youth วัยเยาว์ที่ผลิบาน - ตอนที่ Episode 6(Sub)</div>
+</div>
+<div class="movie-item" data-category="our blooming youth วัยเยาว์ที่ผลิบาน">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.nung2hdd.com/wp-content/uploads/2023/02/Our-Blooming-Youth-2023.jpg);"onclick="window.location.href='https://sgcdnseries.com/view/7456c988-ade6-5256-8c93-ef28974472c8.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">Our Blooming Youth วัยเยาว์ที่ผลิบาน - ตอนที่ Episode 7(Sub)</div>
+</div>
+<div class="movie-item" data-category="our blooming youth วัยเยาว์ที่ผลิบาน">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.nung2hdd.com/wp-content/uploads/2023/02/Our-Blooming-Youth-2023.jpg);"onclick="window.location.href='https://sgcdnseries.com/view/b0f68775-5bac-5882-ad25-871e76506530.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">Our Blooming Youth วัยเยาว์ที่ผลิบาน - ตอนที่ Episode 8(Sub)</div>
+</div>
+<div class="movie-item" data-category="island เกาะปีศาจ">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.nung2hdd.com/wp-content/uploads/2020/11/Island-2022.jpg);"onclick="window.location.href='https://sgcdnseries.com/view/ce6d456b-44aa-5e5f-a250-e2c4e44427e4.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">Island เกาะปีศาจ - ตอนที่ Season 1-Episode 1(Sub)</div>
+</div>
+<div class="movie-item" data-category="island เกาะปีศาจ">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.nung2hdd.com/wp-content/uploads/2020/11/Island-2022.jpg);"onclick="window.location.href='https://sgcdnseries.com/view/0975747d-cfcb-56a9-902c-97d091aa7d2c.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">Island เกาะปีศาจ - ตอนที่ Season 1-Episode 2(Sub)</div>
+</div>
+<div class="movie-item" data-category="island เกาะปีศาจ">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.nung2hdd.com/wp-content/uploads/2020/11/Island-2022.jpg);"onclick="window.location.href='https://sgcdnseries.com/view/fbc17658-9e7c-5aa4-b001-fbbd1122f77d.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">Island เกาะปีศาจ - ตอนที่ Season 1-Episode 3(Sub)</div>
+</div>
+<div class="movie-item" data-category="island เกาะปีศาจ">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.nung2hdd.com/wp-content/uploads/2020/11/Island-2022.jpg);"onclick="window.location.href='https://sgcdnseries.com/view/01a9f9ea-11c4-55b8-926b-01a588a55426.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">Island เกาะปีศาจ - ตอนที่ Season 1-Episode 4(Sub)</div>
+</div>
+<div class="movie-item" data-category="island เกาะปีศาจ">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.nung2hdd.com/wp-content/uploads/2020/11/Island-2022.jpg);"onclick="window.location.href='https://sgcdnseries.com/view/73db30fa-10ff-5a05-bd60-206c99d51b14.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">Island เกาะปีศาจ - ตอนที่ Season 1-Episode 5(Sub)</div>
+</div>
+<div class="movie-item" data-category="island เกาะปีศาจ">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.nung2hdd.com/wp-content/uploads/2020/11/Island-2022.jpg);"onclick="window.location.href='https://sgcdnseries.com/view/cc907b82-28cc-5199-ace3-fa0c11604e35.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">Island เกาะปีศาจ - ตอนที่ Season 1-Episode 6(Sub)</div>
+</div>
+<div class="movie-item" data-category="island เกาะปีศาจ">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.nung2hdd.com/wp-content/uploads/2020/11/Island-2022.jpg);"onclick="window.location.href='https://sgcdnseries.com/view/e5a296bc-74bd-5a39-a333-54dc2f19d2cc.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">Island เกาะปีศาจ - ตอนที่ Season 2-Episode 1(Sub)</div>
+</div>
+<div class="movie-item" data-category="island เกาะปีศาจ">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.nung2hdd.com/wp-content/uploads/2020/11/Island-2022.jpg);"onclick="window.location.href='https://sgcdnseries.com/view/3b3afba1-96c0-518f-a794-0cfe3547b158.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">Island เกาะปีศาจ - ตอนที่ Season 2-Episode 2(Sub)</div>
+</div>
+<div class="movie-item" data-category="island เกาะปีศาจ">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.nung2hdd.com/wp-content/uploads/2020/11/Island-2022.jpg);"onclick="window.location.href='https://sgcdnseries.com/view/5683acc3-e472-5bb1-9546-adfe99ae6e91.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">Island เกาะปีศาจ - ตอนที่ Season 2-Episode 3(Sub)</div>
+</div>
+<div class="movie-item" data-category="island เกาะปีศาจ">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.nung2hdd.com/wp-content/uploads/2020/11/Island-2022.jpg);"onclick="window.location.href='https://sgcdnseries.com/view/3ada57df-8f81-5d26-a73c-dbfd6ccbbc7d.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">Island เกาะปีศาจ - ตอนที่ Season 2-Episode 4(Sub)</div>
+</div>
+<div class="movie-item" data-category="brain cooperation (2023)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.nung2hdd.com/wp-content/uploads/2023/02/Brain-Cooperation.jpg);"onclick="window.location.href='https://sgcdnseries.com/view/1627ed29-ff11-5867-92d8-16555652580f.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">Brain Cooperation (2023) - ตอนที่ Episode 1(Sub)</div>
+</div>
+<div class="movie-item" data-category="brain cooperation (2023)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.nung2hdd.com/wp-content/uploads/2023/02/Brain-Cooperation.jpg);"onclick="window.location.href='https://sgcdnseries.com/view/9ac54653-b068-52d8-8aec-488fc8586a01.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">Brain Cooperation (2023) - ตอนที่ Episode 2(Sub)</div>
+</div>
+<div class="movie-item" data-category="brain cooperation (2023)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.nung2hdd.com/wp-content/uploads/2023/02/Brain-Cooperation.jpg);"onclick="window.location.href='https://sgcdnseries.com/view/d8a76468-061b-5668-ab6b-b9fa3654f8f9.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">Brain Cooperation (2023) - ตอนที่ Episode 3(Sub)</div>
+</div>
+<div class="movie-item" data-category="brain cooperation (2023)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.nung2hdd.com/wp-content/uploads/2023/02/Brain-Cooperation.jpg);"onclick="window.location.href='https://sgcdnseries.com/view/b6f3790e-d042-554d-b143-8ef594eaaacd.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">Brain Cooperation (2023) - ตอนที่ Episode 4(Sub)</div>
+</div>
+<div class="movie-item" data-category="brain cooperation (2023)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.nung2hdd.com/wp-content/uploads/2023/02/Brain-Cooperation.jpg);"onclick="window.location.href='https://sgcdnseries.com/view/bb16353e-41a1-5aeb-9609-ffe4b4d12453.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">Brain Cooperation (2023) - ตอนที่ Episode 5(Sub)</div>
+</div>
+<div class="movie-item" data-category="brain cooperation (2023)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.nung2hdd.com/wp-content/uploads/2023/02/Brain-Cooperation.jpg);"onclick="window.location.href='https://sgcdnseries.com/view/9e7d4ab8-f83e-56f6-82f6-3be81e872fac.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">Brain Cooperation (2023) - ตอนที่ Episode 6(Sub)</div>
+</div>
+<div class="movie-item" data-category="brain cooperation (2023)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.nung2hdd.com/wp-content/uploads/2023/02/Brain-Cooperation.jpg);"onclick="window.location.href='https://sgcdnseries.com/view/2e6ca16d-5ffe-52ca-a6b2-99afc3d55d04.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">Brain Cooperation (2023) - ตอนที่ Episode 7(Sub)</div>
+</div>
+<div class="movie-item" data-category="brain cooperation (2023)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.nung2hdd.com/wp-content/uploads/2023/02/Brain-Cooperation.jpg);"onclick="window.location.href='https://sgcdnseries.com/view/cda9d9ae-91d0-5bc2-a7b6-2406babffe0b.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">Brain Cooperation (2023) - ตอนที่ Episode 8(Sub)</div>
+</div>
+<div class="movie-item" data-category="brain cooperation (2023)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.nung2hdd.com/wp-content/uploads/2023/02/Brain-Cooperation.jpg);"onclick="window.location.href='https://sgcdnseries.com/view/783d6de9-7a30-5c51-be3a-13a445c404b6.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+
+
+<div class="movie-title">Brain Cooperation (2023) - ตอนที่ Episode 9(Sub)</div>
+</div>
+<div class="movie-item" data-category="brain cooperation (2023)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.nung2hdd.com/wp-content/uploads/2023/02/Brain-Cooperation.jpg);"onclick="window.location.href='https://sgcdnseries.com/view/cafad06d-0efd-5351-9605-1beeb8ca23a5.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">Brain Cooperation (2023) - ตอนที่ Episode 10(Sub)</div>
+</div>
+<div class="movie-item" data-category="big bet (2022)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.nung2hdd.com/wp-content/uploads/2020/10/Big-Bet-Season-2-2022.jpg);"onclick="window.location.href='https://sgcdnseries.com/view/debdbc08-81ae-5e1c-88b8-e73228faa9c4.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+
+
+
+
+<!-- Pagination -->
+<div class="pagination-wrapper">
+<nav>
+<ul class="pagination">
+    <li><a href="go:main-serie" aria-label="กลับหน้าหลัก"><span aria-hidden="true"><< กลับหน้าหลัก</span></a></li>
+    <li><a href="https://udzaa2238.github.io/korea-series/ซีรี่ย์เกาหลี-หน้าที่21.html">21</a></li>
+    <li><a href="https://udzaa2238.github.io/korea-series/ซีรี่ย์เกาหลี-หน้าที่22.html">22</a></li>
+    <li><a href="https://udzaa2238.github.io/korea-series/ซีรี่ย์เกาหลี-หน้าที่23.html">23</a></li>
+<li class="active"><a href="https://udzaa2238.github.io/korea-series/ซีรี่ย์เกาหลี-หน้าที่24.html"><b>24</b></a></li>
+    <li><a href="https://udzaa2238.github.io/korea-series/ซีรี่ย์เกาหลี-หน้าที่25.html">25</a></li>
+    <li><a href="https://udzaa2238.github.io/korea-series/ซีรี่ย์เกาหลี-หน้าที่26.html">26</a></li>
+    <li><a href="https://udzaa2238.github.io/korea-series/ซีรี่ย์เกาหลี-หน้าที่27.html">27</a></li>
+    <li><a href="https://udzaa2238.github.io/korea-series/ซีรี่ย์เกาหลี-หน้าที่28.html">28</a></li>
+	<li><a href="https://udzaa2238.github.io/korea-series/ซีรี่ย์เกาหลี-หน้าที่29.html">29</a></li>
+    <li><a href="https://udzaa2238.github.io/korea-series/ซีรี่ย์เกาหลี-หน้าที่30.html">30</a></li>
+    <li><a href="https://udzaa2238.github.io/korea-series/ซีรี่ย์เกาหลี-หน้าที่31.html">หน้าต่อไป»</a></li>
+    
+    </ul>
+    </nav>
+    </div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

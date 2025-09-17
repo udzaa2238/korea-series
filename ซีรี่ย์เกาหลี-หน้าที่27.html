@@ -1,0 +1,1066 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>ซีรี่ย์เกาหลี หน้าที่ 27</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- External CSS -->
+  <link href="https://playtvthai.github.io/m3u8/css/bootstrap.css" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <link href="https://playtvthai.github.io/m3u8/css/style.css" rel="stylesheet" type="text/css" media="all" />
+  <link rel="stylesheet" href="https://playtvthai.github.io/m3u8/css/normalize.css">
+  <link rel="stylesheet" href="https://playtvthai.github.io/m3u8/css/custom.css">
+  <link rel="stylesheet" href="https://playtvthai.github.io/m3u8/css/main.css">
+  <link rel="stylesheet" href="http://hdtvdd.com/work/assets_remark/fonts/font-awesome/font-awesome.min.css">
+  <link rel="stylesheet" href="http://hdtvdd.com/work/font/stylesheet.css" type="text/css" charset="utf-8" />
+  <link rel="stylesheet" href="http://hdtvdd.com/work/css/8k.css" type="text/css" charset="utf-8" />
+  <link rel="stylesheet" href="http://hdtvdd.com/work/css/overlay.css" type="text/css" charset="utf-8">
+  <link href="http://hdtvdd.com/work/css/theme.css" rel="stylesheet">
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:100,200,300,400,500,600,700,800,900" rel="stylesheet" type="text/css">
+
+  <!-- JS (dedupe jQuery) -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <script src="https://playtvthai.github.io/m3u8/js/jquery.backstretch.js"></script>
+  <script src="http://hdtvdd.com/work/bootstrap-login-forms/form-2/assets/js/scripts.js"></script>
+
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      width: 100vw;
+      height: 100%;
+      background: #000;
+      box-sizing: border-box;
+      overflow-x: hidden;
+      font-family: 'Roboto Condensed', sans-serif;
+    }
+    *, *:before, *:after { box-sizing: inherit; }
+
+    /* Search/filter bar */
+    .filter-bar {
+      margin: 10px 0;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      align-items: center;
+    }
+    .filter-bar input, .filter-bar select {
+      padding: 8px;
+      font-size: 16px;
+      border-radius: 4px;
+      border: 1px solid #444;
+      background: #1f2025;
+      color: #fff;
+    }
+
+    /* Movie grid 5 columns */
+    /* Movie grid */
+    .movies-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin: 0 -5px;
+      padding-top: 10px;
+    }
+    .movie-item {
+      flex: 0 0 10%; /* เล็กลง, 5 คอลัมน์ต่อแถว */
+      box-sizing: border-box;
+      padding: 0 5px;
+      margin-bottom: 20px;
+      max-width: 200px; /* หรือจำกัดขนาดสูงสุด */
+    }
+    .movie-box {
+      background: #1f2025;
+      border-radius: 4px;
+      overflow: hidden;
+      position: relative;
+    }
+    .movie-image button {
+      width: 100%;
+      height: 0;
+      padding-top: 147%;
+      background-size: cover;
+      background-position: center;
+      border: none;
+      border-radius: 2px;
+      cursor: pointer;
+    }
+    .movie-title {
+      color: white;
+      font-size: 14px;
+      text-align: center;
+      margin-top: 6px;
+      line-height: 1.2;
+      padding: 0 4px;
+      word-break: break-word;
+    }
+
+    @media (max-width: 1200px) {
+      .movie-item { flex: 0 0 33.333%; }
+    }
+    @media (max-width: 900px) {
+      .movie-item { flex: 0 0 50%; }
+    }
+    @media (max-width: 600px) {
+      .movie-item { flex: 0 0 100%; }
+    }
+
+    .pagination-wrapper { text-align: center; margin-top: 20px; }
+    .pagination > li > a, .pagination > li > span { padding: 6px 12px; }
+  </style>
+
+  <script>
+    $(document).ready(function(){
+      $("#myBtn").click(function(){ $("#myModal").modal(); });
+      $("#myBtn2").click(function(){ $("#myModal2").modal(); });
+      $("#myBtn_vip").click(function(){ $("#myModal_vip").modal(); });
+      $("#myBtn_cpass").click(function(){ $("#myModal_changepass").modal(); });
+
+      // Filter logic
+      function normalizeText(t) {
+        return t.trim().toLowerCase();
+      }
+
+      function applyFilter() {
+        const query = normalizeText($("#movie-search").val() || "");
+        const category = $("#category-filter").val();
+        $(".movie-item").each(function() {
+          const title = normalizeText($(this).find(".movie-title").text() || "");
+          const itemCat = $(this).attr("data-category") || "all";
+          const matchesSearch = query === "" || title.includes(query);
+          const matchesCategory = category === "all" || itemCat === category;
+          if (matchesSearch && matchesCategory) {
+            $(this).show();
+          } else {
+            $(this).hide();
+          }
+        });
+      }
+
+      $("#movie-search").on("input", applyFilter);
+      $("#category-filter").on("change", applyFilter);
+    });
+  </script>
+</head>
+
+<body>
+  <div class="container" style="background-color:rgba(0,0,0,0); height:100%;">
+    <div class="container_wrap">
+      <div class="row" style="background-color:#27282c;border-radius:5px;">
+        <div class="col-lg-12 col-md-12 col-xs-12" style="margin-top:10px;margin-bottom:10px;">
+          <div class="row">
+            <div class="col-lg-2 col-md-2 col-sm-5 col-xs-5">
+              <div class="logo"></div>
+            </div>
+            <div class="col-lg-10 col-md-12 col-xs-12">
+              <div class="col-lg-12 col-md-12 col-xs-12" align="left" style="padding:5px;">
+                <div class="form-inline">
+                  <div class="form-group" style="margin:5px;">
+                    <form action="" method="get" name="lange" style="display:inline;">
+                      <input name="lange" type="hidden" id="lange" value="en">
+                      <input type="image" src="/web/images/en.gif" name="submit" width="60" height="20" alt="submit"/>
+                    </form>
+                  </div>
+                  <label for="form-password"><font color="white">ชื่อ : </font><font color="yellow">[ ผู้เฒ่าพเนจร ™ ]</font></label>
+
+                  <button class="btn btn-default" type="button" style="background-color:transparent;border-radius:2px;border:0;font-size:18px;color:#FFF;padding:0 5px;font-family:'rsuregular';" onclick="window.location.href='go:digital'">🏠 Home ™</button>
+                  <button class="btn btn-default" type="button" style="background-color:transparent;border-radius:2px;border:0;font-size:18px;color:#FFF;padding:0 5px;font-family:'rsuregular';" onclick="window.location.href='go:live'">📡 ถ่ายทอดสด ™</button>
+                  <button class="btn btn-default" type="button" style="background-color:transparent;border-radius:2px;border:0;font-size:18px;color:#FFF;padding:0 5px;font-family:'rsuregular';" onclick="window.location.href='go:main-serie'">🎞️ ดูซีรี่ย์ ™</button>
+                  <button class="btn btn-default" type="button" style="background-color:transparent;border-radius:2px;border:0;font-size:18px;color:#FFF;padding:0 5px;font-family:'rsuregular';" onclick="window.location.href='go:main-movie'">🎥 ดูหนัง ™</button>
+                  <button class="btn btn-default" type="button" style="background-color:transparent;border-radius:2px;border:0;font-size:18px;color:#FFF;padding:0 5px;font-family:'rsuregular';" onclick="window.location.href='go:main-movie'">📽️ ดูสารคดี ™</button>
+                  <button class="btn btn-default" type="button" style="background-color:transparent;border-radius:2px;border:0;font-size:18px;color:#FFF;padding:0 5px;font-family:'rsuregular';" onclick="window.location.href='http://action_exit'">🚪 ออก</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+<!--
+          <!-- filter bar -->
+          <div class="filter-bar">
+            <div>
+              <input id="movie-search" type="text" placeholder="ค้นหาหนัง..." />
+            </div>
+            <div>
+              <select id="category-filter">
+                <option value="all">ทั้งหมด</option>
+                <option value="action">Action</option>
+                <option value="drama">Drama</option>
+                <option value="sci-fi">Sci-Fi</option>
+                <option value="exclusive">Exclusive</option>
+              </select>
+            </div>
+          </div>
+
+
+-->
+          <!-- รวมทุก movie-item ไว้ใน grid เดียว -->
+          <div class="movies-grid">
+		  
+
+
+
+<div class="movie-item" data-category="forest ปริศนา ป่าอัศจรรย์">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.nung2hdd.com/wp-content/uploads/2020/11/Forest-200x300.jpg);"onclick="window.location.href='https://sgcdnseries.com/view/2a3e10ad-e873-584f-9b34-3aca844f3c56.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">Forest ปริศนา ป่าอัศจรรย์ - ตอนที่ Episode 1(Thai)</div>
+</div>
+<div class="movie-item" data-category="forest ปริศนา ป่าอัศจรรย์">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.nung2hdd.com/wp-content/uploads/2020/11/Forest-200x300.jpg);"onclick="window.location.href='https://sgcdnseries.com/view/14a07713-9423-58ef-8017-a7cf13fa635b.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">Forest ปริศนา ป่าอัศจรรย์ - ตอนที่ Episode 2(Thai)</div>
+</div>
+<div class="movie-item" data-category="forest ปริศนา ป่าอัศจรรย์">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.nung2hdd.com/wp-content/uploads/2020/11/Forest-200x300.jpg);"onclick="window.location.href='https://sgcdnseries.com/view/b927cf53-b676-5536-8868-7ad542b20cdc.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">Forest ปริศนา ป่าอัศจรรย์ - ตอนที่ Episode 3(Thai)</div>
+</div>
+<div class="movie-item" data-category="forest ปริศนา ป่าอัศจรรย์">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.nung2hdd.com/wp-content/uploads/2020/11/Forest-200x300.jpg);"onclick="window.location.href='https://sgcdnseries.com/view/b2860254-be0b-5337-9d5d-7000ce647e4d.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">Forest ปริศนา ป่าอัศจรรย์ - ตอนที่ Episode 4(Thai)</div>
+</div>
+<div class="movie-item" data-category="forest ปริศนา ป่าอัศจรรย์">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.nung2hdd.com/wp-content/uploads/2020/11/Forest-200x300.jpg);"onclick="window.location.href='https://sgcdnseries.com/view/18fbb6c8-edb5-5044-9d95-06182db1b27d.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">Forest ปริศนา ป่าอัศจรรย์ - ตอนที่ Episode 5(Thai)</div>
+</div>
+<div class="movie-item" data-category="forest ปริศนา ป่าอัศจรรย์">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.nung2hdd.com/wp-content/uploads/2020/11/Forest-200x300.jpg);"onclick="window.location.href='https://sgcdnseries.com/view/987ce7a1-7697-50ea-abdb-523712849265.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">Forest ปริศนา ป่าอัศจรรย์ - ตอนที่ Episode 6(Thai)</div>
+</div>
+<div class="movie-item" data-category="forest ปริศนา ป่าอัศจรรย์">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.nung2hdd.com/wp-content/uploads/2020/11/Forest-200x300.jpg);"onclick="window.location.href='https://sgcdnseries.com/view/0ac6a33e-197d-5d2e-bbde-9998b4d1fde3.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">Forest ปริศนา ป่าอัศจรรย์ - ตอนที่ Episode 7(Thai)</div>
+</div>
+<div class="movie-item" data-category="forest ปริศนา ป่าอัศจรรย์">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.nung2hdd.com/wp-content/uploads/2020/11/Forest-200x300.jpg);"onclick="window.location.href='https://sgcdnseries.com/view/81bf4f30-cb0d-5095-b34e-f4943efd21f9.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">Forest ปริศนา ป่าอัศจรรย์ - ตอนที่ Episode 8(Thai)</div>
+</div>
+<div class="movie-item" data-category="forest ปริศนา ป่าอัศจรรย์">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.nung2hdd.com/wp-content/uploads/2020/11/Forest-200x300.jpg);"onclick="window.location.href='https://sgcdnseries.com/view/0c557588-fe7b-549e-b382-5482363c8f76.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">Forest ปริศนา ป่าอัศจรรย์ - ตอนที่ Episode 9(Thai)</div>
+</div>
+<div class="movie-item" data-category="forest ปริศนา ป่าอัศจรรย์">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.nung2hdd.com/wp-content/uploads/2020/11/Forest-200x300.jpg);"onclick="window.location.href='https://sgcdnseries.com/view/896abdf7-87fe-5578-8a15-a1d3a0bd32c5.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">Forest ปริศนา ป่าอัศจรรย์ - ตอนที่ Episode 10(Thai)</div>
+</div>
+<div class="movie-item" data-category="forest ปริศนา ป่าอัศจรรย์">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.nung2hdd.com/wp-content/uploads/2020/11/Forest-200x300.jpg);"onclick="window.location.href='https://sgcdnseries.com/view/f729b5c7-5219-5ce2-aa26-663d90020f97.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">Forest ปริศนา ป่าอัศจรรย์ - ตอนที่ Episode 11(Thai)</div>
+</div>
+<div class="movie-item" data-category="forest ปริศนา ป่าอัศจรรย์">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.nung2hdd.com/wp-content/uploads/2020/11/Forest-200x300.jpg);"onclick="window.location.href='https://sgcdnseries.com/view/bb2f34f0-9d09-52cf-b4bc-ab9554eb95c5.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">Forest ปริศนา ป่าอัศจรรย์ - ตอนที่ Episode 12(Thai)</div>
+</div>
+<div class="movie-item" data-category="forest ปริศนา ป่าอัศจรรย์">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.nung2hdd.com/wp-content/uploads/2020/11/Forest-200x300.jpg);"onclick="window.location.href='https://sgcdnseries.com/view/a0690634-b816-5903-8436-4a59cb24994d.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">Forest ปริศนา ป่าอัศจรรย์ - ตอนที่ Episode 13(Thai)</div>
+</div>
+<div class="movie-item" data-category="forest ปริศนา ป่าอัศจรรย์">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.nung2hdd.com/wp-content/uploads/2020/11/Forest-200x300.jpg);"onclick="window.location.href='https://sgcdnseries.com/view/94162ea8-60a8-54ea-a4bb-dccce5d7ff94.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">Forest ปริศนา ป่าอัศจรรย์ - ตอนที่ Episode 14(Thai)</div>
+</div>
+<div class="movie-item" data-category="forest ปริศนา ป่าอัศจรรย์">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.nung2hdd.com/wp-content/uploads/2020/11/Forest-200x300.jpg);"onclick="window.location.href='https://sgcdnseries.com/view/34fe91f9-1b78-56fb-8d3e-2d06445a1b91.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">Forest ปริศนา ป่าอัศจรรย์ - ตอนที่ Episode 15(Thai)</div>
+</div>
+<div class="movie-item" data-category="forest ปริศนา ป่าอัศจรรย์">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.nung2hdd.com/wp-content/uploads/2020/11/Forest-200x300.jpg);"onclick="window.location.href='https://sgcdnseries.com/view/55f40af5-ba90-5528-979d-d57398967585.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">Forest ปริศนา ป่าอัศจรรย์ - ตอนที่ Episode 16(Thai)</div>
+</div>
+<div class="movie-item" data-category="bad girlfriend (2022)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.nung2hdd.com/wp-content/uploads/2020/11/Bad-Girlfriend-200x300.jpg);"onclick="window.location.href='https://sgcdnseries.com/view/09d84648-6c62-52d7-8cd9-9590469e7f8c.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">Bad Girlfriend (2022) - ตอนที่ Episode 1(Sub)</div>
+</div>
+<div class="movie-item" data-category="bad girlfriend (2022)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.nung2hdd.com/wp-content/uploads/2020/11/Bad-Girlfriend-200x300.jpg);"onclick="window.location.href='https://sgcdnseries.com/view/4f4036dc-b623-56a8-bb63-1b86e847104a.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">Bad Girlfriend (2022) - ตอนที่ Episode 2(Sub)</div>
+</div>
+<div class="movie-item" data-category="bad girlfriend (2022)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.nung2hdd.com/wp-content/uploads/2020/11/Bad-Girlfriend-200x300.jpg);"onclick="window.location.href='https://sgcdnseries.com/view/00a1efbd-7180-50da-b985-4b5d2fcdd6d4.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">Bad Girlfriend (2022) - ตอนที่ Episode 3(Sub)</div>
+</div>
+<div class="movie-item" data-category="bad girlfriend (2022)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.nung2hdd.com/wp-content/uploads/2020/11/Bad-Girlfriend-200x300.jpg);"onclick="window.location.href='https://sgcdnseries.com/view/fa7b5b76-7d4a-5515-9d96-7d219df328cb.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">Bad Girlfriend (2022) - ตอนที่ Episode 4(Sub)</div>
+</div>
+<div class="movie-item" data-category="bad girlfriend (2022)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.nung2hdd.com/wp-content/uploads/2020/11/Bad-Girlfriend-200x300.jpg);"onclick="window.location.href='https://sgcdnseries.com/view/035228de-d18b-5b13-98f9-9c9bdebfbe42.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">Bad Girlfriend (2022) - ตอนที่ Episode 5(Sub)</div>
+</div>
+<div class="movie-item" data-category="bad girlfriend (2022)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.nung2hdd.com/wp-content/uploads/2020/11/Bad-Girlfriend-200x300.jpg);"onclick="window.location.href='https://sgcdnseries.com/view/4df463c2-f5e0-5f60-9f41-554c82c9fc57.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">Bad Girlfriend (2022) - ตอนที่ Episode 6(Sub)</div>
+</div>
+<div class="movie-item" data-category="bad girlfriend (2022)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.nung2hdd.com/wp-content/uploads/2020/11/Bad-Girlfriend-200x300.jpg);"onclick="window.location.href='https://sgcdnseries.com/view/099c5e30-1e53-532b-bbcc-d83b7c536fd7.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">Bad Girlfriend (2022) - ตอนที่ Episode 7(Sub)</div>
+</div>
+<div class="movie-item" data-category="bad girlfriend (2022)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.nung2hdd.com/wp-content/uploads/2020/11/Bad-Girlfriend-200x300.jpg);"onclick="window.location.href='https://sgcdnseries.com/view/3264d581-b109-57b1-9b47-cb2957e9f403.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">Bad Girlfriend (2022) - ตอนที่ Episode 8(Sub)</div>
+</div>
+<div class="movie-item" data-category="bad girlfriend (2022)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.nung2hdd.com/wp-content/uploads/2020/11/Bad-Girlfriend-200x300.jpg);"onclick="window.location.href='https://sgcdnseries.com/view/3a52735d-e624-516b-8e8b-9b7d3f3b1dfc.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">Bad Girlfriend (2022) - ตอนที่ Episode 9(Sub)</div>
+</div>
+<div class="movie-item" data-category="bad girlfriend (2022)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.nung2hdd.com/wp-content/uploads/2020/11/Bad-Girlfriend-200x300.jpg);"onclick="window.location.href='https://sgcdnseries.com/view/df59d549-d6ae-5122-ba44-f3595db42b57.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">Bad Girlfriend (2022) - ตอนที่ Episode 10(Sub)</div>
+</div>
+<div class="movie-item" data-category="bad girlfriend (2022)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.nung2hdd.com/wp-content/uploads/2020/11/Bad-Girlfriend-200x300.jpg);"onclick="window.location.href='https://sgcdnseries.com/view/92b17fdd-fea6-5594-97dd-78e57fd90a23.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">Bad Girlfriend (2022) - ตอนที่ Episode 11(Sub)</div>
+</div>
+<div class="movie-item" data-category="bad girlfriend (2022)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.nung2hdd.com/wp-content/uploads/2020/11/Bad-Girlfriend-200x300.jpg);"onclick="window.location.href='https://sgcdnseries.com/view/4e0c043f-733d-50aa-8760-27125daf4c21.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">Bad Girlfriend (2022) - ตอนที่ Episode 12(Sub)</div>
+</div>
+<div class="movie-item" data-category="tell me what you saw (2020)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.nung2hdd.com/wp-content/uploads/2020/05/202002022226141578360750132.jpg);"onclick="window.location.href='https://sgcdnseries.com/view/6b302cc1-f90b-5b3f-a43a-f7726996900e.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">Tell Me What You Saw (2020) - ตอนที่ Episode 1(Thai)</div>
+</div>
+<div class="movie-item" data-category="tell me what you saw (2020)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.nung2hdd.com/wp-content/uploads/2020/05/202002022226141578360750132.jpg);"onclick="window.location.href='https://sgcdnseries.com/view/f9e582aa-ca1a-5071-85e8-dc5f8413546d.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">Tell Me What You Saw (2020) - ตอนที่ Episode 1(Sub)</div>
+</div>
+<div class="movie-item" data-category="tell me what you saw (2020)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.nung2hdd.com/wp-content/uploads/2020/05/202002022226141578360750132.jpg);"onclick="window.location.href='https://sgcdnseries.com/view/1efa9239-4d6f-5783-a2a6-54729b47ddfb.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">Tell Me What You Saw (2020) - ตอนที่ Episode 2(Thai)</div>
+</div>
+<div class="movie-item" data-category="tell me what you saw (2020)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.nung2hdd.com/wp-content/uploads/2020/05/202002022226141578360750132.jpg);"onclick="window.location.href='https://sgcdnseries.com/view/7d600e1a-9b61-5a3e-951e-21b050d50a17.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">Tell Me What You Saw (2020) - ตอนที่ Episode 2(Sub)</div>
+</div>
+<div class="movie-item" data-category="tell me what you saw (2020)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.nung2hdd.com/wp-content/uploads/2020/05/202002022226141578360750132.jpg);"onclick="window.location.href='https://sgcdnseries.com/view/1279a27a-3c26-5a4d-9917-9d7edae89792.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">Tell Me What You Saw (2020) - ตอนที่ Episode 3(Thai)</div>
+</div>
+<div class="movie-item" data-category="tell me what you saw (2020)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.nung2hdd.com/wp-content/uploads/2020/05/202002022226141578360750132.jpg);"onclick="window.location.href='https://sgcdnseries.com/view/7d90b87b-a897-5e09-b31f-02a4203fd48b.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">Tell Me What You Saw (2020) - ตอนที่ Episode 3(Sub)</div>
+</div>
+<div class="movie-item" data-category="tell me what you saw (2020)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.nung2hdd.com/wp-content/uploads/2020/05/202002022226141578360750132.jpg);"onclick="window.location.href='https://sgcdnseries.com/view/c7a66284-f371-5263-ae60-e0c77932d268.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">Tell Me What You Saw (2020) - ตอนที่ Episode 4(Thai)</div>
+</div>
+<div class="movie-item" data-category="tell me what you saw (2020)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.nung2hdd.com/wp-content/uploads/2020/05/202002022226141578360750132.jpg);"onclick="window.location.href='https://sgcdnseries.com/view/08ebd6f8-cbe6-53b4-82f8-646ee008306c.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">Tell Me What You Saw (2020) - ตอนที่ Episode 4(Sub)</div>
+</div>
+<div class="movie-item" data-category="tell me what you saw (2020)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.nung2hdd.com/wp-content/uploads/2020/05/202002022226141578360750132.jpg);"onclick="window.location.href='https://sgcdnseries.com/view/74e4c128-85c8-5f53-baf7-61b398f76ca3.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">Tell Me What You Saw (2020) - ตอนที่ Episode 5(Thai)</div>
+</div>
+<div class="movie-item" data-category="tell me what you saw (2020)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.nung2hdd.com/wp-content/uploads/2020/05/202002022226141578360750132.jpg);"onclick="window.location.href='https://sgcdnseries.com/view/35a649ff-bc90-598e-ad65-7fe20e2cdac9.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">Tell Me What You Saw (2020) - ตอนที่ Episode 5(Sub)</div>
+</div>
+<div class="movie-item" data-category="tell me what you saw (2020)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.nung2hdd.com/wp-content/uploads/2020/05/202002022226141578360750132.jpg);"onclick="window.location.href='https://sgcdnseries.com/view/6346e7ab-450b-5528-a5da-064a50bc4011.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">Tell Me What You Saw (2020) - ตอนที่ Episode 6(Thai)</div>
+</div>
+<div class="movie-item" data-category="tell me what you saw (2020)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.nung2hdd.com/wp-content/uploads/2020/05/202002022226141578360750132.jpg);"onclick="window.location.href='https://sgcdnseries.com/view/2ec75c9f-2035-5552-a163-37eea2569431.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">Tell Me What You Saw (2020) - ตอนที่ Episode 6(Sub)</div>
+</div>
+<div class="movie-item" data-category="tell me what you saw (2020)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.nung2hdd.com/wp-content/uploads/2020/05/202002022226141578360750132.jpg);"onclick="window.location.href='https://sgcdnseries.com/view/6a5f140b-8554-5f5a-88ac-da9228de9ce2.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">Tell Me What You Saw (2020) - ตอนที่ Episode 7(Thai)</div>
+</div>
+<div class="movie-item" data-category="tell me what you saw (2020)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.nung2hdd.com/wp-content/uploads/2020/05/202002022226141578360750132.jpg);"onclick="window.location.href='https://sgcdnseries.com/view/fa7a6618-52cc-56a7-9672-4276396622fe.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">Tell Me What You Saw (2020) - ตอนที่ Episode 7(Sub)</div>
+</div>
+<div class="movie-item" data-category="tell me what you saw (2020)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.nung2hdd.com/wp-content/uploads/2020/05/202002022226141578360750132.jpg);"onclick="window.location.href='https://sgcdnseries.com/view/4813faa3-09d3-5dc2-a3a1-c03d60b0dccb.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">Tell Me What You Saw (2020) - ตอนที่ Episode 8(Thai)</div>
+</div>
+<div class="movie-item" data-category="tell me what you saw (2020)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.nung2hdd.com/wp-content/uploads/2020/05/202002022226141578360750132.jpg);"onclick="window.location.href='https://sgcdnseries.com/view/26838b27-4b9e-5727-87c6-d5ab718fb079.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">Tell Me What You Saw (2020) - ตอนที่ Episode 8(Sub)</div>
+</div>
+<div class="movie-item" data-category="tell me what you saw (2020)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.nung2hdd.com/wp-content/uploads/2020/05/202002022226141578360750132.jpg);"onclick="window.location.href='https://sgcdnseries.com/view/037eb76d-15cd-5297-8680-729e91fc9eef.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">Tell Me What You Saw (2020) - ตอนที่ Episode 9(Thai)</div>
+</div>
+<div class="movie-item" data-category="tell me what you saw (2020)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.nung2hdd.com/wp-content/uploads/2020/05/202002022226141578360750132.jpg);"onclick="window.location.href='https://sgcdnseries.com/view/d02adbca-f1f3-5e66-a94c-25e65f67fa7b.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">Tell Me What You Saw (2020) - ตอนที่ Episode 9(Sub)</div>
+</div>
+<div class="movie-item" data-category="tell me what you saw (2020)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.nung2hdd.com/wp-content/uploads/2020/05/202002022226141578360750132.jpg);"onclick="window.location.href='https://sgcdnseries.com/view/717714b9-6785-5722-a6d3-67a1e32a51c9.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">Tell Me What You Saw (2020) - ตอนที่ Episode 10(Thai)</div>
+</div>
+<div class="movie-item" data-category="tell me what you saw (2020)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.nung2hdd.com/wp-content/uploads/2020/05/202002022226141578360750132.jpg);"onclick="window.location.href='https://sgcdnseries.com/view/a9a65494-76cf-552d-80cd-18398a27c015.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">Tell Me What You Saw (2020) - ตอนที่ Episode 10(Sub)</div>
+</div>
+<div class="movie-item" data-category="tell me what you saw (2020)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.nung2hdd.com/wp-content/uploads/2020/05/202002022226141578360750132.jpg);"onclick="window.location.href='https://sgcdnseries.com/view/60903e25-a042-5b66-9aa9-cf868a232dbd.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">Tell Me What You Saw (2020) - ตอนที่ Episode 11(Thai)</div>
+</div>
+<div class="movie-item" data-category="tell me what you saw (2020)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.nung2hdd.com/wp-content/uploads/2020/05/202002022226141578360750132.jpg);"onclick="window.location.href='https://sgcdnseries.com/view/9f80f6ce-32f4-51d4-9bed-063d9257dc1e.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">Tell Me What You Saw (2020) - ตอนที่ Episode 11(Sub)</div>
+</div>
+<div class="movie-item" data-category="tell me what you saw (2020)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.nung2hdd.com/wp-content/uploads/2020/05/202002022226141578360750132.jpg);"onclick="window.location.href='https://sgcdnseries.com/view/1c05fb15-1c0f-55cd-8866-11ff36823eeb.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">Tell Me What You Saw (2020) - ตอนที่ Episode 12(Thai)</div>
+</div>
+<div class="movie-item" data-category="tell me what you saw (2020)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.nung2hdd.com/wp-content/uploads/2020/05/202002022226141578360750132.jpg);"onclick="window.location.href='https://sgcdnseries.com/view/3860fd1a-93c7-5c7f-a372-3d8e783f24c5.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">Tell Me What You Saw (2020) - ตอนที่ Episode 12(Sub)</div>
+</div>
+<div class="movie-item" data-category="tell me what you saw (2020)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.nung2hdd.com/wp-content/uploads/2020/05/202002022226141578360750132.jpg);"onclick="window.location.href='https://sgcdnseries.com/view/019c4d6b-4142-5fe4-95e1-52ac124afb34.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">Tell Me What You Saw (2020) - ตอนที่ Episode 13(Thai)</div>
+</div>
+<div class="movie-item" data-category="tell me what you saw (2020)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.nung2hdd.com/wp-content/uploads/2020/05/202002022226141578360750132.jpg);"onclick="window.location.href='https://sgcdnseries.com/view/dc5b35ef-8665-5277-83ec-bc12aa315bc9.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">Tell Me What You Saw (2020) - ตอนที่ Episode 13(Sub)</div>
+</div>
+<div class="movie-item" data-category="tell me what you saw (2020)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.nung2hdd.com/wp-content/uploads/2020/05/202002022226141578360750132.jpg);"onclick="window.location.href='https://sgcdnseries.com/view/6dea9c69-226d-52a3-8ed6-fd99e62b174e.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">Tell Me What You Saw (2020) - ตอนที่ Episode 14(Thai)</div>
+</div>
+<div class="movie-item" data-category="tell me what you saw (2020)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.nung2hdd.com/wp-content/uploads/2020/05/202002022226141578360750132.jpg);"onclick="window.location.href='https://sgcdnseries.com/view/4f0158e2-f966-5d16-95a5-6b81e4a729d8.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">Tell Me What You Saw (2020) - ตอนที่ Episode 14(Sub)</div>
+</div>
+<div class="movie-item" data-category="tell me what you saw (2020)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.nung2hdd.com/wp-content/uploads/2020/05/202002022226141578360750132.jpg);"onclick="window.location.href='https://sgcdnseries.com/view/6dd043e7-a729-58ac-8ce8-0f5bcdb927c1.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">Tell Me What You Saw (2020) - ตอนที่ Episode 15(Thai)</div>
+</div>
+<div class="movie-item" data-category="tell me what you saw (2020)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.nung2hdd.com/wp-content/uploads/2020/05/202002022226141578360750132.jpg);"onclick="window.location.href='https://sgcdnseries.com/view/05fa8bed-308e-52a3-b702-be6160cef46a.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">Tell Me What You Saw (2020) - ตอนที่ Episode 15(Sub)</div>
+</div>
+<div class="movie-item" data-category="tell me what you saw (2020)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.nung2hdd.com/wp-content/uploads/2020/05/202002022226141578360750132.jpg);"onclick="window.location.href='https://sgcdnseries.com/view/02869c09-4b81-5f6a-8adb-82648666cedb.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">Tell Me What You Saw (2020) - ตอนที่ Episode 16(Thai)</div>
+</div>
+<div class="movie-item" data-category="tell me what you saw (2020)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.nung2hdd.com/wp-content/uploads/2020/05/202002022226141578360750132.jpg);"onclick="window.location.href='https://sgcdnseries.com/view/e86dab88-d45b-55a3-bdd9-247db1068282.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">Tell Me What You Saw (2020) - ตอนที่ Episode 16(Sub)</div>
+</div>
+<div class="movie-item" data-category="record of youth (2020) เส้นทางดาว">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.nung2hdd.com/wp-content/uploads/2020/10/jfP3R8AMK6wMr6jglPiIeRWzCk8-200x300.jpg);"onclick="window.location.href='https://sgcdnseries.com/view/07190176-b3ec-596d-891b-c82d710a0692.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">Record of Youth (2020) เส้นทางดาว - ตอนที่ Episode 1(Thai)</div>
+</div>
+<div class="movie-item" data-category="record of youth (2020) เส้นทางดาว">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.nung2hdd.com/wp-content/uploads/2020/10/jfP3R8AMK6wMr6jglPiIeRWzCk8-200x300.jpg);"onclick="window.location.href='https://sgcdnseries.com/view/beeb8d94-312f-57ea-8659-c78e833c4d0c.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">Record of Youth (2020) เส้นทางดาว - ตอนที่ Episode 1(Sub)</div>
+</div>
+<div class="movie-item" data-category="record of youth (2020) เส้นทางดาว">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.nung2hdd.com/wp-content/uploads/2020/10/jfP3R8AMK6wMr6jglPiIeRWzCk8-200x300.jpg);"onclick="window.location.href='https://sgcdnseries.com/view/b15aabf4-72a4-5e9a-a080-b39db68c6df8.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">Record of Youth (2020) เส้นทางดาว - ตอนที่ Episode 2(Thai)</div>
+</div>
+<div class="movie-item" data-category="record of youth (2020) เส้นทางดาว">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.nung2hdd.com/wp-content/uploads/2020/10/jfP3R8AMK6wMr6jglPiIeRWzCk8-200x300.jpg);"onclick="window.location.href='https://sgcdnseries.com/view/df996b36-33b8-5e9a-9649-4bb5858a3679.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">Record of Youth (2020) เส้นทางดาว - ตอนที่ Episode 2(Sub)</div>
+</div>
+<div class="movie-item" data-category="record of youth (2020) เส้นทางดาว">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.nung2hdd.com/wp-content/uploads/2020/10/jfP3R8AMK6wMr6jglPiIeRWzCk8-200x300.jpg);"onclick="window.location.href='https://sgcdnseries.com/view/7452400e-10e3-5eb1-ab23-46d3e156050b.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">Record of Youth (2020) เส้นทางดาว - ตอนที่ Episode 3(Thai)</div>
+</div>
+<div class="movie-item" data-category="record of youth (2020) เส้นทางดาว">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.nung2hdd.com/wp-content/uploads/2020/10/jfP3R8AMK6wMr6jglPiIeRWzCk8-200x300.jpg);"onclick="window.location.href='https://sgcdnseries.com/view/bc6bbb6e-f6d8-53d9-89b2-09f5265cb53a.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">Record of Youth (2020) เส้นทางดาว - ตอนที่ Episode 3(Sub)</div>
+</div>
+<div class="movie-item" data-category="record of youth (2020) เส้นทางดาว">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.nung2hdd.com/wp-content/uploads/2020/10/jfP3R8AMK6wMr6jglPiIeRWzCk8-200x300.jpg);"onclick="window.location.href='https://sgcdnseries.com/view/98a3abd7-15ec-536f-aa66-203cb10cb30f.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">Record of Youth (2020) เส้นทางดาว - ตอนที่ Episode 4(Thai)</div>
+</div>
+<div class="movie-item" data-category="record of youth (2020) เส้นทางดาว">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.nung2hdd.com/wp-content/uploads/2020/10/jfP3R8AMK6wMr6jglPiIeRWzCk8-200x300.jpg);"onclick="window.location.href='https://sgcdnseries.com/view/f5c71978-88f5-5de1-a2c2-1b44454e5a4e.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">Record of Youth (2020) เส้นทางดาว - ตอนที่ Episode 4(Sub)</div>
+</div>
+<div class="movie-item" data-category="record of youth (2020) เส้นทางดาว">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.nung2hdd.com/wp-content/uploads/2020/10/jfP3R8AMK6wMr6jglPiIeRWzCk8-200x300.jpg);"onclick="window.location.href='https://sgcdnseries.com/view/01e5facc-28e6-5954-82cc-1e5a1c6251a2.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">Record of Youth (2020) เส้นทางดาว - ตอนที่ Episode 5(Thai)</div>
+</div>
+<div class="movie-item" data-category="record of youth (2020) เส้นทางดาว">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.nung2hdd.com/wp-content/uploads/2020/10/jfP3R8AMK6wMr6jglPiIeRWzCk8-200x300.jpg);"onclick="window.location.href='https://sgcdnseries.com/view/cd8eb373-67bf-548c-96e4-ae66ca2e120e.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">Record of Youth (2020) เส้นทางดาว - ตอนที่ Episode 5(Sub)</div>
+</div>
+<div class="movie-item" data-category="record of youth (2020) เส้นทางดาว">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.nung2hdd.com/wp-content/uploads/2020/10/jfP3R8AMK6wMr6jglPiIeRWzCk8-200x300.jpg);"onclick="window.location.href='https://sgcdnseries.com/view/4a90aeba-ab1e-5a66-aa96-9bee0af51630.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">Record of Youth (2020) เส้นทางดาว - ตอนที่ Episode 6(Thai)</div>
+</div>
+<div class="movie-item" data-category="record of youth (2020) เส้นทางดาว">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.nung2hdd.com/wp-content/uploads/2020/10/jfP3R8AMK6wMr6jglPiIeRWzCk8-200x300.jpg);"onclick="window.location.href='https://sgcdnseries.com/view/c74b5d6b-3425-591a-9179-f89a96e1fb24.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">Record of Youth (2020) เส้นทางดาว - ตอนที่ Episode 6(Sub)</div>
+</div>
+<div class="movie-item" data-category="record of youth (2020) เส้นทางดาว">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.nung2hdd.com/wp-content/uploads/2020/10/jfP3R8AMK6wMr6jglPiIeRWzCk8-200x300.jpg);"onclick="window.location.href='https://sgcdnseries.com/view/1cadc8cb-3d53-5d4f-94f1-9c7c9c306136.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">Record of Youth (2020) เส้นทางดาว - ตอนที่ Episode 7(Thai)</div>
+</div>
+<div class="movie-item" data-category="record of youth (2020) เส้นทางดาว">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.nung2hdd.com/wp-content/uploads/2020/10/jfP3R8AMK6wMr6jglPiIeRWzCk8-200x300.jpg);"onclick="window.location.href='https://sgcdnseries.com/view/6ee3b1c9-b0ed-53a4-bbcc-80607a1a5bd4.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">Record of Youth (2020) เส้นทางดาว - ตอนที่ Episode 7(Sub)</div>
+</div>
+<div class="movie-item" data-category="record of youth (2020) เส้นทางดาว">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.nung2hdd.com/wp-content/uploads/2020/10/jfP3R8AMK6wMr6jglPiIeRWzCk8-200x300.jpg);"onclick="window.location.href='https://sgcdnseries.com/view/c047e77a-094c-5468-8e72-893a027cea77.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">Record of Youth (2020) เส้นทางดาว - ตอนที่ Episode 8(Thai)</div>
+</div>
+<div class="movie-item" data-category="record of youth (2020) เส้นทางดาว">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.nung2hdd.com/wp-content/uploads/2020/10/jfP3R8AMK6wMr6jglPiIeRWzCk8-200x300.jpg);"onclick="window.location.href='https://sgcdnseries.com/view/8ab97331-3c7d-5234-a891-ad5c1a87b103.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">Record of Youth (2020) เส้นทางดาว - ตอนที่ Episode 8(Sub)</div>
+</div>
+<div class="movie-item" data-category="record of youth (2020) เส้นทางดาว">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.nung2hdd.com/wp-content/uploads/2020/10/jfP3R8AMK6wMr6jglPiIeRWzCk8-200x300.jpg);"onclick="window.location.href='https://sgcdnseries.com/view/a9bf1e63-baa0-5115-8355-b15b52bda019.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">Record of Youth (2020) เส้นทางดาว - ตอนที่ Episode 9(Thai)</div>
+</div>
+<div class="movie-item" data-category="record of youth (2020) เส้นทางดาว">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.nung2hdd.com/wp-content/uploads/2020/10/jfP3R8AMK6wMr6jglPiIeRWzCk8-200x300.jpg);"onclick="window.location.href='https://sgcdnseries.com/view/11e59619-639c-564e-a25c-9d4d43c90e29.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">Record of Youth (2020) เส้นทางดาว - ตอนที่ Episode 9(Sub)</div>
+</div>
+<div class="movie-item" data-category="record of youth (2020) เส้นทางดาว">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.nung2hdd.com/wp-content/uploads/2020/10/jfP3R8AMK6wMr6jglPiIeRWzCk8-200x300.jpg);"onclick="window.location.href='https://sgcdnseries.com/view/3a3e3118-1717-55d7-b0f9-069835ecafdc.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">Record of Youth (2020) เส้นทางดาว - ตอนที่ Episode 10(Thai)</div>
+</div>
+<div class="movie-item" data-category="record of youth (2020) เส้นทางดาว">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.nung2hdd.com/wp-content/uploads/2020/10/jfP3R8AMK6wMr6jglPiIeRWzCk8-200x300.jpg);"onclick="window.location.href='https://sgcdnseries.com/view/9c989722-f2e1-5568-8861-a4f1d6956111.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">Record of Youth (2020) เส้นทางดาว - ตอนที่ Episode 10(Sub)</div>
+</div>
+<div class="movie-item" data-category="record of youth (2020) เส้นทางดาว">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.nung2hdd.com/wp-content/uploads/2020/10/jfP3R8AMK6wMr6jglPiIeRWzCk8-200x300.jpg);"onclick="window.location.href='https://sgcdnseries.com/view/9f072612-b1d3-5c81-9faf-16f95b71e6aa.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">Record of Youth (2020) เส้นทางดาว - ตอนที่ Episode 11(Thai)</div>
+</div>
+<div class="movie-item" data-category="record of youth (2020) เส้นทางดาว">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.nung2hdd.com/wp-content/uploads/2020/10/jfP3R8AMK6wMr6jglPiIeRWzCk8-200x300.jpg);"onclick="window.location.href='https://sgcdnseries.com/view/263662a3-1f92-5872-9ebf-79dee247d16f.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">Record of Youth (2020) เส้นทางดาว - ตอนที่ Episode 11(Sub)</div>
+</div>
+<div class="movie-item" data-category="record of youth (2020) เส้นทางดาว">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.nung2hdd.com/wp-content/uploads/2020/10/jfP3R8AMK6wMr6jglPiIeRWzCk8-200x300.jpg);"onclick="window.location.href='https://sgcdnseries.com/view/af01f3b2-94c3-51b9-ae64-69721243e9bf.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">Record of Youth (2020) เส้นทางดาว - ตอนที่ Episode 12(Thai)</div>
+</div>
+<div class="movie-item" data-category="record of youth (2020) เส้นทางดาว">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.nung2hdd.com/wp-content/uploads/2020/10/jfP3R8AMK6wMr6jglPiIeRWzCk8-200x300.jpg);"onclick="window.location.href='https://sgcdnseries.com/view/8e587af0-af9a-5ae6-93cb-a850d6da44ea.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">Record of Youth (2020) เส้นทางดาว - ตอนที่ Episode 12(Sub)</div>
+</div>
+<div class="movie-item" data-category="record of youth (2020) เส้นทางดาว">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.nung2hdd.com/wp-content/uploads/2020/10/jfP3R8AMK6wMr6jglPiIeRWzCk8-200x300.jpg);"onclick="window.location.href='https://sgcdnseries.com/view/69d343b0-eaf1-569b-933b-ba6e4c4c4e4f.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">Record of Youth (2020) เส้นทางดาว - ตอนที่ Episode 13(Thai)</div>
+</div>
+<div class="movie-item" data-category="record of youth (2020) เส้นทางดาว">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.nung2hdd.com/wp-content/uploads/2020/10/jfP3R8AMK6wMr6jglPiIeRWzCk8-200x300.jpg);"onclick="window.location.href='https://sgcdnseries.com/view/99325a4f-4d41-5e5d-95f0-0aaa45d216b2.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">Record of Youth (2020) เส้นทางดาว - ตอนที่ Episode 13(Sub)</div>
+</div>
+<div class="movie-item" data-category="record of youth (2020) เส้นทางดาว">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.nung2hdd.com/wp-content/uploads/2020/10/jfP3R8AMK6wMr6jglPiIeRWzCk8-200x300.jpg);"onclick="window.location.href='https://sgcdnseries.com/view/83649aed-31ed-5a52-87e5-444932e688ed.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">Record of Youth (2020) เส้นทางดาว - ตอนที่ Episode 14(Thai)</div>
+</div>
+<div class="movie-item" data-category="record of youth (2020) เส้นทางดาว">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.nung2hdd.com/wp-content/uploads/2020/10/jfP3R8AMK6wMr6jglPiIeRWzCk8-200x300.jpg);"onclick="window.location.href='https://sgcdnseries.com/view/caaee473-a139-5d6a-81fa-3127d00dea72.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">Record of Youth (2020) เส้นทางดาว - ตอนที่ Episode 14(Sub)</div>
+</div>
+<div class="movie-item" data-category="record of youth (2020) เส้นทางดาว">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.nung2hdd.com/wp-content/uploads/2020/10/jfP3R8AMK6wMr6jglPiIeRWzCk8-200x300.jpg);"onclick="window.location.href='https://sgcdnseries.com/view/92aaa354-29cb-5e7f-91fe-5a560aaf4bb1.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">Record of Youth (2020) เส้นทางดาว - ตอนที่ Episode 15(Thai)</div>
+</div>
+<div class="movie-item" data-category="record of youth (2020) เส้นทางดาว">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.nung2hdd.com/wp-content/uploads/2020/10/jfP3R8AMK6wMr6jglPiIeRWzCk8-200x300.jpg);"onclick="window.location.href='https://sgcdnseries.com/view/b1dba133-0e0e-5cd9-98de-0b7c2675f885.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">Record of Youth (2020) เส้นทางดาว - ตอนที่ Episode 15(Sub)</div>
+</div>
+<div class="movie-item" data-category="record of youth (2020) เส้นทางดาว">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.nung2hdd.com/wp-content/uploads/2020/10/jfP3R8AMK6wMr6jglPiIeRWzCk8-200x300.jpg);"onclick="window.location.href='https://sgcdnseries.com/view/555dc138-3701-5e28-bc38-43c9722ef616.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">Record of Youth (2020) เส้นทางดาว - ตอนที่ Episode 16(Thai)</div>
+</div>
+<div class="movie-item" data-category="record of youth (2020) เส้นทางดาว">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.nung2hdd.com/wp-content/uploads/2020/10/jfP3R8AMK6wMr6jglPiIeRWzCk8-200x300.jpg);"onclick="window.location.href='https://sgcdnseries.com/view/c19b8b27-40ea-566a-a24e-cb1635e73cbe.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">Record of Youth (2020) เส้นทางดาว - ตอนที่ Episode 16(Sub)</div>
+</div>
+
+
+
+<!-- Pagination -->
+<div class="pagination-wrapper">
+<nav>
+<ul class="pagination">
+    <li><a href="go:main-serie" aria-label="กลับหน้าหลัก"><span aria-hidden="true"><< กลับหน้าหลัก</span></a></li>
+    <li><a href="https://udzaa2238.github.io/korea-series/ซีรี่ย์เกาหลี-หน้าที่21.html">21</a></li>
+    <li><a href="https://udzaa2238.github.io/korea-series/ซีรี่ย์เกาหลี-หน้าที่22.html">22</a></li>
+    <li><a href="https://udzaa2238.github.io/korea-series/ซีรี่ย์เกาหลี-หน้าที่23.html">23</a></li>
+    <li><a href="https://udzaa2238.github.io/korea-series/ซีรี่ย์เกาหลี-หน้าที่24.html">24</a></li>
+    <li><a href="https://udzaa2238.github.io/korea-series/ซีรี่ย์เกาหลี-หน้าที่25.html">25</a></li>
+    <li><a href="https://udzaa2238.github.io/korea-series/ซีรี่ย์เกาหลี-หน้าที่26.html">26</a></li>
+<li class="active"><a href="https://udzaa2238.github.io/korea-series/ซีรี่ย์เกาหลี-หน้าที่27.html"><b>27</b></a></li>
+    <li><a href="https://udzaa2238.github.io/korea-series/ซีรี่ย์เกาหลี-หน้าที่28.html">28</a></li>
+	<li><a href="https://udzaa2238.github.io/korea-series/ซีรี่ย์เกาหลี-หน้าที่29.html">29</a></li>
+    <li><a href="https://udzaa2238.github.io/korea-series/ซีรี่ย์เกาหลี-หน้าที่30.html">30</a></li>
+    <li><a href="https://udzaa2238.github.io/korea-series/ซีรี่ย์เกาหลี-หน้าที่31.html">หน้าต่อไป»</a></li>
+    
+    </ul>
+    </nav>
+    </div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,1020 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>ซีรี่ย์เกาหลี หน้าที่ 28</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- External CSS -->
+  <link href="https://playtvthai.github.io/m3u8/css/bootstrap.css" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <link href="https://playtvthai.github.io/m3u8/css/style.css" rel="stylesheet" type="text/css" media="all" />
+  <link rel="stylesheet" href="https://playtvthai.github.io/m3u8/css/normalize.css">
+  <link rel="stylesheet" href="https://playtvthai.github.io/m3u8/css/custom.css">
+  <link rel="stylesheet" href="https://playtvthai.github.io/m3u8/css/main.css">
+  <link rel="stylesheet" href="http://hdtvdd.com/work/assets_remark/fonts/font-awesome/font-awesome.min.css">
+  <link rel="stylesheet" href="http://hdtvdd.com/work/font/stylesheet.css" type="text/css" charset="utf-8" />
+  <link rel="stylesheet" href="http://hdtvdd.com/work/css/8k.css" type="text/css" charset="utf-8" />
+  <link rel="stylesheet" href="http://hdtvdd.com/work/css/overlay.css" type="text/css" charset="utf-8">
+  <link href="http://hdtvdd.com/work/css/theme.css" rel="stylesheet">
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:100,200,300,400,500,600,700,800,900" rel="stylesheet" type="text/css">
+
+  <!-- JS (dedupe jQuery) -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <script src="https://playtvthai.github.io/m3u8/js/jquery.backstretch.js"></script>
+  <script src="http://hdtvdd.com/work/bootstrap-login-forms/form-2/assets/js/scripts.js"></script>
+
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      width: 100vw;
+      height: 100%;
+      background: #000;
+      box-sizing: border-box;
+      overflow-x: hidden;
+      font-family: 'Roboto Condensed', sans-serif;
+    }
+    *, *:before, *:after { box-sizing: inherit; }
+
+    /* Search/filter bar */
+    .filter-bar {
+      margin: 10px 0;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      align-items: center;
+    }
+    .filter-bar input, .filter-bar select {
+      padding: 8px;
+      font-size: 16px;
+      border-radius: 4px;
+      border: 1px solid #444;
+      background: #1f2025;
+      color: #fff;
+    }
+
+    /* Movie grid 5 columns */
+    /* Movie grid */
+    .movies-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin: 0 -5px;
+      padding-top: 10px;
+    }
+    .movie-item {
+      flex: 0 0 10%; /* เล็กลง, 5 คอลัมน์ต่อแถว */
+      box-sizing: border-box;
+      padding: 0 5px;
+      margin-bottom: 20px;
+      max-width: 200px; /* หรือจำกัดขนาดสูงสุด */
+    }
+    .movie-box {
+      background: #1f2025;
+      border-radius: 4px;
+      overflow: hidden;
+      position: relative;
+    }
+    .movie-image button {
+      width: 100%;
+      height: 0;
+      padding-top: 147%;
+      background-size: cover;
+      background-position: center;
+      border: none;
+      border-radius: 2px;
+      cursor: pointer;
+    }
+    .movie-title {
+      color: white;
+      font-size: 14px;
+      text-align: center;
+      margin-top: 6px;
+      line-height: 1.2;
+      padding: 0 4px;
+      word-break: break-word;
+    }
+
+    @media (max-width: 1200px) {
+      .movie-item { flex: 0 0 33.333%; }
+    }
+    @media (max-width: 900px) {
+      .movie-item { flex: 0 0 50%; }
+    }
+    @media (max-width: 600px) {
+      .movie-item { flex: 0 0 100%; }
+    }
+
+    .pagination-wrapper { text-align: center; margin-top: 20px; }
+    .pagination > li > a, .pagination > li > span { padding: 6px 12px; }
+  </style>
+
+  <script>
+    $(document).ready(function(){
+      $("#myBtn").click(function(){ $("#myModal").modal(); });
+      $("#myBtn2").click(function(){ $("#myModal2").modal(); });
+      $("#myBtn_vip").click(function(){ $("#myModal_vip").modal(); });
+      $("#myBtn_cpass").click(function(){ $("#myModal_changepass").modal(); });
+
+      // Filter logic
+      function normalizeText(t) {
+        return t.trim().toLowerCase();
+      }
+
+      function applyFilter() {
+        const query = normalizeText($("#movie-search").val() || "");
+        const category = $("#category-filter").val();
+        $(".movie-item").each(function() {
+          const title = normalizeText($(this).find(".movie-title").text() || "");
+          const itemCat = $(this).attr("data-category") || "all";
+          const matchesSearch = query === "" || title.includes(query);
+          const matchesCategory = category === "all" || itemCat === category;
+          if (matchesSearch && matchesCategory) {
+            $(this).show();
+          } else {
+            $(this).hide();
+          }
+        });
+      }
+
+      $("#movie-search").on("input", applyFilter);
+      $("#category-filter").on("change", applyFilter);
+    });
+  </script>
+</head>
+
+<body>
+  <div class="container" style="background-color:rgba(0,0,0,0); height:100%;">
+    <div class="container_wrap">
+      <div class="row" style="background-color:#27282c;border-radius:5px;">
+        <div class="col-lg-12 col-md-12 col-xs-12" style="margin-top:10px;margin-bottom:10px;">
+          <div class="row">
+            <div class="col-lg-2 col-md-2 col-sm-5 col-xs-5">
+              <div class="logo"></div>
+            </div>
+            <div class="col-lg-10 col-md-12 col-xs-12">
+              <div class="col-lg-12 col-md-12 col-xs-12" align="left" style="padding:5px;">
+                <div class="form-inline">
+                  <div class="form-group" style="margin:5px;">
+                    <form action="" method="get" name="lange" style="display:inline;">
+                      <input name="lange" type="hidden" id="lange" value="en">
+                      <input type="image" src="/web/images/en.gif" name="submit" width="60" height="20" alt="submit"/>
+                    </form>
+                  </div>
+                  <label for="form-password"><font color="white">ชื่อ : </font><font color="yellow">[ ผู้เฒ่าพเนจร ™ ]</font></label>
+
+                  <button class="btn btn-default" type="button" style="background-color:transparent;border-radius:2px;border:0;font-size:18px;color:#FFF;padding:0 5px;font-family:'rsuregular';" onclick="window.location.href='go:digital'">🏠 Home ™</button>
+                  <button class="btn btn-default" type="button" style="background-color:transparent;border-radius:2px;border:0;font-size:18px;color:#FFF;padding:0 5px;font-family:'rsuregular';" onclick="window.location.href='go:live'">📡 ถ่ายทอดสด ™</button>
+                  <button class="btn btn-default" type="button" style="background-color:transparent;border-radius:2px;border:0;font-size:18px;color:#FFF;padding:0 5px;font-family:'rsuregular';" onclick="window.location.href='go:main-serie'">🎞️ ดูซีรี่ย์ ™</button>
+                  <button class="btn btn-default" type="button" style="background-color:transparent;border-radius:2px;border:0;font-size:18px;color:#FFF;padding:0 5px;font-family:'rsuregular';" onclick="window.location.href='go:main-movie'">🎥 ดูหนัง ™</button>
+                  <button class="btn btn-default" type="button" style="background-color:transparent;border-radius:2px;border:0;font-size:18px;color:#FFF;padding:0 5px;font-family:'rsuregular';" onclick="window.location.href='go:main-movie'">📽️ ดูสารคดี ™</button>
+                  <button class="btn btn-default" type="button" style="background-color:transparent;border-radius:2px;border:0;font-size:18px;color:#FFF;padding:0 5px;font-family:'rsuregular';" onclick="window.location.href='http://action_exit'">🚪 ออก</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+<!--
+          <!-- filter bar -->
+          <div class="filter-bar">
+            <div>
+              <input id="movie-search" type="text" placeholder="ค้นหาหนัง..." />
+            </div>
+            <div>
+              <select id="category-filter">
+                <option value="all">ทั้งหมด</option>
+                <option value="action">Action</option>
+                <option value="drama">Drama</option>
+                <option value="sci-fi">Sci-Fi</option>
+                <option value="exclusive">Exclusive</option>
+              </select>
+            </div>
+          </div>
+
+
+-->
+          <!-- รวมทุก movie-item ไว้ใน grid เดียว -->
+          <div class="movies-grid">
+		  
+
+
+
+<div class="movie-item" data-category="kingdom season 2 (2020) ผีดิบคลั่ง บัลลังก์เดือด ซีซั่น 2">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.nung2hdd.com/wp-content/uploads/2020/05/sSa9xUE67YdcKhKPMbAqQeKmBfW-200x300.jpg);"onclick="window.location.href='https://sgcdnseries.com/view/09575417-c569-5a86-aae1-2df51c18e92e.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">Kingdom Season 2 (2020) ผีดิบคลั่ง บัลลังก์เดือด ซีซั่น 2 - ตอนที่ Season 2-Episode 1(Thai)</div>
+</div>
+<div class="movie-item" data-category="kingdom season 2 (2020) ผีดิบคลั่ง บัลลังก์เดือด ซีซั่น 2">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.nung2hdd.com/wp-content/uploads/2020/05/sSa9xUE67YdcKhKPMbAqQeKmBfW-200x300.jpg);"onclick="window.location.href='https://sgcdnseries.com/view/9dc122b2-6229-5ab0-8d49-47dd90fca142.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">Kingdom Season 2 (2020) ผีดิบคลั่ง บัลลังก์เดือด ซีซั่น 2 - ตอนที่ Season 2-Episode 1(Sub)</div>
+</div>
+<div class="movie-item" data-category="kingdom season 2 (2020) ผีดิบคลั่ง บัลลังก์เดือด ซีซั่น 2">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.nung2hdd.com/wp-content/uploads/2020/05/sSa9xUE67YdcKhKPMbAqQeKmBfW-200x300.jpg);"onclick="window.location.href='https://sgcdnseries.com/view/f5346f72-7838-5d9f-859f-1cd0f32ed866.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">Kingdom Season 2 (2020) ผีดิบคลั่ง บัลลังก์เดือด ซีซั่น 2 - ตอนที่ Season 2-Episode 2(Thai)</div>
+</div>
+<div class="movie-item" data-category="kingdom season 2 (2020) ผีดิบคลั่ง บัลลังก์เดือด ซีซั่น 2">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.nung2hdd.com/wp-content/uploads/2020/05/sSa9xUE67YdcKhKPMbAqQeKmBfW-200x300.jpg);"onclick="window.location.href='https://sgcdnseries.com/view/7f2ca49a-efc6-5229-9770-4e2c5bef8e2d.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">Kingdom Season 2 (2020) ผีดิบคลั่ง บัลลังก์เดือด ซีซั่น 2 - ตอนที่ Season 2-Episode 2(Sub)</div>
+</div>
+<div class="movie-item" data-category="kingdom season 2 (2020) ผีดิบคลั่ง บัลลังก์เดือด ซีซั่น 2">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.nung2hdd.com/wp-content/uploads/2020/05/sSa9xUE67YdcKhKPMbAqQeKmBfW-200x300.jpg);"onclick="window.location.href='https://sgcdnseries.com/view/3397eb3b-ac86-5357-813b-d48da439d5b1.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">Kingdom Season 2 (2020) ผีดิบคลั่ง บัลลังก์เดือด ซีซั่น 2 - ตอนที่ Season 2-Episode 3(Thai)</div>
+</div>
+<div class="movie-item" data-category="kingdom season 2 (2020) ผีดิบคลั่ง บัลลังก์เดือด ซีซั่น 2">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.nung2hdd.com/wp-content/uploads/2020/05/sSa9xUE67YdcKhKPMbAqQeKmBfW-200x300.jpg);"onclick="window.location.href='https://sgcdnseries.com/view/2295688b-bb70-5d9d-b353-3f47654a31e4.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">Kingdom Season 2 (2020) ผีดิบคลั่ง บัลลังก์เดือด ซีซั่น 2 - ตอนที่ Season 2-Episode 3(Sub)</div>
+</div>
+<div class="movie-item" data-category="kingdom season 2 (2020) ผีดิบคลั่ง บัลลังก์เดือด ซีซั่น 2">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.nung2hdd.com/wp-content/uploads/2020/05/sSa9xUE67YdcKhKPMbAqQeKmBfW-200x300.jpg);"onclick="window.location.href='https://sgcdnseries.com/view/08cce187-11a8-5c65-b0c0-390034eca5b0.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">Kingdom Season 2 (2020) ผีดิบคลั่ง บัลลังก์เดือด ซีซั่น 2 - ตอนที่ Season 2-Episode 4(Thai)</div>
+</div>
+<div class="movie-item" data-category="kingdom season 2 (2020) ผีดิบคลั่ง บัลลังก์เดือด ซีซั่น 2">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.nung2hdd.com/wp-content/uploads/2020/05/sSa9xUE67YdcKhKPMbAqQeKmBfW-200x300.jpg);"onclick="window.location.href='https://sgcdnseries.com/view/7a2fcd70-91d8-5972-9572-c58486338374.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">Kingdom Season 2 (2020) ผีดิบคลั่ง บัลลังก์เดือด ซีซั่น 2 - ตอนที่ Season 2-Episode 4(Sub)</div>
+</div>
+<div class="movie-item" data-category="kingdom season 2 (2020) ผีดิบคลั่ง บัลลังก์เดือด ซีซั่น 2">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.nung2hdd.com/wp-content/uploads/2020/05/sSa9xUE67YdcKhKPMbAqQeKmBfW-200x300.jpg);"onclick="window.location.href='https://sgcdnseries.com/view/4b776df6-7062-58e9-8c1d-d57ecedf5251.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">Kingdom Season 2 (2020) ผีดิบคลั่ง บัลลังก์เดือด ซีซั่น 2 - ตอนที่ Season 2-Episode 5(Thai)</div>
+</div>
+<div class="movie-item" data-category="kingdom season 2 (2020) ผีดิบคลั่ง บัลลังก์เดือด ซีซั่น 2">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.nung2hdd.com/wp-content/uploads/2020/05/sSa9xUE67YdcKhKPMbAqQeKmBfW-200x300.jpg);"onclick="window.location.href='https://sgcdnseries.com/view/a4e627af-f506-5303-8f7d-c75f951d3806.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">Kingdom Season 2 (2020) ผีดิบคลั่ง บัลลังก์เดือด ซีซั่น 2 - ตอนที่ Season 2-Episode 5(Sub)</div>
+</div>
+<div class="movie-item" data-category="kingdom season 2 (2020) ผีดิบคลั่ง บัลลังก์เดือด ซีซั่น 2">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.nung2hdd.com/wp-content/uploads/2020/05/sSa9xUE67YdcKhKPMbAqQeKmBfW-200x300.jpg);"onclick="window.location.href='https://sgcdnseries.com/view/3a8cbd61-a63f-591d-bdf0-f20d0a9b5e4e.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">Kingdom Season 2 (2020) ผีดิบคลั่ง บัลลังก์เดือด ซีซั่น 2 - ตอนที่ Season 2-Episode 6(Thai)</div>
+</div>
+<div class="movie-item" data-category="kingdom season 2 (2020) ผีดิบคลั่ง บัลลังก์เดือด ซีซั่น 2">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.nung2hdd.com/wp-content/uploads/2020/05/sSa9xUE67YdcKhKPMbAqQeKmBfW-200x300.jpg);"onclick="window.location.href='https://sgcdnseries.com/view/d00c7505-0b01-5551-a392-4f7ea5640921.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">Kingdom Season 2 (2020) ผีดิบคลั่ง บัลลังก์เดือด ซีซั่น 2 - ตอนที่ Season 2-Episode 6(Sub)</div>
+</div>
+<div class="movie-item" data-category="kingdom (2019) ผีดิบคลั่ง บัลลังก์เดือด ซีซั่น 1">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.nung2hdd.com/wp-content/uploads/2020/05/nbLv2DzKJTqRbjDCMYyzT38GkxP-200x300.jpg);"onclick="window.location.href='https://sgcdnseries.com/view/088663c9-d9d5-515e-a75e-17465e8212b4.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">Kingdom (2019) ผีดิบคลั่ง บัลลังก์เดือด ซีซั่น 1 - ตอนที่ Season 1-Episode 1(Thai)</div>
+</div>
+<div class="movie-item" data-category="kingdom (2019) ผีดิบคลั่ง บัลลังก์เดือด ซีซั่น 1">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.nung2hdd.com/wp-content/uploads/2020/05/nbLv2DzKJTqRbjDCMYyzT38GkxP-200x300.jpg);"onclick="window.location.href='https://sgcdnseries.com/view/f1ee897e-0969-5df5-9ff2-666144a5272e.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">Kingdom (2019) ผีดิบคลั่ง บัลลังก์เดือด ซีซั่น 1 - ตอนที่ Season 1-Episode 1(Sub)</div>
+</div>
+<div class="movie-item" data-category="kingdom (2019) ผีดิบคลั่ง บัลลังก์เดือด ซีซั่น 1">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.nung2hdd.com/wp-content/uploads/2020/05/nbLv2DzKJTqRbjDCMYyzT38GkxP-200x300.jpg);"onclick="window.location.href='https://sgcdnseries.com/view/18876e26-1bfe-5925-959d-128af1269fd1.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">Kingdom (2019) ผีดิบคลั่ง บัลลังก์เดือด ซีซั่น 1 - ตอนที่ Season 1-Episode 2(Thai)</div>
+</div>
+<div class="movie-item" data-category="kingdom (2019) ผีดิบคลั่ง บัลลังก์เดือด ซีซั่น 1">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.nung2hdd.com/wp-content/uploads/2020/05/nbLv2DzKJTqRbjDCMYyzT38GkxP-200x300.jpg);"onclick="window.location.href='https://sgcdnseries.com/view/99c5cb54-7942-57d6-a266-ad911d8c3481.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">Kingdom (2019) ผีดิบคลั่ง บัลลังก์เดือด ซีซั่น 1 - ตอนที่ Season 1-Episode 2(Sub)</div>
+</div>
+<div class="movie-item" data-category="kingdom (2019) ผีดิบคลั่ง บัลลังก์เดือด ซีซั่น 1">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.nung2hdd.com/wp-content/uploads/2020/05/nbLv2DzKJTqRbjDCMYyzT38GkxP-200x300.jpg);"onclick="window.location.href='https://sgcdnseries.com/view/c5477aa4-54bc-5bd0-8ede-455cf2011638.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">Kingdom (2019) ผีดิบคลั่ง บัลลังก์เดือด ซีซั่น 1 - ตอนที่ Season 1-Episode 3(Thai)</div>
+</div>
+<div class="movie-item" data-category="kingdom (2019) ผีดิบคลั่ง บัลลังก์เดือด ซีซั่น 1">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.nung2hdd.com/wp-content/uploads/2020/05/nbLv2DzKJTqRbjDCMYyzT38GkxP-200x300.jpg);"onclick="window.location.href='https://sgcdnseries.com/view/cbb4ad04-51a1-5109-8aad-95e248fc9442.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">Kingdom (2019) ผีดิบคลั่ง บัลลังก์เดือด ซีซั่น 1 - ตอนที่ Season 1-Episode 3(Sub)</div>
+</div>
+<div class="movie-item" data-category="kingdom (2019) ผีดิบคลั่ง บัลลังก์เดือด ซีซั่น 1">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.nung2hdd.com/wp-content/uploads/2020/05/nbLv2DzKJTqRbjDCMYyzT38GkxP-200x300.jpg);"onclick="window.location.href='https://sgcdnseries.com/view/c6bfaf37-c0cf-5fb0-8447-c2d382a82092.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">Kingdom (2019) ผีดิบคลั่ง บัลลังก์เดือด ซีซั่น 1 - ตอนที่ Season 1-Episode 4(Thai)</div>
+</div>
+<div class="movie-item" data-category="kingdom (2019) ผีดิบคลั่ง บัลลังก์เดือด ซีซั่น 1">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.nung2hdd.com/wp-content/uploads/2020/05/nbLv2DzKJTqRbjDCMYyzT38GkxP-200x300.jpg);"onclick="window.location.href='https://sgcdnseries.com/view/d4510916-b528-574a-84d6-27c0aeae90b8.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">Kingdom (2019) ผีดิบคลั่ง บัลลังก์เดือด ซีซั่น 1 - ตอนที่ Season 1-Episode 4(Sub)</div>
+</div>
+<div class="movie-item" data-category="kingdom (2019) ผีดิบคลั่ง บัลลังก์เดือด ซีซั่น 1">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.nung2hdd.com/wp-content/uploads/2020/05/nbLv2DzKJTqRbjDCMYyzT38GkxP-200x300.jpg);"onclick="window.location.href='https://sgcdnseries.com/view/3a298641-9318-5b57-930b-bb7618f19aae.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">Kingdom (2019) ผีดิบคลั่ง บัลลังก์เดือด ซีซั่น 1 - ตอนที่ Season 1-Episode 5(Thai)</div>
+</div>
+<div class="movie-item" data-category="kingdom (2019) ผีดิบคลั่ง บัลลังก์เดือด ซีซั่น 1">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.nung2hdd.com/wp-content/uploads/2020/05/nbLv2DzKJTqRbjDCMYyzT38GkxP-200x300.jpg);"onclick="window.location.href='https://sgcdnseries.com/view/eeeff6cb-4bba-5067-a864-243fe5bbcc80.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">Kingdom (2019) ผีดิบคลั่ง บัลลังก์เดือด ซีซั่น 1 - ตอนที่ Season 1-Episode 5(Sub)</div>
+</div>
+<div class="movie-item" data-category="kingdom (2019) ผีดิบคลั่ง บัลลังก์เดือด ซีซั่น 1">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.nung2hdd.com/wp-content/uploads/2020/05/nbLv2DzKJTqRbjDCMYyzT38GkxP-200x300.jpg);"onclick="window.location.href='https://sgcdnseries.com/view/e5f98a7a-9219-58e7-9124-b1bc695d6787.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">Kingdom (2019) ผีดิบคลั่ง บัลลังก์เดือด ซีซั่น 1 - ตอนที่ Season 1-Episode 6(Thai)</div>
+</div>
+<div class="movie-item" data-category="kingdom (2019) ผีดิบคลั่ง บัลลังก์เดือด ซีซั่น 1">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.nung2hdd.com/wp-content/uploads/2020/05/nbLv2DzKJTqRbjDCMYyzT38GkxP-200x300.jpg);"onclick="window.location.href='https://sgcdnseries.com/view/22d99148-c5bc-52c0-81da-98f18217b913.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">Kingdom (2019) ผีดิบคลั่ง บัลลังก์เดือด ซีซั่น 1 - ตอนที่ Season 1-Episode 6(Sub)</div>
+</div>
+<div class="movie-item" data-category="the king and i (2007) บันทึกรักคิมชูซอน สุภาพบุรุษมหาขันที">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.nung2hdd.com/wp-content/uploads/2021/06/iXUoJgh84dCsOFYDg2fJXk0WwWZ-200x300.jpg);"onclick="window.location.href='https://sgcdnseries.com/view/315a51aa-70f8-56e8-8ac4-999cff2baf00.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">The King and I (2007) บันทึกรักคิมชูซอน สุภาพบุรุษมหาขันที - ตอนที่ Episode 1(Thai)</div>
+</div>
+<div class="movie-item" data-category="the king and i (2007) บันทึกรักคิมชูซอน สุภาพบุรุษมหาขันที">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.nung2hdd.com/wp-content/uploads/2021/06/iXUoJgh84dCsOFYDg2fJXk0WwWZ-200x300.jpg);"onclick="window.location.href='https://sgcdnseries.com/view/8b08ecb7-1f85-59f6-bbca-60f05207dd04.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">The King and I (2007) บันทึกรักคิมชูซอน สุภาพบุรุษมหาขันที - ตอนที่ Episode 2(Thai)</div>
+</div>
+<div class="movie-item" data-category="the king and i (2007) บันทึกรักคิมชูซอน สุภาพบุรุษมหาขันที">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.nung2hdd.com/wp-content/uploads/2021/06/iXUoJgh84dCsOFYDg2fJXk0WwWZ-200x300.jpg);"onclick="window.location.href='https://sgcdnseries.com/view/ff64f24b-8491-5888-82d1-2ba1c84dd9eb.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">The King and I (2007) บันทึกรักคิมชูซอน สุภาพบุรุษมหาขันที - ตอนที่ Episode 3(Thai)</div>
+</div>
+<div class="movie-item" data-category="the king and i (2007) บันทึกรักคิมชูซอน สุภาพบุรุษมหาขันที">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.nung2hdd.com/wp-content/uploads/2021/06/iXUoJgh84dCsOFYDg2fJXk0WwWZ-200x300.jpg);"onclick="window.location.href='https://sgcdnseries.com/view/2a25466a-fde6-5624-a116-ed6ca8051ab4.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">The King and I (2007) บันทึกรักคิมชูซอน สุภาพบุรุษมหาขันที - ตอนที่ Episode 4(Thai)</div>
+</div>
+<div class="movie-item" data-category="the king and i (2007) บันทึกรักคิมชูซอน สุภาพบุรุษมหาขันที">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.nung2hdd.com/wp-content/uploads/2021/06/iXUoJgh84dCsOFYDg2fJXk0WwWZ-200x300.jpg);"onclick="window.location.href='https://sgcdnseries.com/view/abdd55b2-42ff-5505-9cd1-a7cd024d6209.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">The King and I (2007) บันทึกรักคิมชูซอน สุภาพบุรุษมหาขันที - ตอนที่ Episode 5(Thai)</div>
+</div>
+<div class="movie-item" data-category="the king and i (2007) บันทึกรักคิมชูซอน สุภาพบุรุษมหาขันที">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.nung2hdd.com/wp-content/uploads/2021/06/iXUoJgh84dCsOFYDg2fJXk0WwWZ-200x300.jpg);"onclick="window.location.href='https://sgcdnseries.com/view/9cff528a-ae33-5c73-9474-8dd5ad7197e5.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">The King and I (2007) บันทึกรักคิมชูซอน สุภาพบุรุษมหาขันที - ตอนที่ Episode 6(Thai)</div>
+</div>
+<div class="movie-item" data-category="the king and i (2007) บันทึกรักคิมชูซอน สุภาพบุรุษมหาขันที">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.nung2hdd.com/wp-content/uploads/2021/06/iXUoJgh84dCsOFYDg2fJXk0WwWZ-200x300.jpg);"onclick="window.location.href='https://sgcdnseries.com/view/20f887a5-3c90-551d-a658-a8369ab24040.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">The King and I (2007) บันทึกรักคิมชูซอน สุภาพบุรุษมหาขันที - ตอนที่ Episode 7(Thai)</div>
+</div>
+<div class="movie-item" data-category="the king and i (2007) บันทึกรักคิมชูซอน สุภาพบุรุษมหาขันที">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.nung2hdd.com/wp-content/uploads/2021/06/iXUoJgh84dCsOFYDg2fJXk0WwWZ-200x300.jpg);"onclick="window.location.href='https://sgcdnseries.com/view/4dcfdab4-6669-5bab-9367-b703e23451b0.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">The King and I (2007) บันทึกรักคิมชูซอน สุภาพบุรุษมหาขันที - ตอนที่ Episode 8(Thai)</div>
+</div>
+<div class="movie-item" data-category="the king and i (2007) บันทึกรักคิมชูซอน สุภาพบุรุษมหาขันที">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.nung2hdd.com/wp-content/uploads/2021/06/iXUoJgh84dCsOFYDg2fJXk0WwWZ-200x300.jpg);"onclick="window.location.href='https://sgcdnseries.com/view/fd8df43b-f58e-529a-9dd7-3a97af261cf3.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">The King and I (2007) บันทึกรักคิมชูซอน สุภาพบุรุษมหาขันที - ตอนที่ Episode 9(Thai)</div>
+</div>
+<div class="movie-item" data-category="the king and i (2007) บันทึกรักคิมชูซอน สุภาพบุรุษมหาขันที">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.nung2hdd.com/wp-content/uploads/2021/06/iXUoJgh84dCsOFYDg2fJXk0WwWZ-200x300.jpg);"onclick="window.location.href='https://sgcdnseries.com/view/5c96831c-a848-597d-9846-57b8e2cabf37.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">The King and I (2007) บันทึกรักคิมชูซอน สุภาพบุรุษมหาขันที - ตอนที่ Episode 10(Thai)</div>
+</div>
+<div class="movie-item" data-category="the king and i (2007) บันทึกรักคิมชูซอน สุภาพบุรุษมหาขันที">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.nung2hdd.com/wp-content/uploads/2021/06/iXUoJgh84dCsOFYDg2fJXk0WwWZ-200x300.jpg);"onclick="window.location.href='https://sgcdnseries.com/view/fc1b633e-0fe6-5ee1-8973-53bc3454ed25.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">The King and I (2007) บันทึกรักคิมชูซอน สุภาพบุรุษมหาขันที - ตอนที่ Episode 11(Thai)</div>
+</div>
+<div class="movie-item" data-category="the king and i (2007) บันทึกรักคิมชูซอน สุภาพบุรุษมหาขันที">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.nung2hdd.com/wp-content/uploads/2021/06/iXUoJgh84dCsOFYDg2fJXk0WwWZ-200x300.jpg);"onclick="window.location.href='https://sgcdnseries.com/view/1a0cd579-0308-54fe-8c75-4d3b228f1e65.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">The King and I (2007) บันทึกรักคิมชูซอน สุภาพบุรุษมหาขันที - ตอนที่ Episode 12(Thai)</div>
+</div>
+<div class="movie-item" data-category="the king and i (2007) บันทึกรักคิมชูซอน สุภาพบุรุษมหาขันที">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.nung2hdd.com/wp-content/uploads/2021/06/iXUoJgh84dCsOFYDg2fJXk0WwWZ-200x300.jpg);"onclick="window.location.href='https://sgcdnseries.com/view/f908d1a2-5999-5838-8d42-1dc139fcbf7b.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">The King and I (2007) บันทึกรักคิมชูซอน สุภาพบุรุษมหาขันที - ตอนที่ Episode 13(Thai)</div>
+</div>
+<div class="movie-item" data-category="the king and i (2007) บันทึกรักคิมชูซอน สุภาพบุรุษมหาขันที">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.nung2hdd.com/wp-content/uploads/2021/06/iXUoJgh84dCsOFYDg2fJXk0WwWZ-200x300.jpg);"onclick="window.location.href='https://sgcdnseries.com/view/3949209b-8d6f-51de-a57d-940855eb490c.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">The King and I (2007) บันทึกรักคิมชูซอน สุภาพบุรุษมหาขันที - ตอนที่ Episode 14(Thai)</div>
+</div>
+<div class="movie-item" data-category="the king and i (2007) บันทึกรักคิมชูซอน สุภาพบุรุษมหาขันที">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.nung2hdd.com/wp-content/uploads/2021/06/iXUoJgh84dCsOFYDg2fJXk0WwWZ-200x300.jpg);"onclick="window.location.href='https://sgcdnseries.com/view/61539c67-210c-5e95-aeda-a79360cfbcb6.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">The King and I (2007) บันทึกรักคิมชูซอน สุภาพบุรุษมหาขันที - ตอนที่ Episode 15(Thai)</div>
+</div>
+<div class="movie-item" data-category="the king and i (2007) บันทึกรักคิมชูซอน สุภาพบุรุษมหาขันที">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.nung2hdd.com/wp-content/uploads/2021/06/iXUoJgh84dCsOFYDg2fJXk0WwWZ-200x300.jpg);"onclick="window.location.href='https://sgcdnseries.com/view/b7b2d1ae-7ce8-5e15-859e-a818c913514e.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">The King and I (2007) บันทึกรักคิมชูซอน สุภาพบุรุษมหาขันที - ตอนที่ Episode 16(Thai)</div>
+</div>
+<div class="movie-item" data-category="the king and i (2007) บันทึกรักคิมชูซอน สุภาพบุรุษมหาขันที">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.nung2hdd.com/wp-content/uploads/2021/06/iXUoJgh84dCsOFYDg2fJXk0WwWZ-200x300.jpg);"onclick="window.location.href='https://sgcdnseries.com/view/58dca6b9-5c4f-5417-a429-217a964440c3.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">The King and I (2007) บันทึกรักคิมชูซอน สุภาพบุรุษมหาขันที - ตอนที่ Episode 17(Thai)</div>
+</div>
+<div class="movie-item" data-category="the king and i (2007) บันทึกรักคิมชูซอน สุภาพบุรุษมหาขันที">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.nung2hdd.com/wp-content/uploads/2021/06/iXUoJgh84dCsOFYDg2fJXk0WwWZ-200x300.jpg);"onclick="window.location.href='https://sgcdnseries.com/view/7f85d337-68c5-5021-8337-1bc25a043d1f.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">The King and I (2007) บันทึกรักคิมชูซอน สุภาพบุรุษมหาขันที - ตอนที่ Episode 18(Thai)</div>
+</div>
+<div class="movie-item" data-category="the king and i (2007) บันทึกรักคิมชูซอน สุภาพบุรุษมหาขันที">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.nung2hdd.com/wp-content/uploads/2021/06/iXUoJgh84dCsOFYDg2fJXk0WwWZ-200x300.jpg);"onclick="window.location.href='https://sgcdnseries.com/view/6cd09bd9-841f-523d-bd01-478c9177a0c6.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">The King and I (2007) บันทึกรักคิมชูซอน สุภาพบุรุษมหาขันที - ตอนที่ Episode 19(Thai)</div>
+</div>
+<div class="movie-item" data-category="the king and i (2007) บันทึกรักคิมชูซอน สุภาพบุรุษมหาขันที">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.nung2hdd.com/wp-content/uploads/2021/06/iXUoJgh84dCsOFYDg2fJXk0WwWZ-200x300.jpg);"onclick="window.location.href='https://sgcdnseries.com/view/8ffb62a5-a66e-5a25-8a55-be4cac1387cc.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">The King and I (2007) บันทึกรักคิมชูซอน สุภาพบุรุษมหาขันที - ตอนที่ Episode 20(Thai)</div>
+</div>
+<div class="movie-item" data-category="the king and i (2007) บันทึกรักคิมชูซอน สุภาพบุรุษมหาขันที">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.nung2hdd.com/wp-content/uploads/2021/06/iXUoJgh84dCsOFYDg2fJXk0WwWZ-200x300.jpg);"onclick="window.location.href='https://sgcdnseries.com/view/2721ed12-6178-5e1f-8486-c589fec5ead3.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">The King and I (2007) บันทึกรักคิมชูซอน สุภาพบุรุษมหาขันที - ตอนที่ Episode 21(Thai)</div>
+</div>
+<div class="movie-item" data-category="the king and i (2007) บันทึกรักคิมชูซอน สุภาพบุรุษมหาขันที">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.nung2hdd.com/wp-content/uploads/2021/06/iXUoJgh84dCsOFYDg2fJXk0WwWZ-200x300.jpg);"onclick="window.location.href='https://sgcdnseries.com/view/ab58c7aa-0c13-5eec-a680-b3f2bbaad267.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">The King and I (2007) บันทึกรักคิมชูซอน สุภาพบุรุษมหาขันที - ตอนที่ Episode 22(Thai)</div>
+</div>
+<div class="movie-item" data-category="the king and i (2007) บันทึกรักคิมชูซอน สุภาพบุรุษมหาขันที">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.nung2hdd.com/wp-content/uploads/2021/06/iXUoJgh84dCsOFYDg2fJXk0WwWZ-200x300.jpg);"onclick="window.location.href='https://sgcdnseries.com/view/3b71c754-887e-5d02-baa5-d4a1f618c7c3.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">The King and I (2007) บันทึกรักคิมชูซอน สุภาพบุรุษมหาขันที - ตอนที่ Episode 23(Thai)</div>
+</div>
+<div class="movie-item" data-category="the king and i (2007) บันทึกรักคิมชูซอน สุภาพบุรุษมหาขันที">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.nung2hdd.com/wp-content/uploads/2021/06/iXUoJgh84dCsOFYDg2fJXk0WwWZ-200x300.jpg);"onclick="window.location.href='https://sgcdnseries.com/view/96065228-8c8d-56ce-8aa2-4ba1cec030fd.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">The King and I (2007) บันทึกรักคิมชูซอน สุภาพบุรุษมหาขันที - ตอนที่ Episode 24(Thai)</div>
+</div>
+<div class="movie-item" data-category="the king and i (2007) บันทึกรักคิมชูซอน สุภาพบุรุษมหาขันที">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.nung2hdd.com/wp-content/uploads/2021/06/iXUoJgh84dCsOFYDg2fJXk0WwWZ-200x300.jpg);"onclick="window.location.href='https://sgcdnseries.com/view/558e6e6c-a322-54bb-a50a-c856f5afb9a3.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">The King and I (2007) บันทึกรักคิมชูซอน สุภาพบุรุษมหาขันที - ตอนที่ Episode 25(Thai)</div>
+</div>
+<div class="movie-item" data-category="the king and i (2007) บันทึกรักคิมชูซอน สุภาพบุรุษมหาขันที">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.nung2hdd.com/wp-content/uploads/2021/06/iXUoJgh84dCsOFYDg2fJXk0WwWZ-200x300.jpg);"onclick="window.location.href='https://sgcdnseries.com/view/dc607122-7a56-53d2-8a80-50974b3adf3a.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">The King and I (2007) บันทึกรักคิมชูซอน สุภาพบุรุษมหาขันที - ตอนที่ Episode 26(Thai)</div>
+</div>
+<div class="movie-item" data-category="the king and i (2007) บันทึกรักคิมชูซอน สุภาพบุรุษมหาขันที">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.nung2hdd.com/wp-content/uploads/2021/06/iXUoJgh84dCsOFYDg2fJXk0WwWZ-200x300.jpg);"onclick="window.location.href='https://sgcdnseries.com/view/da2b4500-4ce6-59cb-85a9-c86025b22deb.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">The King and I (2007) บันทึกรักคิมชูซอน สุภาพบุรุษมหาขันที - ตอนที่ Episode 27(Thai)</div>
+</div>
+<div class="movie-item" data-category="the king and i (2007) บันทึกรักคิมชูซอน สุภาพบุรุษมหาขันที">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.nung2hdd.com/wp-content/uploads/2021/06/iXUoJgh84dCsOFYDg2fJXk0WwWZ-200x300.jpg);"onclick="window.location.href='https://sgcdnseries.com/view/7da176dc-c1ea-575a-9efb-981e0c4bcb90.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">The King and I (2007) บันทึกรักคิมชูซอน สุภาพบุรุษมหาขันที - ตอนที่ Episode 28(Thai)</div>
+</div>
+<div class="movie-item" data-category="the king and i (2007) บันทึกรักคิมชูซอน สุภาพบุรุษมหาขันที">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.nung2hdd.com/wp-content/uploads/2021/06/iXUoJgh84dCsOFYDg2fJXk0WwWZ-200x300.jpg);"onclick="window.location.href='https://sgcdnseries.com/view/68699c76-4b5e-511f-9cb5-2178bd3cefad.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">The King and I (2007) บันทึกรักคิมชูซอน สุภาพบุรุษมหาขันที - ตอนที่ Episode 29(Thai)</div>
+</div>
+<div class="movie-item" data-category="the king and i (2007) บันทึกรักคิมชูซอน สุภาพบุรุษมหาขันที">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.nung2hdd.com/wp-content/uploads/2021/06/iXUoJgh84dCsOFYDg2fJXk0WwWZ-200x300.jpg);"onclick="window.location.href='https://sgcdnseries.com/view/5f79f81b-c89c-5eee-951e-cee4530fd973.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">The King and I (2007) บันทึกรักคิมชูซอน สุภาพบุรุษมหาขันที - ตอนที่ Episode 30(Thai)</div>
+</div>
+<div class="movie-item" data-category="the king and i (2007) บันทึกรักคิมชูซอน สุภาพบุรุษมหาขันที">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.nung2hdd.com/wp-content/uploads/2021/06/iXUoJgh84dCsOFYDg2fJXk0WwWZ-200x300.jpg);"onclick="window.location.href='https://sgcdnseries.com/view/5d4c8f84-561c-5251-a1c2-d711c8801bba.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">The King and I (2007) บันทึกรักคิมชูซอน สุภาพบุรุษมหาขันที - ตอนที่ Episode 31(Thai)</div>
+</div>
+<div class="movie-item" data-category="the king and i (2007) บันทึกรักคิมชูซอน สุภาพบุรุษมหาขันที">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.nung2hdd.com/wp-content/uploads/2021/06/iXUoJgh84dCsOFYDg2fJXk0WwWZ-200x300.jpg);"onclick="window.location.href='https://sgcdnseries.com/view/70b3d498-0a5a-513c-afc1-f03871fdaf6b.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">The King and I (2007) บันทึกรักคิมชูซอน สุภาพบุรุษมหาขันที - ตอนที่ Episode 32(Thai)</div>
+</div>
+<div class="movie-item" data-category="the king and i (2007) บันทึกรักคิมชูซอน สุภาพบุรุษมหาขันที">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.nung2hdd.com/wp-content/uploads/2021/06/iXUoJgh84dCsOFYDg2fJXk0WwWZ-200x300.jpg);"onclick="window.location.href='https://sgcdnseries.com/view/48cc6f3f-09d2-53dc-bc46-cd7a76dfe5c4.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">The King and I (2007) บันทึกรักคิมชูซอน สุภาพบุรุษมหาขันที - ตอนที่ Episode 33(Thai)</div>
+</div>
+<div class="movie-item" data-category="the king and i (2007) บันทึกรักคิมชูซอน สุภาพบุรุษมหาขันที">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.nung2hdd.com/wp-content/uploads/2021/06/iXUoJgh84dCsOFYDg2fJXk0WwWZ-200x300.jpg);"onclick="window.location.href='https://sgcdnseries.com/view/3f0f57bc-1dd1-57f7-aa67-8e37adabc984.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">The King and I (2007) บันทึกรักคิมชูซอน สุภาพบุรุษมหาขันที - ตอนที่ Episode 34(Thai)</div>
+</div>
+<div class="movie-item" data-category="the king and i (2007) บันทึกรักคิมชูซอน สุภาพบุรุษมหาขันที">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.nung2hdd.com/wp-content/uploads/2021/06/iXUoJgh84dCsOFYDg2fJXk0WwWZ-200x300.jpg);"onclick="window.location.href='https://sgcdnseries.com/view/507c4345-cc5a-548a-8817-8c0aa6a5a294.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">The King and I (2007) บันทึกรักคิมชูซอน สุภาพบุรุษมหาขันที - ตอนที่ Episode 35(Thai)</div>
+</div>
+<div class="movie-item" data-category="the king and i (2007) บันทึกรักคิมชูซอน สุภาพบุรุษมหาขันที">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.nung2hdd.com/wp-content/uploads/2021/06/iXUoJgh84dCsOFYDg2fJXk0WwWZ-200x300.jpg);"onclick="window.location.href='https://sgcdnseries.com/view/6990fd39-b9c6-5bc9-a56a-765e06bd26de.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">The King and I (2007) บันทึกรักคิมชูซอน สุภาพบุรุษมหาขันที - ตอนที่ Episode 36(Thai)</div>
+</div>
+<div class="movie-item" data-category="the king and i (2007) บันทึกรักคิมชูซอน สุภาพบุรุษมหาขันที">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.nung2hdd.com/wp-content/uploads/2021/06/iXUoJgh84dCsOFYDg2fJXk0WwWZ-200x300.jpg);"onclick="window.location.href='https://sgcdnseries.com/view/95f3455d-f4d0-5d6e-a6c1-26faaa7aa743.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">The King and I (2007) บันทึกรักคิมชูซอน สุภาพบุรุษมหาขันที - ตอนที่ Episode 37(Thai)</div>
+</div>
+<div class="movie-item" data-category="the king and i (2007) บันทึกรักคิมชูซอน สุภาพบุรุษมหาขันที">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.nung2hdd.com/wp-content/uploads/2021/06/iXUoJgh84dCsOFYDg2fJXk0WwWZ-200x300.jpg);"onclick="window.location.href='https://sgcdnseries.com/view/87535f04-b9ce-5452-80a6-4f84bf4b3b65.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">The King and I (2007) บันทึกรักคิมชูซอน สุภาพบุรุษมหาขันที - ตอนที่ Episode 38(Thai)</div>
+</div>
+<div class="movie-item" data-category="the king and i (2007) บันทึกรักคิมชูซอน สุภาพบุรุษมหาขันที">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.nung2hdd.com/wp-content/uploads/2021/06/iXUoJgh84dCsOFYDg2fJXk0WwWZ-200x300.jpg);"onclick="window.location.href='https://sgcdnseries.com/view/99a47c0d-dfeb-5afe-93d8-589b6c9b92db.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">The King and I (2007) บันทึกรักคิมชูซอน สุภาพบุรุษมหาขันที - ตอนที่ Episode 39(Thai)</div>
+</div>
+<div class="movie-item" data-category="the king and i (2007) บันทึกรักคิมชูซอน สุภาพบุรุษมหาขันที">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.nung2hdd.com/wp-content/uploads/2021/06/iXUoJgh84dCsOFYDg2fJXk0WwWZ-200x300.jpg);"onclick="window.location.href='https://sgcdnseries.com/view/9fb6d4cf-07b8-55bf-9341-3f9a86ade073.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">The King and I (2007) บันทึกรักคิมชูซอน สุภาพบุรุษมหาขันที - ตอนที่ Episode 40(Thai)</div>
+</div>
+<div class="movie-item" data-category="the king and i (2007) บันทึกรักคิมชูซอน สุภาพบุรุษมหาขันที">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.nung2hdd.com/wp-content/uploads/2021/06/iXUoJgh84dCsOFYDg2fJXk0WwWZ-200x300.jpg);"onclick="window.location.href='https://sgcdnseries.com/view/1810f115-2cb8-5bd9-89d3-f7246f01fe29.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">The King and I (2007) บันทึกรักคิมชูซอน สุภาพบุรุษมหาขันที - ตอนที่ Episode 41(Thai)</div>
+</div>
+<div class="movie-item" data-category="the king and i (2007) บันทึกรักคิมชูซอน สุภาพบุรุษมหาขันที">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.nung2hdd.com/wp-content/uploads/2021/06/iXUoJgh84dCsOFYDg2fJXk0WwWZ-200x300.jpg);"onclick="window.location.href='https://sgcdnseries.com/view/4eaf4111-9ef5-56a8-bae7-3b2050356ca9.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">The King and I (2007) บันทึกรักคิมชูซอน สุภาพบุรุษมหาขันที - ตอนที่ Episode 42(Thai)</div>
+</div>
+<div class="movie-item" data-category="the king and i (2007) บันทึกรักคิมชูซอน สุภาพบุรุษมหาขันที">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.nung2hdd.com/wp-content/uploads/2021/06/iXUoJgh84dCsOFYDg2fJXk0WwWZ-200x300.jpg);"onclick="window.location.href='https://sgcdnseries.com/view/e25b65e7-2514-57ce-bc7d-3ccff9318f61.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">The King and I (2007) บันทึกรักคิมชูซอน สุภาพบุรุษมหาขันที - ตอนที่ Episode 43(Thai)</div>
+</div>
+<div class="movie-item" data-category="the king and i (2007) บันทึกรักคิมชูซอน สุภาพบุรุษมหาขันที">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.nung2hdd.com/wp-content/uploads/2021/06/iXUoJgh84dCsOFYDg2fJXk0WwWZ-200x300.jpg);"onclick="window.location.href='https://sgcdnseries.com/view/c6a6efbe-df5e-5694-87ca-72dcc3ac8d6a.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">The King and I (2007) บันทึกรักคิมชูซอน สุภาพบุรุษมหาขันที - ตอนที่ Episode 44(Thai)</div>
+</div>
+<div class="movie-item" data-category="the king and i (2007) บันทึกรักคิมชูซอน สุภาพบุรุษมหาขันที">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.nung2hdd.com/wp-content/uploads/2021/06/iXUoJgh84dCsOFYDg2fJXk0WwWZ-200x300.jpg);"onclick="window.location.href='https://sgcdnseries.com/view/0935f428-f13e-520d-9cf2-c614b034ffca.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">The King and I (2007) บันทึกรักคิมชูซอน สุภาพบุรุษมหาขันที - ตอนที่ Episode 45(Thai)</div>
+</div>
+<div class="movie-item" data-category="the king and i (2007) บันทึกรักคิมชูซอน สุภาพบุรุษมหาขันที">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.nung2hdd.com/wp-content/uploads/2021/06/iXUoJgh84dCsOFYDg2fJXk0WwWZ-200x300.jpg);"onclick="window.location.href='https://sgcdnseries.com/view/2f687b1b-c26a-54a4-9901-2286440a28e7.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">The King and I (2007) บันทึกรักคิมชูซอน สุภาพบุรุษมหาขันที - ตอนที่ Episode 46(Thai)</div>
+</div>
+<div class="movie-item" data-category="the king and i (2007) บันทึกรักคิมชูซอน สุภาพบุรุษมหาขันที">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.nung2hdd.com/wp-content/uploads/2021/06/iXUoJgh84dCsOFYDg2fJXk0WwWZ-200x300.jpg);"onclick="window.location.href='https://sgcdnseries.com/view/76f76937-57cb-548a-8539-4612f1fc73a5.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">The King and I (2007) บันทึกรักคิมชูซอน สุภาพบุรุษมหาขันที - ตอนที่ Episode 47(Thai)</div>
+</div>
+<div class="movie-item" data-category="the king and i (2007) บันทึกรักคิมชูซอน สุภาพบุรุษมหาขันที">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.nung2hdd.com/wp-content/uploads/2021/06/iXUoJgh84dCsOFYDg2fJXk0WwWZ-200x300.jpg);"onclick="window.location.href='https://sgcdnseries.com/view/714d8d07-3840-5daa-889f-c82da9d6d3fc.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">The King and I (2007) บันทึกรักคิมชูซอน สุภาพบุรุษมหาขันที - ตอนที่ Episode 48(Thai)</div>
+</div>
+<div class="movie-item" data-category="the king and i (2007) บันทึกรักคิมชูซอน สุภาพบุรุษมหาขันที">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.nung2hdd.com/wp-content/uploads/2021/06/iXUoJgh84dCsOFYDg2fJXk0WwWZ-200x300.jpg);"onclick="window.location.href='https://sgcdnseries.com/view/05b992c2-0b6e-572b-ad53-5b7f5599bf21.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">The King and I (2007) บันทึกรักคิมชูซอน สุภาพบุรุษมหาขันที - ตอนที่ Episode 49(Thai)</div>
+</div>
+<div class="movie-item" data-category="the king and i (2007) บันทึกรักคิมชูซอน สุภาพบุรุษมหาขันที">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.nung2hdd.com/wp-content/uploads/2021/06/iXUoJgh84dCsOFYDg2fJXk0WwWZ-200x300.jpg);"onclick="window.location.href='https://sgcdnseries.com/view/53078b9e-0c95-50c6-8e62-a2988e661bb7.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">The King and I (2007) บันทึกรักคิมชูซอน สุภาพบุรุษมหาขันที - ตอนที่ Episode 50(Thai)</div>
+</div>
+<div class="movie-item" data-category="the king and i (2007) บันทึกรักคิมชูซอน สุภาพบุรุษมหาขันที">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.nung2hdd.com/wp-content/uploads/2021/06/iXUoJgh84dCsOFYDg2fJXk0WwWZ-200x300.jpg);"onclick="window.location.href='https://sgcdnseries.com/view/798183cd-3646-5e41-a077-47d94696caca.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">The King and I (2007) บันทึกรักคิมชูซอน สุภาพบุรุษมหาขันที - ตอนที่ Episode 51(Thai)</div>
+</div>
+<div class="movie-item" data-category="the king and i (2007) บันทึกรักคิมชูซอน สุภาพบุรุษมหาขันที">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.nung2hdd.com/wp-content/uploads/2021/06/iXUoJgh84dCsOFYDg2fJXk0WwWZ-200x300.jpg);"onclick="window.location.href='https://sgcdnseries.com/view/409b8c86-cef3-5070-ba00-852253cecdf2.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">The King and I (2007) บันทึกรักคิมชูซอน สุภาพบุรุษมหาขันที - ตอนที่ Episode 52(Thai)</div>
+</div>
+<div class="movie-item" data-category="the king and i (2007) บันทึกรักคิมชูซอน สุภาพบุรุษมหาขันที">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.nung2hdd.com/wp-content/uploads/2021/06/iXUoJgh84dCsOFYDg2fJXk0WwWZ-200x300.jpg);"onclick="window.location.href='https://sgcdnseries.com/view/dc6cec03-7477-5661-9dca-79e11d396198.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">The King and I (2007) บันทึกรักคิมชูซอน สุภาพบุรุษมหาขันที - ตอนที่ Episode 53(Thai)</div>
+</div>
+<div class="movie-item" data-category="the king and i (2007) บันทึกรักคิมชูซอน สุภาพบุรุษมหาขันที">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.nung2hdd.com/wp-content/uploads/2021/06/iXUoJgh84dCsOFYDg2fJXk0WwWZ-200x300.jpg);"onclick="window.location.href='https://sgcdnseries.com/view/919f91fb-cb51-5678-a92e-9499336f6fe6.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">The King and I (2007) บันทึกรักคิมชูซอน สุภาพบุรุษมหาขันที - ตอนที่ Episode 54(Thai)</div>
+</div>
+<div class="movie-item" data-category="the king and i (2007) บันทึกรักคิมชูซอน สุภาพบุรุษมหาขันที">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.nung2hdd.com/wp-content/uploads/2021/06/iXUoJgh84dCsOFYDg2fJXk0WwWZ-200x300.jpg);"onclick="window.location.href='https://sgcdnseries.com/view/19a64042-fa5c-5652-b867-dc57d204279d.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">The King and I (2007) บันทึกรักคิมชูซอน สุภาพบุรุษมหาขันที - ตอนที่ Episode 55(Thai)</div>
+</div>
+<div class="movie-item" data-category="the king and i (2007) บันทึกรักคิมชูซอน สุภาพบุรุษมหาขันที">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.nung2hdd.com/wp-content/uploads/2021/06/iXUoJgh84dCsOFYDg2fJXk0WwWZ-200x300.jpg);"onclick="window.location.href='https://sgcdnseries.com/view/2f111eda-a2e1-57a4-b593-665305aa4367.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">The King and I (2007) บันทึกรักคิมชูซอน สุภาพบุรุษมหาขันที - ตอนที่ Episode 56(Thai)</div>
+</div>
+<div class="movie-item" data-category="the king and i (2007) บันทึกรักคิมชูซอน สุภาพบุรุษมหาขันที">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.nung2hdd.com/wp-content/uploads/2021/06/iXUoJgh84dCsOFYDg2fJXk0WwWZ-200x300.jpg);"onclick="window.location.href='https://sgcdnseries.com/view/c156bb95-de74-5e97-835a-deda910f6c62.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">The King and I (2007) บันทึกรักคิมชูซอน สุภาพบุรุษมหาขันที - ตอนที่ Episode 57(Thai)</div>
+</div>
+<div class="movie-item" data-category="the king and i (2007) บันทึกรักคิมชูซอน สุภาพบุรุษมหาขันที">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.nung2hdd.com/wp-content/uploads/2021/06/iXUoJgh84dCsOFYDg2fJXk0WwWZ-200x300.jpg);"onclick="window.location.href='https://sgcdnseries.com/view/d64c8efd-0638-5f70-818e-69547744f9cb.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">The King and I (2007) บันทึกรักคิมชูซอน สุภาพบุรุษมหาขันที - ตอนที่ Episode 58(Thai)</div>
+</div>
+<div class="movie-item" data-category="the king and i (2007) บันทึกรักคิมชูซอน สุภาพบุรุษมหาขันที">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.nung2hdd.com/wp-content/uploads/2021/06/iXUoJgh84dCsOFYDg2fJXk0WwWZ-200x300.jpg);"onclick="window.location.href='https://sgcdnseries.com/view/c5cd18dd-8412-5cb1-b9e3-a303b2d58e49.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">The King and I (2007) บันทึกรักคิมชูซอน สุภาพบุรุษมหาขันที - ตอนที่ Episode 59(Thai)</div>
+</div>
+<div class="movie-item" data-category="the king and i (2007) บันทึกรักคิมชูซอน สุภาพบุรุษมหาขันที">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.nung2hdd.com/wp-content/uploads/2021/06/iXUoJgh84dCsOFYDg2fJXk0WwWZ-200x300.jpg);"onclick="window.location.href='https://sgcdnseries.com/view/ff17f1a8-5f64-53cc-999b-79e3e613b08b.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">The King and I (2007) บันทึกรักคิมชูซอน สุภาพบุรุษมหาขันที - ตอนที่ Episode 60(Thai)</div>
+</div>
+<div class="movie-item" data-category="the king and i (2007) บันทึกรักคิมชูซอน สุภาพบุรุษมหาขันที">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.nung2hdd.com/wp-content/uploads/2021/06/iXUoJgh84dCsOFYDg2fJXk0WwWZ-200x300.jpg);"onclick="window.location.href='https://sgcdnseries.com/view/07014f9b-c56d-55ed-93e6-724d27af3460.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">The King and I (2007) บันทึกรักคิมชูซอน สุภาพบุรุษมหาขันที - ตอนที่ Episode 61(Thai)</div>
+</div>
+<div class="movie-item" data-category="the king and i (2007) บันทึกรักคิมชูซอน สุภาพบุรุษมหาขันที">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.nung2hdd.com/wp-content/uploads/2021/06/iXUoJgh84dCsOFYDg2fJXk0WwWZ-200x300.jpg);"onclick="window.location.href='https://sgcdnseries.com/view/55d144d9-06fa-50ce-a386-822921eccc3b.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">The King and I (2007) บันทึกรักคิมชูซอน สุภาพบุรุษมหาขันที - ตอนที่ Episode 62(Thai)</div>
+</div>
+<div class="movie-item" data-category="the king and i (2007) บันทึกรักคิมชูซอน สุภาพบุรุษมหาขันที">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.nung2hdd.com/wp-content/uploads/2021/06/iXUoJgh84dCsOFYDg2fJXk0WwWZ-200x300.jpg);"onclick="window.location.href='https://sgcdnseries.com/view/6ccc46d3-2b7e-502a-93f5-0f4c5918c6ae.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">The King and I (2007) บันทึกรักคิมชูซอน สุภาพบุรุษมหาขันที - ตอนที่ Episode 63(Thai)</div>
+</div>
+
+
+<!-- Pagination -->
+<div class="pagination-wrapper">
+<nav>
+<ul class="pagination">
+    <li><a href="go:main-serie" aria-label="กลับหน้าหลัก"><span aria-hidden="true"><< กลับหน้าหลัก</span></a></li>
+    <li><a href="https://udzaa2238.github.io/korea-series/ซีรี่ย์เกาหลี-หน้าที่21.html">21</a></li>
+    <li><a href="https://udzaa2238.github.io/korea-series/ซีรี่ย์เกาหลี-หน้าที่22.html">22</a></li>
+    <li><a href="https://udzaa2238.github.io/korea-series/ซีรี่ย์เกาหลี-หน้าที่23.html">23</a></li>
+    <li><a href="https://udzaa2238.github.io/korea-series/ซีรี่ย์เกาหลี-หน้าที่24.html">24</a></li>
+    <li><a href="https://udzaa2238.github.io/korea-series/ซีรี่ย์เกาหลี-หน้าที่25.html">25</a></li>
+    <li><a href="https://udzaa2238.github.io/korea-series/ซีรี่ย์เกาหลี-หน้าที่26.html">26</a></li>
+    <li><a href="https://udzaa2238.github.io/korea-series/ซีรี่ย์เกาหลี-หน้าที่27.html">27</a></li>
+<li class="active"><a href="https://udzaa2238.github.io/korea-series/ซีรี่ย์เกาหลี-หน้าที่28.html"><b>28</b></a></li>
+	<li><a href="https://udzaa2238.github.io/korea-series/ซีรี่ย์เกาหลี-หน้าที่29.html">29</a></li>
+    <li><a href="https://udzaa2238.github.io/korea-series/ซีรี่ย์เกาหลี-หน้าที่30.html">30</a></li>
+    <li><a href="https://udzaa2238.github.io/korea-series/ซีรี่ย์เกาหลี-หน้าที่31.html">หน้าต่อไป»</a></li>
+    
+    </ul>
+    </nav>
+    </div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

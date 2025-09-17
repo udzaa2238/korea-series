@@ -1,0 +1,1029 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>ซีรี่ย์เกาหลี หน้าที่ 26</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- External CSS -->
+  <link href="https://playtvthai.github.io/m3u8/css/bootstrap.css" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <link href="https://playtvthai.github.io/m3u8/css/style.css" rel="stylesheet" type="text/css" media="all" />
+  <link rel="stylesheet" href="https://playtvthai.github.io/m3u8/css/normalize.css">
+  <link rel="stylesheet" href="https://playtvthai.github.io/m3u8/css/custom.css">
+  <link rel="stylesheet" href="https://playtvthai.github.io/m3u8/css/main.css">
+  <link rel="stylesheet" href="http://hdtvdd.com/work/assets_remark/fonts/font-awesome/font-awesome.min.css">
+  <link rel="stylesheet" href="http://hdtvdd.com/work/font/stylesheet.css" type="text/css" charset="utf-8" />
+  <link rel="stylesheet" href="http://hdtvdd.com/work/css/8k.css" type="text/css" charset="utf-8" />
+  <link rel="stylesheet" href="http://hdtvdd.com/work/css/overlay.css" type="text/css" charset="utf-8">
+  <link href="http://hdtvdd.com/work/css/theme.css" rel="stylesheet">
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:100,200,300,400,500,600,700,800,900" rel="stylesheet" type="text/css">
+
+  <!-- JS (dedupe jQuery) -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <script src="https://playtvthai.github.io/m3u8/js/jquery.backstretch.js"></script>
+  <script src="http://hdtvdd.com/work/bootstrap-login-forms/form-2/assets/js/scripts.js"></script>
+
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      width: 100vw;
+      height: 100%;
+      background: #000;
+      box-sizing: border-box;
+      overflow-x: hidden;
+      font-family: 'Roboto Condensed', sans-serif;
+    }
+    *, *:before, *:after { box-sizing: inherit; }
+
+    /* Search/filter bar */
+    .filter-bar {
+      margin: 10px 0;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      align-items: center;
+    }
+    .filter-bar input, .filter-bar select {
+      padding: 8px;
+      font-size: 16px;
+      border-radius: 4px;
+      border: 1px solid #444;
+      background: #1f2025;
+      color: #fff;
+    }
+
+    /* Movie grid 5 columns */
+    /* Movie grid */
+    .movies-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin: 0 -5px;
+      padding-top: 10px;
+    }
+    .movie-item {
+      flex: 0 0 10%; /* เล็กลง, 5 คอลัมน์ต่อแถว */
+      box-sizing: border-box;
+      padding: 0 5px;
+      margin-bottom: 20px;
+      max-width: 200px; /* หรือจำกัดขนาดสูงสุด */
+    }
+    .movie-box {
+      background: #1f2025;
+      border-radius: 4px;
+      overflow: hidden;
+      position: relative;
+    }
+    .movie-image button {
+      width: 100%;
+      height: 0;
+      padding-top: 147%;
+      background-size: cover;
+      background-position: center;
+      border: none;
+      border-radius: 2px;
+      cursor: pointer;
+    }
+    .movie-title {
+      color: white;
+      font-size: 14px;
+      text-align: center;
+      margin-top: 6px;
+      line-height: 1.2;
+      padding: 0 4px;
+      word-break: break-word;
+    }
+
+    @media (max-width: 1200px) {
+      .movie-item { flex: 0 0 33.333%; }
+    }
+    @media (max-width: 900px) {
+      .movie-item { flex: 0 0 50%; }
+    }
+    @media (max-width: 600px) {
+      .movie-item { flex: 0 0 100%; }
+    }
+
+    .pagination-wrapper { text-align: center; margin-top: 20px; }
+    .pagination > li > a, .pagination > li > span { padding: 6px 12px; }
+  </style>
+
+  <script>
+    $(document).ready(function(){
+      $("#myBtn").click(function(){ $("#myModal").modal(); });
+      $("#myBtn2").click(function(){ $("#myModal2").modal(); });
+      $("#myBtn_vip").click(function(){ $("#myModal_vip").modal(); });
+      $("#myBtn_cpass").click(function(){ $("#myModal_changepass").modal(); });
+
+      // Filter logic
+      function normalizeText(t) {
+        return t.trim().toLowerCase();
+      }
+
+      function applyFilter() {
+        const query = normalizeText($("#movie-search").val() || "");
+        const category = $("#category-filter").val();
+        $(".movie-item").each(function() {
+          const title = normalizeText($(this).find(".movie-title").text() || "");
+          const itemCat = $(this).attr("data-category") || "all";
+          const matchesSearch = query === "" || title.includes(query);
+          const matchesCategory = category === "all" || itemCat === category;
+          if (matchesSearch && matchesCategory) {
+            $(this).show();
+          } else {
+            $(this).hide();
+          }
+        });
+      }
+
+      $("#movie-search").on("input", applyFilter);
+      $("#category-filter").on("change", applyFilter);
+    });
+  </script>
+</head>
+
+<body>
+  <div class="container" style="background-color:rgba(0,0,0,0); height:100%;">
+    <div class="container_wrap">
+      <div class="row" style="background-color:#27282c;border-radius:5px;">
+        <div class="col-lg-12 col-md-12 col-xs-12" style="margin-top:10px;margin-bottom:10px;">
+          <div class="row">
+            <div class="col-lg-2 col-md-2 col-sm-5 col-xs-5">
+              <div class="logo"></div>
+            </div>
+            <div class="col-lg-10 col-md-12 col-xs-12">
+              <div class="col-lg-12 col-md-12 col-xs-12" align="left" style="padding:5px;">
+                <div class="form-inline">
+                  <div class="form-group" style="margin:5px;">
+                    <form action="" method="get" name="lange" style="display:inline;">
+                      <input name="lange" type="hidden" id="lange" value="en">
+                      <input type="image" src="/web/images/en.gif" name="submit" width="60" height="20" alt="submit"/>
+                    </form>
+                  </div>
+                  <label for="form-password"><font color="white">ชื่อ : </font><font color="yellow">[ ผู้เฒ่าพเนจร ™ ]</font></label>
+
+                  <button class="btn btn-default" type="button" style="background-color:transparent;border-radius:2px;border:0;font-size:18px;color:#FFF;padding:0 5px;font-family:'rsuregular';" onclick="window.location.href='go:digital'">🏠 Home ™</button>
+                  <button class="btn btn-default" type="button" style="background-color:transparent;border-radius:2px;border:0;font-size:18px;color:#FFF;padding:0 5px;font-family:'rsuregular';" onclick="window.location.href='go:live'">📡 ถ่ายทอดสด ™</button>
+                  <button class="btn btn-default" type="button" style="background-color:transparent;border-radius:2px;border:0;font-size:18px;color:#FFF;padding:0 5px;font-family:'rsuregular';" onclick="window.location.href='go:main-serie'">🎞️ ดูซีรี่ย์ ™</button>
+                  <button class="btn btn-default" type="button" style="background-color:transparent;border-radius:2px;border:0;font-size:18px;color:#FFF;padding:0 5px;font-family:'rsuregular';" onclick="window.location.href='go:main-movie'">🎥 ดูหนัง ™</button>
+                  <button class="btn btn-default" type="button" style="background-color:transparent;border-radius:2px;border:0;font-size:18px;color:#FFF;padding:0 5px;font-family:'rsuregular';" onclick="window.location.href='go:main-movie'">📽️ ดูสารคดี ™</button>
+                  <button class="btn btn-default" type="button" style="background-color:transparent;border-radius:2px;border:0;font-size:18px;color:#FFF;padding:0 5px;font-family:'rsuregular';" onclick="window.location.href='http://action_exit'">🚪 ออก</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+<!--
+          <!-- filter bar -->
+          <div class="filter-bar">
+            <div>
+              <input id="movie-search" type="text" placeholder="ค้นหาหนัง..." />
+            </div>
+            <div>
+              <select id="category-filter">
+                <option value="all">ทั้งหมด</option>
+                <option value="action">Action</option>
+                <option value="drama">Drama</option>
+                <option value="sci-fi">Sci-Fi</option>
+                <option value="exclusive">Exclusive</option>
+              </select>
+            </div>
+          </div>
+
+
+-->
+          <!-- รวมทุก movie-item ไว้ใน grid เดียว -->
+          <div class="movies-grid">
+		  
+
+
+
+<div class="movie-item" data-category="love to hate you ยี้ให้หนัก รักให้เข็ด">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.nung2hdd.com/wp-content/uploads/2023/02/Love-To-Hate-You-200x300.jpg);"onclick="window.location.href='https://sgcdnseries.com/view/80799887-f478-5fd4-b6dd-90437b8bd92d.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">Love To Hate You ยี้ให้หนัก รักให้เข็ด - ตอนที่ Episode 1(Thai)</div>
+</div>
+<div class="movie-item" data-category="love to hate you ยี้ให้หนัก รักให้เข็ด">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.nung2hdd.com/wp-content/uploads/2023/02/Love-To-Hate-You-200x300.jpg);"onclick="window.location.href='https://sgcdnseries.com/view/fb109275-200f-5814-855b-106e46fe81a2.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">Love To Hate You ยี้ให้หนัก รักให้เข็ด - ตอนที่ Episode 1(Sub)</div>
+</div>
+<div class="movie-item" data-category="love to hate you ยี้ให้หนัก รักให้เข็ด">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.nung2hdd.com/wp-content/uploads/2023/02/Love-To-Hate-You-200x300.jpg);"onclick="window.location.href='https://sgcdnseries.com/view/9141d204-fc06-52a5-bfed-9493b67db60c.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">Love To Hate You ยี้ให้หนัก รักให้เข็ด - ตอนที่ Episode 2(Thai)</div>
+</div>
+<div class="movie-item" data-category="love to hate you ยี้ให้หนัก รักให้เข็ด">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.nung2hdd.com/wp-content/uploads/2023/02/Love-To-Hate-You-200x300.jpg);"onclick="window.location.href='https://sgcdnseries.com/view/b306a988-1ad6-56e2-8042-389c5a5d1d4c.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">Love To Hate You ยี้ให้หนัก รักให้เข็ด - ตอนที่ Episode 2(Sub)</div>
+</div>
+<div class="movie-item" data-category="love to hate you ยี้ให้หนัก รักให้เข็ด">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.nung2hdd.com/wp-content/uploads/2023/02/Love-To-Hate-You-200x300.jpg);"onclick="window.location.href='https://sgcdnseries.com/view/aea34622-9d33-58cf-918d-10e51506a4f8.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">Love To Hate You ยี้ให้หนัก รักให้เข็ด - ตอนที่ Episode 3(Thai)</div>
+</div>
+<div class="movie-item" data-category="love to hate you ยี้ให้หนัก รักให้เข็ด">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.nung2hdd.com/wp-content/uploads/2023/02/Love-To-Hate-You-200x300.jpg);"onclick="window.location.href='https://sgcdnseries.com/view/fe77b023-ebb0-5713-91a2-128a667244a7.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">Love To Hate You ยี้ให้หนัก รักให้เข็ด - ตอนที่ Episode 3(Sub)</div>
+</div>
+<div class="movie-item" data-category="love to hate you ยี้ให้หนัก รักให้เข็ด">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.nung2hdd.com/wp-content/uploads/2023/02/Love-To-Hate-You-200x300.jpg);"onclick="window.location.href='https://sgcdnseries.com/view/0cb95fd6-d500-5619-9cb3-9fc191cdbee1.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">Love To Hate You ยี้ให้หนัก รักให้เข็ด - ตอนที่ Episode 4(Thai)</div>
+</div>
+<div class="movie-item" data-category="love to hate you ยี้ให้หนัก รักให้เข็ด">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.nung2hdd.com/wp-content/uploads/2023/02/Love-To-Hate-You-200x300.jpg);"onclick="window.location.href='https://sgcdnseries.com/view/baf0acc3-be6b-55cf-9dc7-c0102da8dc62.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">Love To Hate You ยี้ให้หนัก รักให้เข็ด - ตอนที่ Episode 4(Sub)</div>
+</div>
+<div class="movie-item" data-category="love to hate you ยี้ให้หนัก รักให้เข็ด">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.nung2hdd.com/wp-content/uploads/2023/02/Love-To-Hate-You-200x300.jpg);"onclick="window.location.href='https://sgcdnseries.com/view/9ff70662-1bf6-56bc-86df-e16233e4e1d7.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">Love To Hate You ยี้ให้หนัก รักให้เข็ด - ตอนที่ Episode 5(Thai)</div>
+</div>
+<div class="movie-item" data-category="love to hate you ยี้ให้หนัก รักให้เข็ด">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.nung2hdd.com/wp-content/uploads/2023/02/Love-To-Hate-You-200x300.jpg);"onclick="window.location.href='https://sgcdnseries.com/view/664a4c9b-0f39-545e-9548-367e5dcc9078.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">Love To Hate You ยี้ให้หนัก รักให้เข็ด - ตอนที่ Episode 5(Sub)</div>
+</div>
+<div class="movie-item" data-category="love to hate you ยี้ให้หนัก รักให้เข็ด">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.nung2hdd.com/wp-content/uploads/2023/02/Love-To-Hate-You-200x300.jpg);"onclick="window.location.href='https://sgcdnseries.com/view/643740c6-4ddb-5189-bdab-13effee0a313.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">Love To Hate You ยี้ให้หนัก รักให้เข็ด - ตอนที่ Episode 6(Thai)</div>
+</div>
+<div class="movie-item" data-category="love to hate you ยี้ให้หนัก รักให้เข็ด">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.nung2hdd.com/wp-content/uploads/2023/02/Love-To-Hate-You-200x300.jpg);"onclick="window.location.href='https://sgcdnseries.com/view/ca253aa2-c9a0-5963-ab76-1d94fef2825e.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">Love To Hate You ยี้ให้หนัก รักให้เข็ด - ตอนที่ Episode 6(Sub)</div>
+</div>
+<div class="movie-item" data-category="love to hate you ยี้ให้หนัก รักให้เข็ด">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.nung2hdd.com/wp-content/uploads/2023/02/Love-To-Hate-You-200x300.jpg);"onclick="window.location.href='https://sgcdnseries.com/view/9338e0ca-3fc4-5179-9676-a7fda00000ea.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">Love To Hate You ยี้ให้หนัก รักให้เข็ด - ตอนที่ Episode 7(Thai)</div>
+</div>
+<div class="movie-item" data-category="love to hate you ยี้ให้หนัก รักให้เข็ด">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.nung2hdd.com/wp-content/uploads/2023/02/Love-To-Hate-You-200x300.jpg);"onclick="window.location.href='https://sgcdnseries.com/view/075a606f-e1cd-57a5-aea5-d34fb7964b0c.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">Love To Hate You ยี้ให้หนัก รักให้เข็ด - ตอนที่ Episode 7(Sub)</div>
+</div>
+<div class="movie-item" data-category="love to hate you ยี้ให้หนัก รักให้เข็ด">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.nung2hdd.com/wp-content/uploads/2023/02/Love-To-Hate-You-200x300.jpg);"onclick="window.location.href='https://sgcdnseries.com/view/06e072b7-4425-5e63-b575-c5a521cbeb41.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">Love To Hate You ยี้ให้หนัก รักให้เข็ด - ตอนที่ Episode 8(Thai)</div>
+</div>
+<div class="movie-item" data-category="love to hate you ยี้ให้หนัก รักให้เข็ด">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.nung2hdd.com/wp-content/uploads/2023/02/Love-To-Hate-You-200x300.jpg);"onclick="window.location.href='https://sgcdnseries.com/view/615f431d-284d-5afa-90f1-725953a653a6.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">Love To Hate You ยี้ให้หนัก รักให้เข็ด - ตอนที่ Episode 8(Sub)</div>
+</div>
+<div class="movie-item" data-category="love to hate you ยี้ให้หนัก รักให้เข็ด">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.nung2hdd.com/wp-content/uploads/2023/02/Love-To-Hate-You-200x300.jpg);"onclick="window.location.href='https://sgcdnseries.com/view/ae6e50b2-8cbd-5507-a353-ef118ebfffac.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">Love To Hate You ยี้ให้หนัก รักให้เข็ด - ตอนที่ Episode 9(Thai)</div>
+</div>
+<div class="movie-item" data-category="love to hate you ยี้ให้หนัก รักให้เข็ด">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.nung2hdd.com/wp-content/uploads/2023/02/Love-To-Hate-You-200x300.jpg);"onclick="window.location.href='https://sgcdnseries.com/view/3c62cb11-7fc2-59a4-b428-5e9660551dc2.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">Love To Hate You ยี้ให้หนัก รักให้เข็ด - ตอนที่ Episode 9(Sub)</div>
+</div>
+<div class="movie-item" data-category="love to hate you ยี้ให้หนัก รักให้เข็ด">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.nung2hdd.com/wp-content/uploads/2023/02/Love-To-Hate-You-200x300.jpg);"onclick="window.location.href='https://sgcdnseries.com/view/af5528d2-737e-5464-b311-212556bb41d6.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">Love To Hate You ยี้ให้หนัก รักให้เข็ด - ตอนที่ Episode 10(Thai)</div>
+</div>
+<div class="movie-item" data-category="love to hate you ยี้ให้หนัก รักให้เข็ด">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.nung2hdd.com/wp-content/uploads/2023/02/Love-To-Hate-You-200x300.jpg);"onclick="window.location.href='https://sgcdnseries.com/view/a5ba34d4-62f2-5080-bb02-9201b4c78995.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">Love To Hate You ยี้ให้หนัก รักให้เข็ด - ตอนที่ Episode 10(Sub)</div>
+</div>
+<div class="movie-item" data-category="go back couple ย้อนวัย ใจพบรัก">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.nung2hdd.com/wp-content/uploads/2023/01/Go-Back-Couple-200x300.jpg);"onclick="window.location.href='https://sgcdnseries.com/view/710d72a4-00df-5e99-985e-5bbd1aa1592d.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">Go Back Couple ย้อนวัย ใจพบรัก - ตอนที่ Episode 1(Thai)</div>
+</div>
+<div class="movie-item" data-category="go back couple ย้อนวัย ใจพบรัก">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.nung2hdd.com/wp-content/uploads/2023/01/Go-Back-Couple-200x300.jpg);"onclick="window.location.href='https://sgcdnseries.com/view/60752efd-9db8-5372-a3dc-2470e480f987.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">Go Back Couple ย้อนวัย ใจพบรัก - ตอนที่ Episode 1(Sub)</div>
+</div>
+<div class="movie-item" data-category="go back couple ย้อนวัย ใจพบรัก">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.nung2hdd.com/wp-content/uploads/2023/01/Go-Back-Couple-200x300.jpg);"onclick="window.location.href='https://sgcdnseries.com/view/00ee4386-a2ba-5a8a-a6ae-37e27bb3d4c8.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">Go Back Couple ย้อนวัย ใจพบรัก - ตอนที่ Episode 2(Thai)</div>
+</div>
+<div class="movie-item" data-category="go back couple ย้อนวัย ใจพบรัก">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.nung2hdd.com/wp-content/uploads/2023/01/Go-Back-Couple-200x300.jpg);"onclick="window.location.href='https://sgcdnseries.com/view/70eae58a-6dbf-5d88-8f51-fa796e7ada51.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">Go Back Couple ย้อนวัย ใจพบรัก - ตอนที่ Episode 2(Sub)</div>
+</div>
+<div class="movie-item" data-category="go back couple ย้อนวัย ใจพบรัก">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.nung2hdd.com/wp-content/uploads/2023/01/Go-Back-Couple-200x300.jpg);"onclick="window.location.href='https://sgcdnseries.com/view/e07c64ce-b1bc-5576-a8cb-c0dfc6ff70cd.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">Go Back Couple ย้อนวัย ใจพบรัก - ตอนที่ Episode 3(Thai)</div>
+</div>
+<div class="movie-item" data-category="go back couple ย้อนวัย ใจพบรัก">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.nung2hdd.com/wp-content/uploads/2023/01/Go-Back-Couple-200x300.jpg);"onclick="window.location.href='https://sgcdnseries.com/view/1a1d0e5c-2c98-5710-bd17-3743e48601d7.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">Go Back Couple ย้อนวัย ใจพบรัก - ตอนที่ Episode 3(Sub)</div>
+</div>
+<div class="movie-item" data-category="go back couple ย้อนวัย ใจพบรัก">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.nung2hdd.com/wp-content/uploads/2023/01/Go-Back-Couple-200x300.jpg);"onclick="window.location.href='https://sgcdnseries.com/view/05cfbf3b-17af-5dc8-a45f-4ecf5d051ae0.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">Go Back Couple ย้อนวัย ใจพบรัก - ตอนที่ Episode 4(Thai)</div>
+</div>
+<div class="movie-item" data-category="go back couple ย้อนวัย ใจพบรัก">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.nung2hdd.com/wp-content/uploads/2023/01/Go-Back-Couple-200x300.jpg);"onclick="window.location.href='https://sgcdnseries.com/view/4493dca2-7e34-512b-9391-14e37095beb8.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">Go Back Couple ย้อนวัย ใจพบรัก - ตอนที่ Episode 4(Sub)</div>
+</div>
+<div class="movie-item" data-category="go back couple ย้อนวัย ใจพบรัก">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.nung2hdd.com/wp-content/uploads/2023/01/Go-Back-Couple-200x300.jpg);"onclick="window.location.href='https://sgcdnseries.com/view/208f2e03-9c94-5eb4-b17e-84b60378830e.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">Go Back Couple ย้อนวัย ใจพบรัก - ตอนที่ Episode 5(Thai)</div>
+</div>
+<div class="movie-item" data-category="go back couple ย้อนวัย ใจพบรัก">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.nung2hdd.com/wp-content/uploads/2023/01/Go-Back-Couple-200x300.jpg);"onclick="window.location.href='https://sgcdnseries.com/view/299e0f3b-cdcd-52f1-8296-c2c759b78317.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">Go Back Couple ย้อนวัย ใจพบรัก - ตอนที่ Episode 5(Sub)</div>
+</div>
+<div class="movie-item" data-category="go back couple ย้อนวัย ใจพบรัก">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.nung2hdd.com/wp-content/uploads/2023/01/Go-Back-Couple-200x300.jpg);"onclick="window.location.href='https://sgcdnseries.com/view/85422f29-a9e8-5be4-966b-09e4eb54ee42.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">Go Back Couple ย้อนวัย ใจพบรัก - ตอนที่ Episode 6(Thai)</div>
+</div>
+<div class="movie-item" data-category="go back couple ย้อนวัย ใจพบรัก">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.nung2hdd.com/wp-content/uploads/2023/01/Go-Back-Couple-200x300.jpg);"onclick="window.location.href='https://sgcdnseries.com/view/830962d2-5bda-5118-a69a-3616ad96fb33.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">Go Back Couple ย้อนวัย ใจพบรัก - ตอนที่ Episode 6(Sub)</div>
+</div>
+<div class="movie-item" data-category="go back couple ย้อนวัย ใจพบรัก">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.nung2hdd.com/wp-content/uploads/2023/01/Go-Back-Couple-200x300.jpg);"onclick="window.location.href='https://sgcdnseries.com/view/01832731-07bb-597a-8919-3dc17011e6c2.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">Go Back Couple ย้อนวัย ใจพบรัก - ตอนที่ Episode 7(Thai)</div>
+</div>
+<div class="movie-item" data-category="go back couple ย้อนวัย ใจพบรัก">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.nung2hdd.com/wp-content/uploads/2023/01/Go-Back-Couple-200x300.jpg);"onclick="window.location.href='https://sgcdnseries.com/view/1dbe01d7-79a9-5e40-aaed-904c0161bb04.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">Go Back Couple ย้อนวัย ใจพบรัก - ตอนที่ Episode 7(Sub)</div>
+</div>
+<div class="movie-item" data-category="go back couple ย้อนวัย ใจพบรัก">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.nung2hdd.com/wp-content/uploads/2023/01/Go-Back-Couple-200x300.jpg);"onclick="window.location.href='https://sgcdnseries.com/view/d8201864-3a97-545a-bd5e-693076e1f913.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">Go Back Couple ย้อนวัย ใจพบรัก - ตอนที่ Episode 8(Thai)</div>
+</div>
+<div class="movie-item" data-category="go back couple ย้อนวัย ใจพบรัก">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.nung2hdd.com/wp-content/uploads/2023/01/Go-Back-Couple-200x300.jpg);"onclick="window.location.href='https://sgcdnseries.com/view/5c5ca848-ede6-5766-8635-f98f4e17d770.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">Go Back Couple ย้อนวัย ใจพบรัก - ตอนที่ Episode 8(Sub)</div>
+</div>
+<div class="movie-item" data-category="go back couple ย้อนวัย ใจพบรัก">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.nung2hdd.com/wp-content/uploads/2023/01/Go-Back-Couple-200x300.jpg);"onclick="window.location.href='https://sgcdnseries.com/view/4a8f429d-0e5e-5a9f-9142-977c8f567564.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">Go Back Couple ย้อนวัย ใจพบรัก - ตอนที่ Episode 9(Thai)</div>
+</div>
+<div class="movie-item" data-category="go back couple ย้อนวัย ใจพบรัก">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.nung2hdd.com/wp-content/uploads/2023/01/Go-Back-Couple-200x300.jpg);"onclick="window.location.href='https://sgcdnseries.com/view/04c9d585-ba1d-565a-a522-70fd9b09390e.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">Go Back Couple ย้อนวัย ใจพบรัก - ตอนที่ Episode 9(Sub)</div>
+</div>
+<div class="movie-item" data-category="go back couple ย้อนวัย ใจพบรัก">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.nung2hdd.com/wp-content/uploads/2023/01/Go-Back-Couple-200x300.jpg);"onclick="window.location.href='https://sgcdnseries.com/view/7fe4a082-c1db-5ca4-97e5-bf22fbc0fc8e.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">Go Back Couple ย้อนวัย ใจพบรัก - ตอนที่ Episode 10(Thai)</div>
+</div>
+<div class="movie-item" data-category="go back couple ย้อนวัย ใจพบรัก">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.nung2hdd.com/wp-content/uploads/2023/01/Go-Back-Couple-200x300.jpg);"onclick="window.location.href='https://sgcdnseries.com/view/220eb726-a06e-511e-a0fb-d099eec10c85.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">Go Back Couple ย้อนวัย ใจพบรัก - ตอนที่ Episode 10(Sub)</div>
+</div>
+<div class="movie-item" data-category="go back couple ย้อนวัย ใจพบรัก">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.nung2hdd.com/wp-content/uploads/2023/01/Go-Back-Couple-200x300.jpg);"onclick="window.location.href='https://sgcdnseries.com/view/82bad44c-2ccf-587b-bbf5-58e978096420.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">Go Back Couple ย้อนวัย ใจพบรัก - ตอนที่ Episode 11(Thai)</div>
+</div>
+<div class="movie-item" data-category="go back couple ย้อนวัย ใจพบรัก">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.nung2hdd.com/wp-content/uploads/2023/01/Go-Back-Couple-200x300.jpg);"onclick="window.location.href='https://sgcdnseries.com/view/e7fa9852-f516-543a-93ae-538d5fbadd5a.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">Go Back Couple ย้อนวัย ใจพบรัก - ตอนที่ Episode 11(Sub)</div>
+</div>
+<div class="movie-item" data-category="go back couple ย้อนวัย ใจพบรัก">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.nung2hdd.com/wp-content/uploads/2023/01/Go-Back-Couple-200x300.jpg);"onclick="window.location.href='https://sgcdnseries.com/view/12b357ba-45e7-585b-9897-8d9c8b4ae109.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">Go Back Couple ย้อนวัย ใจพบรัก - ตอนที่ Episode 12(Thai)</div>
+</div>
+<div class="movie-item" data-category="go back couple ย้อนวัย ใจพบรัก">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.nung2hdd.com/wp-content/uploads/2023/01/Go-Back-Couple-200x300.jpg);"onclick="window.location.href='https://sgcdnseries.com/view/9a9e8d21-071f-5c4e-999e-ee4bee13b11f.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">Go Back Couple ย้อนวัย ใจพบรัก - ตอนที่ Episode 12(Sub)</div>
+</div>
+<div class="movie-item" data-category="curtain call พลิกบทบาท ทายาทหมื่นล้าน">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.nung2hdd.com/wp-content/uploads/2020/11/keoteunkol-332158608-large-200x300.jpg);"onclick="window.location.href='https://sgcdnseries.com/view/edcdede7-2fc9-5a60-a3bb-3c5d403f7125.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">Curtain Call พลิกบทบาท ทายาทหมื่นล้าน - ตอนที่ Episode 1(Sub)</div>
+</div>
+<div class="movie-item" data-category="curtain call พลิกบทบาท ทายาทหมื่นล้าน">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.nung2hdd.com/wp-content/uploads/2020/11/keoteunkol-332158608-large-200x300.jpg);"onclick="window.location.href='https://sgcdnseries.com/view/f784be5c-b71b-5745-bfbb-9d02f86f6454.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">Curtain Call พลิกบทบาท ทายาทหมื่นล้าน - ตอนที่ Episode 2(Sub)</div>
+</div>
+<div class="movie-item" data-category="curtain call พลิกบทบาท ทายาทหมื่นล้าน">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.nung2hdd.com/wp-content/uploads/2020/11/keoteunkol-332158608-large-200x300.jpg);"onclick="window.location.href='https://sgcdnseries.com/view/a93eb2f5-1552-5577-b71b-bc53803f93a9.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">Curtain Call พลิกบทบาท ทายาทหมื่นล้าน - ตอนที่ Episode 3(Sub)</div>
+</div>
+<div class="movie-item" data-category="curtain call พลิกบทบาท ทายาทหมื่นล้าน">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.nung2hdd.com/wp-content/uploads/2020/11/keoteunkol-332158608-large-200x300.jpg);"onclick="window.location.href='https://sgcdnseries.com/view/a44dabe8-ba57-56a8-9e24-f8a88400fe11.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">Curtain Call พลิกบทบาท ทายาทหมื่นล้าน - ตอนที่ Episode 4(Sub)</div>
+</div>
+<div class="movie-item" data-category="curtain call พลิกบทบาท ทายาทหมื่นล้าน">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.nung2hdd.com/wp-content/uploads/2020/11/keoteunkol-332158608-large-200x300.jpg);"onclick="window.location.href='https://sgcdnseries.com/view/fdd07eb2-3908-5018-bb6b-91bf4552204c.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">Curtain Call พลิกบทบาท ทายาทหมื่นล้าน - ตอนที่ Episode 5(Sub)</div>
+</div>
+<div class="movie-item" data-category="curtain call พลิกบทบาท ทายาทหมื่นล้าน">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.nung2hdd.com/wp-content/uploads/2020/11/keoteunkol-332158608-large-200x300.jpg);"onclick="window.location.href='https://sgcdnseries.com/view/e10911e1-623f-5fbd-9211-0b5a94e43944.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">Curtain Call พลิกบทบาท ทายาทหมื่นล้าน - ตอนที่ Episode 6(Sub)</div>
+</div>
+<div class="movie-item" data-category="curtain call พลิกบทบาท ทายาทหมื่นล้าน">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.nung2hdd.com/wp-content/uploads/2020/11/keoteunkol-332158608-large-200x300.jpg);"onclick="window.location.href='https://sgcdnseries.com/view/920e230d-adaf-51fb-ace7-45910c8f15e7.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">Curtain Call พลิกบทบาท ทายาทหมื่นล้าน - ตอนที่ Episode 7(Sub)</div>
+</div>
+<div class="movie-item" data-category="curtain call พลิกบทบาท ทายาทหมื่นล้าน">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.nung2hdd.com/wp-content/uploads/2020/11/keoteunkol-332158608-large-200x300.jpg);"onclick="window.location.href='https://sgcdnseries.com/view/599b9482-4d7f-5e36-9f1b-3818239b969d.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">Curtain Call พลิกบทบาท ทายาทหมื่นล้าน - ตอนที่ Episode 8(Sub)</div>
+</div>
+<div class="movie-item" data-category="curtain call พลิกบทบาท ทายาทหมื่นล้าน">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.nung2hdd.com/wp-content/uploads/2020/11/keoteunkol-332158608-large-200x300.jpg);"onclick="window.location.href='https://sgcdnseries.com/view/3234f28a-ec73-5661-a188-5abcba5e0537.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">Curtain Call พลิกบทบาท ทายาทหมื่นล้าน - ตอนที่ Episode 9(Sub)</div>
+</div>
+<div class="movie-item" data-category="curtain call พลิกบทบาท ทายาทหมื่นล้าน">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.nung2hdd.com/wp-content/uploads/2020/11/keoteunkol-332158608-large-200x300.jpg);"onclick="window.location.href='https://sgcdnseries.com/view/20d778af-6295-5e28-8b61-b35262ce345d.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">Curtain Call พลิกบทบาท ทายาทหมื่นล้าน - ตอนที่ Episode 10(Sub)</div>
+</div>
+<div class="movie-item" data-category="curtain call พลิกบทบาท ทายาทหมื่นล้าน">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.nung2hdd.com/wp-content/uploads/2020/11/keoteunkol-332158608-large-200x300.jpg);"onclick="window.location.href='https://sgcdnseries.com/view/85484f9b-8063-5883-8ae8-e3a5174d94c1.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">Curtain Call พลิกบทบาท ทายาทหมื่นล้าน - ตอนที่ Episode 11(Sub)</div>
+</div>
+<div class="movie-item" data-category="curtain call พลิกบทบาท ทายาทหมื่นล้าน">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.nung2hdd.com/wp-content/uploads/2020/11/keoteunkol-332158608-large-200x300.jpg);"onclick="window.location.href='https://sgcdnseries.com/view/c0ec3564-9831-50d8-b8c4-2b0fdba0b6f7.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">Curtain Call พลิกบทบาท ทายาทหมื่นล้าน - ตอนที่ Episode 12(Sub)</div>
+</div>
+<div class="movie-item" data-category="curtain call พลิกบทบาท ทายาทหมื่นล้าน">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.nung2hdd.com/wp-content/uploads/2020/11/keoteunkol-332158608-large-200x300.jpg);"onclick="window.location.href='https://sgcdnseries.com/view/5bf26abf-d695-5ce2-8ada-634fb83deca2.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">Curtain Call พลิกบทบาท ทายาทหมื่นล้าน - ตอนที่ Episode 13(Sub)</div>
+</div>
+<div class="movie-item" data-category="curtain call พลิกบทบาท ทายาทหมื่นล้าน">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.nung2hdd.com/wp-content/uploads/2020/11/keoteunkol-332158608-large-200x300.jpg);"onclick="window.location.href='https://sgcdnseries.com/view/b7323650-27de-5a99-b7e1-18c92c40c12e.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">Curtain Call พลิกบทบาท ทายาทหมื่นล้าน - ตอนที่ Episode 14(Sub)</div>
+</div>
+<div class="movie-item" data-category="curtain call พลิกบทบาท ทายาทหมื่นล้าน">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.nung2hdd.com/wp-content/uploads/2020/11/keoteunkol-332158608-large-200x300.jpg);"onclick="window.location.href='https://sgcdnseries.com/view/9298713b-9915-589a-805d-9c8ab00adae1.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">Curtain Call พลิกบทบาท ทายาทหมื่นล้าน - ตอนที่ Episode 15(Sub)</div>
+</div>
+<div class="movie-item" data-category="curtain call พลิกบทบาท ทายาทหมื่นล้าน">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.nung2hdd.com/wp-content/uploads/2020/11/keoteunkol-332158608-large-200x300.jpg);"onclick="window.location.href='https://sgcdnseries.com/view/0fa342fb-06d6-5974-afd7-e42e02ff42e2.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">Curtain Call พลิกบทบาท ทายาทหมื่นล้าน - ตอนที่ Episode 16(Sub)</div>
+</div>
+<div class="movie-item" data-category="the first responders (2022)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.nung2hdd.com/wp-content/uploads/2020/11/the_first_responders-141544385-large-200x300.jpg);"onclick="window.location.href='https://sgcdnseries.com/view/659111aa-cba5-5440-8663-f312274c9010.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">The First Responders (2022) - ตอนที่ Episode 1(Sub)</div>
+</div>
+<div class="movie-item" data-category="the first responders (2022)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.nung2hdd.com/wp-content/uploads/2020/11/the_first_responders-141544385-large-200x300.jpg);"onclick="window.location.href='https://sgcdnseries.com/view/0695f4df-1848-5295-ab40-0f5d73233df8.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">The First Responders (2022) - ตอนที่ Episode 2(Sub)</div>
+</div>
+<div class="movie-item" data-category="the first responders (2022)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.nung2hdd.com/wp-content/uploads/2020/11/the_first_responders-141544385-large-200x300.jpg);"onclick="window.location.href='https://sgcdnseries.com/view/36d1f43e-cfae-5fa3-b7b0-55be07151fd1.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">The First Responders (2022) - ตอนที่ Episode 3(Sub)</div>
+</div>
+<div class="movie-item" data-category="the first responders (2022)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.nung2hdd.com/wp-content/uploads/2020/11/the_first_responders-141544385-large-200x300.jpg);"onclick="window.location.href='https://sgcdnseries.com/view/de291d24-b96d-5585-b6e3-a2a4ddb9a777.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">The First Responders (2022) - ตอนที่ Episode 4(Sub)</div>
+</div>
+<div class="movie-item" data-category="the first responders (2022)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.nung2hdd.com/wp-content/uploads/2020/11/the_first_responders-141544385-large-200x300.jpg);"onclick="window.location.href='https://sgcdnseries.com/view/dabdb989-306b-5414-8f6c-c5abd0316074.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">The First Responders (2022) - ตอนที่ Episode 5(Sub)</div>
+</div>
+<div class="movie-item" data-category="the first responders (2022)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.nung2hdd.com/wp-content/uploads/2020/11/the_first_responders-141544385-large-200x300.jpg);"onclick="window.location.href='https://sgcdnseries.com/view/f8b4c9ab-12e9-5876-a827-4f12be838f6f.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">The First Responders (2022) - ตอนที่ Episode 6(Sub)</div>
+</div>
+<div class="movie-item" data-category="the first responders (2022)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.nung2hdd.com/wp-content/uploads/2020/11/the_first_responders-141544385-large-200x300.jpg);"onclick="window.location.href='https://sgcdnseries.com/view/6eb2825f-d7e1-5fdb-a33b-12b6b669431c.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">The First Responders (2022) - ตอนที่ Episode 7(Sub)</div>
+</div>
+<div class="movie-item" data-category="the first responders (2022)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.nung2hdd.com/wp-content/uploads/2020/11/the_first_responders-141544385-large-200x300.jpg);"onclick="window.location.href='https://sgcdnseries.com/view/d7c356a5-1ffe-5a9c-b9e9-396c36cbfa53.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">The First Responders (2022) - ตอนที่ Episode 8(Sub)</div>
+</div>
+<div class="movie-item" data-category="the first responders (2022)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.nung2hdd.com/wp-content/uploads/2020/11/the_first_responders-141544385-large-200x300.jpg);"onclick="window.location.href='https://sgcdnseries.com/view/1c91963a-53df-5433-b081-f03deff2fb42.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">The First Responders (2022) - ตอนที่ Episode 9(Sub)</div>
+</div>
+<div class="movie-item" data-category="the first responders (2022)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.nung2hdd.com/wp-content/uploads/2020/11/the_first_responders-141544385-large-200x300.jpg);"onclick="window.location.href='https://sgcdnseries.com/view/7a67152f-ab85-5ca6-b28b-ec5ef40e393e.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">The First Responders (2022) - ตอนที่ Episode 10(Sub)</div>
+</div>
+<div class="movie-item" data-category="the first responders (2022)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.nung2hdd.com/wp-content/uploads/2020/11/the_first_responders-141544385-large-200x300.jpg);"onclick="window.location.href='https://sgcdnseries.com/view/d4b67770-c6bc-55fd-a86c-c8fb53607cb7.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">The First Responders (2022) - ตอนที่ Episode 11(Sub)</div>
+</div>
+<div class="movie-item" data-category="the first responders (2022)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.nung2hdd.com/wp-content/uploads/2020/11/the_first_responders-141544385-large-200x300.jpg);"onclick="window.location.href='https://sgcdnseries.com/view/f4d25bfa-ea41-549f-9393-d0aa189c249a.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">The First Responders (2022) - ตอนที่ Episode 12(Sub)</div>
+</div>
+<div class="movie-item" data-category="the glory (2022)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.nung2hdd.com/wp-content/uploads/2020/11/the-glory-2022-200x300.jpg);"onclick="window.location.href='https://sgcdnseries.com/view/5c198d8c-78ca-5350-9168-482307a4c506.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">The Glory (2022) - ตอนที่ Episode 1(Thai)</div>
+</div>
+<div class="movie-item" data-category="the glory (2022)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.nung2hdd.com/wp-content/uploads/2020/11/the-glory-2022-200x300.jpg);"onclick="window.location.href='https://sgcdnseries.com/view/46aa1c40-2c4f-5a04-bae7-b2a3fcf8e187.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">The Glory (2022) - ตอนที่ Episode 1(Sub)</div>
+</div>
+<div class="movie-item" data-category="the glory (2022)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.nung2hdd.com/wp-content/uploads/2020/11/the-glory-2022-200x300.jpg);"onclick="window.location.href='https://sgcdnseries.com/view/d457e172-56e9-5678-a65f-28281f85c1c3.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">The Glory (2022) - ตอนที่ Episode 2(Thai)</div>
+</div>
+<div class="movie-item" data-category="the glory (2022)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.nung2hdd.com/wp-content/uploads/2020/11/the-glory-2022-200x300.jpg);"onclick="window.location.href='https://sgcdnseries.com/view/18808ceb-384d-5c87-b1fb-1463ac4a20a7.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">The Glory (2022) - ตอนที่ Episode 2(Sub)</div>
+</div>
+<div class="movie-item" data-category="the glory (2022)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.nung2hdd.com/wp-content/uploads/2020/11/the-glory-2022-200x300.jpg);"onclick="window.location.href='https://sgcdnseries.com/view/a455f4d5-8d6b-54fd-9dca-97ad503e45fe.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">The Glory (2022) - ตอนที่ Episode 3(Thai)</div>
+</div>
+<div class="movie-item" data-category="the glory (2022)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.nung2hdd.com/wp-content/uploads/2020/11/the-glory-2022-200x300.jpg);"onclick="window.location.href='https://sgcdnseries.com/view/04d78964-e392-5197-9fad-70dfd1e758d5.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">The Glory (2022) - ตอนที่ Episode 3(Sub)</div>
+</div>
+<div class="movie-item" data-category="the glory (2022)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.nung2hdd.com/wp-content/uploads/2020/11/the-glory-2022-200x300.jpg);"onclick="window.location.href='https://sgcdnseries.com/view/5a162f81-0cb1-5862-834f-357fe667782c.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">The Glory (2022) - ตอนที่ Episode 4(Thai)</div>
+</div>
+<div class="movie-item" data-category="the glory (2022)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.nung2hdd.com/wp-content/uploads/2020/11/the-glory-2022-200x300.jpg);"onclick="window.location.href='https://sgcdnseries.com/view/c9b4377e-af8e-5286-bcf5-ad2d3b6afd11.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">The Glory (2022) - ตอนที่ Episode 4(Sub)</div>
+</div>
+<div class="movie-item" data-category="the glory (2022)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.nung2hdd.com/wp-content/uploads/2020/11/the-glory-2022-200x300.jpg);"onclick="window.location.href='https://sgcdnseries.com/view/280c7c49-04b5-569a-90ff-fb50c43cd0d8.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">The Glory (2022) - ตอนที่ Episode 5(Thai)</div>
+</div>
+<div class="movie-item" data-category="the glory (2022)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.nung2hdd.com/wp-content/uploads/2020/11/the-glory-2022-200x300.jpg);"onclick="window.location.href='https://sgcdnseries.com/view/223a3e78-3f68-5597-b3c3-b76ce4ace7d1.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">The Glory (2022) - ตอนที่ Episode 5(Sub)</div>
+</div>
+<div class="movie-item" data-category="the glory (2022)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.nung2hdd.com/wp-content/uploads/2020/11/the-glory-2022-200x300.jpg);"onclick="window.location.href='https://sgcdnseries.com/view/6eef6216-3c8e-543f-a200-8042482df4fc.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">The Glory (2022) - ตอนที่ Episode 6(Thai)</div>
+</div>
+<div class="movie-item" data-category="the glory (2022)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.nung2hdd.com/wp-content/uploads/2020/11/the-glory-2022-200x300.jpg);"onclick="window.location.href='https://sgcdnseries.com/view/42e018f4-e931-5200-9cff-5c4159ed8367.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">The Glory (2022) - ตอนที่ Episode 6(Sub)</div>
+</div>
+<div class="movie-item" data-category="the glory (2022)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.nung2hdd.com/wp-content/uploads/2020/11/the-glory-2022-200x300.jpg);"onclick="window.location.href='https://sgcdnseries.com/view/3c016c1f-4f61-5781-8d3e-8e753729e92a.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">The Glory (2022) - ตอนที่ Episode 7(Thai)</div>
+</div>
+<div class="movie-item" data-category="the glory (2022)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.nung2hdd.com/wp-content/uploads/2020/11/the-glory-2022-200x300.jpg);"onclick="window.location.href='https://sgcdnseries.com/view/302c0b52-180b-5c85-8955-090e7c5d4129.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">The Glory (2022) - ตอนที่ Episode 7(Sub)</div>
+</div>
+<div class="movie-item" data-category="the glory (2022)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.nung2hdd.com/wp-content/uploads/2020/11/the-glory-2022-200x300.jpg);"onclick="window.location.href='https://sgcdnseries.com/view/8ea5180b-5654-5f8d-82da-f9f980cff922.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">The Glory (2022) - ตอนที่ Episode 8(Thai)</div>
+</div>
+<div class="movie-item" data-category="the glory (2022)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.nung2hdd.com/wp-content/uploads/2020/11/the-glory-2022-200x300.jpg);"onclick="window.location.href='https://sgcdnseries.com/view/7c6fe529-31be-5bd2-9bfe-01acada437cb.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">The Glory (2022) - ตอนที่ Episode 8(Sub)</div>
+</div>
+
+
+<!-- Pagination -->
+<div class="pagination-wrapper">
+<nav>
+<ul class="pagination">
+    <li><a href="go:main-serie" aria-label="กลับหน้าหลัก"><span aria-hidden="true"><< กลับหน้าหลัก</span></a></li>
+    <li><a href="https://udzaa2238.github.io/korea-series/ซีรี่ย์เกาหลี-หน้าที่21.html">21</a></li>
+    <li><a href="https://udzaa2238.github.io/korea-series/ซีรี่ย์เกาหลี-หน้าที่22.html">22</a></li>
+    <li><a href="https://udzaa2238.github.io/korea-series/ซีรี่ย์เกาหลี-หน้าที่23.html">23</a></li>
+    <li><a href="https://udzaa2238.github.io/korea-series/ซีรี่ย์เกาหลี-หน้าที่24.html">24</a></li>
+    <li><a href="https://udzaa2238.github.io/korea-series/ซีรี่ย์เกาหลี-หน้าที่25.html">25</a></li>
+<li class="active"><a href="https://udzaa2238.github.io/korea-series/ซีรี่ย์เกาหลี-หน้าที่26.html"><b>26</b></a></li>
+    <li><a href="https://udzaa2238.github.io/korea-series/ซีรี่ย์เกาหลี-หน้าที่27.html">27</a></li>
+    <li><a href="https://udzaa2238.github.io/korea-series/ซีรี่ย์เกาหลี-หน้าที่28.html">28</a></li>
+	<li><a href="https://udzaa2238.github.io/korea-series/ซีรี่ย์เกาหลี-หน้าที่29.html">29</a></li>
+    <li><a href="https://udzaa2238.github.io/korea-series/ซีรี่ย์เกาหลี-หน้าที่30.html">30</a></li>
+    <li><a href="https://udzaa2238.github.io/korea-series/ซีรี่ย์เกาหลี-หน้าที่31.html">หน้าต่อไป»</a></li>
+    
+    </ul>
+    </nav>
+    </div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

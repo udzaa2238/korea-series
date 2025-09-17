@@ -1,0 +1,1048 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>ซีรี่ย์เกาหลี หน้าที่ 17</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- External CSS -->
+  <link href="https://playtvthai.github.io/m3u8/css/bootstrap.css" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <link href="https://playtvthai.github.io/m3u8/css/style.css" rel="stylesheet" type="text/css" media="all" />
+  <link rel="stylesheet" href="https://playtvthai.github.io/m3u8/css/normalize.css">
+  <link rel="stylesheet" href="https://playtvthai.github.io/m3u8/css/custom.css">
+  <link rel="stylesheet" href="https://playtvthai.github.io/m3u8/css/main.css">
+  <link rel="stylesheet" href="http://hdtvdd.com/work/assets_remark/fonts/font-awesome/font-awesome.min.css">
+  <link rel="stylesheet" href="http://hdtvdd.com/work/font/stylesheet.css" type="text/css" charset="utf-8" />
+  <link rel="stylesheet" href="http://hdtvdd.com/work/css/8k.css" type="text/css" charset="utf-8" />
+  <link rel="stylesheet" href="http://hdtvdd.com/work/css/overlay.css" type="text/css" charset="utf-8">
+  <link href="http://hdtvdd.com/work/css/theme.css" rel="stylesheet">
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:100,200,300,400,500,600,700,800,900" rel="stylesheet" type="text/css">
+
+  <!-- JS (dedupe jQuery) -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <script src="https://playtvthai.github.io/m3u8/js/jquery.backstretch.js"></script>
+  <script src="http://hdtvdd.com/work/bootstrap-login-forms/form-2/assets/js/scripts.js"></script>
+
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      width: 100vw;
+      height: 100%;
+      background: #000;
+      box-sizing: border-box;
+      overflow-x: hidden;
+      font-family: 'Roboto Condensed', sans-serif;
+    }
+    *, *:before, *:after { box-sizing: inherit; }
+
+    /* Search/filter bar */
+    .filter-bar {
+      margin: 10px 0;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      align-items: center;
+    }
+    .filter-bar input, .filter-bar select {
+      padding: 8px;
+      font-size: 16px;
+      border-radius: 4px;
+      border: 1px solid #444;
+      background: #1f2025;
+      color: #fff;
+    }
+
+    /* Movie grid 5 columns */
+    /* Movie grid */
+    .movies-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin: 0 -5px;
+      padding-top: 10px;
+    }
+    .movie-item {
+      flex: 0 0 10%; /* เล็กลง, 5 คอลัมน์ต่อแถว */
+      box-sizing: border-box;
+      padding: 0 5px;
+      margin-bottom: 20px;
+      max-width: 200px; /* หรือจำกัดขนาดสูงสุด */
+    }
+    .movie-box {
+      background: #1f2025;
+      border-radius: 4px;
+      overflow: hidden;
+      position: relative;
+    }
+    .movie-image button {
+      width: 100%;
+      height: 0;
+      padding-top: 147%;
+      background-size: cover;
+      background-position: center;
+      border: none;
+      border-radius: 2px;
+      cursor: pointer;
+    }
+    .movie-title {
+      color: white;
+      font-size: 14px;
+      text-align: center;
+      margin-top: 6px;
+      line-height: 1.2;
+      padding: 0 4px;
+      word-break: break-word;
+    }
+
+    @media (max-width: 1200px) {
+      .movie-item { flex: 0 0 33.333%; }
+    }
+    @media (max-width: 900px) {
+      .movie-item { flex: 0 0 50%; }
+    }
+    @media (max-width: 600px) {
+      .movie-item { flex: 0 0 100%; }
+    }
+
+    .pagination-wrapper { text-align: center; margin-top: 20px; }
+    .pagination > li > a, .pagination > li > span { padding: 6px 12px; }
+  </style>
+
+  <script>
+    $(document).ready(function(){
+      $("#myBtn").click(function(){ $("#myModal").modal(); });
+      $("#myBtn2").click(function(){ $("#myModal2").modal(); });
+      $("#myBtn_vip").click(function(){ $("#myModal_vip").modal(); });
+      $("#myBtn_cpass").click(function(){ $("#myModal_changepass").modal(); });
+
+      // Filter logic
+      function normalizeText(t) {
+        return t.trim().toLowerCase();
+      }
+
+      function applyFilter() {
+        const query = normalizeText($("#movie-search").val() || "");
+        const category = $("#category-filter").val();
+        $(".movie-item").each(function() {
+          const title = normalizeText($(this).find(".movie-title").text() || "");
+          const itemCat = $(this).attr("data-category") || "all";
+          const matchesSearch = query === "" || title.includes(query);
+          const matchesCategory = category === "all" || itemCat === category;
+          if (matchesSearch && matchesCategory) {
+            $(this).show();
+          } else {
+            $(this).hide();
+          }
+        });
+      }
+
+      $("#movie-search").on("input", applyFilter);
+      $("#category-filter").on("change", applyFilter);
+    });
+  </script>
+</head>
+
+<body>
+  <div class="container" style="background-color:rgba(0,0,0,0); height:100%;">
+    <div class="container_wrap">
+      <div class="row" style="background-color:#27282c;border-radius:5px;">
+        <div class="col-lg-12 col-md-12 col-xs-12" style="margin-top:10px;margin-bottom:10px;">
+          <div class="row">
+            <div class="col-lg-2 col-md-2 col-sm-5 col-xs-5">
+              <div class="logo"></div>
+            </div>
+            <div class="col-lg-10 col-md-12 col-xs-12">
+              <div class="col-lg-12 col-md-12 col-xs-12" align="left" style="padding:5px;">
+                <div class="form-inline">
+                  <div class="form-group" style="margin:5px;">
+                    <form action="" method="get" name="lange" style="display:inline;">
+                      <input name="lange" type="hidden" id="lange" value="en">
+                      <input type="image" src="/web/images/en.gif" name="submit" width="60" height="20" alt="submit"/>
+                    </form>
+                  </div>
+                  <label for="form-password"><font color="white">ชื่อ : </font><font color="yellow">[ ผู้เฒ่าพเนจร ™ ]</font></label>
+
+                  <button class="btn btn-default" type="button" style="background-color:transparent;border-radius:2px;border:0;font-size:18px;color:#FFF;padding:0 5px;font-family:'rsuregular';" onclick="window.location.href='go:digital'">🏠 Home ™</button>
+                  <button class="btn btn-default" type="button" style="background-color:transparent;border-radius:2px;border:0;font-size:18px;color:#FFF;padding:0 5px;font-family:'rsuregular';" onclick="window.location.href='go:live'">📡 ถ่ายทอดสด ™</button>
+                  <button class="btn btn-default" type="button" style="background-color:transparent;border-radius:2px;border:0;font-size:18px;color:#FFF;padding:0 5px;font-family:'rsuregular';" onclick="window.location.href='go:main-serie'">🎞️ ดูซีรี่ย์ ™</button>
+                  <button class="btn btn-default" type="button" style="background-color:transparent;border-radius:2px;border:0;font-size:18px;color:#FFF;padding:0 5px;font-family:'rsuregular';" onclick="window.location.href='go:main-movie'">🎥 ดูหนัง ™</button>
+                  <button class="btn btn-default" type="button" style="background-color:transparent;border-radius:2px;border:0;font-size:18px;color:#FFF;padding:0 5px;font-family:'rsuregular';" onclick="window.location.href='go:main-movie'">📽️ ดูสารคดี ™</button>
+                  <button class="btn btn-default" type="button" style="background-color:transparent;border-radius:2px;border:0;font-size:18px;color:#FFF;padding:0 5px;font-family:'rsuregular';" onclick="window.location.href='http://action_exit'">🚪 ออก</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+<!--
+          <!-- filter bar -->
+          <div class="filter-bar">
+            <div>
+              <input id="movie-search" type="text" placeholder="ค้นหาหนัง..." />
+            </div>
+            <div>
+              <select id="category-filter">
+                <option value="all">ทั้งหมด</option>
+                <option value="action">Action</option>
+                <option value="drama">Drama</option>
+                <option value="sci-fi">Sci-Fi</option>
+                <option value="exclusive">Exclusive</option>
+              </select>
+            </div>
+          </div>
+
+
+-->
+          <!-- รวมทุก movie-item ไว้ใน grid เดียว -->
+          <div class="movies-grid">
+		  
+
+
+
+<div class="movie-item" data-category=" (จบแล้ว)when the phone rings (2024) เมื่อเสียงโทรศัพท์ดัง (ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serie-day.com/wp-content/uploads/2024/11/When-The-Phone-Rings-2024-212x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/134f2334441a035fd89af782/134f2334441a035fd89af782.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP01</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)when the phone rings (2024) เมื่อเสียงโทรศัพท์ดัง (ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serie-day.com/wp-content/uploads/2024/11/When-The-Phone-Rings-2024-212x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/2498ee063ce3e5593c9795ad/2498ee063ce3e5593c9795ad.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP02</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)when the phone rings (2024) เมื่อเสียงโทรศัพท์ดัง (ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serie-day.com/wp-content/uploads/2024/11/When-The-Phone-Rings-2024-212x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/083e006e58ea2acbf16d7bb3/083e006e58ea2acbf16d7bb3.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP03</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)when the phone rings (2024) เมื่อเสียงโทรศัพท์ดัง (ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serie-day.com/wp-content/uploads/2024/11/When-The-Phone-Rings-2024-212x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/01536de6c0567d29346550a7/01536de6c0567d29346550a7.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP04</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)when the phone rings (2024) เมื่อเสียงโทรศัพท์ดัง (ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serie-day.com/wp-content/uploads/2024/11/When-The-Phone-Rings-2024-212x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/baa3b38e13bd79e4046855b8/baa3b38e13bd79e4046855b8.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP05</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)when the phone rings (2024) เมื่อเสียงโทรศัพท์ดัง (ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serie-day.com/wp-content/uploads/2024/11/When-The-Phone-Rings-2024-212x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/a9bc686daa06df64994caa3f/a9bc686daa06df64994caa3f.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP06</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)when the phone rings (2024) เมื่อเสียงโทรศัพท์ดัง (ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serie-day.com/wp-content/uploads/2024/11/When-The-Phone-Rings-2024-212x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/30f55519154891a5054bc8a6/30f55519154891a5054bc8a6.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP07</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)when the phone rings (2024) เมื่อเสียงโทรศัพท์ดัง (ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serie-day.com/wp-content/uploads/2024/11/When-The-Phone-Rings-2024-212x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/0319a8a03ca219caec6847ec/0319a8a03ca219caec6847ec.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP08</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)when the phone rings (2024) เมื่อเสียงโทรศัพท์ดัง (ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serie-day.com/wp-content/uploads/2024/11/When-The-Phone-Rings-2024-212x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/cf81ef638abf87073355ea7a/cf81ef638abf87073355ea7a.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP09</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)when the phone rings (2024) เมื่อเสียงโทรศัพท์ดัง (ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serie-day.com/wp-content/uploads/2024/11/When-The-Phone-Rings-2024-212x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/466535b5d9a1ab286bf71a93/466535b5d9a1ab286bf71a93.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP10</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)when the phone rings (2024) เมื่อเสียงโทรศัพท์ดัง (ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serie-day.com/wp-content/uploads/2024/11/When-The-Phone-Rings-2024-212x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/86ecde7f48c5b0838a4ea429/86ecde7f48c5b0838a4ea429.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP11</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)when the phone rings (2024) เมื่อเสียงโทรศัพท์ดัง (ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serie-day.com/wp-content/uploads/2024/11/When-The-Phone-Rings-2024-212x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/60678d448de65a14051b1832/60678d448de65a14051b1832.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP12</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)crash landing on you (2019) ปักหมุดรักฉุกเฉิน (พากย์ไทย ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.123-hd.com/wp-content/uploads/2020/01/Crash-Landing-On-You-2019-%E0%B8%9B%E0%B8%B1%E0%B8%81%E0%B8%AB%E0%B8%A1%E0%B8%B8%E0%B8%94%E0%B8%A3%E0%B8%B1%E0%B8%81%E0%B8%89%E0%B8%B8%E0%B8%81%E0%B9%80%E0%B8%89%E0%B8%B4%E0%B8%99-1-250x350.png);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/f1035f85c10ed6e2e4081bea/f1035f85c10ed6e2e4081bea.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP01</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)crash landing on you (2019) ปักหมุดรักฉุกเฉิน (พากย์ไทย ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.123-hd.com/wp-content/uploads/2020/01/Crash-Landing-On-You-2019-%E0%B8%9B%E0%B8%B1%E0%B8%81%E0%B8%AB%E0%B8%A1%E0%B8%B8%E0%B8%94%E0%B8%A3%E0%B8%B1%E0%B8%81%E0%B8%89%E0%B8%B8%E0%B8%81%E0%B9%80%E0%B8%89%E0%B8%B4%E0%B8%99-1-250x350.png);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/f7d1b0b29b4bd46e50478f78/f7d1b0b29b4bd46e50478f78.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP02</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)crash landing on you (2019) ปักหมุดรักฉุกเฉิน (พากย์ไทย ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.123-hd.com/wp-content/uploads/2020/01/Crash-Landing-On-You-2019-%E0%B8%9B%E0%B8%B1%E0%B8%81%E0%B8%AB%E0%B8%A1%E0%B8%B8%E0%B8%94%E0%B8%A3%E0%B8%B1%E0%B8%81%E0%B8%89%E0%B8%B8%E0%B8%81%E0%B9%80%E0%B8%89%E0%B8%B4%E0%B8%99-1-250x350.png);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/014b50730cac903af4f7cd18/014b50730cac903af4f7cd18.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP03</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)crash landing on you (2019) ปักหมุดรักฉุกเฉิน (พากย์ไทย ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.123-hd.com/wp-content/uploads/2020/01/Crash-Landing-On-You-2019-%E0%B8%9B%E0%B8%B1%E0%B8%81%E0%B8%AB%E0%B8%A1%E0%B8%B8%E0%B8%94%E0%B8%A3%E0%B8%B1%E0%B8%81%E0%B8%89%E0%B8%B8%E0%B8%81%E0%B9%80%E0%B8%89%E0%B8%B4%E0%B8%99-1-250x350.png);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/af9bcf36f1ea6522bfd1340c/af9bcf36f1ea6522bfd1340c.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP04</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)crash landing on you (2019) ปักหมุดรักฉุกเฉิน (พากย์ไทย ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.123-hd.com/wp-content/uploads/2020/01/Crash-Landing-On-You-2019-%E0%B8%9B%E0%B8%B1%E0%B8%81%E0%B8%AB%E0%B8%A1%E0%B8%B8%E0%B8%94%E0%B8%A3%E0%B8%B1%E0%B8%81%E0%B8%89%E0%B8%B8%E0%B8%81%E0%B9%80%E0%B8%89%E0%B8%B4%E0%B8%99-1-250x350.png);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/3c5b0f0a8fea4dde92e146fc/3c5b0f0a8fea4dde92e146fc.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP05</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)crash landing on you (2019) ปักหมุดรักฉุกเฉิน (พากย์ไทย ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.123-hd.com/wp-content/uploads/2020/01/Crash-Landing-On-You-2019-%E0%B8%9B%E0%B8%B1%E0%B8%81%E0%B8%AB%E0%B8%A1%E0%B8%B8%E0%B8%94%E0%B8%A3%E0%B8%B1%E0%B8%81%E0%B8%89%E0%B8%B8%E0%B8%81%E0%B9%80%E0%B8%89%E0%B8%B4%E0%B8%99-1-250x350.png);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/f134ed7f611d166ca5487f58/f134ed7f611d166ca5487f58.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP06</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)crash landing on you (2019) ปักหมุดรักฉุกเฉิน (พากย์ไทย ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.123-hd.com/wp-content/uploads/2020/01/Crash-Landing-On-You-2019-%E0%B8%9B%E0%B8%B1%E0%B8%81%E0%B8%AB%E0%B8%A1%E0%B8%B8%E0%B8%94%E0%B8%A3%E0%B8%B1%E0%B8%81%E0%B8%89%E0%B8%B8%E0%B8%81%E0%B9%80%E0%B8%89%E0%B8%B4%E0%B8%99-1-250x350.png);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/ce36d50f266b2453275bbcae/ce36d50f266b2453275bbcae.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP07</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)crash landing on you (2019) ปักหมุดรักฉุกเฉิน (พากย์ไทย ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.123-hd.com/wp-content/uploads/2020/01/Crash-Landing-On-You-2019-%E0%B8%9B%E0%B8%B1%E0%B8%81%E0%B8%AB%E0%B8%A1%E0%B8%B8%E0%B8%94%E0%B8%A3%E0%B8%B1%E0%B8%81%E0%B8%89%E0%B8%B8%E0%B8%81%E0%B9%80%E0%B8%89%E0%B8%B4%E0%B8%99-1-250x350.png);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/e4c21adec95d91f27f13a456/e4c21adec95d91f27f13a456.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP08</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)crash landing on you (2019) ปักหมุดรักฉุกเฉิน (พากย์ไทย ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.123-hd.com/wp-content/uploads/2020/01/Crash-Landing-On-You-2019-%E0%B8%9B%E0%B8%B1%E0%B8%81%E0%B8%AB%E0%B8%A1%E0%B8%B8%E0%B8%94%E0%B8%A3%E0%B8%B1%E0%B8%81%E0%B8%89%E0%B8%B8%E0%B8%81%E0%B9%80%E0%B8%89%E0%B8%B4%E0%B8%99-1-250x350.png);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/e9e43e5a02ed65e1f276f1a8/e9e43e5a02ed65e1f276f1a8.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP09</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)crash landing on you (2019) ปักหมุดรักฉุกเฉิน (พากย์ไทย ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.123-hd.com/wp-content/uploads/2020/01/Crash-Landing-On-You-2019-%E0%B8%9B%E0%B8%B1%E0%B8%81%E0%B8%AB%E0%B8%A1%E0%B8%B8%E0%B8%94%E0%B8%A3%E0%B8%B1%E0%B8%81%E0%B8%89%E0%B8%B8%E0%B8%81%E0%B9%80%E0%B8%89%E0%B8%B4%E0%B8%99-1-250x350.png);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/36e0e2e5cfc011b9150a3176/36e0e2e5cfc011b9150a3176.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP10</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)crash landing on you (2019) ปักหมุดรักฉุกเฉิน (พากย์ไทย ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.123-hd.com/wp-content/uploads/2020/01/Crash-Landing-On-You-2019-%E0%B8%9B%E0%B8%B1%E0%B8%81%E0%B8%AB%E0%B8%A1%E0%B8%B8%E0%B8%94%E0%B8%A3%E0%B8%B1%E0%B8%81%E0%B8%89%E0%B8%B8%E0%B8%81%E0%B9%80%E0%B8%89%E0%B8%B4%E0%B8%99-1-250x350.png);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/25a4c157c4cdf5a1aa5702f5/25a4c157c4cdf5a1aa5702f5.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP11</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)crash landing on you (2019) ปักหมุดรักฉุกเฉิน (พากย์ไทย ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.123-hd.com/wp-content/uploads/2020/01/Crash-Landing-On-You-2019-%E0%B8%9B%E0%B8%B1%E0%B8%81%E0%B8%AB%E0%B8%A1%E0%B8%B8%E0%B8%94%E0%B8%A3%E0%B8%B1%E0%B8%81%E0%B8%89%E0%B8%B8%E0%B8%81%E0%B9%80%E0%B8%89%E0%B8%B4%E0%B8%99-1-250x350.png);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/260595994ecdc8baa2622d19/260595994ecdc8baa2622d19.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP12</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)crash landing on you (2019) ปักหมุดรักฉุกเฉิน (พากย์ไทย ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.123-hd.com/wp-content/uploads/2020/01/Crash-Landing-On-You-2019-%E0%B8%9B%E0%B8%B1%E0%B8%81%E0%B8%AB%E0%B8%A1%E0%B8%B8%E0%B8%94%E0%B8%A3%E0%B8%B1%E0%B8%81%E0%B8%89%E0%B8%B8%E0%B8%81%E0%B9%80%E0%B8%89%E0%B8%B4%E0%B8%99-1-250x350.png);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/c8c29b373c739d7d11edbef8/c8c29b373c739d7d11edbef8.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP13</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)crash landing on you (2019) ปักหมุดรักฉุกเฉิน (พากย์ไทย ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.123-hd.com/wp-content/uploads/2020/01/Crash-Landing-On-You-2019-%E0%B8%9B%E0%B8%B1%E0%B8%81%E0%B8%AB%E0%B8%A1%E0%B8%B8%E0%B8%94%E0%B8%A3%E0%B8%B1%E0%B8%81%E0%B8%89%E0%B8%B8%E0%B8%81%E0%B9%80%E0%B8%89%E0%B8%B4%E0%B8%99-1-250x350.png);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/718d058e74c34f21cb19170e/718d058e74c34f21cb19170e.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP14</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)crash landing on you (2019) ปักหมุดรักฉุกเฉิน (พากย์ไทย ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.123-hd.com/wp-content/uploads/2020/01/Crash-Landing-On-You-2019-%E0%B8%9B%E0%B8%B1%E0%B8%81%E0%B8%AB%E0%B8%A1%E0%B8%B8%E0%B8%94%E0%B8%A3%E0%B8%B1%E0%B8%81%E0%B8%89%E0%B8%B8%E0%B8%81%E0%B9%80%E0%B8%89%E0%B8%B4%E0%B8%99-1-250x350.png);"onclick="window.location.href='https://hot.24playerhd.com/autoplaylist/2b329813f8fe8a0e7c58df87cfb4b37a/2b329813f8fe8a0e7c58df87cfb4b37a.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP15</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)crash landing on you (2019) ปักหมุดรักฉุกเฉิน (พากย์ไทย ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.123-hd.com/wp-content/uploads/2020/01/Crash-Landing-On-You-2019-%E0%B8%9B%E0%B8%B1%E0%B8%81%E0%B8%AB%E0%B8%A1%E0%B8%B8%E0%B8%94%E0%B8%A3%E0%B8%B1%E0%B8%81%E0%B8%89%E0%B8%B8%E0%B8%81%E0%B9%80%E0%B8%89%E0%B8%B4%E0%B8%99-1-250x350.png);"onclick="window.location.href='https://hot.24playerhd.com/autoplaylist/62e1df8c8170a554ce366b0f1421fa5e/62e1df8c8170a554ce366b0f1421fa5e.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP16</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)the fiery priest 2 (2024) บาทหลวงเลือดระอุ 2 (ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serie-day.com/wp-content/uploads/2024/11/The-Fiery-Priest-2-2024-240x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/a2a0d4230bb01aa17762136f/a2a0d4230bb01aa17762136f.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP01</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)the fiery priest 2 (2024) บาทหลวงเลือดระอุ 2 (ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serie-day.com/wp-content/uploads/2024/11/The-Fiery-Priest-2-2024-240x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/55ecd64c28e68cf9252df724/55ecd64c28e68cf9252df724.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP02</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)the fiery priest 2 (2024) บาทหลวงเลือดระอุ 2 (ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serie-day.com/wp-content/uploads/2024/11/The-Fiery-Priest-2-2024-240x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/c8a107f6d76d0c2ab90e5316/c8a107f6d76d0c2ab90e5316.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP03</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)the fiery priest 2 (2024) บาทหลวงเลือดระอุ 2 (ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serie-day.com/wp-content/uploads/2024/11/The-Fiery-Priest-2-2024-240x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/7a2ae3383611b324355c6a07/7a2ae3383611b324355c6a07.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP04</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)the fiery priest 2 (2024) บาทหลวงเลือดระอุ 2 (ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serie-day.com/wp-content/uploads/2024/11/The-Fiery-Priest-2-2024-240x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/ec80666b0cf397a92ac216c1/ec80666b0cf397a92ac216c1.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP05</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)the fiery priest 2 (2024) บาทหลวงเลือดระอุ 2 (ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serie-day.com/wp-content/uploads/2024/11/The-Fiery-Priest-2-2024-240x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/f522b7bb573b21ee5df7b7d9/f522b7bb573b21ee5df7b7d9.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP06</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)the fiery priest 2 (2024) บาทหลวงเลือดระอุ 2 (ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serie-day.com/wp-content/uploads/2024/11/The-Fiery-Priest-2-2024-240x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/13a6c60b092f99133b769742/13a6c60b092f99133b769742.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP07</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)the fiery priest 2 (2024) บาทหลวงเลือดระอุ 2 (ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serie-day.com/wp-content/uploads/2024/11/The-Fiery-Priest-2-2024-240x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/aaf40034f7c3326c13824a78/aaf40034f7c3326c13824a78.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP08</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)the fiery priest 2 (2024) บาทหลวงเลือดระอุ 2 (ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serie-day.com/wp-content/uploads/2024/11/The-Fiery-Priest-2-2024-240x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/33af7744035ad9e659b03e9b/33af7744035ad9e659b03e9b.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP09</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)the fiery priest 2 (2024) บาทหลวงเลือดระอุ 2 (ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serie-day.com/wp-content/uploads/2024/11/The-Fiery-Priest-2-2024-240x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/18b8e7bf86382cb263df9470/18b8e7bf86382cb263df9470.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP10</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)the fiery priest 2 (2024) บาทหลวงเลือดระอุ 2 (ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serie-day.com/wp-content/uploads/2024/11/The-Fiery-Priest-2-2024-240x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/af9d5f96d928027f48ed2ef9/af9d5f96d928027f48ed2ef9.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP11</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)the fiery priest 2 (2024) บาทหลวงเลือดระอุ 2 (ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serie-day.com/wp-content/uploads/2024/11/The-Fiery-Priest-2-2024-240x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/af9d5f96d928027f48ed2ef9/af9d5f96d928027f48ed2ef9.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP12</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)the fiery priest 2 (2024) บาทหลวงเลือดระอุ 2 (ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serie-day.com/wp-content/uploads/2024/11/The-Fiery-Priest-2-2024-240x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/2687db95f98b1505d18ab109/2687db95f98b1505d18ab109.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP13</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)under the gun (2024) เกมรัก นักเดิมพัน (พากย์ไทย ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serie-day.com/wp-content/uploads/2024/04/Under-the-Gun-2024-211x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/0b3a2aab36a97896e94311cc/0b3a2aab36a97896e94311cc.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP01</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)under the gun (2024) เกมรัก นักเดิมพัน (พากย์ไทย ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serie-day.com/wp-content/uploads/2024/04/Under-the-Gun-2024-211x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/d42586a1b94c344e236a18d6/d42586a1b94c344e236a18d6.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP02</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)under the gun (2024) เกมรัก นักเดิมพัน (พากย์ไทย ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serie-day.com/wp-content/uploads/2024/04/Under-the-Gun-2024-211x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/5d794dda4adb37ec42f03f06/5d794dda4adb37ec42f03f06.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP03</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)under the gun (2024) เกมรัก นักเดิมพัน (พากย์ไทย ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serie-day.com/wp-content/uploads/2024/04/Under-the-Gun-2024-211x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/67a6deb3fbc1504017ed3215/67a6deb3fbc1504017ed3215.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP04</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)under the gun (2024) เกมรัก นักเดิมพัน (พากย์ไทย ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serie-day.com/wp-content/uploads/2024/04/Under-the-Gun-2024-211x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/9da293f20819955306dbc79c/9da293f20819955306dbc79c.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP05</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)under the gun (2024) เกมรัก นักเดิมพัน (พากย์ไทย ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serie-day.com/wp-content/uploads/2024/04/Under-the-Gun-2024-211x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/8203e8a2046122ab503dfd56/8203e8a2046122ab503dfd56.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP06</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)kokdu season of deity (2023) (ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serie-day.com/wp-content/uploads/2023/02/Kokdu-Season-of-Deity-2023-212x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/459aa55358bd5446e8cf132c/459aa55358bd5446e8cf132c.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP01</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)kokdu season of deity (2023) (ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serie-day.com/wp-content/uploads/2023/02/Kokdu-Season-of-Deity-2023-212x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/3d9bf58490cf32b64a63b373/3d9bf58490cf32b64a63b373.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP02</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)kokdu season of deity (2023) (ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serie-day.com/wp-content/uploads/2023/02/Kokdu-Season-of-Deity-2023-212x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/d5f6aa187ec38f07bfe87050/d5f6aa187ec38f07bfe87050.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP03</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)kokdu season of deity (2023) (ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serie-day.com/wp-content/uploads/2023/02/Kokdu-Season-of-Deity-2023-212x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/ec7d8d5fbfcfa0a5dc6884c7/ec7d8d5fbfcfa0a5dc6884c7.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP04</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)kokdu season of deity (2023) (ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serie-day.com/wp-content/uploads/2023/02/Kokdu-Season-of-Deity-2023-212x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/227d7c494df672eac004692c/227d7c494df672eac004692c.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP05</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)kokdu season of deity (2023) (ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serie-day.com/wp-content/uploads/2023/02/Kokdu-Season-of-Deity-2023-212x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/50e5a0a8e3a38c835bcecf95/50e5a0a8e3a38c835bcecf95.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP06</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)kokdu season of deity (2023) (ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serie-day.com/wp-content/uploads/2023/02/Kokdu-Season-of-Deity-2023-212x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/2c52ef77fd2f7848a10f8514/2c52ef77fd2f7848a10f8514.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP07</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)kokdu season of deity (2023) (ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serie-day.com/wp-content/uploads/2023/02/Kokdu-Season-of-Deity-2023-212x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/6e3bc8086e0bbb0ddc536f37/6e3bc8086e0bbb0ddc536f37.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP08</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)kokdu season of deity (2023) (ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serie-day.com/wp-content/uploads/2023/02/Kokdu-Season-of-Deity-2023-212x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/dd043603e614006f83d2d672/dd043603e614006f83d2d672.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP09</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)kokdu season of deity (2023) (ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serie-day.com/wp-content/uploads/2023/02/Kokdu-Season-of-Deity-2023-212x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/a38175e9dd92b823bab79cd0/a38175e9dd92b823bab79cd0.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP10</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)kokdu season of deity (2023) (ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serie-day.com/wp-content/uploads/2023/02/Kokdu-Season-of-Deity-2023-212x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/6494d7e73953b9793e95541e/6494d7e73953b9793e95541e.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP11</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)kokdu season of deity (2023) (ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serie-day.com/wp-content/uploads/2023/02/Kokdu-Season-of-Deity-2023-212x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/a3f4c5d3ff6411af88e7e0dc/a3f4c5d3ff6411af88e7e0dc.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP12</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)kokdu season of deity (2023) (ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serie-day.com/wp-content/uploads/2023/02/Kokdu-Season-of-Deity-2023-212x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/f0ce7521325f895fa6129108/f0ce7521325f895fa6129108.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP13</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)kokdu season of deity (2023) (ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serie-day.com/wp-content/uploads/2023/02/Kokdu-Season-of-Deity-2023-212x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/56e0d9814abc85baf43cc3a1/56e0d9814abc85baf43cc3a1.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP14</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)kokdu season of deity (2023) (ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serie-day.com/wp-content/uploads/2023/02/Kokdu-Season-of-Deity-2023-212x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/89a073a16ff4c1a49099f400/89a073a16ff4c1a49099f400.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP15</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)kokdu season of deity (2023) (ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serie-day.com/wp-content/uploads/2023/02/Kokdu-Season-of-Deity-2023-212x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/9f5f5483533044f9fcbad727/9f5f5483533044f9fcbad727.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP16</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)love in the big city (2024) (ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serie-day.com/wp-content/uploads/2024/12/Love-in-the-Big-City-2024-211x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/7b4a49d5337c8ae4423f0b1f/7b4a49d5337c8ae4423f0b1f.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP01</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)love in the big city (2024) (ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serie-day.com/wp-content/uploads/2024/12/Love-in-the-Big-City-2024-211x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/f354a94af44bfde7b5f5d367/f354a94af44bfde7b5f5d367.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP02</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)love in the big city (2024) (ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serie-day.com/wp-content/uploads/2024/12/Love-in-the-Big-City-2024-211x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/9ca3268d7f5dad46eed5035a/9ca3268d7f5dad46eed5035a.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP03</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)love in the big city (2024) (ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serie-day.com/wp-content/uploads/2024/12/Love-in-the-Big-City-2024-211x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/d0a8e2252b467a5f96468a34/d0a8e2252b467a5f96468a34.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP04</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)love in the big city (2024) (ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serie-day.com/wp-content/uploads/2024/12/Love-in-the-Big-City-2024-211x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/d3f74de1021045f26be7b2f8/d3f74de1021045f26be7b2f8.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP05</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)love in the big city (2024) (ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serie-day.com/wp-content/uploads/2024/12/Love-in-the-Big-City-2024-211x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/99d39f5df6d4605f022a5e59/99d39f5df6d4605f022a5e59.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP06</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)love in the big city (2024) (ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serie-day.com/wp-content/uploads/2024/12/Love-in-the-Big-City-2024-211x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/afdb9f1cfe3bc74e468645d5/afdb9f1cfe3bc74e468645d5.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP07</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)love in the big city (2024) (ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serie-day.com/wp-content/uploads/2024/12/Love-in-the-Big-City-2024-211x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/e6622402c6dcc0caa7d3b9a1/e6622402c6dcc0caa7d3b9a1.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP08</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)love your enemy (2024) (ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serie-day.com/wp-content/uploads/2024/11/Love-Your-Enemy-2024-240x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/e5e4024533b5cd92c3b1bb4b/e5e4024533b5cd92c3b1bb4b.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP01</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)love your enemy (2024) (ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serie-day.com/wp-content/uploads/2024/11/Love-Your-Enemy-2024-240x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/0def445def4d5a93fd1bf0ab/0def445def4d5a93fd1bf0ab.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP02</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)love your enemy (2024) (ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serie-day.com/wp-content/uploads/2024/11/Love-Your-Enemy-2024-240x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/7bdae1019b1ca92bec5cff9c/7bdae1019b1ca92bec5cff9c.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP03</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)love your enemy (2024) (ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serie-day.com/wp-content/uploads/2024/11/Love-Your-Enemy-2024-240x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/20ad7be0a680b6276057ceac/20ad7be0a680b6276057ceac.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP04</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)love your enemy (2024) (ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serie-day.com/wp-content/uploads/2024/11/Love-Your-Enemy-2024-240x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/7a405362cfa3c94f9662aa01/7a405362cfa3c94f9662aa01.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP05</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)love your enemy (2024) (ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serie-day.com/wp-content/uploads/2024/11/Love-Your-Enemy-2024-240x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/feb3f1a759ce794e613011e2/feb3f1a759ce794e613011e2.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP06</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)love your enemy (2024) (ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serie-day.com/wp-content/uploads/2024/11/Love-Your-Enemy-2024-240x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/5200884727d1bbc948bee369/5200884727d1bbc948bee369.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP07</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)love your enemy (2024) (ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serie-day.com/wp-content/uploads/2024/11/Love-Your-Enemy-2024-240x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/27639e6ef6d0a05cdf40f08b/27639e6ef6d0a05cdf40f08b.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP08</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)love your enemy (2024) (ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serie-day.com/wp-content/uploads/2024/11/Love-Your-Enemy-2024-240x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/97e0a63af75088cd07257af9/97e0a63af75088cd07257af9.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP09</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)love your enemy (2024) (ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serie-day.com/wp-content/uploads/2024/11/Love-Your-Enemy-2024-240x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/f4b6bdc3b0e78446ccf0d19a/f4b6bdc3b0e78446ccf0d19a.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP10</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)love your enemy (2024) (ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serie-day.com/wp-content/uploads/2024/11/Love-Your-Enemy-2024-240x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/344cc5615e6125b581609970/344cc5615e6125b581609970.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP11</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว)love your enemy (2024) (ซับไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serie-day.com/wp-content/uploads/2024/11/Love-Your-Enemy-2024-240x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/47a0561783dc85c9a368c547/47a0561783dc85c9a368c547.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP12</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว) (พากย์ไทย) squid game season 2 (2024) สควิดเกม เล่นลุ้นตาย ซีซั่น 2 (พากย์ไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serie-day.com/wp-content/uploads/2024/12/Squid-Game-Season-2-2024-240x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/0eb21478795eb8a03e8c71ae/0eb21478795eb8a03e8c71ae.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP01</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว) (พากย์ไทย) squid game season 2 (2024) สควิดเกม เล่นลุ้นตาย ซีซั่น 2 (พากย์ไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serie-day.com/wp-content/uploads/2024/12/Squid-Game-Season-2-2024-240x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/e92abb5db7d91e41e5143919/e92abb5db7d91e41e5143919.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP02</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว) (พากย์ไทย) squid game season 2 (2024) สควิดเกม เล่นลุ้นตาย ซีซั่น 2 (พากย์ไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serie-day.com/wp-content/uploads/2024/12/Squid-Game-Season-2-2024-240x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/736bcab59de0cb6bfe9de415/736bcab59de0cb6bfe9de415.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP03</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว) (พากย์ไทย) squid game season 2 (2024) สควิดเกม เล่นลุ้นตาย ซีซั่น 2 (พากย์ไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serie-day.com/wp-content/uploads/2024/12/Squid-Game-Season-2-2024-240x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/fe975506e49102057dca258a/fe975506e49102057dca258a.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP04</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว) (พากย์ไทย) squid game season 2 (2024) สควิดเกม เล่นลุ้นตาย ซีซั่น 2 (พากย์ไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serie-day.com/wp-content/uploads/2024/12/Squid-Game-Season-2-2024-240x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/6dd9c3eb713faa401de82cdf/6dd9c3eb713faa401de82cdf.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP05</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว) (พากย์ไทย) squid game season 2 (2024) สควิดเกม เล่นลุ้นตาย ซีซั่น 2 (พากย์ไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serie-day.com/wp-content/uploads/2024/12/Squid-Game-Season-2-2024-240x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/b0973fe6248bab4ddc6d3f48/b0973fe6248bab4ddc6d3f48.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP06</div>
+</div>
+<div class="movie-item" data-category=" (จบแล้ว) (พากย์ไทย) squid game season 2 (2024) สควิดเกม เล่นลุ้นตาย ซีซั่น 2 (พากย์ไทย)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.serie-day.com/wp-content/uploads/2024/12/Squid-Game-Season-2-2024-240x300.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/f52d2000e3679127a9a0e18f/f52d2000e3679127a9a0e18f.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP07</div>
+</div>
+
+
+
+<!-- Pagination -->
+<div class="pagination-wrapper">
+<nav>
+<ul class="pagination">
+    <li><a href="go:main-serie" aria-label="กลับหน้าหลัก"><span aria-hidden="true"><< กลับหน้าหลัก</span></a></li>
+    <li><a href="https://udzaa2238.github.io/korea-series/ซีรี่ย์เกาหลี-หน้าที่11.html">11</a></li>
+    <li><a href="https://udzaa2238.github.io/korea-series/ซีรี่ย์เกาหลี-หน้าที่12.html">12</a></li>
+    <li><a href="https://udzaa2238.github.io/korea-series/ซีรี่ย์เกาหลี-หน้าที่13.html">13</a></li>
+    <li><a href="https://udzaa2238.github.io/korea-series/ซีรี่ย์เกาหลี-หน้าที่14.html">14</a></li>
+    <li><a href="https://udzaa2238.github.io/korea-series/ซีรี่ย์เกาหลี-หน้าที่15.html">15</a></li>
+    <li><a href="https://udzaa2238.github.io/korea-series/ซีรี่ย์เกาหลี-หน้าที่16.html">16</a></li>
+<li class="active"><a href="https://udzaa2238.github.io/korea-series/ซีรี่ย์เกาหลี-หน้าที่17.html"><b>17</b></a></li>
+    <li><a href="https://udzaa2238.github.io/korea-series/ซีรี่ย์เกาหลี-หน้าที่18.html">18</a></li>
+    <li><a href="https://udzaa2238.github.io/korea-series/ซีรี่ย์เกาหลี-หน้าที่19.html">19</a></li>
+	<li><a href="https://udzaa2238.github.io/korea-series/ซีรี่ย์เกาหลี-หน้าที่20.html">20</a></li>
+    <li><a href="https://udzaa2238.github.io/korea-series/ซีรี่ย์เกาหลี-หน้าที่21.html">หน้าต่อไป»</a></li>
+    
+    </ul>
+    </nav>
+    </div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

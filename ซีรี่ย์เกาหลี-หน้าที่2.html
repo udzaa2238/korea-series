@@ -1,0 +1,757 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>ซีรี่ย์เกาหลี หน้าที่ 2</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- External CSS -->
+  <link href="https://playtvthai.github.io/m3u8/css/bootstrap.css" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <link href="https://playtvthai.github.io/m3u8/css/style.css" rel="stylesheet" type="text/css" media="all" />
+  <link rel="stylesheet" href="https://playtvthai.github.io/m3u8/css/normalize.css">
+  <link rel="stylesheet" href="https://playtvthai.github.io/m3u8/css/custom.css">
+  <link rel="stylesheet" href="https://playtvthai.github.io/m3u8/css/main.css">
+  <link rel="stylesheet" href="http://hdtvdd.com/work/assets_remark/fonts/font-awesome/font-awesome.min.css">
+  <link rel="stylesheet" href="http://hdtvdd.com/work/font/stylesheet.css" type="text/css" charset="utf-8" />
+  <link rel="stylesheet" href="http://hdtvdd.com/work/css/8k.css" type="text/css" charset="utf-8" />
+  <link rel="stylesheet" href="http://hdtvdd.com/work/css/overlay.css" type="text/css" charset="utf-8">
+  <link href="http://hdtvdd.com/work/css/theme.css" rel="stylesheet">
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:100,200,300,400,500,600,700,800,900" rel="stylesheet" type="text/css">
+
+  <!-- JS (dedupe jQuery) -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <script src="https://playtvthai.github.io/m3u8/js/jquery.backstretch.js"></script>
+  <script src="http://hdtvdd.com/work/bootstrap-login-forms/form-2/assets/js/scripts.js"></script>
+
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      width: 100vw;
+      height: 100%;
+      background: #000;
+      box-sizing: border-box;
+      overflow-x: hidden;
+      font-family: 'Roboto Condensed', sans-serif;
+    }
+    *, *:before, *:after { box-sizing: inherit; }
+
+    /* Search/filter bar */
+    .filter-bar {
+      margin: 10px 0;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      align-items: center;
+    }
+    .filter-bar input, .filter-bar select {
+      padding: 8px;
+      font-size: 16px;
+      border-radius: 4px;
+      border: 1px solid #444;
+      background: #1f2025;
+      color: #fff;
+    }
+
+    /* Movie grid 5 columns */
+    /* Movie grid */
+    .movies-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin: 0 -5px;
+      padding-top: 10px;
+    }
+    .movie-item {
+      flex: 0 0 10%; /* เล็กลง, 5 คอลัมน์ต่อแถว */
+      box-sizing: border-box;
+      padding: 0 5px;
+      margin-bottom: 20px;
+      max-width: 200px; /* หรือจำกัดขนาดสูงสุด */
+    }
+    .movie-box {
+      background: #1f2025;
+      border-radius: 4px;
+      overflow: hidden;
+      position: relative;
+    }
+    .movie-image button {
+      width: 100%;
+      height: 0;
+      padding-top: 147%;
+      background-size: cover;
+      background-position: center;
+      border: none;
+      border-radius: 2px;
+      cursor: pointer;
+    }
+    .movie-title {
+      color: white;
+      font-size: 14px;
+      text-align: center;
+      margin-top: 6px;
+      line-height: 1.2;
+      padding: 0 4px;
+      word-break: break-word;
+    }
+
+    @media (max-width: 1200px) {
+      .movie-item { flex: 0 0 33.333%; }
+    }
+    @media (max-width: 900px) {
+      .movie-item { flex: 0 0 50%; }
+    }
+    @media (max-width: 600px) {
+      .movie-item { flex: 0 0 100%; }
+    }
+
+    .pagination-wrapper { text-align: center; margin-top: 20px; }
+    .pagination > li > a, .pagination > li > span { padding: 6px 12px; }
+  </style>
+
+  <script>
+    $(document).ready(function(){
+      $("#myBtn").click(function(){ $("#myModal").modal(); });
+      $("#myBtn2").click(function(){ $("#myModal2").modal(); });
+      $("#myBtn_vip").click(function(){ $("#myModal_vip").modal(); });
+      $("#myBtn_cpass").click(function(){ $("#myModal_changepass").modal(); });
+
+      // Filter logic
+      function normalizeText(t) {
+        return t.trim().toLowerCase();
+      }
+
+      function applyFilter() {
+        const query = normalizeText($("#movie-search").val() || "");
+        const category = $("#category-filter").val();
+        $(".movie-item").each(function() {
+          const title = normalizeText($(this).find(".movie-title").text() || "");
+          const itemCat = $(this).attr("data-category") || "all";
+          const matchesSearch = query === "" || title.includes(query);
+          const matchesCategory = category === "all" || itemCat === category;
+          if (matchesSearch && matchesCategory) {
+            $(this).show();
+          } else {
+            $(this).hide();
+          }
+        });
+      }
+
+      $("#movie-search").on("input", applyFilter);
+      $("#category-filter").on("change", applyFilter);
+    });
+  </script>
+</head>
+
+<body>
+  <div class="container" style="background-color:rgba(0,0,0,0); height:100%;">
+    <div class="container_wrap">
+      <div class="row" style="background-color:#27282c;border-radius:5px;">
+        <div class="col-lg-12 col-md-12 col-xs-12" style="margin-top:10px;margin-bottom:10px;">
+          <div class="row">
+            <div class="col-lg-2 col-md-2 col-sm-5 col-xs-5">
+              <div class="logo"></div>
+            </div>
+            <div class="col-lg-10 col-md-12 col-xs-12">
+              <div class="col-lg-12 col-md-12 col-xs-12" align="left" style="padding:5px;">
+                <div class="form-inline">
+                  <div class="form-group" style="margin:5px;">
+                    <form action="" method="get" name="lange" style="display:inline;">
+                      <input name="lange" type="hidden" id="lange" value="en">
+                      <input type="image" src="/web/images/en.gif" name="submit" width="60" height="20" alt="submit"/>
+                    </form>
+                  </div>
+                  <label for="form-password"><font color="white">ชื่อ : </font><font color="yellow">[ ผู้เฒ่าพเนจร ™ ]</font></label>
+
+                  <button class="btn btn-default" type="button" style="background-color:transparent;border-radius:2px;border:0;font-size:18px;color:#FFF;padding:0 5px;font-family:'rsuregular';" onclick="window.location.href='go:digital'">🏠 Home ™</button>
+                  <button class="btn btn-default" type="button" style="background-color:transparent;border-radius:2px;border:0;font-size:18px;color:#FFF;padding:0 5px;font-family:'rsuregular';" onclick="window.location.href='go:live'">📡 ถ่ายทอดสด ™</button>
+                  <button class="btn btn-default" type="button" style="background-color:transparent;border-radius:2px;border:0;font-size:18px;color:#FFF;padding:0 5px;font-family:'rsuregular';" onclick="window.location.href='go:main-serie'">🎞️ ดูซีรี่ย์ ™</button>
+                  <button class="btn btn-default" type="button" style="background-color:transparent;border-radius:2px;border:0;font-size:18px;color:#FFF;padding:0 5px;font-family:'rsuregular';" onclick="window.location.href='go:main-movie'">🎥 ดูหนัง ™</button>
+                  <button class="btn btn-default" type="button" style="background-color:transparent;border-radius:2px;border:0;font-size:18px;color:#FFF;padding:0 5px;font-family:'rsuregular';" onclick="window.location.href='go:main-movie'">📽️ ดูสารคดี ™</button>
+                  <button class="btn btn-default" type="button" style="background-color:transparent;border-radius:2px;border:0;font-size:18px;color:#FFF;padding:0 5px;font-family:'rsuregular';" onclick="window.location.href='http://action_exit'">🚪 ออก</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+<!--
+          <!-- filter bar -->
+          <div class="filter-bar">
+            <div>
+              <input id="movie-search" type="text" placeholder="ค้นหาหนัง..." />
+            </div>
+            <div>
+              <select id="category-filter">
+                <option value="all">ทั้งหมด</option>
+                <option value="action">Action</option>
+                <option value="drama">Drama</option>
+                <option value="sci-fi">Sci-Fi</option>
+                <option value="exclusive">Exclusive</option>
+              </select>
+            </div>
+          </div>
+
+
+-->
+          <!-- รวมทุก movie-item ไว้ใน grid เดียว -->
+          <div class="movies-grid">
+		  
+
+<div class="movie-item" data-category="(จบแล้ว) aema (2025)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.seriesday-hd.com/wp-content/uploads/2025/08/Aema-2025.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/b774dcd8a20c3d223b076517/b774dcd8a20c3d223b076517.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP1</div>
+</div>
+<div class="movie-item" data-category="(จบแล้ว) aema (2025)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.seriesday-hd.com/wp-content/uploads/2025/08/Aema-2025.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/f8c2b1f0924144a1f136cec4/f8c2b1f0924144a1f136cec4.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP2</div>
+</div>
+<div class="movie-item" data-category="(จบแล้ว) aema (2025)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.seriesday-hd.com/wp-content/uploads/2025/08/Aema-2025.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/798ed2fca5383fbbcb81c7a4/798ed2fca5383fbbcb81c7a4.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP3</div>
+</div>
+<div class="movie-item" data-category="(จบแล้ว) aema (2025)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.seriesday-hd.com/wp-content/uploads/2025/08/Aema-2025.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/838328b74ccaf3623fd1e021/838328b74ccaf3623fd1e021.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP4</div>
+</div>
+<div class="movie-item" data-category="(จบแล้ว) aema (2025)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.seriesday-hd.com/wp-content/uploads/2025/08/Aema-2025.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/78684e616d6ce82e32ff2783/78684e616d6ce82e32ff2783.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP5</div>
+</div>
+<div class="movie-item" data-category="(จบแล้ว) aema (2025)">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.seriesday-hd.com/wp-content/uploads/2025/08/Aema-2025.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/b5801afa0af088aaf15207b0/b5801afa0af088aaf15207b0.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP6</div>
+</div>
+<div class="movie-item" data-category="(จบแล้ว) beyond the bar (2025) มือใหม่เกมกฎหมาย">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.seriesday-hd.com/wp-content/uploads/2025/08/Beyond-The-Bar-2025.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/a25f0836aa5ec547f6e82ded/a25f0836aa5ec547f6e82ded.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP12</div>
+</div>
+<div class="movie-item" data-category="(จบแล้ว) beyond the bar (2025) มือใหม่เกมกฎหมาย">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.seriesday-hd.com/wp-content/uploads/2025/08/Beyond-The-Bar-2025.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/674db487e75353a23cab5b0e/674db487e75353a23cab5b0e.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP11</div>
+</div>
+<div class="movie-item" data-category="(จบแล้ว) beyond the bar (2025) มือใหม่เกมกฎหมาย">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.seriesday-hd.com/wp-content/uploads/2025/08/Beyond-The-Bar-2025.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/c4d2a2b1720f6389f8d4c800/c4d2a2b1720f6389f8d4c800.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP10</div>
+</div>
+<div class="movie-item" data-category="(จบแล้ว) beyond the bar (2025) มือใหม่เกมกฎหมาย">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.seriesday-hd.com/wp-content/uploads/2025/08/Beyond-The-Bar-2025.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/7a8890acbee5f59b3b1e7530/7a8890acbee5f59b3b1e7530.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP9</div>
+</div>
+<div class="movie-item" data-category="(จบแล้ว) beyond the bar (2025) มือใหม่เกมกฎหมาย">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.seriesday-hd.com/wp-content/uploads/2025/08/Beyond-The-Bar-2025.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/ab3108aa661e729609244855/ab3108aa661e729609244855.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP8</div>
+</div>
+<div class="movie-item" data-category="(จบแล้ว) beyond the bar (2025) มือใหม่เกมกฎหมาย">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.seriesday-hd.com/wp-content/uploads/2025/08/Beyond-The-Bar-2025.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/104ff6c1072e45ad56e36d88/104ff6c1072e45ad56e36d88.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP7</div>
+</div>
+<div class="movie-item" data-category="(จบแล้ว) beyond the bar (2025) มือใหม่เกมกฎหมาย">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.seriesday-hd.com/wp-content/uploads/2025/08/Beyond-The-Bar-2025.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/4018ab07d2842a1238d703d1/4018ab07d2842a1238d703d1.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP6</div>
+</div>
+<div class="movie-item" data-category="(จบแล้ว) beyond the bar (2025) มือใหม่เกมกฎหมาย">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.seriesday-hd.com/wp-content/uploads/2025/08/Beyond-The-Bar-2025.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/8c19386dcdb6333ffdd21a39/8c19386dcdb6333ffdd21a39.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP5</div>
+</div>
+<div class="movie-item" data-category="(จบแล้ว) beyond the bar (2025) มือใหม่เกมกฎหมาย">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.seriesday-hd.com/wp-content/uploads/2025/08/Beyond-The-Bar-2025.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/6777663da65e52028421c1c7/6777663da65e52028421c1c7.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP4</div>
+</div>
+<div class="movie-item" data-category="(จบแล้ว) beyond the bar (2025) มือใหม่เกมกฎหมาย">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.seriesday-hd.com/wp-content/uploads/2025/08/Beyond-The-Bar-2025.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/b506e5f640f8b36175b59699/b506e5f640f8b36175b59699.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP3</div>
+</div>
+<div class="movie-item" data-category="(จบแล้ว) beyond the bar (2025) มือใหม่เกมกฎหมาย">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.seriesday-hd.com/wp-content/uploads/2025/08/Beyond-The-Bar-2025.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/5272c69f69b1cbce9643ace8/5272c69f69b1cbce9643ace8.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP2</div>
+</div>
+<div class="movie-item" data-category="(จบแล้ว) beyond the bar (2025) มือใหม่เกมกฎหมาย">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.seriesday-hd.com/wp-content/uploads/2025/08/Beyond-The-Bar-2025.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/d0e4d24ba108834e324b0930/d0e4d24ba108834e324b0930.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP1</div>
+</div>
+<div class="movie-item" data-category="(จบแล้ว) love take two (2025) รักบทใหม่ ใจพองโต">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.seriesday-hd.com/wp-content/uploads/2025/08/Love-Take-Two-2025.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/3451230480e01ad21c577943/3451230480e01ad21c577943.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP12</div>
+</div>
+<div class="movie-item" data-category="(จบแล้ว) love take two (2025) รักบทใหม่ ใจพองโต">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.seriesday-hd.com/wp-content/uploads/2025/08/Love-Take-Two-2025.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/8ac92e4a37b3a048a807f3ba/8ac92e4a37b3a048a807f3ba.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP11</div>
+</div>
+<div class="movie-item" data-category="(จบแล้ว) love take two (2025) รักบทใหม่ ใจพองโต">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.seriesday-hd.com/wp-content/uploads/2025/08/Love-Take-Two-2025.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/a4e24ad0095024df11b83fc7/a4e24ad0095024df11b83fc7.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP10</div>
+</div>
+<div class="movie-item" data-category="(จบแล้ว) love take two (2025) รักบทใหม่ ใจพองโต">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.seriesday-hd.com/wp-content/uploads/2025/08/Love-Take-Two-2025.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/94ebd234dcbb1c3e83e8a3cb/94ebd234dcbb1c3e83e8a3cb.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP9</div>
+</div>
+<div class="movie-item" data-category="(จบแล้ว) love take two (2025) รักบทใหม่ ใจพองโต">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.seriesday-hd.com/wp-content/uploads/2025/08/Love-Take-Two-2025.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/38eb6983b97e0ae287934fa4/38eb6983b97e0ae287934fa4.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP8</div>
+</div>
+<div class="movie-item" data-category="(จบแล้ว) love take two (2025) รักบทใหม่ ใจพองโต">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.seriesday-hd.com/wp-content/uploads/2025/08/Love-Take-Two-2025.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/f1071b8fd5f8f0c491a202f2/f1071b8fd5f8f0c491a202f2.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP7</div>
+</div>
+<div class="movie-item" data-category="(จบแล้ว) love take two (2025) รักบทใหม่ ใจพองโต">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.seriesday-hd.com/wp-content/uploads/2025/08/Love-Take-Two-2025.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/ec560100386a76c5fa8b5a0f/ec560100386a76c5fa8b5a0f.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP6</div>
+</div>
+<div class="movie-item" data-category="(จบแล้ว) love take two (2025) รักบทใหม่ ใจพองโต">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.seriesday-hd.com/wp-content/uploads/2025/08/Love-Take-Two-2025.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/56d59008fe7a3244b6a12084/56d59008fe7a3244b6a12084.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP5</div>
+</div>
+<div class="movie-item" data-category="(จบแล้ว) love take two (2025) รักบทใหม่ ใจพองโต">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.seriesday-hd.com/wp-content/uploads/2025/08/Love-Take-Two-2025.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/2beeb4c5e9368448e4cff02c/2beeb4c5e9368448e4cff02c.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP4</div>
+</div>
+<div class="movie-item" data-category="(จบแล้ว) love take two (2025) รักบทใหม่ ใจพองโต">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.seriesday-hd.com/wp-content/uploads/2025/08/Love-Take-Two-2025.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/0d8d87ce114f22150030a21a/0d8d87ce114f22150030a21a.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP3</div>
+</div>
+<div class="movie-item" data-category="(จบแล้ว) love take two (2025) รักบทใหม่ ใจพองโต">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.seriesday-hd.com/wp-content/uploads/2025/08/Love-Take-Two-2025.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/4e53f153b705c85e01f80b07/4e53f153b705c85e01f80b07.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP2</div>
+</div>
+<div class="movie-item" data-category="(จบแล้ว) love take two (2025) รักบทใหม่ ใจพองโต">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.seriesday-hd.com/wp-content/uploads/2025/08/Love-Take-Two-2025.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/f361c133dd156e4edddcd47c/f361c133dd156e4edddcd47c.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP1</div>
+</div>
+<div class="movie-item" data-category="the winning try (2025) เริ่มต้นใหม่เพื่อชัยชนะ">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.seriesday-hd.com/wp-content/uploads/2025/07/The-Winning-Try-2025.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/f115a05a887cc8ba069461ae/f115a05a887cc8ba069461ae.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP12</div>
+</div>
+<div class="movie-item" data-category="the winning try (2025) เริ่มต้นใหม่เพื่อชัยชนะ">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.seriesday-hd.com/wp-content/uploads/2025/07/The-Winning-Try-2025.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/0e0ddce4c9724640fbffca14/0e0ddce4c9724640fbffca14.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP11</div>
+</div>
+<div class="movie-item" data-category="the winning try (2025) เริ่มต้นใหม่เพื่อชัยชนะ">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.seriesday-hd.com/wp-content/uploads/2025/07/The-Winning-Try-2025.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/2fded1de2cc90e19b7972f33/2fded1de2cc90e19b7972f33.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP10</div>
+</div>
+<div class="movie-item" data-category="the winning try (2025) เริ่มต้นใหม่เพื่อชัยชนะ">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.seriesday-hd.com/wp-content/uploads/2025/07/The-Winning-Try-2025.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/e9150ac1375cca613c258b24/e9150ac1375cca613c258b24.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP9</div>
+</div>
+<div class="movie-item" data-category="the winning try (2025) เริ่มต้นใหม่เพื่อชัยชนะ">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.seriesday-hd.com/wp-content/uploads/2025/07/The-Winning-Try-2025.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/ee2926875b585215a8242eaa/ee2926875b585215a8242eaa.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP8</div>
+</div>
+<div class="movie-item" data-category="the winning try (2025) เริ่มต้นใหม่เพื่อชัยชนะ">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.seriesday-hd.com/wp-content/uploads/2025/07/The-Winning-Try-2025.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/ed9f1cc84523911a4107ba5e/ed9f1cc84523911a4107ba5e.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP7</div>
+</div>
+<div class="movie-item" data-category="the winning try (2025) เริ่มต้นใหม่เพื่อชัยชนะ">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.seriesday-hd.com/wp-content/uploads/2025/07/The-Winning-Try-2025.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/3a26fe5ef1afc9e7eb9affe3/3a26fe5ef1afc9e7eb9affe3.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP6</div>
+</div>
+<div class="movie-item" data-category="the winning try (2025) เริ่มต้นใหม่เพื่อชัยชนะ">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.seriesday-hd.com/wp-content/uploads/2025/07/The-Winning-Try-2025.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/36c46ebc060c3356d4a6a171/36c46ebc060c3356d4a6a171.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP5</div>
+</div>
+<div class="movie-item" data-category="the winning try (2025) เริ่มต้นใหม่เพื่อชัยชนะ">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.seriesday-hd.com/wp-content/uploads/2025/07/The-Winning-Try-2025.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/de6d276caede23b671f5e692/de6d276caede23b671f5e692.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP4</div>
+</div>
+<div class="movie-item" data-category="the winning try (2025) เริ่มต้นใหม่เพื่อชัยชนะ">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.seriesday-hd.com/wp-content/uploads/2025/07/The-Winning-Try-2025.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/cd6cd7be23c7568a04eb859d/cd6cd7be23c7568a04eb859d.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP3</div>
+</div>
+<div class="movie-item" data-category="the winning try (2025) เริ่มต้นใหม่เพื่อชัยชนะ">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.seriesday-hd.com/wp-content/uploads/2025/07/The-Winning-Try-2025.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/bc7524f2b024bc72b57fab76/bc7524f2b024bc72b57fab76.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP2</div>
+</div>
+<div class="movie-item" data-category="the winning try (2025) เริ่มต้นใหม่เพื่อชัยชนะ">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.seriesday-hd.com/wp-content/uploads/2025/07/The-Winning-Try-2025.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/c768c040aaf7800e3a168a94/c768c040aaf7800e3a168a94.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP1</div>
+</div>
+<div class="movie-item" data-category="hunter with a scalpel (2025) เฉือนคมปมอำมหิต">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.seriesday-hd.com/wp-content/uploads/2025/07/Hunter-with-a-Scalpel-2025.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/9564e50eb9b747bfc4153b32/9564e50eb9b747bfc4153b32.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP16</div>
+</div>
+<div class="movie-item" data-category="hunter with a scalpel (2025) เฉือนคมปมอำมหิต">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.seriesday-hd.com/wp-content/uploads/2025/07/Hunter-with-a-Scalpel-2025.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/e3089b525efe054a973b9159/e3089b525efe054a973b9159.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP15</div>
+</div>
+<div class="movie-item" data-category="hunter with a scalpel (2025) เฉือนคมปมอำมหิต">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.seriesday-hd.com/wp-content/uploads/2025/07/Hunter-with-a-Scalpel-2025.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/4a7addf70dc39fc550c6113e/4a7addf70dc39fc550c6113e.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP14</div>
+</div>
+<div class="movie-item" data-category="hunter with a scalpel (2025) เฉือนคมปมอำมหิต">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.seriesday-hd.com/wp-content/uploads/2025/07/Hunter-with-a-Scalpel-2025.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/f2dc3b0b0349201e6f682c99/f2dc3b0b0349201e6f682c99.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP13</div>
+</div>
+<div class="movie-item" data-category="hunter with a scalpel (2025) เฉือนคมปมอำมหิต">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.seriesday-hd.com/wp-content/uploads/2025/07/Hunter-with-a-Scalpel-2025.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/d94c8668e3c14da241be61d9/d94c8668e3c14da241be61d9.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP12</div>
+</div>
+<div class="movie-item" data-category="hunter with a scalpel (2025) เฉือนคมปมอำมหิต">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.seriesday-hd.com/wp-content/uploads/2025/07/Hunter-with-a-Scalpel-2025.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/b30be5a5c848e6dcedd91ca0/b30be5a5c848e6dcedd91ca0.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP11</div>
+</div>
+<div class="movie-item" data-category="hunter with a scalpel (2025) เฉือนคมปมอำมหิต">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.seriesday-hd.com/wp-content/uploads/2025/07/Hunter-with-a-Scalpel-2025.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/e549635426c48b7543ebabf7/e549635426c48b7543ebabf7.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP10</div>
+</div>
+<div class="movie-item" data-category="hunter with a scalpel (2025) เฉือนคมปมอำมหิต">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.seriesday-hd.com/wp-content/uploads/2025/07/Hunter-with-a-Scalpel-2025.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/05071b1a1f67be00ce2c751b/05071b1a1f67be00ce2c751b.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP9</div>
+</div>
+<div class="movie-item" data-category="hunter with a scalpel (2025) เฉือนคมปมอำมหิต">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.seriesday-hd.com/wp-content/uploads/2025/07/Hunter-with-a-Scalpel-2025.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/39226b5ea5e2c52d4e657ffd/39226b5ea5e2c52d4e657ffd.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP8</div>
+</div>
+<div class="movie-item" data-category="hunter with a scalpel (2025) เฉือนคมปมอำมหิต">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.seriesday-hd.com/wp-content/uploads/2025/07/Hunter-with-a-Scalpel-2025.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/9da15c28eafa64e67e3263a9/9da15c28eafa64e67e3263a9.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP7</div>
+</div>
+<div class="movie-item" data-category="hunter with a scalpel (2025) เฉือนคมปมอำมหิต">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.seriesday-hd.com/wp-content/uploads/2025/07/Hunter-with-a-Scalpel-2025.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/152a62559e5389f22744b47b/152a62559e5389f22744b47b.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP6</div>
+</div>
+<div class="movie-item" data-category="hunter with a scalpel (2025) เฉือนคมปมอำมหิต">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.seriesday-hd.com/wp-content/uploads/2025/07/Hunter-with-a-Scalpel-2025.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/9c297d3e71ba7a1ced4d43e3/9c297d3e71ba7a1ced4d43e3.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP5</div>
+</div>
+<div class="movie-item" data-category="hunter with a scalpel (2025) เฉือนคมปมอำมหิต">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.seriesday-hd.com/wp-content/uploads/2025/07/Hunter-with-a-Scalpel-2025.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/0095c8b3cdeda1638d0e9281/0095c8b3cdeda1638d0e9281.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP4</div>
+</div>
+<div class="movie-item" data-category="hunter with a scalpel (2025) เฉือนคมปมอำมหิต">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.seriesday-hd.com/wp-content/uploads/2025/07/Hunter-with-a-Scalpel-2025.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/daf1a287816b01bb773808d3/daf1a287816b01bb773808d3.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP3</div>
+</div>
+<div class="movie-item" data-category="hunter with a scalpel (2025) เฉือนคมปมอำมหิต">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.seriesday-hd.com/wp-content/uploads/2025/07/Hunter-with-a-Scalpel-2025.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/46052bfff4672d003b86649b/46052bfff4672d003b86649b.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP2</div>
+</div>
+<div class="movie-item" data-category="hunter with a scalpel (2025) เฉือนคมปมอำมหิต">
+<div class="movie-box">
+<div class="movie-image">
+<button type="button"style="background-image:url(https://www.seriesday-hd.com/wp-content/uploads/2025/07/Hunter-with-a-Scalpel-2025.jpg);"onclick="window.location.href='https://main.24playerhd.com/newplaylist/616eb69408f593e65b38676c/616eb69408f593e65b38676c.m3u8'"autofocus="">
+</button>
+</div>
+</div>
+<div class="movie-title">EP1</div>
+</div>
+
+
+<!-- Pagination -->
+<div class="pagination-wrapper">
+<nav>
+<ul class="pagination">
+	<li><a href="go:main-serie" aria-label="กลับหน้าหลัก"><span aria-hidden="true"><< กลับหน้าหลัก</span></a></li>
+    <li><a href="https://udzaa2238.github.io/korea-series/ซีรี่ย์เกาหลี-หน้าที่1.html">1</a></li>
+<li class="active"><a href="https://udzaa2238.github.io/korea-series/ซีรี่ย์เกาหลี-หน้าที่2.html"><b>2</b></a></li>
+    <li><a href="https://udzaa2238.github.io/korea-series/ซีรี่ย์เกาหลี-หน้าที่3.html">3</a></li>
+    <li><a href="https://udzaa2238.github.io/korea-series/ซีรี่ย์เกาหลี-หน้าที่4.html">4</a></li>
+    <li><a href="https://udzaa2238.github.io/korea-series/ซีรี่ย์เกาหลี-หน้าที่5.html">5</a></li>
+    <li><a href="https://udzaa2238.github.io/korea-series/ซีรี่ย์เกาหลี-หน้าที่6.html">6</a></li>
+    <li><a href="https://udzaa2238.github.io/korea-series/ซีรี่ย์เกาหลี-หน้าที่7.html">7</a></li>
+    <li><a href="https://udzaa2238.github.io/korea-series/ซีรี่ย์เกาหลี-หน้าที่8.html">8</a></li>
+    <li><a href="https://udzaa2238.github.io/korea-series/ซีรี่ย์เกาหลี-หน้าที่9.html">9</a></li>
+    <li><a href="https://udzaa2238.github.io/korea-series/ซีรี่ย์เกาหลี-หน้าที่10.html">10</a></li>
+    <li><a href="https://udzaa2238.github.io/korea-series/ซีรี่ย์เกาหลี-หน้าที่11.html">หน้าต่อไป»</a></li>
+    
+    </ul>
+    </nav>
+    </div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
